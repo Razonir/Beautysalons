@@ -12,14 +12,15 @@ export class LoginComponent implements OnInit {
   displayPopup = 'none';
   moveup = '0';
   displayStep = 'none';
-
+  displyloginerrors = 'none';
+  displysignuperrors = 'none';
   user: User = new User();
   userlogin: User = new User();
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-
+    console.log(this.userlogin.useremail)
   }
 
 
@@ -30,18 +31,35 @@ export class LoginComponent implements OnInit {
     this.displayPopup = 'none';
   }
   onClickmoveup(){
-    this.moveup = '-600px';
-    this.displayStep = 'flex';
+    if(this.user.useremail==undefined || this.user.useremail=='' ||
+    this.user.userfname==undefined || this.user.userfname=='' ||
+    this.user.userlname==undefined || this.user.userlname=='' ||
+    this.user.userpassword==undefined || this.user.userpassword=='' ||
+    this.user.userphone==undefined || this.user.userphone==''){
+      this.displysignuperrors = 'flex';
+    }else{
+      this.moveup = '-600px';
+      this.displayStep = 'flex';
+      this.displysignuperrors = 'none';
+
+    }
   }
   backStep(){
     this.displayStep = 'none';
     this.moveup = '0px'
   }
   signup(){
-    console.log(this.user);
+    if(this.user.usergender==undefined || this.user.usergender=='' ||
+    this.user.usercity==undefined || this.user.usercity=='' ||
+    this.user.useraddress==undefined || this.user.useraddress==''){
+      this.displysignuperrors = 'flex';
+    }else{
+      console.log(this.user);
+    }
   }
 
   login(){
-    console.log(this.userlogin)
+    this.displyloginerrors = 'flex';
+    console.log(this.userlogin);
   }
 }
