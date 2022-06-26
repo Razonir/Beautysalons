@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="profile-image"></div>
+        <div class="title">התחבר</div>
+        <form  >
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input 
+                type="text" 
+                class="form-control" 
+                placeholder="דואר אלקטרוני"   
+                [(ngModel)]='userlogin.useremail' 
+                name="email"
+                required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input 
+                type="text"
+                class="form-control" 
+                placeholder="סיסמא" 
+                [(ngModel)]='userlogin.userpassword' 
+                name="password"
+                #userpassword="ngModel"
+                required>
+            </div>
+            <a class="forgut-password">שחכתי סיסמא</a>
+            <input type="submit" class="login" (click)="login()" value="התחבר" />
+
+        </form>
+        <div class="conditions">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">אני מסכים ל<a class="conditions-a" href="">תנאים</a>
+                ול<a class="conditions-a" href="">חוקי הפרטיות</a> באתר</label>
+        </div>
+        <a class="new"><span>חדש כאן?</span> חפש את המאמן שמתאים לך</a>
+    </div>
+    <div class="col">
+        <div class="card signup-card">
+            <div class="title">מאמן - בעל עסק</div>
+            <div class="content">בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה
+                9 בלה בלה בלבלה בלה בלה בלה בלה בלה </div>
+            <img src="/assets/girlgym.png" alt="">
+            <div class="toleft">
+                <button class="signup-b" (click)="show()">הירשם</button>
+            </div>
+        </div>
+        <div class="card user-src">
+            <div class="title">מתאמן</div>
+            <div class="content">בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה 6בלה בלה בלה בלה
+                בלה בלה בלה בלה בלה בלה בלה בלה בלה </div>
+            <img src="/assets/girlgym.png" alt="">
+            <div class="toleft">
+                <button>מערכת חיפוש</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [style.display]="displayPopup" class="popup">
+    <div class="signup-pop">
+        <div class="nav">
+            <div class="exit" (click)="hidePopup()">X</div>
+            <div class="back" (click)="backStep()" [style.display]="displayStep">חזור</div>
+        </div>
+        
+        <div class="title">יאללה מתחילים </div>
+        
+        <form class="steps">
+            <div [style.margin-top]="moveup" class="step first">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]="user.useremail"
+                        name="email">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
+                        name="firstname">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
+                        name="lastname">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]="user.userpassword"
+                        name="password">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="password" class="form-control" placeholder="סיסמא שנית">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
+                        name="phone">
+                </div>
+                <button class="next-step" (click)="onClickmoveup()">המשך</button>
+            </div>
+            <div class="step sec">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="מין" [(ngModel)]="user.usergender"
+                        name="usergender">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input type="text" class="form-control" placeholder="עיר" [(ngModel)]="user.usercity"
+                        name="usercity">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="כתובת" 
+                    [(ngModel)]="user.useraddress"
+                    name="useraddress"
+                    required>
+                </div>
+                <input type="submit" class="end-step" (click)="signup()" value="הרשמה" />
+            </div>
+        </form>
+    </div>
+</div>

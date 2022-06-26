@@ -1,0 +1,269 @@
+$base-color: #6a18c7;
+$first-color: #eeeeee;
+$sec-color: #393E46;
+$sec-small-color: #c9c9c9;
+$box-shadow: 0 10px 10px #fd711425;
+
+.row {
+    background-color: $first-color;
+    padding: 0;
+    margin: 0;
+    .col-md-4 {
+        height: 90vh;
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        app-header{
+            width: 100%;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            background-color: $sec-color;
+            border-radius: 28px;
+            margin-bottom: 100px;
+        }
+
+        .title {
+            width: 65%;
+            font-size: 29px;
+        }
+
+        form {
+            margin-top: 32px;
+            width: 65%;
+
+            .forgut-password {
+                float: left;
+                color: black;
+                margin-left: 20px;
+                margin-top: 5px;
+                text-decoration: none;
+
+                &:hover {
+                    color: $base-color;
+                }
+            }
+
+            .login {
+                width: 100%;
+                margin-top: 25px;
+                border-radius: 18px;
+                border: 0;
+                background-color: $base-color;
+                color: white;
+                padding: 10px 0;
+                box-shadow: $box-shadow;
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: $sec-color;
+                }
+            }
+        }
+
+        .conditions {
+            color: $sec-color;
+            margin-top: 30px;
+
+            .form-check-input {
+                background-color: $first-color;
+                margin-left: 10px;
+                cursor: pointer;
+                border-color: $base-color;
+
+                &:checked {
+                    background-color: $base-color;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            a {
+                color: $base-color;
+                text-decoration: none;
+            }
+        }
+
+        .new {
+            color: $sec-color;
+            margin-top: 60px;
+            text-decoration: none;
+
+            span {
+                color: $sec-color;
+            }
+
+            &:hover {
+                span {
+                    color: $base-color;
+                }
+            }
+        }
+    }
+
+    .col {
+        background-color: $sec-color;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            max-width: 500px;
+            padding: 0 20px;
+            border-radius: 18px;
+            margin-bottom: 60px;
+
+            .title {
+                margin-top: 38px;
+                font-size: 24px;
+                color: $base-color;
+                font-weight: 600;
+            }
+
+            .content {
+                margin-top: 20px;
+                font-size: 18px;
+
+            }
+
+            img {
+                position: absolute;
+                bottom: 0;
+                width: 30%;
+                margin-right: -50px;
+                margin-bottom: -30px;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .toleft {
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    width: 150px;
+                    margin-top: 70px;
+                    margin-bottom: 20px;
+                    border: none;
+                    border-radius: 18px;
+                    padding: 10px 0px;
+                    color: white;
+                    background-color: $base-color;
+                    box-shadow: $box-shadow;
+                    transition: 0.5s;
+
+                    &:hover {
+                        background-color: $sec-color
+                    }
+                }
+            }
+        }
+    }
+}
+
+.popup {
+    background-color: #000000a9;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: blur 1s;
+
+    .signup-pop {
+        width: 600px;
+        padding: 20px;
+        height: 600px;
+        background-color: #eeeeee;
+        border-radius: 28px;
+        overflow: hidden;
+        .nav{
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            .exit,.back{
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+        .title{
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        .steps {
+            overflow: hidden;
+            .step {
+                width: 100%;
+                height: 600px;
+            }
+            .step.first {
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+@keyframes blur {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.input-group {
+    align-items: center;
+
+    .form-control {
+        background-color: $first-color;
+        border: none !important;
+        border-radius: 0;
+        border-bottom: 1px solid $sec-small-color !important;
+
+        &:focus {
+            border-color: $sec-color;
+            box-shadow: none;
+            border-bottom: 1px solid $base-color !important;
+
+        }
+    }
+
+    .input-group-text {
+        border: none !important;
+        background-color: $base-color;
+        width: 20px;
+        border-radius: 0;
+        height: 25px;
+    }
+}
+
+.next-step,.end-step {
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 18px;
+    border: 0;
+    background-color: $base-color;
+    color: white;
+    padding: 10px 0;
+    box-shadow: $box-shadow;
+    transition: 0.5s;
+    &:hover {
+        background-color: $sec-color;
+    }
+}
