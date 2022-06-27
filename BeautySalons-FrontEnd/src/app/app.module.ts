@@ -12,6 +12,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ContentComponent } from './layout/content/content.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
+import { TermsComponent } from './screens/terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PrivacyComponent } from './screens/privacy/privacy.component';
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    TermsComponent
     ],
   imports: [
     BrowserModule,
