@@ -5,7 +5,7 @@ import { LoginComponent } from './screens/LoginFolder/login/login.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
 
-
+ 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
