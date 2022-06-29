@@ -185,7 +185,17 @@ $box-shadow: 0 10px 10px #fd711425;
         opacity: 1;
     }
 }
-
+select#usergender {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $sec-small-color  !important;
+    border-radius: 0px;
+    &:focus {
+        border-color: $sec-color;
+        box-shadow: none;
+        border-bottom: 1px solid $base-color  !important;
+    }
+}
 .input-group {
     align-items: center;
 
@@ -239,3 +249,13 @@ $box-shadow: 0 10px 10px #fd711425;
     width: 100%;
     margin-bottom: 0px;
 }
+
+canvas {
+    height: 100%; /* we need these for full-screen effect */
+    width: 100%;
+    z-index: 9999 !important;
+    position: fixed;
+    top: 0;
+    pointer-events: none;
+  }
+   

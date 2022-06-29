@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
+import * as confetti from 'canvas-confetti';
+import { Component, ElementRef, Renderer2 ,OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-login',
@@ -17,13 +19,25 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   userlogin: User = new User();
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     console.log(this.userlogin.useremail)
+    
   }
 
-
+  public surprise(): void {
+ 
+    const canvas = this.renderer2.createElement('canvas');
+ 
+    this.renderer2.appendChild(this.elementRef.nativeElement, canvas);
+ 
+    const myConfetti = confetti.create(canvas, {
+      resize: true // will fit all screen sizes
+    });
+ 
+    myConfetti();
+   }
   show(){
     this.displayPopup = 'flex';
   }
@@ -55,6 +69,8 @@ export class LoginComponent implements OnInit {
       this.displysignuperrors = 'flex';
     }else{
       console.log(this.user);
+      this.surprise();
+
     }
   }
 
