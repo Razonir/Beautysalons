@@ -90,8 +90,8 @@ exports.deleteUserById = async (req, res, next) => {
 
 
 exports.login = async (req, res, next) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const email = req.body.useremail;
+    const password = req.body.userpassword;
     try {
         const user = await User.findByEmail(email);
         if (user[0].length !== 1) {
