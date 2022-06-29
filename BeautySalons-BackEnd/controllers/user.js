@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-
 exports.createUser = async (req, res, next) => {
 
     const errors = validationResult(req);
@@ -88,6 +87,37 @@ exports.deleteUserById = async (req, res, next) => {
     }
 }
 
+function generatePassword() {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
+exports.resetPasswordByEmail = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return;
+    const useremail = req.body.useremail;
+    if (useremail == null) {
+        res.status(400).send({ message: "Missing email" });
+        return;
+    }
+    try {
+        const genpassowrd = generatePassword();
+        const hashedPassword = await bcrypt.hash(genpassowrd, 12);
+        const result = await User.resetPasswordByEmail(useremail,hashedPassword);
+        res.status(201).json({ message: 'User update!' });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
 
 exports.login = async (req, res, next) => {
     const email = req.body.useremail;
@@ -122,3 +152,4 @@ exports.login = async (req, res, next) => {
         next(err);
     }
 }
+

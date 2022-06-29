@@ -32,6 +32,10 @@ module.exports = class User {
     return db.execute('DELETE FROM users WHERE userid = ?',[userid]);
   }
 
+  static resetPasswordByEmail(useremail,userpassword){
+    return db.execute('UPDATE users SET userpassword = ? WHERE useremail = ?',[useremail,userpassword]);
+  }
+  
   static createUser(users) {
     return db.execute(
       'INSERT INTO users (userfname,userlname, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ? ,? ,?,?,?)',

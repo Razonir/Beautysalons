@@ -40,6 +40,9 @@ router.get('/users', UserController.fetchAllUsers );
 //user login
 router.post('/login',   UserController.login);
 
+router.post('/resetpassword',   UserController.resetPasswordByEmail);
+
+
 router.get('/username'), verifyToken,function(req,res,next){
   return res.status(200).json(decodedToken.userfname);
 }
