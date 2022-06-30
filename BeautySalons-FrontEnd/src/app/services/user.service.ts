@@ -35,4 +35,11 @@ export class UserService {
     let users = this.baseURL+'users'
     return this.httpClient.get(users);
   }
+
+  resetpassword(userforget: User){
+    console.log('1');
+    let resetpassword = this.baseURL+'resetpassword'
+    console.log('1');
+    return this.httpClient.post<any>(`${resetpassword}`,userforget);
+  }
 }

@@ -50,6 +50,7 @@ router.post('/delete/:userid',(req,res,next)=>{
 });
 
 router.get('/users', UserController.fetchAllUsers ); 
+router.get('/findbyemail', UserController.findByEmail ); 
 
 //user login
 router.post('/login',   UserController.login);

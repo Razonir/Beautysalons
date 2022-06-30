@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+
+
 exports.createUser = async (req, res, next) => {
 
     const errors = validationResult(req);
@@ -41,7 +43,7 @@ exports.createUser = async (req, res, next) => {
 
 exports.findByEmail = async (req, res, next) => {
     try {
-        const [findByEmail] = await User.findByEmail();
+        const [findByEmail] = await User.findByEmail(req.body.useremail);
         res.status(200).json(findByEmail);
     } catch (err) {
         if (!err.statusCode) {
@@ -105,9 +107,17 @@ exports.resetPasswordByEmail = async (req, res, next) => {
         res.status(400).send({ message: "Missing email" });
         return;
     }
+    // const email = req.body.useremail;
+    // const uid  = this.findByEmail(email);
+    // console.log(uid);
+    // if (uid == un) {
+    //     console.log("not")
+    //     res.status(400).send({ message: "Not Found this email" });
+    //     return;
+    // }
     try {
         const genpassowrd = generatePassword();
-        const hashedPassword = await bcrypt.hash(genpassowrd, 12);
+        const hashedPassword = await bcrypt.hash(genpassowrd, 12); 
         const result = await User.resetPasswordByEmail(useremail,hashedPassword);
         res.status(201).json({ message: 'User update!' });
     } catch (err) {
