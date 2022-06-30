@@ -2,7 +2,6 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const { sendMails } = require('../services/email-sender')
 
 exports.createUser = async (req, res, next) => {
 
@@ -79,7 +78,7 @@ exports.getUserById = async (req, res, next) => {
 exports.deleteUserById = async (req, res, next) => {
     try {
         const [deleteUserById] = await User.deleteUserById();
-        res.status(200).json(deleteUserById);
+        res.status(201).json({ message: 'User delete!' });
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -110,7 +109,6 @@ exports.resetPasswordByEmail = async (req, res, next) => {
         const genpassowrd = generatePassword();
         const hashedPassword = await bcrypt.hash(genpassowrd, 12);
         const result = await User.resetPasswordByEmail(useremail,hashedPassword);
-        sendMails(email,genpassowrd,genpassowrd)
         res.status(201).json({ message: 'User update!' });
     } catch (err) {
         if (!err.statusCode) {

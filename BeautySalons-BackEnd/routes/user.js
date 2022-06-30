@@ -3,7 +3,7 @@ const { body } = require('express-validator');
 const router = express.Router();
 const User = require('../models/user');
 const Business = require('../models/business');
-const db = require('../util/database')
+const db = require('../util/database');
 const jwt = require('jsonwebtoken');
 const UserController = require('../controllers/user');
 
@@ -33,6 +33,20 @@ router.get('/user/:userid',(req,res,next)=>{
             error:err
         })
     })
+});
+
+router.post('/delete/:userid',(req,res,next)=>{
+  User.deleteUserById(req.params.userid)
+  .then(result=>{
+      res.status(200).json({
+          user: result
+      })
+  })
+  .catch(err=>{
+      res.status(500).json({
+          error:err
+      })
+  })
 });
 
 router.get('/users', UserController.fetchAllUsers ); 

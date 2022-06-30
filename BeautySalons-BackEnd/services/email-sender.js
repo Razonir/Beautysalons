@@ -12,7 +12,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-exports.endMails = (to, subject, message) => {
+exports.sendMails = (to, subject, message) => {
     let mailOptions = {
         from: user,
         to,
