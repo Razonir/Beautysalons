@@ -40,6 +40,7 @@ module.exports = class Business {
   static createBusiness(business) {
     var like = 0;
     var view = 0;
+    
     return db.execute(
       'insert into Business (userid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bhour,bplan,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
       [business.userid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,business.bhour,business.bplan,like,view]

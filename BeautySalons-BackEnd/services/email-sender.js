@@ -1,4 +1,6 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
+const OAuth2 = google.auth.OAuth2;
 
 const user = 'razoidf@gmail.com'
 
@@ -10,7 +12,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-function sendMailreset(to, subject, message) {
+exports.endMails = (to, subject, message) => {
     let mailOptions = {
         from: user,
         to,
