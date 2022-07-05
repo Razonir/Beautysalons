@@ -6,7 +6,7 @@ const BusinessController = require('../controllers/business');
 
 router.post('/createBusiness', 
     [
-        body('userid').trim().not().isEmpty(),
+        body('uid').trim().not().isEmpty(),
         body('bname').trim().not().isEmpty(),
         body('bdescriptions').not().isEmpty(),
         body('bdescriptionl').not().isEmpty(),
@@ -25,7 +25,7 @@ router.get('/business/:bid',(req,res,next)=>{
     Business.findById(req.params.bid)
     .then(result=>{
         res.status(200).json({
-            user: result
+            business: result
         })
     })
     .catch(err=>{
@@ -35,6 +35,35 @@ router.get('/business/:bid',(req,res,next)=>{
     })
 });
 
-router.get('/business', BusinessController.fetchAll ); 
+router.get('/', BusinessController.fetchAll ); 
+
+router.get('/user/:uid', (req,res,next)=>{
+    Business.getBusinessByUserId(req.params.uid)
+    .then(result=>{
+        res.status(200).json({
+            business: result[0]
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
+
+router.get('/like/:bid', (req,res,next)=>{
+    Business.addlike(req.params.bid)
+    .then(result=>{
+        res.status(200).json({
+            business: result
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            error:err
+        })
+    })
+});
 
 module.exports = router;

@@ -2,8 +2,16 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { findByEmail } = require('../models/user');
 
-
+//createUser
+//findByEmail
+//fetchAllUsers
+//getUserById
+//deleteUserById
+//generatePassword
+//resetPassword
+//login
 
 exports.createUser = async (req, res, next) => {
 

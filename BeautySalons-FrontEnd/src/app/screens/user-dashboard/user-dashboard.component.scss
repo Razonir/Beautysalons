@@ -5,13 +5,20 @@ $sec-small-color: #c9c9c9;
 $box-shadow: 0 10px 10px #fd711425;
 
 
-.user-dashboard{
+.user-dashboard {
     margin: 20px 50px;
-    .top{
+    background: white;
+    padding: 27px;
+    box-shadow: 0 30px 30px #cecece52;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .top {
         display: flex;
         align-items: center;
         padding-bottom: 10px;
         border-bottom: 1px solid $sec-color;
+
         .profile-image {
             width: 100px;
             height: 100px;

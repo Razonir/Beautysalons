@@ -15,6 +15,7 @@ import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
 import { ErrorComponent } from './screens/error/error.component';
 import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.component';
+import { CreateBusinessComponent } from './screens/user-dashboard/create-business/create-business.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.
     PrivacyComponent,
     TermsComponent,
     ErrorComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    CreateBusinessComponent
   ],
   imports: [
     BrowserModule,

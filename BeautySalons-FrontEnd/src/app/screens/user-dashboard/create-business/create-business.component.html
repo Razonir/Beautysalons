@@ -1,0 +1,55 @@
+<form (ngSubmit)="create()" class="createform">
+    <div class="input-group mb-3">
+        <span class="input-group-text"></span>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="שם העסק"   
+        [(ngModel)]='business.bname' 
+        name="bname"
+        required>
+    </div>
+    <p class="createerror" [style.display]="displylcraeteerrors" *ngIf="business.bname==undefined || business.bname=='' ">
+        שדה חובה
+    </p>
+    <div class="input-group mb-3">
+        <span class="input-group-text"></span>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="גברים/נשים/גם וגם"   
+        [(ngModel)]='business.bgender' 
+        name="bgender"
+        required>
+    </div>
+    <p class="createerror" [style.display]="displylcraeteerrors" *ngIf="business.bgender==undefined || business.bgender=='' ">
+        שדה חובה
+    </p>
+    <div class="input-group mb-3">
+        <span class="input-group-text"></span>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="תיאור קצר"   
+        [(ngModel)]='business.bdescriptions' 
+        name="bdescriptions"
+        required>
+    </div>
+    <p class="createerror" [style.display]="displylcraeteerrors" *ngIf="business.bdescriptions==undefined || business.bdescriptions=='' ">
+        שדה חובה
+    </p>
+    <div class="input-group mb-3">
+        <span class="input-group-text"></span>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="תיאור העסק"   
+        [(ngModel)]='business.bdescriptionl' 
+        name="bdescriptionl"
+        required>
+    </div>
+    <p class="createerror" [style.display]="displylcraeteerrors" *ngIf="business.bdescriptionl==undefined || business.bdescriptionl=='' ">
+        שדה חובה
+    </p>
+    <input type="submit" class="create" value="צור עסק" />
+</form>

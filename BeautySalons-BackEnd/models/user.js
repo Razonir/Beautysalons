@@ -16,9 +16,25 @@ module.exports = class User {
     this.lastlogindate = lastlogindate;
   }
 
-  static findByEmail(useremail) {
-    return db.execute('SELECT * FROM users WHERE useremail = ?', [useremail]);
-  }
+//createUser
+//findByEmail
+//fetchAllUsers
+//getUserById
+//deleteUserById
+//generatePassword
+//resetPassword
+//login
+
+static createUser(users) {
+  return db.execute(
+    'INSERT INTO users (userfname,userlname, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ? ,? ,?,?,?)',
+    [users.userfname, users.userlname, users.useremail, users.userpassword,users.usergender,users.usercity,users.useraddress,users.userphone]
+  );
+}
+
+static findByEmail(useremail) {
+  return db.execute('SELECT * FROM users WHERE useremail = ?', [useremail]);
+}
 
   static fetchAllUsers() {
     return db.execute('SELECT * FROM users');
@@ -36,10 +52,4 @@ module.exports = class User {
     return db.execute('UPDATE users SET userpassword = ? WHERE useremail = ?',[useremail,userpassword]);
   }
   
-  static createUser(users) {
-    return db.execute(
-      'INSERT INTO users (userfname,userlname, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ? ,? ,?,?,?)',
-      [users.userfname, users.userlname, users.useremail, users.userpassword,users.usergender,users.usercity,users.useraddress,users.userphone]
-    );
-  }
 };
