@@ -26,9 +26,20 @@ export class UserService {
     return this.httpClient.post<any>(`${login}`,user);
   }
   
+  getUserById(id: any){
+    let getUserById = this.baseURL+'user/'+id;
+    return this.httpClient.get(getUserById);
+  }
+
   allUsers(){
     let users = this.baseURL+'users'
     return this.httpClient.get(users);
   }
 
+  resetpassword(userforget: User){
+    console.log('1');
+    let resetpassword = this.baseURL+'resetpassword'
+    console.log('1');
+    return this.httpClient.post<any>(`${resetpassword}`,userforget);
+  }
 }

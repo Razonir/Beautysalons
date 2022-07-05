@@ -1,5 +1,26 @@
 <div class="row">
     <div class="col-md-4">
+        <div class="forget" [style.transform]="forget">
+            <div class="title">שחכתי סיסמא</div>
+            <form (ngSubmit)="forgetpassowrd()">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="דואר אלקטרוני"   
+                    [(ngModel)]='userforget.useremail' 
+                    name="email"
+                    required>
+                </div>   
+                <p class="loginerror" [style.display]="displyloginerrors" *ngIf="userforget.useremail==undefined || userforget.useremail=='' ">
+                    שדה חובה
+                </p>        
+                <input type="submit" class="login" value="שלח שחזור סיסמא"/>
+            </form>
+            <div class="forgut-password" (click)="hideForget()">אוי רגע נזכרתי תחזיר אותי</div>
+
+        </div>
         <div class="profile-image"></div>
         <div class="title">התחבר</div>
         <form (ngSubmit)="login()" class="login-group">
@@ -30,9 +51,8 @@
             <p class="loginerror" [style.display]="displyloginerrors" *ngIf="userlogin.userpassword==undefined || userlogin.userpassword=='' ">
                 שדה חובה
             </p>
-            
-            <a class="forgut-password">שחכתי סיסמא</a>
-            
+                    
+            <div class="forgut-password" (click)="showForget()">שחכתי סיסמא</div>
             <input type="submit" class="login" value="התחבר" />
             <div class="loginerror server">{{errorlogin}}</div>
             

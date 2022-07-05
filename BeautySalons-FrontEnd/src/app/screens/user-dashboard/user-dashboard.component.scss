@@ -1,0 +1,24 @@
+$base-color: #6a18c7;
+$first-color: #eeeeee;
+$sec-color: #393E46;
+$sec-small-color: #c9c9c9;
+$box-shadow: 0 10px 10px #fd711425;
+
+
+.user-dashboard{
+    margin: 20px 50px;
+    .top{
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $sec-color;
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            background-color: $sec-color;
+            border-radius: 28px;
+            margin-left: 20px;
+        }
+
+    }
+}

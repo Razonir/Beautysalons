@@ -6,6 +6,8 @@
   .navbar-dark .navbar-nav .nav-link,.navbar-dark .navbar-brand{
     transition: 0.2s;
     color: rgb(110, 110, 110);
+    z-index: 99999 !important;
+
     &:hover{
       color: black;
     }
@@ -28,8 +30,8 @@
         
     }
     .btn-outline-success{
-          border-color: #169aff;
-          background-color: #169aff;
+          border-color: #6a18c7;
+          background-color: #6a18c7;
           color: rgb(255, 255, 255);
     }
     .fixed-top{

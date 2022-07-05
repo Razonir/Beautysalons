@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const userRouter = require('./routes/user');
-
+const businessRouter = require('./routes/business')
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/user', userRouter);
+app.use('/business', businessRouter);
 
 app.use(errorController.get404);
 

@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
   displayStep = 'none';
   displyloginerrors = 'none';
   displysignuperrors = 'none';
+  forget = 'translateXs(100vw)';
   user: User = new User();
+  userforget: User = new User();
   userlogin: User = new User();
   errorlogin = '';
 
@@ -42,6 +44,12 @@ export class LoginComponent implements OnInit {
   }
   hidePopup() {
     this.displayPopup = 'none';
+  }
+  showForget(){
+    this.forget = 'translateX(0vw)';
+  }
+  hideForget(){
+    this.forget = 'translateX(100vh)';
   }
   onClickmoveup() {
     if (this.user.useremail == undefined || this.user.useremail == '' ||
@@ -96,7 +104,20 @@ export class LoginComponent implements OnInit {
       );
     }
   }
+  forgetpassowrd() {
+    if (this.userforget.useremail == undefined || this.userforget.useremail == '') {
+      this.displyloginerrors = 'flex';
+    } else {
+      this.userService.resetpassword(this.userforget).subscribe(
+        response => this.refreshpage(),
+        error => console.error('Error!', error)
+      );
+    }
+  }
   goToHome() {
+    this.router.navigate(['/']);
+  }
+  refreshpage() {
     this.router.navigate(['']);
   }
 }

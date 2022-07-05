@@ -13,6 +13,8 @@ import { ContentComponent } from './layout/content/content.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
+import { ErrorComponent } from './screens/error/error.component';
+import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TermsComponent } from './screens/terms/terms.component';
     ContentComponent,
     FooterComponent,
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    ErrorComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
