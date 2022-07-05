@@ -18,12 +18,11 @@ export class LoginComponent implements OnInit {
   displysignuperrors = 'none';
   user: User = new User();
   userlogin: User = new User();
+  errorlogin = '';
 
   constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router) { }
 
-  ngOnInit(): void {
-    console.log(this.userlogin.useremail)
-    
+  ngOnInit(): void {    
   }
 
   public surprise(): void {
@@ -90,7 +89,10 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("token", response.token),
             this.goToHome()
         },
-        error => console.error('Error!', error)
+        error => {
+          this.errorlogin = error.error.error.message;
+          console.log(this.errorlogin)
+        }
       );
     }
   }
