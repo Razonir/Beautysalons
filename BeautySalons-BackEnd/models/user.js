@@ -17,7 +17,7 @@ module.exports = class User {
   }
 
   static findByEmail(useremail) {
-    return db.execute('SELECT userid FROM users WHERE useremail = ?', [useremail]);
+    return db.execute('SELECT * FROM users WHERE useremail = ?', [useremail]);
   }
 
   static fetchAllUsers() {
