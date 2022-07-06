@@ -1,11 +1,15 @@
-<div class="user-dashboard">
-    <div class="top">
-        <div class="profile-image"></div>
-        <div class="user-details">
-            <div class="user-name">{{user.user[0][0].userfname}} {{user.user[0][0].userlname}}</div>
-            <div class="user-city">{{user.user[0][0].usercity}}</div>
-            <div class="user-email">{{user.user[0][0].useremail}}</div>
+<div class="fullpage">
+    <div class="user-dashboard">
+        <div class="top">
+            <div class="profile-image"></div>
+            <div class="user-details">
+                <div class="user-name">{{user.user[0][0].userfname}} {{user.user[0][0].userlname}}</div>
+                <div class="user-city">{{user.user[0][0].usercity}}</div>
+                <div class="user-email">{{user.user[0][0].useremail}}</div>
+            </div>
+        </div>
+        <div class="bottom">
+            <a class="nav-link" routerLink="create">פתיחת עסק</a>
         </div>
     </div>
 </div>
-

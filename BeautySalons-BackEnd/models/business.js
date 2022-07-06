@@ -1,9 +1,9 @@
 const db = require('../util/database');
 
 module.exports = class Business {
-  constructor(bid,userid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bplan,bvisibility,blikes,bviews,createdate,lastupdate) {
+  constructor(bid,uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate) {
     this.bid = bid;
-    this.userid = userid;
+    this.uid = uid;
     this.bname = bname;
     this.bdescriptions = bdescriptions;
     this.bdescriptionl = bdescriptionl;
@@ -13,7 +13,6 @@ module.exports = class Business {
     this.baddress = baddress;
     this.bphone = bphone;
     this.bsubject = bsubject;
-    this.bplan = bplan;
     this.bvisibility = bvisibility;
     this.blikes = blikes;
     this.bviews = bviews;
@@ -29,6 +28,10 @@ module.exports = class Business {
     return db.execute('SELECT * FROM Business WHERE bid = ?', [bid]);
   }
 
+  static getBusinessByUserId(uid) {
+    return db.execute('SELECT * FROM Business WHERE uid = ?', [uid]);
+  }
+
   static visibleture(bid) {
     return db.execute('update Business set bvisibility="t" WHERE bid = ?', [bid]);
   }
@@ -36,14 +39,16 @@ module.exports = class Business {
     return db.execute('update Business set bvisibility="f" WHERE bid = ?', [bid]);
   }
 
+  static addlike(bid) {
+    return db.execute('update Business set blikes = blikes+1  WHERE bid = ?', [bid]);
+  }
+
   static createBusiness(business) {
     var like = 0;
     var view = 0;
-    var bvisibility = 't';
-    var bplan = 'free';
     return db.execute(
-      'insert into Business (userid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bplan,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
-      [business.userid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,bplan,like,view]
-    );
-  }
+      'insert into Business (uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
+      [business.uid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view]
+      );
+  36  }
 };

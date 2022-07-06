@@ -1,0 +1,77 @@
+$base-color: #6a18c7;
+$first-color: #eeeeee;
+$sec-color: #393E46;
+$sec-small-color: #c9c9c9;
+$box-shadow: 0 10px 10px #fd711425;
+
+.fullpage {
+    background-color: $sec-color;
+
+    .user-dashboard {
+        margin: 20px 50px;
+        background: white;
+        padding: 27px;
+        box-shadow: 0 30px 30px #cecece1e;
+        max-width: 600px;
+        margin: 0 auto;
+
+        .createform {
+            width: 80%;
+            margin: 0 auto;
+
+            .input-group {
+                align-items: center;
+
+                .form-control {
+                    background-color: transparent;
+                    border: none !important;
+                    border-radius: 0;
+                    border-bottom: 1px solid $sec-small-color  !important;
+
+                    &:focus {
+                        border-color: $sec-color;
+                        box-shadow: none;
+                        border-bottom: 1px solid $base-color  !important;
+                    }
+                }
+
+                .input-group-text {
+                    border: none !important;
+                    background-color: $sec-color;
+                    width: 20px;
+                    border-radius: 5px !important;
+                    height: 25px;
+                }
+            }
+
+            .create {
+                width: 100%;
+                margin-top: 25px;
+                border-radius: 18px;
+                border: 0;
+                background-color: $base-color;
+                color: white;
+                padding: 10px 0;
+                box-shadow: $box-shadow;
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: $sec-color;
+                }
+            }
+
+            .input-group:focus+.input-group-text {
+                background-color: $base-color;
+            }
+        }
+    }
+}
+
+.createerror {
+    color: red;
+    margin-top: -20px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0px;
+}

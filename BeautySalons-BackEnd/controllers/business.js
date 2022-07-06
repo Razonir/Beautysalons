@@ -4,12 +4,11 @@ const jwt = require('jsonwebtoken');
 const Business = require('../models/business');
 
 exports.createBusiness = async (req, res, next) => {
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) return;
-
+    
     const bid = req.body.bid;
-    const userid = req.body.userid;
+    const uid = req.body.uid;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
     const bdescriptionl = req.body.bdescriptionl;
@@ -19,16 +18,15 @@ exports.createBusiness = async (req, res, next) => {
     const baddress = req.body.baddress;
     const bphone = req.body.bphone;
     const bsubject = req.body.bsubject;
-    const bplan = req.body.bplan;
     const bvisibility = req.body.bvisibility;
     const blikes = req.body.blikes;
     const bviews = req.body.bviews;
     const createdate = req.body.createdate;
     const lastupdate = req.body.lastupdate;
-
+    
     try {
         const businessDetails = {
-            userid: userid,
+            uid: uid,
             bname: bname,
             bdescriptions: bdescriptions,
             bdescriptionl: bdescriptionl,
@@ -40,7 +38,7 @@ exports.createBusiness = async (req, res, next) => {
             bsubject: bsubject
         };
         const result = await Business.createBusiness(businessDetails);
-        res.status(201).json({ message: 'Business registered!' });
+        res.status(201).json({ message: 'Business created!' });
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -62,7 +60,6 @@ exports.findById = async (req, res, next) => {
     }
 }
 
-
 exports.fetchAll = async (req, res, next) => {
     try {
         const [fetchAll] = await Business.fetchAll();
@@ -74,3 +71,28 @@ exports.fetchAll = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.getBusinessByUserId = async (req, res, next) => {
+    try {
+        const [getBusinessByUserId] = await Business.getBusinessByUserId();
+        res.status(200).json(getBusinessByUserId);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
+exports.addlike = async (req, res, next) => {
+    try {
+        const [addLike] = await Business.addLike();
+        res.status(200).json(addLike);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+

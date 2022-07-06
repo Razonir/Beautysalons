@@ -5,6 +5,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/LoginFolder/login/login.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
+import { CreateBusinessComponent } from './screens/user-dashboard/create-business/create-business.component';
 import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.component';
 
  
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'privacy', component: PrivacyComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'user-dashboard' , component: UserDashboardComponent},
+  {path: 'user-dashboard/create' , component: CreateBusinessComponent},
   {path: '**', component: ErrorComponent}
 ];
 

@@ -1,0 +1,36 @@
+create table users(
+   userid INT NOT NULL AUTO_INCREMENT,
+   userrole VARCHAR(100) ,
+   userfname VARCHAR(100) ,
+   userlname VARCHAR(100) ,
+   useremail VARCHAR(100) ,
+   userpassword VARCHAR(100) ,
+   usergender VARCHAR(100) ,
+   usercity VARCHAR(100) ,
+   useraddress VARCHAR(100) ,
+   userphone VARCHAR(100) ,
+   createdate datetime ,
+   lastlogindate datetime,
+   PRIMARY KEY ( userid )
+);
+use beautysalons;
+create table business(
+   bid INT NOT NULL AUTO_INCREMENT,
+   uid INT ,
+   bname VARCHAR(100) ,
+   bdescriptions VARCHAR(100) ,
+   bdescriptionl VARCHAR(100) ,
+   bgender VARCHAR(100) ,
+   barea VARCHAR(100) ,
+   bcity VARCHAR(100) ,
+   baddress VARCHAR(100) ,
+   bphone VARCHAR(100) ,
+   bsubject VARCHAR(100) ,
+   bvisibility VARCHAR(100) ,
+   blikes VARCHAR(100) ,
+   bviews VARCHAR(100) ,
+   createdate datetime ,
+   lastlogindate datetime,
+   foreign key ( uid ) REFERENCES  users(userid),
+   PRIMARY KEY ( bid )
+);
