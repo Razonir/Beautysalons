@@ -31,6 +31,7 @@ export class CreateBusinessComponent implements OnInit {
       this.displylcraeteerrors = "flex";
     } else {
       console.log(this.business);
+      this.business.uid = Number(localStorage.getItem('uid'));
       this.businessService.createBusiness(this.business).subscribe(
         response => this.goToHome(),
         error => console.error('Error!', error)

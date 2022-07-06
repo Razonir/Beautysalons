@@ -49,6 +49,6 @@ module.exports = class Business {
     return db.execute(
       'insert into Business (uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
       [business.uid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view]
-    );
-  }
+      );
+  36  }
 };

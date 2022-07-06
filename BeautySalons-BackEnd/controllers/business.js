@@ -4,10 +4,9 @@ const jwt = require('jsonwebtoken');
 const Business = require('../models/business');
 
 exports.createBusiness = async (req, res, next) => {
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) return;
-
+    
     const bid = req.body.bid;
     const uid = req.body.uid;
     const bname = req.body.bname;
@@ -24,7 +23,7 @@ exports.createBusiness = async (req, res, next) => {
     const bviews = req.body.bviews;
     const createdate = req.body.createdate;
     const lastupdate = req.body.lastupdate;
-
+    
     try {
         const businessDetails = {
             uid: uid,
@@ -39,7 +38,8 @@ exports.createBusiness = async (req, res, next) => {
             bsubject: bsubject
         };
         const result = await Business.createBusiness(businessDetails);
-.3    } catch (err) {
+        res.status(201).json({ message: 'Business created!' });
+    } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
