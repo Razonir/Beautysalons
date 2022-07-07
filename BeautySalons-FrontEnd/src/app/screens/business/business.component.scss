@@ -1,0 +1,100 @@
+.top {
+    background: linear-gradient(45deg, #6a18c7, #9d69da);
+
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        input {
+            margin-top: 15px;
+            border-radius: 40px;
+            background-color: rgba(255, 255, 255, 0.203);
+            color: white;
+            border: none;
+            width: 90%;
+            padding: 13px 16px;
+
+            &:focus,
+            &:focus-visible {
+                outline: none !important;
+            }
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.579);
+            }
+        }
+    }
+
+    .category {
+        margin: 10px 0px;
+        padding-bottom: 10px;
+        gap: 5px;
+        margin-right: 25px;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+
+        .cat {
+            background-color: rgba(255, 255, 255, 0.203);
+            border-radius: 30px;
+            font-size: 12px;
+            padding: 5px 10px;
+
+            &:hover {
+                background-color: white;
+
+            }
+        }
+    }
+}
+
+.all-business {
+    margin: 0px 16px;
+    display: flex;
+
+    .cardR {
+        padding: 16px 16px;
+        background-color: white;
+        margin: 16px 0px 0px 0px;
+        border-radius: 8px;
+        box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+        .cardtop {
+            display: flex;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(186, 177, 177, 0.37);
+            .logo {
+                margin-left: 15px;
+
+                img {
+                    width: 70px;
+                    border-radius: 50%;
+                    outline: 1px solid rgb(197, 197, 197, 0.3);
+                }
+            }
+            .content {
+                line-height: normal;
+
+                .bname {
+                    font-size: 20px;
+                }
+            }
+        }
+        .bottom{
+            display: flex;
+            gap: 20px;
+        }
+        .like{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            .icon{
+                
+            }        
+        }
+    }
+}

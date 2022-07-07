@@ -16,6 +16,8 @@ import { TermsComponent } from './screens/terms/terms.component';
 import { ErrorComponent } from './screens/error/error.component';
 import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.component';
 import { CreateBusinessComponent } from './screens/user-dashboard/create-business/create-business.component';
+import { BusinessComponent } from './screens/business/business.component';
+import { BusinessPageComponent } from './screens/business/business-page/business-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CreateBusinessComponent } from './screens/user-dashboard/create-busines
     TermsComponent,
     ErrorComponent,
     UserDashboardComponent,
-    CreateBusinessComponent
+    CreateBusinessComponent,
+    BusinessComponent,
+    BusinessPageComponent
   ],
   imports: [
     BrowserModule,

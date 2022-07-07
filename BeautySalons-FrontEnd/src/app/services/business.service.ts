@@ -22,4 +22,13 @@ export class BusinessService {
     let registerUrl = this.baseURL+'createBusiness'
     return this.httpClient.post<any>(`${registerUrl}`,business);
   }
+  
+  getAll(){
+    return this.httpClient.get(this.baseURL);
+  }
+
+  getBusinessById(bid: any){
+    let url = this.baseURL+bid;
+    return this.httpClient.get(url);
+  }
 }
