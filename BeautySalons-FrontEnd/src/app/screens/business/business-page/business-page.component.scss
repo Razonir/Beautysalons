@@ -1,0 +1,20 @@
+.fullpage{
+    .topcontent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        flex-direction: column;
+        .logo{
+            img{
+                width: 200px;
+                border-radius: 50%;
+            }
+        }
+        .bname{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+    }
+}

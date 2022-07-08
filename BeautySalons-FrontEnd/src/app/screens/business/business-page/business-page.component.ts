@@ -9,14 +9,14 @@ import { BusinessService } from 'src/app/services/business.service';
 })
 export class BusinessPageComponent implements OnInit {
 
-  businessData: any;
+  data: any;
   bcitytype: any;
   constructor(private router: Router, private businessService: BusinessService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    const id = +this.route.snapshot.params['bname'];
+    const id = +this.route.snapshot.params['bid'];
     this.businessService.getBusinessById(id).subscribe((data) => {
-      this.businessData = data;
-      console.log(this.businessData)
+      this.data = data;
+      console.log(this.data)
     });
   }
 

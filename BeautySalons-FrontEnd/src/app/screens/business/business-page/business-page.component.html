@@ -1,1 +1,11 @@
-<p>business-page works!</p>
+<div class="fullpage" *ngIf="data.business[0] as item">
+    <div class="topcontent">
+        <div class="logo">
+            <img src="/assets/errorpage.jpg">
+        </div>
+        <div class="bname">{{item.bname}}</div>
+        <div class="bsubject">{{item.bsubject}}</div>
+        <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
+        <div class="bdescriptions">{{item.bdescriptions}}</div>
+    </div>
+</div>

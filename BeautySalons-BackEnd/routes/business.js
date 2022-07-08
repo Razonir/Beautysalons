@@ -21,11 +21,11 @@ router.post('/createBusiness',
     BusinessController.createBusiness
 );
 
-router.get('/business/:bid',(req,res,next)=>{
+router.get('/:bid',(req,res,next)=>{
     Business.findById(req.params.bid)
     .then(result=>{
         res.status(200).json({
-            business: result
+            business: result[0]
         })
     })
     .catch(err=>{
