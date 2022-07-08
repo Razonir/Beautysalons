@@ -1,3 +1,4 @@
 T-01 - create bussiness -likes in back
 T-02 - business pages no filter, business page by id no design
 T-03 - views - back likes
+T-04 - add imeage and change the inputs in the front 
