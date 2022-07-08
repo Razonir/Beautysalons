@@ -43,6 +43,9 @@ module.exports = class Business {
     return db.execute('update Business set blikes = blikes+1  WHERE bid = ?', [bid]);
   }
 
+  static addView(bid) {
+    return db.execute('update Business set bviews = bviews+1  WHERE bid = ?', [bid]);
+  }
   static createBusiness(business) {
     var like = 0;
     var view = 0;

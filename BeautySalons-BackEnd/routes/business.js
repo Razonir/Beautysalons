@@ -55,9 +55,21 @@ router.get('/user/:uid', (req,res,next)=>{
 router.get('/like/:bid', (req,res,next)=>{
     Business.addlike(req.params.bid)
     .then(result=>{
-        res.status(200).json({
-            business: result
+        res.status(200).json({ message: 'Like add!' });
+
+    })
+    .catch(err=>{
+        res.status(500).json({
+            error:err
         })
+    })
+});
+
+router.get('/view/:bid', (req,res,next)=>{
+    Business.addView(req.params.bid)
+    .then(result=>{
+        res.status(200).json({ message: 'View add!' });
+
     })
     .catch(err=>{
         res.status(500).json({

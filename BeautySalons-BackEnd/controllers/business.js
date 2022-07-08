@@ -87,7 +87,7 @@ exports.getBusinessByUserId = async (req, res, next) => {
 exports.addlike = async (req, res, next) => {
     try {
         const [addLike] = await Business.addLike();
-        res.status(200).json(addLike);
+        res.status(201).json({ message: 'Like add!' });
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -96,3 +96,15 @@ exports.addlike = async (req, res, next) => {
     }
 }
 
+
+exports.addView = async (req, res, next) => {
+    try {
+        const [addLike] = await Business.addView();
+        res.status(201).json({ message: 'View add!' });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}

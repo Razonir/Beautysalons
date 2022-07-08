@@ -18,6 +18,7 @@ export class BusinessPageComponent implements OnInit {
       this.data = data;
       console.log(this.data)
     });
+    this.businessService.addView(id).subscribe();
   }
 
 

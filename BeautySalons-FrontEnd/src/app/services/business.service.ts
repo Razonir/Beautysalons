@@ -31,4 +31,13 @@ export class BusinessService {
     let url = this.baseURL+bid;
     return this.httpClient.get(url);
   }
+
+  addLike(bid: any){
+    let url = this.baseURL+'like/'+bid;
+    return this.httpClient.get(url);
+  }
+  addView(bid: any){
+    let url = this.baseURL+'view/'+bid;
+    return this.httpClient.get(url);
+  }
 }
