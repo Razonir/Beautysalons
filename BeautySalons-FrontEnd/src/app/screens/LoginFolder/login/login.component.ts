@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import * as confetti from 'canvas-confetti';
 import { Component, ElementRef, Renderer2 ,OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
 
   displayPopup = 'none';
   moveup = '0';
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
   userlogin: User = new User();
   errorlogin = '';
 
-  constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router) { }
+  constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router ,private http: HttpClient) { }
 
   ngOnInit(): void {    
   }

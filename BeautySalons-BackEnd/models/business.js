@@ -1,7 +1,7 @@
 const db = require('../util/database');
 
 module.exports = class Business {
-  constructor(bid,uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate) {
+  constructor(bid,uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate,blogo) {
     this.bid = bid;
     this.uid = uid;
     this.bname = bname;
@@ -18,6 +18,7 @@ module.exports = class Business {
     this.bviews = bviews;
     this.createdate = createdate;
     this.lastupdate = lastupdate;
+    this.blogo = blogo;
   }
 
   static fetchAll() {
@@ -50,8 +51,8 @@ module.exports = class Business {
     var like = 0;
     var view = 0;
     return db.execute(
-      'insert into Business (uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
-      [business.uid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view]
+      'insert into Business (uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+      [business.uid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view,business.blogo]
       );
   36  }
 };

@@ -18,4 +18,5 @@ export class Business {
     bviews?: number;
     createdate?: string;
     lastupdate?: string;
+    blogo?: string;
 }

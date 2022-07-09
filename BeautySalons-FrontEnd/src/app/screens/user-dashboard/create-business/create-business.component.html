@@ -82,6 +82,17 @@
                 *ngIf="business.bdescriptionl==undefined || business.bdescriptionl=='' ">
                 שדה חובה
             </p>
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <p class="form-control">
+                    לוגו
+                    <input type="file" (change)="onFileSelected($event)" class="form-control" id="inputGroupFile03">
+                </p>
+            </div>
+            <p class="createerror" [style.display]="displylcraeteerrors"
+                *ngIf="logourl==undefined || logourl=='' ">
+                שדה חובה
+            </p>            
             <input type="submit" class="create" value="צור עסק" />
         </form>
     </div>

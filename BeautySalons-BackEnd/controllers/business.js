@@ -23,6 +23,7 @@ exports.createBusiness = async (req, res, next) => {
     const bviews = req.body.bviews;
     const createdate = req.body.createdate;
     const lastupdate = req.body.lastupdate;
+    const blogo = req.body.blogo;
     
     try {
         const businessDetails = {
@@ -35,7 +36,8 @@ exports.createBusiness = async (req, res, next) => {
             bcity: bcity,
             baddress: baddress,
             bphone: bphone,
-            bsubject: bsubject
+            bsubject: bsubject,
+            blogo: blogo
         };
         const result = await Business.createBusiness(businessDetails);
         res.status(201).json({ message: 'Business created!' });
