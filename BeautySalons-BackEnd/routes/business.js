@@ -16,7 +16,8 @@ router.post('/createBusiness',
         body('baddress').trim().not().isEmpty(),
         body('bphone').trim().not().isEmpty(),
         body('baddress').trim().not().isEmpty(),
-        body('bsubject').trim().not().isEmpty()
+        body('bsubject').trim().not().isEmpty(),
+        body('blogo').trim().not().isEmpty()
     ],
     BusinessController.createBusiness
 );
