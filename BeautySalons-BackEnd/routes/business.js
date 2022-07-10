@@ -22,6 +22,24 @@ router.post('/createBusiness',
     BusinessController.createBusiness
 );
 
+router.post('/addreviews', 
+    [
+        body('uid').trim().not().isEmpty(),
+        body('bname').trim().not().isEmpty(),
+        body('bdescriptions').not().isEmpty(),
+        body('bdescriptionl').not().isEmpty(),
+        body('bgender').trim().not().isEmpty(),
+        body('barea').trim().not().isEmpty(),
+        body('bcity').trim().not().isEmpty(),
+        body('baddress').trim().not().isEmpty(),
+        body('bphone').trim().not().isEmpty(),
+        body('baddress').trim().not().isEmpty(),
+        body('bsubject').trim().not().isEmpty(),
+        body('blogo').trim().not().isEmpty()
+    ],
+    BusinessController.createBusiness
+);
+
 router.get('/:bid',(req,res,next)=>{
     Business.findById(req.params.bid)
     .then(result=>{
