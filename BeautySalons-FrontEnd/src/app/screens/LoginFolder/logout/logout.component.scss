@@ -1,0 +1,27 @@
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    .text{
+        font-size: 30px;
+        margin-bottom: 50px;
+        font-weight: bold;
+    }
+    .buttons{
+        display: flex;
+        gap: 10px;
+        .homepage,.logout{
+            padding: 10px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #6a18c7, #9d69da);
+            color: white;
+            transition: 0.5s;
+            cursor: pointer;
+            &:hover{
+                transform: scale(0.9);
+            }
+        }
+    }
+}

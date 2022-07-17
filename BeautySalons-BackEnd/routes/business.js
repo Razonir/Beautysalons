@@ -22,24 +22,6 @@ router.post('/createBusiness',
     BusinessController.createBusiness
 );
 
-router.post('/addreviews', 
-    [
-        body('uid').trim().not().isEmpty(),
-        body('bname').trim().not().isEmpty(),
-        body('bdescriptions').not().isEmpty(),
-        body('bdescriptionl').not().isEmpty(),
-        body('bgender').trim().not().isEmpty(),
-        body('barea').trim().not().isEmpty(),
-        body('bcity').trim().not().isEmpty(),
-        body('baddress').trim().not().isEmpty(),
-        body('bphone').trim().not().isEmpty(),
-        body('baddress').trim().not().isEmpty(),
-        body('bsubject').trim().not().isEmpty(),
-        body('blogo').trim().not().isEmpty()
-    ],
-    BusinessController.createBusiness
-);
-
 router.get('/:bid',(req,res,next)=>{
     Business.findById(req.params.bid)
     .then(result=>{
@@ -58,6 +40,20 @@ router.get('/', BusinessController.fetchAll );
 
 router.get('/user/:uid', (req,res,next)=>{
     Business.getBusinessByUserId(req.params.uid)
+    .then(result=>{
+        res.status(200).json({
+            business: result[0]
+        })
+    })
+    .catch(err=>{
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
+router.delete('/remove/:bid', (req,res,next)=>{
+    Business.removeById(req.params.bid)
     .then(result=>{
         res.status(200).json({
             business: result[0]

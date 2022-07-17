@@ -17,9 +17,18 @@ export class BusinessComponent implements OnInit {
   ngOnInit(): void {
     this.businessService.getAll().subscribe((data)=>{
       this.businessData = data;
-      console.log(this.businessData)
     });
 
   }
 
+  city(icity:string){
+    if(this.bcitytype == undefined){
+      return true;
+    }
+    let len = this.bcitytype.length; 
+    if(icity.substring(0,len)==this.bcitytype){
+        return true;
+    }
+    return false;
+  }
 }

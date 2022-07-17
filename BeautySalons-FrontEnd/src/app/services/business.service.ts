@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Business } from '../model/business';
-import { Observable, BehaviorSubject } from "rxjs";
-import { first, catchError, tap } from "rxjs/operators";
-import { ErrorHandlerService } from "./error-handler.service";
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +20,21 @@ export class BusinessService {
     return this.httpClient.post<any>(`${registerUrl}`,business);
   }
   
+  removeBusiness(bid: any){
+    let url = this.baseURL+'remove/' + bid
+    return this.httpClient.delete(url);
+  }
   getAll(){
     return this.httpClient.get(this.baseURL);
   }
 
   getBusinessById(bid: any){
     let url = this.baseURL+bid;
+    return this.httpClient.get(url);
+  }
+
+  getBusinessByUserId(uid: any){
+    let url = this.baseURL+"user/"+uid;
     return this.httpClient.get(url);
   }
 

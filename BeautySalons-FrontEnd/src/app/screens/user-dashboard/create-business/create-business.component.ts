@@ -15,7 +15,7 @@ export class CreateBusinessComponent implements OnInit {
 
   business: Business = new Business();
   displylcraeteerrors = 'none';
-
+  gender = 'חד קרן';
   ngOnInit(): void {
   }
   

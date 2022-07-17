@@ -29,6 +29,12 @@ module.exports = class Business {
     return db.execute('SELECT * FROM Business WHERE bid = ?', [bid]);
   }
 
+  static removeById(bid) {
+    return  db.execute('DELETE FROM priceing WHERE bid = ?',[bid]),
+            db.execute('DELETE FROM reviews WHERE bid = ?',[bid]),
+            db.execute('Delete FROM Business WHERE bid = ?', [bid])   
+  }
+
   static getBusinessByUserId(uid) {
     return db.execute('SELECT * FROM Business WHERE uid = ?', [uid]);
   }

@@ -37,3 +37,15 @@ create table business(
    foreign key ( uid ) REFERENCES  users(userid),
    PRIMARY KEY ( bid )
 );
+
+CREATE TABLE reviews (
+  reviewid int NOT NULL AUTO_INCREMENT,
+  bid int DEFAULT NULL,
+  uid int DEFAULT NULL,
+   review int,
+   reviewtext VARCHAR(100) ,
+   reviewdate varchar(100) ,
+   foreign key ( uid ) REFERENCES  users(userid),
+   foreign key ( bid ) REFERENCES  business(bid),
+   PRIMARY KEY ( reviewid )
+);

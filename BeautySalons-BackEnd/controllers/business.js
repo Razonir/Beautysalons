@@ -62,6 +62,19 @@ exports.findById = async (req, res, next) => {
     }
 }
 
+
+exports.deleteById = async (req, res, next) => {
+    try {
+        const [deleteById] = await Business.deleteById();
+        res.status(200).json(deleteById);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
 exports.fetchAll = async (req, res, next) => {
     try {
         const [fetchAll] = await Business.fetchAll();

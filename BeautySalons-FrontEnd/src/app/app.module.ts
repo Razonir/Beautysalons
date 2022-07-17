@@ -18,6 +18,13 @@ import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.
 import { CreateBusinessComponent } from './screens/user-dashboard/create-business/create-business.component';
 import { BusinessComponent } from './screens/business/business.component';
 import { BusinessPageComponent } from './screens/business/business-page/business-page.component';
+import { ManageComponent } from './screens/user-dashboard/manage/manage.component';
+
+import { LogoutComponent } from './screens/LoginFolder/logout/logout.component';
+import { LoginGuard } from './guard/login.guard';
+import { LogoutGuard } from './guard/logout.guard';
+import { AdminGuard } from './guard/admin.guard';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +40,9 @@ import { BusinessPageComponent } from './screens/business/business-page/business
     UserDashboardComponent,
     CreateBusinessComponent,
     BusinessComponent,
-    BusinessPageComponent
+    BusinessPageComponent,
+    ManageComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,7 @@ import { BusinessPageComponent } from './screens/business/business-page/business
     ReactiveFormsModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [LoginGuard,LogoutGuard,AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

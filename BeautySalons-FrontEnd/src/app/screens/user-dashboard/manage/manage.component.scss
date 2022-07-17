@@ -1,0 +1,84 @@
+
+.all-business {
+    margin: 10px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    .cardR {
+        padding: 16px 16px;
+        background-color: white;
+        margin: 16px 0px 0px 0px;
+        border-radius: 8px;
+        box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+        margin-bottom: 50px;
+        .cardtop {
+            display: flex;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(186, 177, 177, 0.37);
+            .logo {
+                margin-left: 15px;
+
+                img {
+                    width: 70px;
+                    border-radius: 50%;
+                    outline: 1px solid rgb(197, 197, 197, 0.3);
+                }
+            }
+            .content {
+                line-height: normal;
+
+                .bname {
+                    font-size: 20px;
+                }
+            }
+        }
+        .bottom{
+            display: flex;
+            gap: 20px;
+        }
+        .like{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            .icon{
+                
+            }        
+        }
+    }
+    .manage{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background: linear-gradient(90deg, #6a18c7, #9d69da);
+        position: absolute;
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 20px;
+        color: white;
+        left: 0;
+        .edit,.remove,.view{
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 0 0 10px;
+            transition: 0.4s;
+            z-index: 9;
+            cursor: pointer;
+            &:hover{
+                background-color: black;
+            }       
+         }
+        .edit{
+            border-radius: 0 0 0 10px;
+        }
+        .view{
+            border-right: 1px solid rgba(255, 255, 255, 0.238);
+            border-left: 1px solid rgba(255, 255, 255, 0.238);
+            border-radius: 0px;
+        }
+    }
+}

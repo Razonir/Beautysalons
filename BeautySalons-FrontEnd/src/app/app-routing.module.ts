@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BusinessPageComponent } from './screens/business/business-page/business-page.component';
 import { BusinessComponent } from './screens/business/business.component';
@@ -8,12 +8,18 @@ import { LoginComponent } from './screens/LoginFolder/login/login.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
 import { CreateBusinessComponent } from './screens/user-dashboard/create-business/create-business.component';
+import { ManageComponent } from './screens/user-dashboard/manage/manage.component';
 import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.component';
+
+import { LogoutComponent } from './screens/LoginFolder/logout/logout.component';
+import { LoginGuard } from './guard/login.guard';
+import { LogoutGuard } from './guard/logout.guard';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent ,canActivate: [LogoutGuard]},
+  { path: 'logout', component: LogoutComponent ,canActivate: [LoginGuard]},
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
   {
@@ -29,8 +35,23 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: 'user-dashboard/create', component: CreateBusinessComponent },
+  {
+    path: 'user-dashboard' ,
+    canActivate: [LoginGuard],
+    children: [{
+      path: '',
+      component: UserDashboardComponent
+    },
+    {
+      path: 'create',
+      component: CreateBusinessComponent
+    },
+    {
+      path: 'manage',
+      component: ManageComponent
+    }
+    ]
+  },
   { path: '**', component: ErrorComponent }
 ];
 

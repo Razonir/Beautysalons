@@ -221,6 +221,10 @@ select#usergender {
         border-radius: 5px !important;
         height: 25px;
     }
+    .label{
+        position: absolute;
+        right: 30px;
+    }
 
 }
 .input-group:focus + .input-group-text{

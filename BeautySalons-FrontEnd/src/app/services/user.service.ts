@@ -42,4 +42,9 @@ export class UserService {
     console.log('1');
     return this.httpClient.post<any>(`${resetpassword}`,userforget);
   }
+
+  loggedIn(){
+    return (!!localStorage.getItem('token') && !!localStorage.getItem('uid'));
+  }
+
 }

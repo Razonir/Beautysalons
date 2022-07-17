@@ -1,38 +1,78 @@
 <div class="fullpage" *ngIf="data.business[0] as item">
-    <div class="topcontent">
+    <i id="gender" class="{{male ? 'fas fa-mars' : 'none' }}"></i>
+    <i id="gender" class="{{female ? 'fas fa-venus' : 'none' }}"></i>
+    <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>    
+    <div class="contact-icons">
+        <a class="icon" href="tel:+{{item.bphone}}">
+            <i class="fas fa-phone"></i>
+        </a>
         <div class="logo">
             <img src={{item.blogo}}>
         </div>
+            <a class="icon" href="tel:+972"><img class="instegram" src="/assets/instegram.webp"></a>
+    </div>
+    <div class="topcontent">
         <div class="bname">{{item.bname}}</div>
         <div class="bsubject">{{item.bsubject}}</div>
         <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
     </div>
-    <div class="contact-icons">
-        <div class="icon">
-            <img src="/assets/errorpage.jpg" alt="">
+    <div class="bdescriptions">{{item.bdescriptions}}</div>
+    <div class="prices">
+        <div class="top">
+            <div class="title">מחירון</div>
         </div>
-        <div class="icon">
-            <img src="/assets/errorpage.jpg" alt="">
-        </div>
-        <div class="icon">
-            <img src="/assets/errorpage.jpg" alt="">
-        </div>
-        <div class="icon">
-            <img src="/assets/errorpage.jpg" alt="">
+        <div class="content" *ngFor="let price of prices.price">
+            <div class="service">
+                {{price.service}}
+            </div>
+            <div class="reviewdate">
+                {{price.price}}
+            </div>
         </div>
     </div>
-    
-    <div class="bdescriptions">{{item.bdescriptions}}</div>
+
     <div class="reviews">
-        <div class="top">               
+        <div class="top">
             <div class="title">ביקורות</div>
             <a class="add">הוספת ביקורת</a>
+
         </div>
-        <div class="content">
-            
+        <div class="content" *ngFor="let review of reviews.review">
+            <div class="user">
+                {{review.userfname}} {{review.userlname}}
+            </div>
+            <div class="review">
+                {{review.review}}
+            </div>
+            <div class="reviewtext">
+                {{review.reviewtext}}
+            </div>
+            <div class="reviewdate">
+                {{review.reviewdate}}
+            </div>
         </div>
         <div class="add-reviews">
-            <form action=""></form>
+            <form (ngSubmit)="add()">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="ביקורות" [(ngModel)]='reviewCreate.reviewtext'
+                        name="reviewText" required>
+                </div>
+                <p class="reviewserror" [style.display]="reviewserror"
+                    *ngIf="reviewCreate.reviewtext==undefined || reviewCreate.reviewtext=='' ">
+                    שדה חובה
+                </p>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="מספר" [(ngModel)]='reviewCreate.review'
+                        name="review" required>
+                </div>
+
+                <p class="reviewserror" [style.display]="reviewserror" *ngIf="reviewCreate.review==undefined ">
+                    שדה חובה
+                </p>
+                <input type="submit" class="create" value="פרסם ביקורת" />
+
+            </form>
         </div>
     </div>
+
 </div>

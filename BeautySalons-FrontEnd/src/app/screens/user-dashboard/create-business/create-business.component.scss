@@ -42,6 +42,22 @@ $box-shadow: 0 10px 10px #fd711425;
                     border-radius: 5px !important;
                     height: 25px;
                 }
+                .label{
+                    position: absolute;
+                    right: 30px;
+                    pointer-events: none;
+                }
+                .form-select{
+                    background: transparent;
+                    border: none;
+                    border-bottom: 1px solid #c9c9c9 !important;
+                    border-radius: 0px;
+                    cursor: pointer;
+                    margin-right: 12px;
+                    &:focus{
+                        box-shadow: none;
+                    }
+                }
             }
 
             .create {

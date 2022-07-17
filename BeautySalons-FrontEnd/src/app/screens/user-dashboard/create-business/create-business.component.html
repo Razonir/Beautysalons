@@ -12,20 +12,38 @@
             </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="גברים/נשים/גם וגם" [(ngModel)]='business.bgender'
-                    name="bgender" required>
+                <select class="form-select" 
+                aria-label="Default select example"
+                id="bgender"
+                name="bgender"
+                [(ngModel)]="business.bgender">
+                <option value="זכר">זכר</option>
+                <option value="נקבה">נקבה</option>
+                <option value="זכר - נקבה">חד קרן</option>
+                </select>
+                <div class="label">מין</div>
             </div>
-            <p class="createerror" [style.display]="displylcraeteerrors"
-                *ngIf="business.bgender==undefined || business.bgender=='' ">
+            <p class="createerror" [style.display]="displylcraeteerrors" 
+            *ngIf="business.bgender==undefined || business.bgender=='' ">
                 שדה חובה
             </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="מחוז" [(ngModel)]='business.barea' name="barea"
-                    required>
+                <select class="form-select" 
+                aria-label="Default select example"
+                id="barea"
+                name="barea"
+                [(ngModel)]="business.barea">
+                <option value="ירושלים">ירושלים</option>
+                <option value="תל אביב">תל אביב</option>
+                <option value="צפון">צפון</option>
+                <option value="דרום">דרום</option>
+                <option value="מרכז">מרכז</option>
+                </select>
+                <div class="label">מחוז</div>
             </div>
-            <p class="createerror" [style.display]="displylcraeteerrors"
-                *ngIf="business.barea==undefined || business.barea=='' ">
+            <p class="createerror" [style.display]="displylcraeteerrors" 
+            *ngIf="business.barea==undefined || business.barea=='' ">
                 שדה חובה
             </p>
             <div class="input-group mb-3">
@@ -57,11 +75,18 @@
             </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="נושא" [(ngModel)]='business.bsubject'
-                    name="bsubject" required>
+                <select class="form-select" 
+                aria-label="Default select example"
+                id="bsubject"
+                name="bsubject"
+                [(ngModel)]="business.bsubject">
+                <option value="מספרה">מספרה</option>
+                <option value="קעקועים">קעקועים</option>
+                </select>
+                <div class="label">תחום</div>
             </div>
-            <p class="createerror" [style.display]="displylcraeteerrors"
-                *ngIf="business.bsubject==undefined || business.bsubject=='' ">
+            <p class="createerror" [style.display]="displylcraeteerrors" 
+            *ngIf="business.bsubject==undefined || business.bsubject=='' ">
                 שדה חובה
             </p>
             <div class="input-group mb-3">
@@ -82,13 +107,10 @@
                 *ngIf="business.bdescriptionl==undefined || business.bdescriptionl=='' ">
                 שדה חובה
             </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
                 <p class="form-control">
                     לוגו
                     <input type="file" (change)="onFileSelected($event)" class="form-control" id="inputGroupFile03">
                 </p>
-            </div>
             <p class="createerror" [style.display]="displylcraeteerrors"
                 *ngIf="logourl==undefined || logourl=='' ">
                 שדה חובה
