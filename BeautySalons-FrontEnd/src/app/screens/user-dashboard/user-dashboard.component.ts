@@ -16,7 +16,7 @@ export class UserDashboardComponent implements OnInit {
     this.userid = localStorage.getItem('uid');
     this.userService.getUserById(this.userid).subscribe((data)=>{
       this.user = data;
-      console.log(this.user)
+      this.user = this.user[0];
     })
   }
 

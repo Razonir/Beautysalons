@@ -77,7 +77,6 @@ export class LoginComponent implements OnInit {
       this.user.useraddress == undefined || this.user.useraddress == '') {
       this.displysignuperrors = 'flex';
     } else {
-      console.log(this.user);
       this.surprise();
       this.userService.createUser(this.user).subscribe(
         response => this.goToHome(),
@@ -92,7 +91,6 @@ export class LoginComponent implements OnInit {
       this.userlogin.userpassword == undefined || this.userlogin.userpassword == '') {
       this.displyloginerrors = 'flex';
     } else {
-      console.log(this.userlogin);
       this.userService.login(this.userlogin).subscribe(
         response => {
           localStorage.setItem("uid", response.uid),
@@ -101,7 +99,6 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.errorlogin = error.error.error.message;
-          console.log(this.errorlogin)
         }
       );
     }

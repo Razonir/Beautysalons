@@ -49,7 +49,9 @@ static findByEmail(useremail) {
   }
 
   static resetPasswordByEmail(useremail,userpassword){
-    return db.execute('UPDATE users SET userpassword = ? WHERE useremail = ?',[useremail,userpassword]);
+    return db.execute('SET SQL_SAFE_UPDATES=0'),
+          db.execute('UPDATE users SET userpassword = ? WHERE useremail = ?',[userpassword , useremail]),
+          db.execute('SET SQL_SAFE_UPDATES=1');
   }
   
 };

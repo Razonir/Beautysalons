@@ -15,28 +15,8 @@ router.post('/create',
 
 router.get('/',PriceController.fetchAll);
 
-router.get('/:bid',(req,res,next)=>{
-    Price.getByBid(req.params.bid)
-    .then(result=>{
-        res.status(200).json({
-            price: result[0]
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.get('/:bid',PriceController.getByBid);
 
-router.post('/delete/:pid',(req,res,next)=>{
-    Price.deletePriceById(req.params.pid)
-    .then(result=>{
-        return res.status(400).json({message: 'price delete'});
-    })
-    .catch(err=>{
-        return res.status(400).json({message: 'price not found'});
+router.post('/delete/:pid',PriceController.deletePriceById);
 
-    })
-  });
 module.exports = router;

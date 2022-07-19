@@ -6,7 +6,7 @@ export class Business {
     uid?: number;
     bname?: string;
     bdescriptions?: string;
-    bdescriptionl?: string;
+    instegram?: string;
     bgender?: string;
     barea?: string;
     bcity?: string;

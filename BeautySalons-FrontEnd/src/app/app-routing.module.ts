@@ -14,6 +14,7 @@ import { UserDashboardComponent } from './screens/user-dashboard/user-dashboard.
 import { LogoutComponent } from './screens/LoginFolder/logout/logout.component';
 import { LoginGuard } from './guard/login.guard';
 import { LogoutGuard } from './guard/logout.guard';
+import { ContactComponent } from './screens/contact/contact.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent ,canActivate: [LogoutGuard]},
   { path: 'logout', component: LogoutComponent ,canActivate: [LoginGuard]},
   { path: 'privacy', component: PrivacyComponent },
+  { path: 'contact', component: ContactComponent},
   { path: 'terms', component: TermsComponent },
   {
     path: 'business',
@@ -49,7 +51,7 @@ const routes: Routes = [
     {
       path: 'manage',
       component: ManageComponent
-    }
+    },
     ]
   },
   { path: '**', component: ErrorComponent }

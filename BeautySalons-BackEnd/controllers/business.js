@@ -11,7 +11,7 @@ exports.createBusiness = async (req, res, next) => {
     const uid = req.body.uid;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
-    const bdescriptionl = req.body.bdescriptionl;
+    const instegram = req.body.instegram;
     const bgender = req.body.bgender;
     const barea = req.body.barea;
     const bcity = req.body.bcity;
@@ -30,7 +30,7 @@ exports.createBusiness = async (req, res, next) => {
             uid: uid,
             bname: bname,
             bdescriptions: bdescriptions,
-            bdescriptionl: bdescriptionl,
+            instegram: instegram,
             bgender: bgender,
             barea: barea,
             bcity: bcity,
@@ -52,7 +52,7 @@ exports.createBusiness = async (req, res, next) => {
 
 exports.findById = async (req, res, next) => {
     try {
-        const [findById] = await Business.findById();
+        const [findById] = await Business.findById(req.params.bid);
         res.status(200).json(findById);
     } catch (err) {
         if (!err.statusCode) {
@@ -65,7 +65,7 @@ exports.findById = async (req, res, next) => {
 
 exports.deleteById = async (req, res, next) => {
     try {
-        const [deleteById] = await Business.deleteById();
+        const [deleteById] = await Business.deleteById(req.params.bid);
         res.status(200).json(deleteById);
     } catch (err) {
         if (!err.statusCode) {
@@ -89,7 +89,7 @@ exports.fetchAll = async (req, res, next) => {
 
 exports.getBusinessByUserId = async (req, res, next) => {
     try {
-        const [getBusinessByUserId] = await Business.getBusinessByUserId();
+        const [getBusinessByUserId] = await Business.getBusinessByUserId(req.params.uid);
         res.status(200).json(getBusinessByUserId);
     } catch (err) {
         if (!err.statusCode) {
@@ -101,7 +101,7 @@ exports.getBusinessByUserId = async (req, res, next) => {
 
 exports.addlike = async (req, res, next) => {
     try {
-        const [addLike] = await Business.addLike();
+        const [addLike] = await Business.addLike(req.params.bid);
         res.status(201).json({ message: 'Like add!' });
     } catch (err) {
         if (!err.statusCode) {
@@ -114,7 +114,7 @@ exports.addlike = async (req, res, next) => {
 
 exports.addView = async (req, res, next) => {
     try {
-        const [addLike] = await Business.addView();
+        const [addView] = await Business.addView(req.params.bid);
         res.status(201).json({ message: 'View add!' });
     } catch (err) {
         if (!err.statusCode) {

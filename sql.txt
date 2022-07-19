@@ -21,7 +21,7 @@ create table business(
    uid INT ,
    bname VARCHAR(100) ,
    bdescriptions VARCHAR(100) ,
-   bdescriptionl VARCHAR(100) ,
+   instegram VARCHAR(100) ,
    bgender VARCHAR(100) ,
    barea VARCHAR(100) ,
    bcity VARCHAR(100) ,

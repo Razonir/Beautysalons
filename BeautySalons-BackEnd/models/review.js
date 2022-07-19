@@ -23,12 +23,8 @@ module.exports = class Reviews {
 
   static createReview(review) {
     var date = new Date();
-    var dateString =
-    ("0" + date.getUTCDate()).slice(-2) + "/" +
-    ("0" + (date.getUTCMonth()+1)).slice(-2) + "/" +
-    date.getUTCFullYear();
-    
-    console.log(dateString);    return db.execute(
+
+    return db.execute(
       'insert into reviews (bid,uid,reviewtext,review,reviewdate) VALUES (?,?,?,?,?)',
       [review.bid,review.uid,review.reviewtext,review.review,date]
       );

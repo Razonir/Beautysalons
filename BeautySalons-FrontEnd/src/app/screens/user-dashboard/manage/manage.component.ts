@@ -18,7 +18,6 @@ export class ManageComponent implements OnInit {
     this.uid = localStorage.getItem('uid');
     this.businessService.getBusinessByUserId(this.uid).subscribe((data)=>{
       this.businessData = data;
-      console.log(this.businessData)
     });
 
   }

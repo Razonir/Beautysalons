@@ -24,6 +24,7 @@ import { LogoutComponent } from './screens/LoginFolder/logout/logout.component';
 import { LoginGuard } from './guard/login.guard';
 import { LogoutGuard } from './guard/logout.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { ContactComponent } from './screens/contact/contact.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AdminGuard } from './guard/admin.guard';
     BusinessComponent,
     BusinessPageComponent,
     ManageComponent,
-    LogoutComponent
+    LogoutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

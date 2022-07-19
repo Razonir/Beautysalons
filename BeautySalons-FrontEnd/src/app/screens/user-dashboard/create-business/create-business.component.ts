@@ -36,7 +36,7 @@ export class CreateBusinessComponent implements OnInit {
   create() {
     if (this.business.bname == undefined || this.business.bname == '' ||
         this.business.bdescriptions == undefined || this.business.bdescriptions == '' ||
-        this.business.bdescriptionl == undefined || this.business.bdescriptionl == '' ||
+        this.business.instegram == undefined || this.business.instegram == '' ||
         this.business.bgender == undefined || this.business.bgender == '' ||
         this.business.barea == undefined || this.business.barea == '' ||
         this.business.bcity == undefined || this.business.bcity == '' ||
@@ -47,7 +47,6 @@ export class CreateBusinessComponent implements OnInit {
       this.displylcraeteerrors = "flex";
     } else {
       this.business.blogo = this.logourl;
-      console.log(this.business);
       this.business.uid = Number(localStorage.getItem('uid'));
       this.businessService.createBusiness(this.business).subscribe(
         response => this.goToHome(),

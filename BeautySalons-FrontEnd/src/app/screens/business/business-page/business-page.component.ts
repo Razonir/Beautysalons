@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Review } from 'src/app/model/review';
 import { Business } from 'src/app/model/business';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
+import { Priceing } from 'src/app/model/priceing';
 @Component({
   selector: 'app-business-page',
   templateUrl: './business-page.component.html',
@@ -20,7 +21,9 @@ export class BusinessPageComponent implements OnInit {
   bcitytype: any;
   user: any;
   reviewCreate: Review = new Review();
-  reviewserror: any;
+  priceCreate: Priceing = new Priceing();
+  reviewserror = 'none';
+  priceserror = 'none';
   userid: any;
   gender: any;
   female = false;
@@ -39,7 +42,8 @@ export class BusinessPageComponent implements OnInit {
     const id = +this.route.snapshot.params['bid'];
     this.businessService.getBusinessById(id).subscribe((data) => {
       this.data = data;
-      this.gender = this.data.business[0].bgender;
+      this.data = this.data[0];
+      this.gender = this.data.bgender;
       if (this.gender == 'זכר') {
         this.male = true;
       } else if (this.gender == 'נקבה') {
@@ -65,10 +69,10 @@ export class BusinessPageComponent implements OnInit {
 
 
   add() {
-    console.log(this.reviewCreate)
     if (this.reviewCreate.review == undefined ||
       this.reviewCreate.reviewtext == undefined || this.reviewCreate.reviewtext == "") {
-    } else {
+        this.reviewserror = 'flex';
+      } else {
       const id = +this.route.snapshot.params['bid'];
       this.reviewCreate.bid = id;
       if (localStorage.getItem('uid') != undefined) {
@@ -76,6 +80,22 @@ export class BusinessPageComponent implements OnInit {
         this.reviewCreate.uid = this.userid;
       }
       this.reviewService.createReview(this.reviewCreate).subscribe(
+        response => this.refreshpage(),
+        error => console.error('Error!', error)
+      );
+    }
+  }
+
+  
+
+  addprice() {
+    if (this.priceCreate.price == undefined ||
+      this.priceCreate.service == undefined || this.priceCreate.service == "") {
+        this.priceserror = 'flex';
+      } else {
+      const id = +this.route.snapshot.params['bid'];
+      this.priceCreate.bid = id;
+      this.priceingService.createPrice(this.priceCreate).subscribe(
         response => this.refreshpage(),
         error => console.error('Error!', error)
       );

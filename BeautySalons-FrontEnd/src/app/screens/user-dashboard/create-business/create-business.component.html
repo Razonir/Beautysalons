@@ -100,11 +100,11 @@
             </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <textarea type="text" class="form-control" placeholder="תיאור העסק" [(ngModel)]='business.bdescriptionl'
-                    name="bdescriptionl" rows="2" required></textarea>
+                <input type="text" class="form-control" placeholder="לינק לאינסטגרם" [(ngModel)]='business.instegram'
+                name="instegram" required>
             </div>
             <p class="createerror" [style.display]="displylcraeteerrors"
-                *ngIf="business.bdescriptionl==undefined || business.bdescriptionl=='' ">
+                *ngIf="business.instegram==undefined || business.instegram=='' ">
                 שדה חובה
             </p>
                 <p class="form-control">

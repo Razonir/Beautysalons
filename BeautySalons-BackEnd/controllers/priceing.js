@@ -41,7 +41,7 @@ exports.fetchAll = async (req, res, next) => {
 
 exports.getByBid = async (req, res, next) => {
     try {
-        const [getByBid] = await Priceing.getByBid();
+        const [getByBid] = await Priceing.getByBid(req.params.bid);
         res.status(200).json(getByBid);
     } catch (err) {
         if (!err.statusCode) {
@@ -53,7 +53,7 @@ exports.getByBid = async (req, res, next) => {
 
 exports.deletePriceById = async (req, res, next) => {
     try {
-        const [deletePriceById] = await Priceing.deletePriceById();
+        const [deletePriceById] = await Priceing.deletePriceById(req.params.pid);
         res.status(201).json({ message: 'Price delete!' });
     } catch (err) {
         if (!err.statusCode) {

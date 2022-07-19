@@ -43,7 +43,7 @@ exports.fetchAll = async (req, res, next) => {
 
 exports.getByBid = async (req, res, next) => {
     try {
-        const [getByBid] = await Reviews.getByBid();
+        const [getByBid] = await Reviews.getByBid(req.params.bid);
         res.status(200).json(getByBid);
     } catch (err) {
         if (!err.statusCode) {
@@ -55,7 +55,7 @@ exports.getByBid = async (req, res, next) => {
 
 exports.deleteReviewById = async (req, res, next) => {
     try {
-        const [deleteReviewById] = await User.deleteReviewById();
+        const [deleteReviewById] = await User.deleteReviewById(req.params.reviewid);
         res.status(201).json({ message: 'Review delete!' });
     } catch (err) {
         if (!err.statusCode) {

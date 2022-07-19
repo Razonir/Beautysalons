@@ -9,7 +9,7 @@ router.post('/createBusiness',
         body('uid').trim().not().isEmpty(),
         body('bname').trim().not().isEmpty(),
         body('bdescriptions').not().isEmpty(),
-        body('bdescriptionl').not().isEmpty(),
+        body('instegram').not().isEmpty(),
         body('bgender').trim().not().isEmpty(),
         body('barea').trim().not().isEmpty(),
         body('bcity').trim().not().isEmpty(),
@@ -22,75 +22,16 @@ router.post('/createBusiness',
     BusinessController.createBusiness
 );
 
-router.get('/:bid',(req,res,next)=>{
-    Business.findById(req.params.bid)
-    .then(result=>{
-        res.status(200).json({
-            business: result[0]
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.get('/:bid', BusinessController.findById);
 
 router.get('/', BusinessController.fetchAll ); 
 
-router.get('/user/:uid', (req,res,next)=>{
-    Business.getBusinessByUserId(req.params.uid)
-    .then(result=>{
-        res.status(200).json({
-            business: result[0]
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.get('/user/:uid', BusinessController.getBusinessByUserId);
 
-router.delete('/remove/:bid', (req,res,next)=>{
-    Business.removeById(req.params.bid)
-    .then(result=>{
-        res.status(200).json({
-            business: result[0]
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.delete('/remove/:bid', BusinessController.deleteById);
 
+router.get('/like/:bid', BusinessController.addlike);
 
-router.get('/like/:bid', (req,res,next)=>{
-    Business.addlike(req.params.bid)
-    .then(result=>{
-        res.status(200).json({ message: 'Like add!' });
-
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
-
-router.get('/view/:bid', (req,res,next)=>{
-    Business.addView(req.params.bid)
-    .then(result=>{
-        res.status(200).json({ message: 'View add!' });
-
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.get('/view/:bid', BusinessController.addView);
 
 module.exports = router;

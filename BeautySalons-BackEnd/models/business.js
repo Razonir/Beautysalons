@@ -1,12 +1,12 @@
 const db = require('../util/database');
 
 module.exports = class Business {
-  constructor(bid,uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate,blogo) {
+  constructor(bid,uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate,blogo) {
     this.bid = bid;
     this.uid = uid;
     this.bname = bname;
     this.bdescriptions = bdescriptions;
-    this.bdescriptionl = bdescriptionl;
+    this.instegram = instegram;
     this.bgender = bgender;
     this.barea = barea;
     this.bcity = bcity;
@@ -29,7 +29,7 @@ module.exports = class Business {
     return db.execute('SELECT * FROM Business WHERE bid = ?', [bid]);
   }
 
-  static removeById(bid) {
+  static deleteById(bid) {
     return  db.execute('DELETE FROM priceing WHERE bid = ?',[bid]),
             db.execute('DELETE FROM reviews WHERE bid = ?',[bid]),
             db.execute('Delete FROM Business WHERE bid = ?', [bid])   
@@ -57,8 +57,8 @@ module.exports = class Business {
     var like = 0;
     var view = 0;
     return db.execute(
-      'insert into Business (uid,bname,bdescriptions,bdescriptionl,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
-      [business.uid,business.bname,business.bdescriptions,business.bdescriptionl,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view,business.blogo]
+      'insert into Business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+      [business.uid,business.bname,business.bdescriptions,business.instegram,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view,business.blogo]
       );
   36  }
 };
