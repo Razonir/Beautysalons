@@ -1,0 +1,59 @@
+.gender{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: fixed !important;
+    width: 100%;
+    z-index: 9999999 !important;
+    top: 0;
+    .women,.men{
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+        .text{
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .subtext{
+            font-size: 17px;
+            margin-bottom: 30px;
+            
+        }
+    }
+    .men{
+        background-image: url(/assets/man.jpg);
+        background-size: cover;
+        background-position: center;
+        
+        .text{
+            color: white;
+        }
+        .subtext{
+            color: white;
+        }
+    }
+    .women{
+        background-image: url(/assets/women.jpg);
+        background-size: cover;
+        background-position: center;
+        .text{
+            color: white;
+        }
+        .subtext{
+            color: white;
+        }
+    }
+}
+
+@media screen and (min-width: 600px){
+    .gender{
+        flex-direction: row;
+        .women,.men{
+            height: 100%;
+        }
+    }
+}

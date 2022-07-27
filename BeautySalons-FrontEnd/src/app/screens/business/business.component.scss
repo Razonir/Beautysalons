@@ -1,6 +1,7 @@
 .top {
     background: linear-gradient(90deg, #6a18c7, #9d69da);
-
+    border-radius: 0 0 20px 20px;    
+    padding-top: 20px;
     .search {
         display: flex;
         justify-content: center;
@@ -30,6 +31,7 @@
 
 .bottom {
     position: relative;
+    padding-bottom: 40px;
     .empty{
         position: absolute;
         left: 50%;
@@ -46,52 +48,6 @@
             width: 100%;
             margin: 5px 16px;
 
-            .cardR {
-                padding: 16px 16px;
-                background-color: white;
-                margin: 16px 0px 0px 0px;
-                border-radius: 8px;
-                box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
-                width: 100%;
-                position: relative;
-
-                .cardtop {
-                    display: flex;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid rgba(186, 177, 177, 0.37);
-
-                    .logo {
-                        margin-left: 15px;
-
-                        img {
-                            width: 70px;
-                            border-radius: 50%;
-                            outline: 1px solid rgb(197, 197, 197, 0.3);
-                        }
-                    }
-
-                    .content {
-                        line-height: normal;
-
-                        .bname {
-                            font-size: 20px;
-                        }
-                    }
-                }
-
-                .bottom {
-                    display: flex;
-                    gap: 20px;
-                }
-
-                .like {
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-
-                    .icon {}
-                }
-            }
         }
     }
 }

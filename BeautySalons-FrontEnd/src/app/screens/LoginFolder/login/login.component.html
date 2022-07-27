@@ -18,7 +18,7 @@
                 </p>        
                 <input type="submit" class="login" value="שלח שחזור סיסמא"/>
             </form>
-            <div class="forgut-password" (click)="hideForget()">אוי רגע נזכרתי תחזיר אותי</div>
+            <div class="back" (click)="hideForget()">אוי רגע נזכרתי תחזיר אותי</div>
 
         </div>
         <div class="profile-image"></div>
@@ -139,8 +139,8 @@
                     name="usergender"
                     aria-placeholder="חד קרן"
                     [(ngModel)]="user.usergender">
-                    <option value="1">זכר</option>
-                    <option value="2">נקבה</option>
+                    <option value="male">זכר</option>
+                    <option value="female">נקבה</option>
                     </select>
                     <div class="label">מין</div>
                 </div>

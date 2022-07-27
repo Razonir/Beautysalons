@@ -25,11 +25,14 @@ export class BusinessPageComponent implements OnInit {
   reviewserror = 'none';
   priceserror = 'none';
   userid: any;
-  gender: any;
+  genderdata: any;
   female = false;
   uni = false;
   male = false;
 
+  background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
+  color = '#6a18c7'
+  gender: any;
 
   constructor(private router: Router,
     private businessService: BusinessService,
@@ -39,19 +42,26 @@ export class BusinessPageComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.gender = localStorage.getItem('gender');
+    if(this.gender == null || this.gender == 'female'){
+      this.gender = 'female';
+      localStorage.setItem('gender','female')
+    }else{
+      this.background = 'linear-gradient(90deg, #181818, #000)';
+      this.color = 'black';
+    }
     const id = +this.route.snapshot.params['bid'];
     this.businessService.getBusinessById(id).subscribe((data) => {
       this.data = data;
       this.data = this.data[0];
-      this.gender = this.data.bgender;
-      if (this.gender == 'זכר') {
+      this.genderdata = this.data.bgender;
+      if (this.genderdata == 'male') {
         this.male = true;
-      } else if (this.gender == 'נקבה') {
+      } else if (this.genderdata == 'female') {
         this.female = true;
       }else{
         this.uni = true;
       }
-
     });
 
     this.businessService.addView(id).subscribe();

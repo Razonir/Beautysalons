@@ -25,6 +25,10 @@ import { LoginGuard } from './guard/login.guard';
 import { LogoutGuard } from './guard/logout.guard';
 import { AdminGuard } from './guard/admin.guard';
 import { ContactComponent } from './screens/contact/contact.component';
+import { HomepageComponent } from './screens/home/homepage/homepage.component';
+import { BusinessCardComponent } from './component/business-card/business-card.component';
+import { ButtonComponent } from './component/button/button.component';
+import { ServicecardComponent } from './component/servicecard/servicecard.component';
 
 
 @NgModule({
@@ -44,7 +48,11 @@ import { ContactComponent } from './screens/contact/contact.component';
     BusinessPageComponent,
     ManageComponent,
     LogoutComponent,
-    ContactComponent
+    ContactComponent,
+    HomepageComponent,
+    BusinessCardComponent,
+    ButtonComponent,
+    ServicecardComponent
   ],
   imports: [
     BrowserModule,

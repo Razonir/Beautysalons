@@ -15,10 +15,12 @@ import { LogoutComponent } from './screens/LoginFolder/logout/logout.component';
 import { LoginGuard } from './guard/login.guard';
 import { LogoutGuard } from './guard/logout.guard';
 import { ContactComponent } from './screens/contact/contact.component';
+import { HomepageComponent } from './screens/home/homepage/homepage.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomepageComponent },
   { path: 'login', component: LoginComponent ,canActivate: [LogoutGuard]},
   { path: 'logout', component: LogoutComponent ,canActivate: [LoginGuard]},
   { path: 'privacy', component: PrivacyComponent },
