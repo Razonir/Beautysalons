@@ -21,6 +21,12 @@ export class UserService {
     let registerUrl = this.baseURL+'createUser'
     return this.httpClient.post<any>(`${registerUrl}`,user);
   }
+
+  updateById(user: User){
+    let registerUrl = this.baseURL+'update'
+    return this.httpClient.post<any>(`${registerUrl}`,user);
+  }
+
   login(user: User){
     let login = this.baseURL+'login'
     return this.httpClient.post<any>(`${login}`,user);
@@ -37,9 +43,17 @@ export class UserService {
   }
 
   resetpassword(userforget: User){
-    console.log('1');
     let resetpassword = this.baseURL+'resetpassword'
-    console.log('1');
     return this.httpClient.post<any>(`${resetpassword}`,userforget);
   }
+
+  contact(user: any){
+    let baseurl = this.baseURL+'contact'
+    return this.httpClient.post<any>(`${baseurl}`,user);
+  }
+
+  loggedIn(){
+    return (!!localStorage.getItem('token') && !!localStorage.getItem('uid'));
+  }
+
 }

@@ -2,8 +2,17 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { findByEmail } = require('../models/user');
+const { sendMails } = require('../services/email-sender');
 
-
+//createUser
+//findByEmail
+//fetchAllUsers
+//getUserById
+//deleteUserById
+//generatePassword
+//resetPassword
+//login
 
 exports.createUser = async (req, res, next) => {
 
@@ -41,10 +50,43 @@ exports.createUser = async (req, res, next) => {
     }
 }
 
+
+exports.updateUser = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return;
+    const userfname = req.body.userfname;
+    const userlname = req.body.userlname;
+    const usergender = req.body.usergender;
+    const usercity = req.body.usercity;
+    const useraddress = req.body.useraddress;
+    const userphone = req.body.userphone;
+    try {
+        const userDetails = {
+            userfname: userfname,
+            userlname: userlname,
+            usergender: usergender,
+            usercity: usercity,
+            useraddress: useraddress,
+            userphone: userphone
+        };
+        const result = await User.updateUser(userDetails);
+        res.status(201).json({ message: 'User update' });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
 exports.findByEmail = async (req, res, next) => {
     try {
         const [findByEmail] = await User.findByEmail(req.body.useremail);
-        res.status(200).json(findByEmail);
+        if (findByEmail[0] == undefined) {
+            res.status(404).json({ message: 'Not found Email' });
+        } else {
+            res.status(200).json(findByEmail[0]);
+        }
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -67,7 +109,7 @@ exports.fetchAllUsers = async (req, res, next) => {
 
 exports.getUserById = async (req, res, next) => {
     try {
-        const [getUserById] = await User.getUserById();
+        const [getUserById] = await User.getUserById(req.params.userid);
         res.status(200).json(getUserById);
     } catch (err) {
         if (!err.statusCode) {
@@ -79,7 +121,7 @@ exports.getUserById = async (req, res, next) => {
 
 exports.deleteUserById = async (req, res, next) => {
     try {
-        const [deleteUserById] = await User.deleteUserById();
+        const [deleteUserById] = await User.deleteUserById(req.params.userid);
         res.status(201).json({ message: 'User delete!' });
     } catch (err) {
         if (!err.statusCode) {
@@ -107,18 +149,18 @@ exports.resetPasswordByEmail = async (req, res, next) => {
         res.status(400).send({ message: "Missing email" });
         return;
     }
-    // const email = req.body.useremail;
-    // const uid  = this.findByEmail(email);
-    // console.log(uid);
-    // if (uid == un) {
-    //     console.log("not")
-    //     res.status(400).send({ message: "Not Found this email" });
-    //     return;
-    // }
     try {
         const genpassowrd = generatePassword();
-        const hashedPassword = await bcrypt.hash(genpassowrd, 12); 
-        const result = await User.resetPasswordByEmail(useremail,hashedPassword);
+        const hashedPassword = await bcrypt.hash(genpassowrd, 12);
+        const result = await User.resetPasswordByEmail(useremail, hashedPassword);
+        try {
+            sendMails(useremail, 'איפוס סיסמא', genpassowrd);
+        } catch (err) {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        }
         res.status(201).json({ message: 'User update!' });
     } catch (err) {
         if (!err.statusCode) {
@@ -135,14 +177,14 @@ exports.login = async (req, res, next) => {
     try {
         const user = await User.findByEmail(email);
         if (user[0].length !== 1) {
-            const error = new Error('A user with this email could not be found.');
+            const error = new Error('לא נמצא אימייל כזה');
             error.statusCode = 401;
             throw error;
         }
         const storedUser = user[0][0];
-        const isEqual = await bcrypt.compare(password, storedUser.userpassword);        
+        const isEqual = await bcrypt.compare(password, storedUser.userpassword);
         if (!isEqual) {
-            const error = new Error('Worng password!');
+            const error = new Error('הסיסמא אינה נכונה');
             error.statusCode = 401;
             throw error;
         }
@@ -155,6 +197,23 @@ exports.login = async (req, res, next) => {
             { expiresIn: '1h' }
         );
         res.status(200).json({ token: token, uid: storedUser.userid });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
+
+exports.contact = async (req, res, next) => {
+    const useremail = req.body.useremail;
+    const userphone = req.body.userphone;
+    const usertext = req.body.usertext;
+
+    const content = useremail + " " + userphone + " " + usertext;
+    try {
+        sendMails('razonir@Gmail.com', 'Bug found on BeautySalons', content);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

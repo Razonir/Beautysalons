@@ -1,0 +1,18 @@
+<div class="fullpage">
+    <div class="top" [style.background]="background">
+        <div class="search">
+            <input type="text" placeholder="הקלידו שם העיר" [(ngModel)]="bcitytype">
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="empty">אנו מצטערים אך אין עסק מתאים </div>
+        <div class="all-business">
+            <div class="business" *ngFor="let item of businessData" routerLinkActive="active-link"
+                [routerLink]="['/business/',item.bid]">
+                <div *ngIf="city(item.bcity) && item.bgender == gender">
+                    <app-business-card bname="{{item.bname}}" blogo="{{item.blogo}}"  bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

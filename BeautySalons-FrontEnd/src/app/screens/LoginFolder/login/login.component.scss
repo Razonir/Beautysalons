@@ -45,7 +45,8 @@ $box-shadow: 0 10px 10px #fd711425;
                 margin-left: 20px;
                 margin-top: 5px;
                 text-decoration: none;
-
+                cursor: pointer;
+                
                 &:hover {
                     color: $base-color;
                 }
@@ -221,6 +222,10 @@ select#usergender {
         border-radius: 5px !important;
         height: 25px;
     }
+    .label{
+        position: absolute;
+        right: 30px;
+    }
 
 }
 .input-group:focus + .input-group-text{
@@ -251,7 +256,9 @@ select#usergender {
     width: 100%;
     margin-bottom: 0px;
 }
-
+.server{
+    margin-top: 0px;
+}
 canvas {
     height: 100%; /* we need these for full-screen effect */
     width: 100%;
@@ -271,9 +278,15 @@ canvas {
     z-index: 99;
     background-color: $first-color;
     height: 90%;
+    margin-top: 30px;
     width: 600px;
     max-width: 100%;
     transform: translateX(100vw);
     transition: 0.5s;
     right: 0;
+  }
+
+  .back{
+    margin-top: 20px;
+    cursor: pointer;
   }

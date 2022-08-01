@@ -21,46 +21,26 @@ router.post('/createUser',
     UserController.createUser
 );
 
-router.get('/user/:userid',(req,res,next)=>{
-    User.getUserById(req.params.userid)
-    .then(result=>{
-        res.status(200).json({
-            user: result
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.post('/update', UserController.updateUser );
 
-router.post('/delete/:userid',(req,res,next)=>{
-  User.deleteUserById(req.params.userid)
-  .then(result=>{
-      res.status(200).json({
-          user: result
-      })
-  })
-  .catch(err=>{
-      res.status(500).json({
-          error:err
-      })
-  })
-});
+router.get('/user/:userid', UserController.getUserById);
+
+router.post('/delete/:userid', UserController.deleteUserById );
 
 router.get('/users', UserController.fetchAllUsers ); 
+
 router.get('/findbyemail', UserController.findByEmail ); 
 
-//user login
 router.post('/login',   UserController.login);
 
 router.post('/resetpassword',   UserController.resetPasswordByEmail);
 
+router.post('/contact',   UserController.contact);
 
 router.get('/username'), verifyToken,function(req,res,next){
   return res.status(200).json(decodedToken.userfname);
 }
+
 
 // token verify
 var decodedToken ='';

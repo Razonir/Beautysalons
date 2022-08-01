@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const userRouter = require('./routes/user');
+const reviewRouter = require('./routes/review');
+const priceingRouter = require('./routes/priceing');
 const businessRouter = require('./routes/business')
 const errorController = require('./controllers/error');
 
@@ -30,6 +32,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/user', userRouter);
+app.use('/review', reviewRouter);
+app.use('/priceing', priceingRouter);
 app.use('/business', businessRouter);
 
 app.use(errorController.get404);

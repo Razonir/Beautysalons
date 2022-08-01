@@ -1,11 +1,14 @@
 .bg-dark{
-    background-color: rgb(255, 255, 255) !important;
-    box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.03);
+  background: linear-gradient(90deg, #6a18c7, #9d69da);
+  box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.03);
     z-index: 99999 !important;
+  }
+  .icon{
+    color: white !important;
   }
   .navbar-dark .navbar-nav .nav-link,.navbar-dark .navbar-brand{
     transition: 0.2s;
-    color: rgb(110, 110, 110);
+    color: white;
     z-index: 99999 !important;
 
     &:hover{
@@ -13,7 +16,9 @@
     }
   }
   .navbar-toggler{
-    background-color: black !important;
+    background-color: transparent !important;
+    color: white;
+    border: none;
   }
   .bd-placeholder-img {
       font-size: 1.125rem;
@@ -41,5 +46,11 @@
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .bg-dark{
+        display: none;
       }
     }

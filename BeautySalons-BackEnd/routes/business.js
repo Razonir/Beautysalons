@@ -6,35 +6,34 @@ const BusinessController = require('../controllers/business');
 
 router.post('/createBusiness', 
     [
-        body('userid').trim().not().isEmpty(),
+        body('uid').trim().not().isEmpty(),
         body('bname').trim().not().isEmpty(),
         body('bdescriptions').not().isEmpty(),
-        body('bdescriptionl').not().isEmpty(),
+        body('instegram').not().isEmpty(),
         body('bgender').trim().not().isEmpty(),
         body('barea').trim().not().isEmpty(),
         body('bcity').trim().not().isEmpty(),
         body('baddress').trim().not().isEmpty(),
         body('bphone').trim().not().isEmpty(),
         body('baddress').trim().not().isEmpty(),
-        body('bsubject').trim().not().isEmpty()
+        body('bsubject').trim().not().isEmpty(),
+        body('blogo').trim().not().isEmpty()
     ],
     BusinessController.createBusiness
 );
 
-router.get('/business/:bid',(req,res,next)=>{
-    Business.findById(req.params.bid)
-    .then(result=>{
-        res.status(200).json({
-            user: result
-        })
-    })
-    .catch(err=>{
-        res.status(500).json({
-            error:err
-        })
-    })
-});
+router.post('/updateById', BusinessController.updateById);
 
-router.get('/business', BusinessController.fetchAll ); 
+router.get('/:bid', BusinessController.findById);
+
+router.get('/', BusinessController.fetchAll ); 
+
+router.get('/user/:uid', BusinessController.getBusinessByUserId);
+
+router.delete('/remove/:bid', BusinessController.deleteById);
+
+router.get('/like/:bid', BusinessController.addlike);
+
+router.get('/view/:bid', BusinessController.addView);
 
 module.exports = router;

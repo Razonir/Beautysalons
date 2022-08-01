@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import * as confetti from 'canvas-confetti';
 import { Component, ElementRef, Renderer2 ,OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
 
   displayPopup = 'none';
   moveup = '0';
@@ -20,12 +22,11 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   userforget: User = new User();
   userlogin: User = new User();
+  errorlogin = '';
 
-  constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router) { }
+  constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router ,private http: HttpClient) { }
 
-  ngOnInit(): void {
-    console.log(this.userlogin.useremail)
-    
+  ngOnInit(): void {    
   }
 
   public surprise(): void {
@@ -76,7 +77,6 @@ export class LoginComponent implements OnInit {
       this.user.useraddress == undefined || this.user.useraddress == '') {
       this.displysignuperrors = 'flex';
     } else {
-      console.log(this.user);
       this.surprise();
       this.userService.createUser(this.user).subscribe(
         response => this.goToHome(),
@@ -91,14 +91,15 @@ export class LoginComponent implements OnInit {
       this.userlogin.userpassword == undefined || this.userlogin.userpassword == '') {
       this.displyloginerrors = 'flex';
     } else {
-      console.log(this.userlogin);
       this.userService.login(this.userlogin).subscribe(
         response => {
           localStorage.setItem("uid", response.uid),
             localStorage.setItem("token", response.token),
             this.goToHome()
         },
-        error => console.error('Error!', error)
+        error => {
+          this.errorlogin = error.error.error.message;
+        }
       );
     }
   }

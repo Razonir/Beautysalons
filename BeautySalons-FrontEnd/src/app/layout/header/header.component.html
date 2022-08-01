@@ -1,35 +1,36 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-        <button class="btn btn-outline-success" type="submit" routerLink="/businessinterface">ממשק עסקים</button>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul *ngIf="userDetails!=null" class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/">בית</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/" (click)="signout()">התנתק</a>
-                </li>
-                <li>
-                   <a class="nav-link" routerLink="/admin">ממשק ניהול</a>
-                </li>
+  <div class="container-fluid">
+    <a class="icon" routerLink="/user-dashboard">
+      <mat-icon>perm_identity</mat-icon>
+    </a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul *ngIf="userDetails!=null" class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">בית</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" (click)="signout()">התנתק</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/admin">ממשק ניהול</a>
+        </li>
 
-        </ul>
-        <ul *ngIf="userDetails==null" class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/">בית</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/login">התחבר</a>
-            </li>
-         </ul>
-        <div class="d-flex">
-            <a class="navbar-brand" routerLink="/">Beauty Salons</a>
-        </div>
+      </ul>
+      <ul *ngIf="userDetails==null" class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">בית</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">התחבר</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <a class="navbar-brand" routerLink="/">Beauty Salons</a>
       </div>
     </div>
-  </nav>
-
-  
+  </div>
+</nav>
