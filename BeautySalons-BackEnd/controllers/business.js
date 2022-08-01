@@ -18,19 +18,14 @@ exports.createBusiness = async (req, res, next) => {
     const baddress = req.body.baddress;
     const bphone = req.body.bphone;
     const bsubject = req.body.bsubject;
-    const bvisibility = req.body.bvisibility;
-    const blikes = req.body.blikes;
-    const bviews = req.body.bviews;
-    const createdate = req.body.createdate;
-    const lastupdate = req.body.lastupdate;
     const blogo = req.body.blogo;
     
     try {
         const businessDetails = {
             uid: uid,
             bname: bname,
-            bdescriptions: bdescriptions,
             instegram: instegram,
+            bdescriptions: bdescriptions,
             bgender: bgender,
             barea: barea,
             bcity: bcity,
@@ -49,6 +44,46 @@ exports.createBusiness = async (req, res, next) => {
     }
 }
 
+
+exports.updateById = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return;
+    
+    const bid = req.body.bid;
+    const bname = req.body.bname;
+    const instegram = req.body.instegram;
+    const bdescriptions = req.body.bdescriptions;
+    const bgender = req.body.bgender;
+    const barea = req.body.barea;
+    const bcity = req.body.bcity;
+    const baddress = req.body.baddress;
+    const bphone = req.body.bphone;
+    const bsubject = req.body.bsubject;
+    const blogo = req.body.blogo;
+    
+    try {
+        const businessDetails = {
+            bid: bid,
+            bname: bname,
+            instegram: instegram,
+            bdescriptions: bdescriptions,
+            bgender: bgender,
+            barea: barea,
+            bcity: bcity,
+            baddress: baddress,
+            bphone: bphone,
+            bsubject: bsubject,
+            blogo: blogo,
+        };
+        const result = await Business.updateById(businessDetails);
+        res.status(201).json({ message: 'Business update!' });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
 
 exports.findById = async (req, res, next) => {
     try {

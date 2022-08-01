@@ -29,6 +29,17 @@ $box-shadow: 0 10px 10px #fd711425;
             }
 
         }
+        .bottom{
+            .nav-link{
+                width: 100%;
+                background: rgb(230, 230, 230);
+                color: black;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.338);
+                &:hover{
+                    background: rgb(194, 194, 194);
+                }
+            }
+        }
     }
 
 }

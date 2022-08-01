@@ -22,10 +22,6 @@ export class ManageComponent implements OnInit {
 
   }
 
-  edit(bid: any){
-    alert("edit" + bid)
-  }
-
   remove(bid: any){
     this.businessService.removeBusiness(bid).subscribe();
     location.reload()

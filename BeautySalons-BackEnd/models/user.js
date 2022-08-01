@@ -32,6 +32,13 @@ static createUser(users) {
   );
 }
 
+static updateUser(users) {
+  return db.execute(
+    'update users set userfname = ? , userlname = ? , usergender = ? , usercity = ? , useraddress = ? , userphone = ?',
+     [users.userfname,users.userlname,users.usergender,users.usercity,users.useraddress,users.userphone]
+    );
+}
+
 static findByEmail(useremail) {
   return db.execute('SELECT * FROM users WHERE useremail = ?', [useremail]);
 }

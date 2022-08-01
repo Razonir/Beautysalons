@@ -26,7 +26,6 @@
         <div class="manage">
             <div (click)="remove(item.bid)" class="remove">מחיקה</div>
             <div class="view" routerLinkActive="active-link" [routerLink]="['/business/',item.bid]">הצגה</div>
-            <div (click)="edit(item.bid)" class="edit">עריכה</div>
+            <div [routerLink]="['/user-dashboard/manage/',item.bid]" class="edit">עריכה</div>
         </div>
     </div>
-</div>

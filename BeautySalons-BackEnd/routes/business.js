@@ -22,6 +22,8 @@ router.post('/createBusiness',
     BusinessController.createBusiness
 );
 
+router.post('/updateById', BusinessController.updateById);
+
 router.get('/:bid', BusinessController.findById);
 
 router.get('/', BusinessController.fetchAll ); 

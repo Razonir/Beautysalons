@@ -16,15 +16,17 @@ import { LoginGuard } from './guard/login.guard';
 import { LogoutGuard } from './guard/logout.guard';
 import { ContactComponent } from './screens/contact/contact.component';
 import { HomepageComponent } from './screens/home/homepage/homepage.component';
+import { EditComponent } from './screens/user-dashboard/manage/edit/edit.component';
+import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomepageComponent },
-  { path: 'login', component: LoginComponent ,canActivate: [LogoutGuard]},
-  { path: 'logout', component: LogoutComponent ,canActivate: [LoginGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [LoginGuard] },
   { path: 'privacy', component: PrivacyComponent },
-  { path: 'contact', component: ContactComponent},
+  { path: 'contact', component: ContactComponent },
   { path: 'terms', component: TermsComponent },
   {
     path: 'business',
@@ -40,7 +42,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'user-dashboard' ,
+    path: 'user-dashboard',
     canActivate: [LoginGuard],
     children: [{
       path: '',
@@ -51,8 +53,21 @@ const routes: Routes = [
       component: CreateBusinessComponent
     },
     {
+      path: 'update',
+      component: EditUserComponent
+    },
+    {
       path: 'manage',
-      component: ManageComponent
+      children: [
+        {
+          path: '',
+          component: ManageComponent
+        },
+        {
+          path: ':bid',
+          component: EditComponent
+        }
+      ]
     },
     ]
   },

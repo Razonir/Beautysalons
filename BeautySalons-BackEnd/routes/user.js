@@ -21,6 +21,8 @@ router.post('/createUser',
     UserController.createUser
 );
 
+router.post('/update', UserController.updateUser );
+
 router.get('/user/:userid', UserController.getUserById);
 
 router.post('/delete/:userid', UserController.deleteUserById );

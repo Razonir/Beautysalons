@@ -21,6 +21,12 @@ export class UserService {
     let registerUrl = this.baseURL+'createUser'
     return this.httpClient.post<any>(`${registerUrl}`,user);
   }
+
+  updateById(user: User){
+    let registerUrl = this.baseURL+'update'
+    return this.httpClient.post<any>(`${registerUrl}`,user);
+  }
+
   login(user: User){
     let login = this.baseURL+'login'
     return this.httpClient.post<any>(`${login}`,user);

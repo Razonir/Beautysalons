@@ -19,7 +19,11 @@ export class BusinessService {
     let registerUrl = this.baseURL+'createBusiness'
     return this.httpClient.post<any>(`${registerUrl}`,business);
   }
-  
+  updateById(business: Business){
+    let registerUrl = this.baseURL+'updateById'
+    return this.httpClient.post<any>(`${registerUrl}`,business);
+  }
+
   removeBusiness(bid: any){
     let url = this.baseURL+'remove/' + bid
     return this.httpClient.delete(url);

@@ -29,6 +29,8 @@ import { HomepageComponent } from './screens/home/homepage/homepage.component';
 import { BusinessCardComponent } from './component/business-card/business-card.component';
 import { ButtonComponent } from './component/button/button.component';
 import { ServicecardComponent } from './component/servicecard/servicecard.component';
+import { EditComponent } from './screens/user-dashboard/manage/edit/edit.component';
+import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ServicecardComponent } from './component/servicecard/servicecard.compon
     HomepageComponent,
     BusinessCardComponent,
     ButtonComponent,
-    ServicecardComponent
+    ServicecardComponent,
+    EditComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
