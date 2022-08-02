@@ -1,8 +1,8 @@
 <div class="fullpage">
-    <div class="top"  [style.background]="background">
+    <div class="top" [style.background]="background">
         <div class="right">
             <div class="text">מקום לשני <br>{{topTitle}}</div>
-            <app-button  routerLink="/business"  [style.color]="color" value="חיפוש"></app-button>
+            <app-button link="/business" [style.color]="color" value="חיפוש"></app-button>
         </div>
         <div class="left">
             <img src="/assets/man.jpg" alt="">
@@ -22,19 +22,18 @@
         </div>
         <div class="business">
             <div class="title">עסקים מובילים</div>
-            <div class="business" *ngFor="let item of businessData" routerLinkActive="active-link"
-                [routerLink]="['/business/',item.bid]">
+            <div class="business" *ngFor="let item of businessData">
                 <div class="busines" *ngIf="item.bgender == gender">
-                <app-business-card bname="{{item.bname}}" blogo="{{item.blogo}}" bsubject="{{item.bsubject}}"
-                    baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}"
-                    bviews="{{item.bviews}}"></app-business-card>
-                                        
+                    <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"
+                        bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
+                        blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
                 </div>
             </div>
-            <app-button  routerLink="/business" color="white" background="{{this.background}}" value="חיפוש"></app-button>
+            <app-button link="/business" color="white" background="{{this.background}}" value="חיפוש">
+            </app-button>
         </div>
         <div class="blogs">
             <div class="title">בלוגים מובילים</div>
             <div class="text">יעלו בקרוב...</div>
+        </div>
     </div>
-</div>

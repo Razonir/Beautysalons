@@ -29,10 +29,21 @@ export class BusinessPageComponent implements OnInit {
   female = false;
   uni = false;
   male = false;
-
+  uid:any;
+  buid:any;
   background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
   color = '#6a18c7'
   gender: any;
+  reportshow = 'block';
+  reporttext = 'דיווח על תוכן שאינו תקין'
+  contact={
+    useremail : "",
+    userphone : "",
+    usertext : "",
+    
+   }
+   displaycontacterrors = "none";
+
 
   constructor(private router: Router,
     private businessService: BusinessService,
@@ -42,6 +53,7 @@ export class BusinessPageComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.uid = localStorage.getItem('uid');
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
@@ -54,6 +66,7 @@ export class BusinessPageComponent implements OnInit {
     this.businessService.getBusinessById(id).subscribe((data) => {
       this.data = data;
       this.data = this.data[0];
+      this.buid = this.data.uid;
       this.genderdata = this.data.bgender;
       if (this.genderdata == 'male') {
         this.male = true;
@@ -112,6 +125,21 @@ export class BusinessPageComponent implements OnInit {
     }
   }
 
+  contactus(){
+    if (this.contact.useremail == undefined || this.contact.useremail == '' ||
+    this.contact.userphone == undefined || this.contact.userphone == '' ||
+    this.contact.usertext == undefined || this.contact.usertext == '') {
+    this.displaycontacterrors = 'flex';
+  } else {
+    this.userService.contact(this.contact).subscribe();
+    this.reportshow = 'none';
+    this.reporttext = 'דיווח נקלט בהצלחה';
+  }
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
+  }
   refreshpage() {
     location.reload()
   }
