@@ -5,3 +5,4 @@ T-04 - add logoimage to the cloud
 T-05 - bussiness PAGE design
 T-06 - review
 T-07 - contact us 
+T-08 - likes front
