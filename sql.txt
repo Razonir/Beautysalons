@@ -1,51 +1,64 @@
 use beautysalons;
 
-create table users(
-   userid INT NOT NULL AUTO_INCREMENT,
-   userrole VARCHAR(100) ,
-   userfname VARCHAR(100) ,
-   userlname VARCHAR(100) ,
-   useremail VARCHAR(100) ,
-   userpassword VARCHAR(100) ,
-   usergender VARCHAR(100) ,
-   usercity VARCHAR(100) ,
-   useraddress VARCHAR(100) ,
-   userphone VARCHAR(100) ,
-   createdate datetime ,
-   lastlogindate datetime,
-   PRIMARY KEY ( userid )
-);
-use beautysalons;
-create table business(
-   bid INT NOT NULL AUTO_INCREMENT,
-   uid INT ,
-   bname VARCHAR(100) ,
-   bdescriptions VARCHAR(100) ,
-   instegram VARCHAR(100) ,
-   bgender VARCHAR(100) ,
-   barea VARCHAR(100) ,
-   bcity VARCHAR(100) ,
-   baddress VARCHAR(100) ,
-   bphone VARCHAR(100) ,
-   bsubject VARCHAR(100) ,
-   bvisibility VARCHAR(100) ,
-   blikes VARCHAR(100) ,
-   bviews VARCHAR(100) ,
-   createdate datetime ,
-   lastlogindate datetime,
-	blogo VARCHAR(255) ,
-   foreign key ( uid ) REFERENCES  users(userid),
-   PRIMARY KEY ( bid )
-);
+CREATE TABLE `users` (
+  `userid` int NOT NULL AUTO_INCREMENT,
+  `userrole` varchar(100) DEFAULT NULL,
+  `userfname` varchar(100) DEFAULT NULL,
+  `userlname` varchar(100) DEFAULT NULL,
+  `useremail` varchar(100) DEFAULT NULL,
+  `userpassword` varchar(100) DEFAULT NULL,
+  `usergender` varchar(100) DEFAULT NULL,
+  `usercity` varchar(100) DEFAULT NULL,
+  `useraddress` varchar(100) DEFAULT NULL,
+  `userphone` varchar(100) DEFAULT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `lastlogindate` datetime DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE reviews (
-  reviewid int NOT NULL AUTO_INCREMENT,
-  bid int DEFAULT NULL,
-  uid int DEFAULT NULL,
-   review int,
-   reviewtext VARCHAR(100) ,
-   reviewdate varchar(100) ,
-   foreign key ( uid ) REFERENCES  users(userid),
-   foreign key ( bid ) REFERENCES  business(bid),
-   PRIMARY KEY ( reviewid )
-);
+CREATE TABLE `business` (
+  `bid` int NOT NULL AUTO_INCREMENT,
+  `uid` int DEFAULT NULL,
+  `bname` varchar(100) DEFAULT NULL,
+  `bdescriptions` varchar(100) DEFAULT NULL,
+  `instegram` varchar(100) DEFAULT NULL,
+  `bgender` varchar(100) DEFAULT NULL,
+  `barea` varchar(100) DEFAULT NULL,
+  `bcity` varchar(100) DEFAULT NULL,
+  `baddress` varchar(100) DEFAULT NULL,
+  `bphone` varchar(100) DEFAULT NULL,
+  `bsubject` varchar(100) DEFAULT NULL,
+  `bvisibility` varchar(100) DEFAULT NULL,
+  `blikes` varchar(100) DEFAULT NULL,
+  `bviews` varchar(100) DEFAULT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `lastUpdate` datetime DEFAULT NULL,
+  `blogo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`bid`),
+  KEY `uid` (`uid`),
+  CONSTRAINT `business_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `reviews` (
+  `reviewid` int NOT NULL AUTO_INCREMENT,
+  `bid` int DEFAULT NULL,
+  `uid` int DEFAULT NULL,
+  `review` int DEFAULT NULL,
+  `reviewtext` varchar(100) DEFAULT NULL,
+  `reviewdate` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`reviewid`),
+  KEY `uid` (`uid`),
+  KEY `bid` (`bid`),
+  CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`userid`),
+  CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `business` (`bid`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `priceing` (
+  `pid` int NOT NULL AUTO_INCREMENT,
+  `bid` int DEFAULT NULL,
+  `service` varchar(255) DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  KEY `bid` (`bid`),
+  CONSTRAINT `priceing_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `business` (`bid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
