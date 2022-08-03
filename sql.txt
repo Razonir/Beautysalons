@@ -62,3 +62,14 @@ CREATE TABLE `priceing` (
   KEY `bid` (`bid`),
   CONSTRAINT `priceing_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `business` (`bid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `photos` (
+  `pid` int NOT NULL AUTO_INCREMENT,
+  `bid` int DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `createdate` datetime,
+  PRIMARY KEY (`pid`),
+  FOREIGN KEY (`bid`) REFERENCES `business` (`bid`)
+)
+
