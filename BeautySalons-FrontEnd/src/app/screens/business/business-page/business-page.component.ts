@@ -4,10 +4,13 @@ import { BusinessService } from 'src/app/services/business.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { PriceingService } from 'src/app/services/priceing.service';
 import { UserService } from 'src/app/services/user.service';
+import { PhotosService } from 'src/app/services/photos.service';
 import { Review } from 'src/app/model/review';
 import { Business } from 'src/app/model/business';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import { Priceing } from 'src/app/model/priceing';
+import { HttpClient } from '@angular/common/http';
+import { Photos } from 'src/app/model/photos';
 @Component({
   selector: 'app-business-page',
   templateUrl: './business-page.component.html',
@@ -29,19 +32,33 @@ export class BusinessPageComponent implements OnInit {
   female = false;
   uni = false;
   male = false;
-
+  uid:any;
+  buid:any;
+  photos:any;
   background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
   color = '#6a18c7'
   gender: any;
+  reportshow = 'block';
+  reporttext = 'דיווח על תוכן שאינו תקין'
+  contact={
+    useremail : "",
+    userphone : "",
+    usertext : "",
+   }
+   displaycontacterrors = "none";
+
 
   constructor(private router: Router,
     private businessService: BusinessService,
     private reviewService: ReviewService,
+    private photosService: PhotosService,
     private priceingService: PriceingService,
     private userService: UserService,
+    private http: HttpClient,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.uid = localStorage.getItem('uid');
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
@@ -54,6 +71,7 @@ export class BusinessPageComponent implements OnInit {
     this.businessService.getBusinessById(id).subscribe((data) => {
       this.data = data;
       this.data = this.data[0];
+      this.buid = this.data.uid;
       this.genderdata = this.data.bgender;
       if (this.genderdata == 'male') {
         this.male = true;
@@ -73,14 +91,16 @@ export class BusinessPageComponent implements OnInit {
     this.priceingService.getPriceingById(id).subscribe((price) => {
       this.prices = price;
     })
+    this.photosService.getByBid(id).subscribe((photos) => {
+      this.photos = photos;
+    })
 
 
   }
 
 
   add() {
-    if (this.reviewCreate.review == undefined ||
-      this.reviewCreate.reviewtext == undefined || this.reviewCreate.reviewtext == "") {
+    if (this.reviewCreate.reviewtext == undefined || this.reviewCreate.reviewtext == "") {
         this.reviewserror = 'flex';
       } else {
       const id = +this.route.snapshot.params['bid'];
@@ -112,8 +132,42 @@ export class BusinessPageComponent implements OnInit {
     }
   }
 
+  contactus(){
+    if (this.contact.useremail == undefined || this.contact.useremail == '' ||
+    this.contact.userphone == undefined || this.contact.userphone == '' ||
+    this.contact.usertext == undefined || this.contact.usertext == '') {
+    this.displaycontacterrors = 'flex';
+  } else {
+    this.userService.contact(this.contact).subscribe();
+    this.reportshow = 'none';
+    this.reporttext = 'דיווח נקלט בהצלחה';
+  }
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
+  }
   refreshpage() {
     location.reload()
+  }
+
+  photo: any;
+  photoOb:Photos= new Photos;
+
+  selectedFile: any;
+  onFileSelected(event: any){
+    this.selectedFile = <File>event.target.files[0];
+    const fd = new FormData();
+    fd.append("upload_preset","otpixt53");
+    fd.append('file',this.selectedFile)
+    this.http.post('https://api.cloudinary.com/v1_1/decne4dss/image/upload',fd).subscribe(res=>{
+      this.photo = res;
+      this.photo = this.photo.secure_url;
+      this.photoOb.url = this.photo;
+      this.photoOb.bid = this.route.snapshot.params['bid'];
+      this.photosService.createPhoto(this.photoOb).subscribe();
+      this.refreshpage();
+    })
   }
 
 }

@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
     }else{
       this.userDetails = null;
     }
+    if(localStorage.getItem('likes') == null){
+      localStorage.setItem('likes','0,');
+    }
   }
   signout(){
     return localStorage.clear(),  this.userDetails = null,  this.goToHome();

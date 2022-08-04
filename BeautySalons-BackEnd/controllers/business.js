@@ -136,7 +136,7 @@ exports.getBusinessByUserId = async (req, res, next) => {
 
 exports.addlike = async (req, res, next) => {
     try {
-        const [addLike] = await Business.addLike(req.params.bid);
+        const [addlike] = await Business.addlike(req.params.bid);
         res.status(201).json({ message: 'Like add!' });
     } catch (err) {
         if (!err.statusCode) {

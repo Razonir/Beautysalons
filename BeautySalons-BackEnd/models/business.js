@@ -32,6 +32,7 @@ module.exports = class Business {
   static deleteById(bid) {
     return  db.execute('DELETE FROM priceing WHERE bid = ?',[bid]),
             db.execute('DELETE FROM reviews WHERE bid = ?',[bid]),
+            db.execute('DELETE FROM photos WHERE bid = ?',[bid]),
             db.execute('Delete FROM Business WHERE bid = ?', [bid])   
   }
 

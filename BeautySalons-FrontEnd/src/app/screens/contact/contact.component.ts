@@ -30,7 +30,6 @@ export class ContactComponent implements OnInit {
     this.displaycontacterrors = 'flex';
   } else {
     this.userService.contact(this.contact).subscribe();
-    alert('תודה');
     this.goToHome();
   }
   }

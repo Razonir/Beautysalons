@@ -6,5 +6,4 @@ export class Review {
     bid?: number;
     uid?: number;
     reviewtext?: string;
-    review?: number;
 }

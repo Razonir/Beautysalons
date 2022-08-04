@@ -31,6 +31,7 @@ import { ButtonComponent } from './component/button/button.component';
 import { ServicecardComponent } from './component/servicecard/servicecard.component';
 import { EditComponent } from './screens/user-dashboard/manage/edit/edit.component';
 import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
+import { PhotoComponent } from './component/photo/photo.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.
     ButtonComponent,
     ServicecardComponent,
     EditComponent,
-    EditUserComponent
+    EditUserComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,

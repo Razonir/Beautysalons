@@ -7,10 +7,9 @@
     <div class="bottom">
         <div class="empty">אנו מצטערים אך אין עסק מתאים </div>
         <div class="all-business">
-            <div class="business" *ngFor="let item of businessData" routerLinkActive="active-link"
-                [routerLink]="['/business/',item.bid]">
+            <div class="business" *ngFor="let item of businessData">
                 <div *ngIf="city(item.bcity) && item.bgender == gender">
-                    <app-business-card bname="{{item.bname}}" blogo="{{item.blogo}}"  bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
+                    <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"  bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
                 </div>
             </div>
         </div>
