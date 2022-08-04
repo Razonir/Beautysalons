@@ -84,6 +84,37 @@ $box-shadow: 0 5px 20px #cccccc;
         border-radius: 20px;
         margin: 20px;
     }
+    .photos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 20px;
+        .addphoto{
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+            justify-content: center;
+            border: dashed gray 2px;      
+            position: relative;
+            cursor: pointer;
+            input{
+                width: 120px;
+                height: 120px;
+                cursor: pointer;
+                opacity: 0;
+            }
+            .text{
+                position: absolute;
+            }
+            &:hover{
+                background-color: gray;
+            }
+        }
+    }
     .reviews{
         background-color: white;
         padding: 20px;
@@ -100,14 +131,18 @@ $box-shadow: 0 5px 20px #cccccc;
             display: flex;
             flex-direction: column;
             margin-top: 10px;
+            padding: 5px 0px 10px;
             border-bottom: 1px solid rgb(206, 206, 206);
-            .review{
-                position: absolute;
-                left: 0px;
+            .user{
+                font-weight: bold;
+                margin-bottom: 5px;
             }
+
             .reviewdate{
                 font-size: 10px;
                 color: gray;
+                position: absolute;
+                left: 0px;
             }
         }
 
@@ -270,3 +305,4 @@ $box-shadow: 0 5px 20px #cccccc;
     width: 100%;
     margin-bottom: 0px;
 }
+

@@ -9,7 +9,6 @@ router.post('/create',
         body('bid').trim().not().isEmpty(),
         body('uid').trim().not().isEmpty(),
         body('reviewtext').not().isEmpty(),
-        body('review').trim().not().isEmpty(),
     ],
     ReviewController.createReview
 );

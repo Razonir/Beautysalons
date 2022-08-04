@@ -1,7 +1,7 @@
 <div class="fullpage" *ngIf="data as item">
     <i id="gender" class="{{male ? 'fas fa-mars' : 'none' }}"></i>
     <i id="gender" class="{{female ? 'fas fa-venus' : 'none' }}"></i>
-    <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>    
+    <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>
     <div class="contact-icons">
         <a class="icon" href="tel:+{{item.bphone}}" [style.background]="background">
             <i class="fas fa-phone"></i>
@@ -9,9 +9,9 @@
         <div class="logo">
             <img src={{item.blogo}}>
         </div>
-            <a class="icon" href="{{item.instegram}}" [style.background]="background">
-                <img class="instegram" src="/assets/instegram.webp">
-            </a>
+        <a class="icon" href="{{item.instegram}}" [style.background]="background">
+            <img class="instegram" src="/assets/instegram.webp">
+        </a>
     </div>
     <div class="topcontent">
         <div class="bname">{{item.bname}}</div>
@@ -19,6 +19,15 @@
         <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
     </div>
     <div class="bdescriptions">{{item.bdescriptions}}</div>
+
+    <div class="photos">
+        <div class="photo" *ngFor="let photo of photos">
+            <app-photo buid={{buid}} url="{{photo.url}}" pid="{{photo.pid}}"></app-photo>
+        </div>
+        <div class="addphoto"*ngIf="uid == buid"><div class="text">הוסף תמונה</div><input type="file" (change)="onFileSelected($event)" id="inputGroupFile03">
+        </div>
+    </div>
+    
     <div class="prices">
         <div class="top">
             <div class="title">מחירון</div>
@@ -49,7 +58,7 @@
                 <p class="priceserror" [style.display]="priceserror" *ngIf="priceCreate.price==undefined ">
                     שדה חובה
                 </p>
-                <input type="submit" class="create" value="פרסם מחיר" [style.background]="background"/>
+                <input type="submit" class="create" value="פרסם מחיר" [style.background]="background" />
 
             </form>
         </div>
@@ -64,9 +73,6 @@
         <div class="content" *ngFor="let review of reviews">
             <div class="user">
                 {{review.userfname}} {{review.userlname}}
-            </div>
-            <div class="review">
-                {{review.review}}
             </div>
             <div class="reviewtext">
                 {{review.reviewtext}}
@@ -85,15 +91,7 @@
                     *ngIf="reviewCreate.reviewtext==undefined || reviewCreate.reviewtext=='' ">
                     שדה חובה
                 </p>
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="מספר" [(ngModel)]='reviewCreate.review'
-                        name="review" required>
-                </div>
-
-                <p class="reviewserror" [style.display]="reviewserror" *ngIf="reviewCreate.review==undefined ">
-                    שדה חובה
-                </p>
-                <input type="submit" class="create" value="פרסם ביקורת"  [style.background]="background"/>
+                <input type="submit" class="create" value="פרסם ביקורת" [style.background]="background" />
 
             </form>
         </div>
@@ -103,30 +101,22 @@
         <form (ngSubmit)="contactus()" [style.display]="reportshow">
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <input 
-                type="text" 
-                class="form-control" 
-                placeholder="דואר אלקטרוני"   
-                [(ngModel)]='contact.useremail' 
-                name="email"
-                required>
-            </div>   
-            <p class="contacterror" [style.display]="displaycontacterrors" *ngIf="contact.useremail==undefined || contact.useremail=='' ">
+                <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]='contact.useremail'
+                    name="email" required>
+            </div>
+            <p class="contacterror" [style.display]="displaycontacterrors"
+                *ngIf="contact.useremail==undefined || contact.useremail=='' ">
                 שדה חובה
-            </p>   
+            </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
-                <input 
-                type="text" 
-                class="form-control" 
-                placeholder="פלאפון"   
-                [(ngModel)]='contact.userphone' 
-                name="phone"
-                required>
-            </div>   
-            <p class="contacterror" [style.display]="displaycontacterrors" *ngIf="contact.userphone==undefined || contact.userphone=='' ">
+                <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]='contact.userphone'
+                    name="phone" required>
+            </div>
+            <p class="contacterror" [style.display]="displaycontacterrors"
+                *ngIf="contact.userphone==undefined || contact.userphone=='' ">
                 שדה חובה
-            </p>     
+            </p>
             <div class="input-group mb-3">
                 <span class="input-group-text"></span>
                 <textarea class="form-control" placeholder="תיאור קצר" [(ngModel)]='contact.usertext'
@@ -135,9 +125,9 @@
             <p class="contacterror" [style.display]="displaycontacterrors"
                 *ngIf="contact.usertext==undefined || contact.usertext=='' ">
                 שדה חובה
-            </p>        
-            <input type="submit" class="contactus" value="שלח"/>
+            </p>
+            <input type="submit" class="contactus" value="שלח" />
         </form>
-    
+
     </div>
 </div>

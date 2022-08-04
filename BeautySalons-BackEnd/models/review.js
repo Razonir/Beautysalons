@@ -6,7 +6,6 @@ module.exports = class Reviews {
     this.bid = bid;
     this.uid = uid;
     this.reviewtext = reviewtext;
-    this.review = review;
   }
 
   static fetchAll() {
@@ -25,8 +24,8 @@ module.exports = class Reviews {
     var date = new Date();
 
     return db.execute(
-      'insert into reviews (bid,uid,reviewtext,review,reviewdate) VALUES (?,?,?,?,?)',
-      [review.bid,review.uid,review.reviewtext,review.review,date]
+      'insert into reviews (bid,uid,reviewtext,reviewdate) VALUES (?,?,?,?)',
+      [review.bid,review.uid,review.reviewtext,date]
       );
   36  }
 };
