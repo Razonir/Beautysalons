@@ -8,7 +8,9 @@
     "start": "node index.js",
     "startdev": "nodemon index.js"
   }, 
-  "keywords": [],
+  "keywords": [
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
