@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "startdev": "nodemon index.js"
-  }, 
+  },
   "keywords": [
     "heroku"
-  ], 
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
+    "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^2.0.18"
   }
 }
