@@ -8,7 +8,7 @@ import { Photos } from '../model/photos';
 export class PhotosService {
 
 
-  private baseURL = "http://localhost:3001/photos/";
+  private baseURL = "https://beautysalons-backend.herokuapp.com/photos/";
   constructor(private httpClient: HttpClient) { }
 
   

@@ -7,7 +7,7 @@ import { Business } from '../model/business';
 })
 export class BusinessService {
 
-  private baseURL = "http://localhost:3001/business/";
+  private baseURL = "https://beautysalons-backend.herokuapp.com/business/";
 
   constructor(private httpClient: HttpClient) { }
 

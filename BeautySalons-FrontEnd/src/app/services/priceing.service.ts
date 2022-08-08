@@ -6,7 +6,7 @@ import { Priceing } from '../model/priceing';
 })
 export class PriceingService {
 
-  private baseURL = "http://localhost:3001/priceing/";
+  private baseURL = "https://beautysalons-backend.herokuapp.com/priceing/";
   constructor(private httpClient: HttpClient) { }
 
   
