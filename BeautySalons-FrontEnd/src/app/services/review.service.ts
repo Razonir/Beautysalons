@@ -6,7 +6,7 @@ import { Review } from '../model/review';
 })
 export class ReviewService {
 
-  private baseURL = "http://localhost:3001/review/";
+  private baseURL = "https://beautysalons-backend.herokuapp.com/review/";
 
   constructor(private httpClient: HttpClient) { }
   

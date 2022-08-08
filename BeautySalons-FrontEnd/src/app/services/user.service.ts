@@ -10,7 +10,7 @@ import { ErrorHandlerService } from "./error-handler.service";
 })
 export class UserService {
 
-  private baseURL = "http://localhost:3001/user/";
+  private baseURL = "https://beautysalons-backend.herokuapp.com/user/";
   constructor(private httpClient: HttpClient) { }
 
   httpOptions: { headers: HttpHeaders } = {
