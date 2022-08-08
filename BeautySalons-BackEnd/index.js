@@ -11,7 +11,7 @@ const errorController = require('./controllers/error');
 
 const app = express();
 
-const ports = 3001;
+const ports = process.env.PORT || 3001;
 
 
 app.use(bodyParser.json());
