@@ -25,6 +25,7 @@ export class BusinessPageComponent implements OnInit {
   user: any;
   reviewCreate: Review = new Review();
   priceCreate: Priceing = new Priceing();
+  priceUpdate: Priceing = new Priceing();
   reviewserror = 'none';
   priceserror = 'none';
   userid: any;
@@ -38,15 +39,8 @@ export class BusinessPageComponent implements OnInit {
   background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
   color = '#6a18c7'
   gender: any;
-  reportshow = 'block';
-  reporttext = 'דיווח על תוכן שאינו תקין'
-  contact={
-    useremail : "",
-    userphone : "",
-    usertext : "",
-   }
-   displaycontacterrors = "none";
-
+  editpricedisplay = 'none';
+  addpricedisplay = 'none';
 
   constructor(private router: Router,
     private businessService: BusinessService,
@@ -132,17 +126,19 @@ export class BusinessPageComponent implements OnInit {
     }
   }
 
-  contactus(){
-    if (this.contact.useremail == undefined || this.contact.useremail == '' ||
-    this.contact.userphone == undefined || this.contact.userphone == '' ||
-    this.contact.usertext == undefined || this.contact.usertext == '') {
-    this.displaycontacterrors = 'flex';
-  } else {
-    this.userService.contact(this.contact).subscribe();
-    this.reportshow = 'none';
-    this.reporttext = 'דיווח נקלט בהצלחה';
+  editprice(id:any) {
+    if (this.priceUpdate.price == undefined ||
+      this.priceUpdate.service == undefined || this.priceUpdate.service == "") {
+        this.priceserror = 'flex';
+      } else {
+      this.priceUpdate.pid = id;
+      this.priceingService.updateByPid(this.priceUpdate).subscribe(
+        response => this.refreshpage(),
+        error => console.error('Error!', error)
+      );
+    }
   }
-  }
+
 
   goToHome() {
     this.router.navigate(['/']);

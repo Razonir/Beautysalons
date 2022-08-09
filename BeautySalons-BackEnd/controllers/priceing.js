@@ -62,3 +62,25 @@ exports.deletePriceById = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.updatePrice = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return;
+    const pid = req.body.pid;
+    const service = req.body.service;
+    const price = req.body.price;
+    try {
+        const priceingDetails = {
+            pid: pid,
+            service: service,
+            price: price
+        };
+        const result = await Priceing.updatePrice(priceingDetails);
+        res.status(201).json({ message: 'Price update!' });
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}

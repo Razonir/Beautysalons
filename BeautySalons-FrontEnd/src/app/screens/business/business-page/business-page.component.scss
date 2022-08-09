@@ -158,10 +158,12 @@ $box-shadow: 0 5px 20px #cccccc;
             border-bottom: 1px solid black;
         }
         .content{
-            display: flex;
-            justify-content: space-between;
             padding: 10px 0px;
             border-bottom: 1px solid rgb(206, 206, 206);
+            .line{
+                display: flex;
+                justify-content: space-between;
+            }
         }
 
     }

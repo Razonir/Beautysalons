@@ -25,5 +25,12 @@ module.exports = class Priceing {
       'insert into priceing (bid,service,price) VALUES (?,?,?)',
       [price.bid,price.service,price.price]
       );
-  36  }
+  }
+
+  static updatePrice(price) {
+    return db.execute(
+      'update priceing set service = ? , price = ? where pid = ?',
+      [price.service,price.price,price.pid]
+      );
+  }
 };
