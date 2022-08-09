@@ -163,8 +163,12 @@ $box-shadow: 0 5px 20px #cccccc;
             .line{
                 display: flex;
                 justify-content: space-between;
+                .remove{
+                    cursor: pointer;
+                }
             }
         }
+        
 
     }
 }

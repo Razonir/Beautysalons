@@ -24,7 +24,13 @@ export class PriceingService {
     let url = this.baseURL+'update'
     return this.httpClient.post<any>(`${url}`,price);
   }
+
   
+  removeByPid(pid: any){
+    let url = this.baseURL+'deleteid/' + pid
+    return this.httpClient.delete(url);
+  }
+
   getAll(){
     return this.httpClient.get(this.baseURL);
   }

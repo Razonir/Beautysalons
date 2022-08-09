@@ -19,6 +19,8 @@ router.get('/:bid',PriceController.getByBid);
 
 router.post('/update/',PriceController.updatePrice);
 
-router.post('/delete/:pid',PriceController.deletePriceById);
+router.delete('/delete/:Bid',PriceController.deletePriceById);
+
+router.delete('/deleteid/:pid',PriceController.deletePriceByPid);
 
 module.exports = router;

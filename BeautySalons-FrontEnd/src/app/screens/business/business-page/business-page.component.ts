@@ -139,6 +139,12 @@ export class BusinessPageComponent implements OnInit {
     }
   }
 
+  removeprice(id:any){
+    this.priceingService.removeByPid(id).subscribe(
+      response => this.refreshpage(),
+      error => console.error('Error!', error)
+    );
+  }
 
   goToHome() {
     this.router.navigate(['/']);

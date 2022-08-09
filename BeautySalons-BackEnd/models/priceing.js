@@ -16,10 +16,13 @@ module.exports = class Priceing {
     return db.execute('SELECT * FROM priceing WHERE bid = ?',[bid]);
   }
 
-  static deletePriceById(pid) {
-    return db.execute('DELETE FROM priceing WHERE pid = ?',[pid]);
+  static deletePriceById(bid) {
+    return db.execute('DELETE FROM priceing WHERE bid = ?',[bid]);
   }
 
+  static deletePriceByPid(pid) {
+    return db.execute('DELETE FROM priceing WHERE pid = ?',[pid]);
+  }
   static createPrice(price) {
     return db.execute(
       'insert into priceing (bid,service,price) VALUES (?,?,?)',
