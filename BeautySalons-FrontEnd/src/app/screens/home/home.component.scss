@@ -1,14 +1,16 @@
 .gender{
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: end;
     position: fixed !important;
     width: 100%;
     z-index: 9999999 !important;
-    top: 0;
+  box-shadow: 0px 0px 200px 200px black;
+
     .women,.men{
         height: 50%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: end;
