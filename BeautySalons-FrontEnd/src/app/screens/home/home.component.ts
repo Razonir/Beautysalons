@@ -15,11 +15,9 @@ export class HomeComponent implements OnInit {
 
   goToHomeMale() {
     localStorage.setItem('gender','male')
-    this.router.navigate(['/home']);
   }
   goToHomeFemale() {
     localStorage.setItem('gender','female')
-    this.router.navigate(['/home']);
   }
   
 }
