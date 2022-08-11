@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
       localStorage.setItem('gender','female')
     }else{
       this.topTitle = 'אתר מותאם לגברים';
-      this.background = 'linear-gradient(90deg, #181818, #000)';
+      this.background = 'url(/assets/man.jpg)';
       this.color = 'black';
 
     }
