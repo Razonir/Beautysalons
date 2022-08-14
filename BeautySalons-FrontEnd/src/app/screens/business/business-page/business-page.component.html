@@ -95,9 +95,7 @@
 
     <div class="reviews">
         <div class="top">
-            <div class="title">ביקורות</div>
-            <a class="add" [style.color]="color">הוספת ביקורת</a>
-
+            <div class="title">ביקורות</div> 
         </div>
         <div class="content" *ngFor="let review of reviews">
             <div class="user">
@@ -118,9 +116,9 @@
                 </div>
                 <p class="reviewserror" [style.display]="reviewserror"
                     *ngIf="reviewCreate.reviewtext==undefined || reviewCreate.reviewtext=='' ">
-                    שדה חובה
+                שדה חובה
                 </p>
-                <input type="submit" class="create" value="פרסם ביקורת" [style.background]="background" />
+                <input type="submit" class="create" value="{{reviewE}}" [style.background]="background" />
 
             </form>
         </div>

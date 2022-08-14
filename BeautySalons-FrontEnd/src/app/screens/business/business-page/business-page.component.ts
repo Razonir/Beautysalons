@@ -41,6 +41,7 @@ export class BusinessPageComponent implements OnInit {
   gender: any;
   editpricedisplay = 'none';
   addpricedisplay = 'none';
+  
 
   constructor(private router: Router,
     private businessService: BusinessService,
@@ -91,6 +92,7 @@ export class BusinessPageComponent implements OnInit {
 
 
   }
+  reviewE = 'פרסם ביקורת';
 
 
   add() {
@@ -102,11 +104,13 @@ export class BusinessPageComponent implements OnInit {
       if (localStorage.getItem('uid') != undefined) {
         this.userid = localStorage.getItem('uid');
         this.reviewCreate.uid = this.userid;
+        this.reviewService.createReview(this.reviewCreate).subscribe(
+          response => this.refreshpage(),
+          error => console.error('Error!', error)
+        );
+      }else{
+        this.reviewE = 'זמין למשתמשים רשומים בלבד';
       }
-      this.reviewService.createReview(this.reviewCreate).subscribe(
-        response => this.refreshpage(),
-        error => console.error('Error!', error)
-      );
     }
   }
 
@@ -163,7 +167,7 @@ export class BusinessPageComponent implements OnInit {
     fd.append("upload_preset","otpixt53");
     fd.append('file',this.selectedFile)
     this.http.post('https://api.cloudinary.com/v1_1/decne4dss/image/upload',fd).subscribe(res=>{
-      this.photo = res;
+      this.photo = res; 
       this.photo = this.photo.secure_url;
       this.photoOb.url = this.photo;
       this.photoOb.bid = this.route.snapshot.params['bid'];
