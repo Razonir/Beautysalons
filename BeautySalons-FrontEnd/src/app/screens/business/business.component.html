@@ -1,15 +1,18 @@
 <div class="fullpage">
     <div class="top" [style.background]="background">
-        <div class="search">
+        <div class="search">3
             <input type="text" placeholder="הקלידו שם העיר" [(ngModel)]="bcitytype">
         </div>
     </div>
     <div class="bottom">
+        <div class="result">תוצאות חיפוש: {{itype}}</div>
         <div class="empty">אנו מצטערים אך אין עסק מתאים </div>
         <div class="all-business">
             <div class="business" *ngFor="let item of businessData">
-                <div *ngIf="city(item.bcity) && item.bgender == gender">
-                    <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"  bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
+                <div *ngIf="city(item.bcity) && item.bgender == gender && itypecheck(item.bsubject)">
+                    <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"
+                        bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
+                        blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
                 </div>
             </div>
         </div>
