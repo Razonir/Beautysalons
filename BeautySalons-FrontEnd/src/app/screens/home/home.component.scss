@@ -1,61 +1,31 @@
-.gender{
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    position: fixed !important;
+.full{
+    height:100vh;
+    top: 0;
+    right: 0;
     width: 100%;
-    z-index: 9999999 !important;
-  box-shadow: 0px 0px 200px 200px black;
-
-    .women,.men{
-        height: 50%;
-        width: 100%;
+    position: fixed;
+    z-index: 999999;
+    .top{
+        background-image: url(/assets/homebg.jpg);
+        background-position: bottom;
+        background-size: cover;    
+        height: 50vh;
+        margin-bottom: -40px;
+    }
+    .bottom{
         display: flex;
         flex-direction: column;
-        justify-content: end;
-        padding: 0px 10%;
-        padding-bottom: 20px;
-        .text{
+        gap: 20px;
+        width: 100%;
+        padding: 50px 10% 100px;
+        background-color: white;
+        border-radius: 50px 50px 0 0 ;
+        text-align: center;
+        box-shadow: 0 0 200px rgba(108, 108, 108, 0.423);
+        .title{
             font-size: 30px;
-            font-weight: 600;
-        }
-        .subtext{
-            font-size: 17px;
-            margin-bottom: 30px;
-            
+            font-weight: bold;
         }
     }
-    .men{
-        background-image: url(/assets/man.jpg);
-        background-size: cover;
-        background-position: center;
-        
-        .text{
-            color: white;
-        }
-        .subtext{
-            color: white;
-        }
-    }
-    .women{
-        background-image: url(/assets/women.jpg);
-        background-size: cover;
-        background-position: center;
-        .text{
-            color: white;
-        }
-        .subtext{
-            color: white;
-        }
-    }
-}
 
-@media screen and (min-width: 600px){
-    .gender{
-        flex-direction: row;
-        .women,.men{
-            height: 100%;
-        }
-    }
 }
