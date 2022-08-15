@@ -1,13 +1,15 @@
 .top {
     background: linear-gradient(90deg, #6a18c7, #9d69da);
-    border-radius: 0 0 20px 20px;    
+    border-radius: 0 0 20px 20px;
     padding-top: 20px;
+
     .search {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         padding-bottom: 20px;
+
         input {
             border-radius: 40px;
             background-color: rgba(255, 255, 255, 0.203);
@@ -32,17 +34,24 @@
 .bottom {
     position: relative;
     padding-bottom: 40px;
-    .empty{
+
+    .empty {
         position: absolute;
         left: 50%;
         top: 50px;
-        transform: translate(-50% ,50%);
+        transform: translate(-50%, 50%);
         text-align: center;
     }
+    .result{
+        text-align: center;
+    }
+    
+
     .all-business {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+
         .business {
             max-width: 500px;
             width: 100%;

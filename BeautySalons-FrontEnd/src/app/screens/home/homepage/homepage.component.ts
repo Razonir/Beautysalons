@@ -10,8 +10,8 @@ export class HomepageComponent implements OnInit {
 
 
   topTitle = 'אתר מותאם לנשים'
-  background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
-  color = '#6a18c7'
+  background = 'url(/assets/homebgblack.jpg)';
+  color = 'black'
   businessData:any;
   gender: any;
   constructor(private businessService: BusinessService) { }
@@ -20,7 +20,7 @@ export class HomepageComponent implements OnInit {
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
-      localStorage.setItem('gender','female')
+      localStorage.setItem('gender','female');
     }else{
       this.topTitle = 'אתר מותאם לגברים';
       this.background = 'url(/assets/man.jpg)';

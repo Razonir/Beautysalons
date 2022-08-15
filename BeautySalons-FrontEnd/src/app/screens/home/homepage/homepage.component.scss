@@ -2,10 +2,11 @@
     .top {
         display: flex;
         color: white;
-        border-radius: 0 0 50% 50%;
+        justify-content: center;
         font-weight: bold;
-        background-position: center !important;
+        background-position: bottom !important;
         height: 50vh;
+        margin-bottom: -40px;
         background-size: cover !important;
         .right {
             width: 100%;
@@ -20,16 +21,17 @@
                 margin-bottom: 10px;
             }
             app-button{
-                width: 30%;
+                width: 70%;
             }
 
         }
     }
 
     .all {
-        background-color: #edf4f7;
+        background-color: #f7f6fb;
         padding: 20px 5%;
-
+        border-radius: 30px 30px 0 0 ;
+        box-shadow: 0 0 200px rgba(108, 108, 108, 0.423);
         .service {
             .title {
                 font-weight: bold;
