@@ -39,7 +39,6 @@ export class BusinessPageComponent implements OnInit {
   background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
   color = '#6a18c7'
   gender: any;
-  editpricedisplay = 'none';
   addpricedisplay = 'none';
   
 
@@ -176,4 +175,10 @@ export class BusinessPageComponent implements OnInit {
     })
   }
 
+  haveprice(){
+    if(this.prices.length == 0){
+      return false;
+    }
+    return true;
+  }
 }

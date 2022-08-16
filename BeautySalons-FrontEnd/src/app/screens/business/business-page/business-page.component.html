@@ -30,10 +30,9 @@
         </div>
     </div>
 
-    <div class="prices">
+    <div class="prices" *ngIf="haveprice() || uid == buid">
         <div class="top">
             <div class="title">מחירון</div>
-            <div class="edit" (click)="editpricedisplay=='block' ? editpricedisplay='none' : editpricedisplay='block'" *ngIf="uid == buid">עריכה</div>
             <div class="add" (click)="addpricedisplay=='block' ? addpricedisplay='none' : addpricedisplay='block'" *ngIf="uid == buid">הוספה</div>
         </div>
         <div class="content" *ngFor="let price of prices">
@@ -46,28 +45,7 @@
                     {{price.price}}
                 </div>
             </div>
-            <div class="add-price" [style.display]="editpricedisplay" *ngIf="uid == buid">
-                <form (ngSubmit)="editprice(price.pid)">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="שירות" [(ngModel)]='priceCreate.service'
-                            name="service" required>
-                    </div>
-                    <p class="priceserror" [style.display]="priceserror"
-                        *ngIf="priceCreate.service==undefined || priceCreate.service=='' ">
-                        שדה חובה
-                    </p>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="מחיר" [(ngModel)]='priceCreate.price'
-                            name="price" required>
-                    </div>
-
-                    <p class="priceserror" [style.display]="priceserror" *ngIf="priceCreate.price==undefined ">
-                        שדה חובה
-                    </p>
-                    <input type="submit" class="create" value="שינוי מחיר" [style.background]="background" />
-
-                </form>
-            </div>
+       
         </div>
         <div class="add-price" [style.display]="addpricedisplay" *ngIf="uid == buid">
             <form (ngSubmit)="addprice()">
