@@ -17,11 +17,14 @@ export class BusinessComponent implements OnInit {
 
   businessData: any;
   bcitytype: any;
-  itype = 'הכל'
+  itype:any;
 
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
-    this.itype = history.state.data.name;
+    this.itype = history?.state?.data?.name;
+    if(this.itype == undefined){
+      this.itype = 'הכל';
+    }
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
@@ -47,7 +50,7 @@ export class BusinessComponent implements OnInit {
   }
 
   itypecheck(itype:string){
-    if(itype == 'הכל'){
+    if(this.itype == 'הכל'){
       return true;
     }
     if(itype==this.itype){
