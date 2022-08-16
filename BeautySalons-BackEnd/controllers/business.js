@@ -58,9 +58,7 @@ exports.updateById = async (req, res, next) => {
     const bcity = req.body.bcity;
     const baddress = req.body.baddress;
     const bphone = req.body.bphone;
-    const bsubject = req.body.bsubject;
-    const blogo = req.body.blogo;
-    
+    const bsubject = req.body.bsubject;    
     try {
         const businessDetails = {
             bid: bid,
@@ -73,7 +71,6 @@ exports.updateById = async (req, res, next) => {
             baddress: baddress,
             bphone: bphone,
             bsubject: bsubject,
-            blogo: blogo,
         };
         const result = await Business.updateById(businessDetails);
         res.status(201).json({ message: 'Business update!' });

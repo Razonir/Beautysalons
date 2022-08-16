@@ -29,22 +29,7 @@ export class EditComponent implements OnInit {
       this.business.bsubject = this.data[0].bsubject;
       this.business.bdescriptions = this.data[0].bdescriptions;
       this.business.instegram = this.data[0].instegram;
-      this.business.blogo = this.data[0].blogo;
-
     });
-  }
-
-  logourl: any;
-  selectedFile: any;
-  onFileSelected(event: any){
-    this.selectedFile = <File>event.target.files[0];
-    const fd = new FormData();
-    fd.append("upload_preset","otpixt53");
-    fd.append('file',this.selectedFile)
-    this.http.post('https://api.cloudinary.com/v1_1/decne4dss/image/upload',fd).subscribe(res=>{
-      this.logourl = res;
-      this.logourl = this.logourl.secure_url;
-    })
   }
 
 
@@ -56,13 +41,10 @@ export class EditComponent implements OnInit {
         this.business.barea == undefined || this.business.barea == '' ||
         this.business.bcity == undefined || this.business.bcity == '' ||
         this.business.baddress == undefined || this.business.baddress == '' ||
-        this.business.bphone == undefined || this.business.bphone == '' ||
-        this.logourl== undefined || this.logourl == '' ||
-        this.business.bsubject == undefined || this.business.bsubject == '') {
+        this.business.bphone == undefined || this.business.bphone == '' ||        this.business.bsubject == undefined || this.business.bsubject == '') {
       this.displylcraeteerrors = "flex";
     } else {
       this.business.bid = this.route.snapshot.params['bid'];
-      this.business.blogo = this.logourl;
       console.log(this.business)
       this.businessService.updateById(this.business).subscribe(
         response => this.goToHome(),

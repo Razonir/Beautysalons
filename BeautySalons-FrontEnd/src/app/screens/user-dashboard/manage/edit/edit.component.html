@@ -114,16 +114,8 @@
             <p class="createerror" [style.display]="displylcraeteerrors"
                 *ngIf="business.instegram==undefined || business.instegram=='' ">
                 שדה חובה
-            </p>
-                <p class="form-control">
-                    לוגו
-                    <input type="file" (change)="onFileSelected($event)" class="form-control" id="inputGroupFile03">
-                </p>
-            <p class="createerror" [style.display]="displylcraeteerrors"
-                *ngIf="logourl==undefined || logourl=='' ">
-                שדה חובה
-            </p>            
-            <input type="submit" class="create" value="צור עסק" />
+            </p>   
+            <input type="submit" class="create" value="עריכת עסק" />
         </form>
     </div>
 </div>

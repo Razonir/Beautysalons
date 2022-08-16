@@ -69,8 +69,8 @@ module.exports = class Business {
     static updateById(business) {
       var date = new Date();
       return db.execute(
-        'update Business set bname = ? , instegram = ? , bdescriptions = ? ,bgender = ? , barea = ? , bcity = ? , baddress = ?, bphone = ? , bsubject = ? , blogo = ? , lastUpdate = ? where bid = ?',
-         [business.bname,business.instegram,business.bdescriptions,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,business.blogo,date,business.bid]
+        'update Business set bname = ? , instegram = ? , bdescriptions = ? ,bgender = ? , barea = ? , bcity = ? , baddress = ?, bphone = ? , bsubject = ?, lastUpdate = ? where bid = ?',
+         [business.bname,business.instegram,business.bdescriptions,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,date,business.bid]
         );
       }
 
