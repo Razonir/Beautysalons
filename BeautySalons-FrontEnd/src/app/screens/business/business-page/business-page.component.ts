@@ -40,8 +40,10 @@ export class BusinessPageComponent implements OnInit {
   color = '#6a18c7'
   gender: any;
   addpricedisplay = 'none';
-  
-
+  popupdisplay = 'none';
+  link:any;
+  linkdisplay = 'none';
+  icondisplay = 'block';
   constructor(private router: Router,
     private businessService: BusinessService,
     private reviewService: ReviewService,
@@ -52,6 +54,7 @@ export class BusinessPageComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.link = window.location.href;
     this.uid = localStorage.getItem('uid');
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
@@ -180,5 +183,11 @@ export class BusinessPageComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  linkclick(){
+    navigator.clipboard.writeText(this.link)
+    this.linkdisplay = 'block';
+    this.icondisplay = 'none';
   }
 }
