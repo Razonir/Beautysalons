@@ -7,6 +7,7 @@ const reviewRouter = require('./routes/review');
 const priceingRouter = require('./routes/priceing');
 const businessRouter = require('./routes/business')
 const photosRouter = require('./routes/photos')
+const blogRouter = require('./routes/blog')
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/user', userRouter);
 app.use('/review', reviewRouter);
 app.use('/priceing', priceingRouter);
 app.use('/business', businessRouter);
+app.use('/blog', blogRouter);
 app.use('/photos', photosRouter);
 
 app.use(errorController.get404);

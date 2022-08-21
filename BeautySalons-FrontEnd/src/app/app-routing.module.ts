@@ -18,6 +18,8 @@ import { ContactComponent } from './screens/contact/contact.component';
 import { HomepageComponent } from './screens/home/homepage/homepage.component';
 import { EditComponent } from './screens/user-dashboard/manage/edit/edit.component';
 import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
+import { BlogsComponent } from './screens/blogs/blogs.component';
+import { BlogPageComponent } from './screens/blogs/blog-page/blog-page.component';
 
 
 const routes: Routes = [
@@ -38,6 +40,19 @@ const routes: Routes = [
       {
         path: ':bid',
         component: BusinessPageComponent
+      }
+    ]
+  },
+  {
+    path: 'blog',
+    children: [
+      {
+        path: '',
+        component: BlogsComponent
+      },
+      {
+        path: ':bid',
+        component: BlogPageComponent
       }
     ]
   },

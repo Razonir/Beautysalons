@@ -90,15 +90,10 @@
             <div class="title">ביקורות</div> 
         </div>
         <div class="content" *ngFor="let review of reviews">
-            <div class="user">
-                {{review.userfname}} {{review.userlname}}
-            </div>
-            <div class="reviewtext">
-                {{review.reviewtext}}
-            </div>
-            <div class="reviewdate">
-                {{review.reviewdate}}
-            </div>
+            <app-review userfname="{{review.userfname}}" 
+                        userlname="{{review.userlname}}"
+                        reviewtext="{{review.reviewtext}}"
+                        reviewdate="{{review.reviewdate}}"></app-review>
         </div>
         <div class="add-reviews">
             <form (ngSubmit)="add()">

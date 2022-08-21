@@ -160,26 +160,6 @@ $box-shadow: 0 5px 20px #cccccc;
             justify-content: space-between;
             border-bottom: 1px solid black;
         }
-        .content{
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-            padding: 5px 0px 10px;
-            border-bottom: 1px solid rgb(206, 206, 206);
-            .user{
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-
-            .reviewdate{
-                font-size: 10px;
-                color: gray;
-                position: absolute;
-                left: 0px;
-            }
-        }
-
     }
     .prices{
         background-color: white;

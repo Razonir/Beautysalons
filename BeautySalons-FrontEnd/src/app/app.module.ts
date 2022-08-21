@@ -33,6 +33,10 @@ import { EditComponent } from './screens/user-dashboard/manage/edit/edit.compone
 import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
 import { PhotoComponent } from './component/photo/photo.component';
 import { ReportComponent } from './component/report/report.component';
+import { BlogsComponent } from './screens/blogs/blogs.component';
+import { BlogPageComponent } from './screens/blogs/blog-page/blog-page.component';
+import { BlogcardComponent } from './component/blogcard/blogcard.component';
+import { ReviewComponent } from './component/review/review.component';
 
 
 @NgModule({
@@ -60,7 +64,11 @@ import { ReportComponent } from './component/report/report.component';
     EditComponent,
     EditUserComponent,
     PhotoComponent,
-    ReportComponent
+    ReportComponent,
+    BlogsComponent,
+    BlogPageComponent,
+    BlogcardComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
