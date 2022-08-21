@@ -1,9 +1,4 @@
-$base-color: #6a18c7;
-$first-color: #eeeeee;
-$sec-color: #393E46;
-$sec-small-color: #c9c9c9;
-$box-shadow: 0 5px 20px #cccccc;
-
+$base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-color: #c9c9c9; $box-shadow: 0 5px 20px #cccccc;
 .fullpage{
     position: relative;
     line-height: 1rem;
@@ -26,8 +21,7 @@ $box-shadow: 0 5px 20px #cccccc;
         }
         .baddress-bcity{
             color: gray;
-        }
-        
+        } 
     }
     .contact-icons{
         display: flex;
@@ -186,9 +180,6 @@ $box-shadow: 0 5px 20px #cccccc;
 
     }
 }
-
-
-
 .add-reviews,.add-price{
     form{
         .input-group {
@@ -206,7 +197,6 @@ $box-shadow: 0 5px 20px #cccccc;
                     border-bottom: 1px solid $base-color  !important;
                 }
             }
-        
             .input-group-text {
                 border: none !important;
                 background-color: $sec-color;
@@ -214,7 +204,6 @@ $box-shadow: 0 5px 20px #cccccc;
                 border-radius: 5px !important;
                 height: 25px;
             }
-        
         }
         .input-group:focus + .input-group-text{
                 background-color: $base-color;
@@ -234,7 +223,6 @@ $box-shadow: 0 5px 20px #cccccc;
                 background-color: $sec-color;
             }
         }
-
     }
 }
 .reviewserror,.priceserror{
