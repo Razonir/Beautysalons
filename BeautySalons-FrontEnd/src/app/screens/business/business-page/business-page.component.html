@@ -1,7 +1,4 @@
 <div class="fullpage" *ngIf="data as item">
-    <i id="gender" class="{{male ? 'fas fa-mars' : 'none' }}"></i>
-    <i id="gender" class="{{female ? 'fas fa-venus' : 'none' }}"></i>
-    <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>
     <div class="contact-icons">
         <a class="icon" href="tel:+{{item.bphone}}" [style.background]="background">
             <i class="fas fa-phone"></i>
@@ -28,9 +25,13 @@
         <div class="copy" [style.display]="linkdisplay">הלינק הועתק ללוח</div>
     </div>
     <div class="topcontent">
+        
         <div class="bname">{{item.bname}}</div>
         <div class="bsubject">{{item.bsubject}}</div>
         <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
+        <i id="gender" class="{{male ? 'fas fa-mars' : 'none' }}"></i>
+        <i id="gender" class="{{female ? 'fas fa-venus' : 'none' }}"></i>
+        <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>
     </div>
     <div class="bdescriptions">{{item.bdescriptions}}</div>
 

@@ -2,12 +2,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
 .fullpage{
     position: relative;
     line-height: 1rem;
-    #gender{
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-    }
     .topcontent{
         display: flex;
         align-items: center;
