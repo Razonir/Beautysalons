@@ -1,26 +1,26 @@
 <div class="fullpage" *ngIf="data as item">
     <div class="contact-icons">
-        <a class="icon" href="tel:+{{item.bphone}}" [style.background]="background">
+        <a class="icon" href="tel:+{{item.bphone}}" [style.background]="background"  target="_blank">
             <i class="fas fa-phone"></i>
         </a>
-        <a class="icon" href="https://wa.me/{{item.bphone}}?text=" [style.background]="background">
+        <a class="icon" href="https://wa.me/{{item.bphone}}?text=" [style.background]="background"  target="_blank">
             <img class="instegram" src="/assets/whatsapp.png">
         </a>
         <div class="logo">
             <img src={{item.blogo}}>
         </div>
-        <a class="icon" href="https://www.instagram.com/{{item.instegram}}" [style.background]="background">
+        <a class="icon" href="https://www.instagram.com/{{item.instegram}}" [style.background]="background"  target="_blank">
             <img class="instegram" src="/assets/instegram.webp">
         </a>
-        <a class="icon" (click)="popupdisplay = 'flex'" [style.background]="background">
+        <a class="icon" (click)="popupdisplay = 'flex'" [style.background]="background"  target="_blank">
             <i class="fas fa-share"></i>
         </a>
     </div>
     <div class="sharepopup" [style.display]= 'popupdisplay'>
         <div class="exit " (click)="popupdisplay ='none' ">X</div>
-        <a href="https://api.whatsapp.com/send?text={{link}}" [style.display]="icondisplay"><img class="icon" src="/assets/whatsapp.png"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}" [style.display]="icondisplay"><img class="icon" src="/assets/facebook-logo.png"></a>
-        <a href="https://t.me/share/url?url={{link}}&text={{item.bname}}" [style.display]="icondisplay"><img class="icon" src="/assets/telegram.png"></a>
+        <a href="https://api.whatsapp.com/send?text={{link}}" [style.display]="icondisplay" target="_blank"><img class="icon" src="/assets/whatsapp.png"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}" [style.display]="icondisplay" target="_blank"><img class="icon" src="/assets/facebook-logo.png"></a>
+        <a href="https://t.me/share/url?url={{link}}&text={{item.bname}}" [style.display]="icondisplay" target="_blank"><img class="icon" src="/assets/telegram.png"></a>
         <img class="icon" src="/assets/link.png" [style.display]="icondisplay" (click)="linkclick()">
         <div class="copy" [style.display]="linkdisplay">הלינק הועתק ללוח</div>
     </div>
