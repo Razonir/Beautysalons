@@ -24,7 +24,9 @@ $box-shadow: 0 10px 10px #fd711425;
         .profile-image {
             width: 100px;
             height: 100px;
-            background-color: $sec-color;
+            background-image: url(/assets/bs.jpg);
+            background-size: cover;
+            background-position: center;
             border-radius: 28px;
             margin-bottom: 50px;
             margin-top: 20px;

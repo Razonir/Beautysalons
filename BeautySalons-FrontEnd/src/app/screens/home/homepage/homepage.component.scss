@@ -22,6 +22,7 @@
             }
             app-button{
                 width: 70%;
+                max-width: 400px;
             }
 
         }
@@ -35,7 +36,7 @@
         .service {
             .title {
                 font-weight: bold;
-                margin-top: 10px;
+                margin: 0px;
             }
 
             .services {
@@ -47,23 +48,27 @@
             }
         }
 
-        .business {
-            margin-bottom: 10px;
-
-            .title {
-                margin-top: 20px;
-                margin-bottom: -10px;
-                font-weight: bold;
+        .all-business {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            .business {
+                max-width: 500px;
+                width: 100%;
+                margin: 0px 16px;
             }
+        }   
+        .title{
+            margin-bottom: -10px;
         }
-
         .blogs {
             margin-top: 10px;
 
             .title {
                 font-weight: bold;
+                margin-bottom: 5px;
             }
-
             .text {
                 text-align: center;
             }
@@ -72,6 +77,11 @@
 }
 
 .all,.business.blogs{
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
+}
+
+.title {
+    margin-top: 20px;
+    font-weight: bold;
 }

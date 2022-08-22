@@ -2,7 +2,13 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
 .fullpage{
     position: relative;
     line-height: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
     .topcontent{
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -27,6 +33,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         background-image: url(/assets/bg.png);
         background-position: center;
         background-size: cover;
+        width: 100%;
         margin-bottom: 35px;
         .logo{
             transform: translateY(50px);
@@ -105,6 +112,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         padding: 20px;
         border-radius: 20px;
         margin: 20px;
+        
     }
     .photos{
         display: flex;
@@ -113,6 +121,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         flex-wrap: wrap;
         gap: 5px;
         margin: 20px;
+        
         .addphoto{
             width: 120px;
             height: 120px;
@@ -226,4 +235,14 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
     justify-content: center;
     width: 100%;
     margin-bottom: 0px;
+}
+.bdescriptions,.photos,.prices,.reviews{
+    max-width: 800px;
+    width: 90%;    
+}
+.bdescriptions,.prices,.reviews{
+    box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
+}
+app-report{
+    width: 100%;
 }

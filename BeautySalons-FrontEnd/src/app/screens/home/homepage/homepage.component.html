@@ -18,18 +18,19 @@
 
             </div>
         </div>
-        <div class="business">
-            <div class="title">עסקים מובילים</div>
+        <div class="title">עסקים מובילים</div>
+        <div class="all-business">
             <div class="business" *ngFor="let item of businessData">
-                <div class="busines" *ngIf="item.bgender == gender">
+                <div class="busines">
                     <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"
                         bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
                         blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
                 </div>
+                
             </div>
-            <app-button link="/business" color="white" background="black" value="הצג הכל">
-            </app-button>
         </div>
+        <app-button link="/business" color="white" background="black" value="הצג הכל">
+        </app-button>
         <div class="blogs">
             <div class="title">בלוגים מובילים</div>
             <app-button link="/blog" color="white" background="black" value="הצג הכל"></app-button>

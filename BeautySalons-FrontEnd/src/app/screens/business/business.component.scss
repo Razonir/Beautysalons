@@ -33,15 +33,7 @@
 
 .bottom {
     position: relative;
-    padding-bottom: 40px;
-
-    .empty {
-        position: absolute;
-        left: 50%;
-        top: 50px;
-        transform: translate(-50%, 50%);
-        text-align: center;
-    }
+    padding: 20px 5%;
     .result{
         text-align: center;
     }

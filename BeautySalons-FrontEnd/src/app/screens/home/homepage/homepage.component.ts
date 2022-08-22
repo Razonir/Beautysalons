@@ -15,7 +15,6 @@ export class HomepageComponent implements OnInit {
   businessData:any;
   gender: any;
   constructor(private businessService: BusinessService) { }
-
   ngOnInit(): void {
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
@@ -27,8 +26,10 @@ export class HomepageComponent implements OnInit {
       this.color = 'black';
 
     }
+  
     this.businessService.getAll().subscribe((data)=>{
       this.businessData = data;
+      this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
     });
   }
 

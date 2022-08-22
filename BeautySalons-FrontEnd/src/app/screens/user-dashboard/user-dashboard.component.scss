@@ -10,9 +10,8 @@ $box-shadow: 0 10px 10px #fd711425;
         margin: 20px 50px;
         background: white;
         padding: 27px;
-        box-shadow: 0 30px 30px #cecece1e;
         max-width: 600px;
-        margin: 0 auto;
+        margin: 10vh auto;
         .top {
             display: flex;
             align-items: center;
@@ -22,7 +21,9 @@ $box-shadow: 0 10px 10px #fd711425;
             .profile-image {
                 width: 100px;
                 height: 100px;
-                background-color: $sec-color;
+                background-image: url(/assets/bs.jpg);
+                background-size: cover;
+                background-position: center;
                 border-radius: 28px;
                 margin-left: 20px;
             }

@@ -35,6 +35,8 @@ export class BusinessComponent implements OnInit {
     }
     this.businessService.getAll().subscribe((data)=>{
       this.businessData = data;
+      this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
+
     });
   }
 
