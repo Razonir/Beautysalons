@@ -110,7 +110,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        margin: 20px;
     }
     .photos{
         display: flex;
@@ -118,7 +117,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         justify-content: center;
         flex-wrap: wrap;
         gap: 5px;
-        margin: 20px;
         .addphoto{
             width: 120px;
             height: 120px;
@@ -147,7 +145,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        margin: 20px;
         .top{
             display: flex;
             justify-content: space-between;
@@ -158,7 +155,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        margin: 20px;
         .top{
             display: flex;
             justify-content: space-between;
@@ -223,15 +219,15 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
 }
 .reviewserror,.priceserror{
     color: red;
-    margin-top: -20px;
+    margin: -20px auto 0 auto;
     text-align: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 0px;
 }
 .bdescriptions,.photos,.prices,.reviews{
     max-width: 800px;
-    width: 90%;    
+    width: 90%;   
+    margin: 20px;
 }
 .bdescriptions,.prices,.reviews{
     box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
