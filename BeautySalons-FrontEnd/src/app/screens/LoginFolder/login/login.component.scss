@@ -8,7 +8,8 @@ $box-shadow: 0 10px 10px #fd711425;
     background-color: $first-color;
     padding: 0;
     margin: 0;
-
+    position: relative;
+    overflow: hidden;
     .col-md-4 {
         height: 91vh;
         width: 600px;
@@ -133,6 +134,7 @@ $box-shadow: 0 10px 10px #fd711425;
     z-index: 2;
     position: fixed;
     top: 0;
+    left: 0;
     display: none;
     justify-content: center;
     align-items: center;
@@ -201,38 +203,7 @@ select#usergender {
         border-bottom: 1px solid $base-color  !important;
     }
 }
-.input-group {
-    align-items: center;
 
-    .form-control {
-        background-color: $first-color;
-        border: none !important;
-        border-radius: 0;
-        border-bottom: 1px solid $sec-small-color  !important;
-
-        &:focus {
-            border-color: $sec-color;
-            box-shadow: none;
-            border-bottom: 1px solid $base-color  !important;
-        }
-    }
-
-    .input-group-text {
-        border: none !important;
-        background-color: $sec-color;
-        width: 20px;
-        border-radius: 5px !important;
-        height: 25px;
-    }
-    .label{
-        position: absolute;
-        right: 30px;
-    }
-
-}
-.input-group:focus + .input-group-text{
-        background-color: $base-color;
-}
 .next-step,
 .end-step {
     width: 100%;

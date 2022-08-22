@@ -2,8 +2,7 @@
     <div class="title">{{reporttext}}</div>
     <form (ngSubmit)="contactus()" [style.display]="reportshow">
         <div class="input-group mb-3">
-            <span class="input-group-text"></span>
-            <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]='contact.useremail'
+              <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]='contact.useremail'
                 name="email" required>
         </div>
         <p class="contacterror" [style.display]="displaycontacterrors"
@@ -11,8 +10,7 @@
             שדה חובה
         </p>
         <div class="input-group mb-3">
-            <span class="input-group-text"></span>
-            <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]='contact.userphone'
+              <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]='contact.userphone'
                 name="phone" required>
         </div>
         <p class="contacterror" [style.display]="displaycontacterrors"
@@ -20,8 +18,7 @@
             שדה חובה
         </p>
         <div class="input-group mb-3">
-            <span class="input-group-text"></span>
-            <textarea class="form-control" placeholder="תיאור קצר" [(ngModel)]='contact.usertext'
+              <textarea class="form-control" placeholder="תיאור קצר" [(ngModel)]='contact.usertext'
                 name="bdescriptions" rows="2" required></textarea>
         </div>
         <p class="contacterror" [style.display]="displaycontacterrors"

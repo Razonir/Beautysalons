@@ -4,8 +4,7 @@
             <div class="title">שחכתי סיסמא</div>
             <form (ngSubmit)="forgetpassowrd()">
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input 
+                         <input 
                     type="text" 
                     class="form-control" 
                     placeholder="דואר אלקטרוני"   
@@ -25,7 +24,6 @@
         <div class="title">התחבר</div>
         <form (ngSubmit)="login()" class="login-group">
             <div class="input-group mb-3">
-                <span class="input-group-text"></span>
                 <input 
                 type="text" 
                 class="form-control" 
@@ -38,8 +36,7 @@
                 שדה חובה
             </p>
             <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input 
+                 <input 
                 type="password"
                 class="form-control" 
                 placeholder="סיסמא" 
@@ -82,47 +79,41 @@
         <form class="steps">
             <div [style.margin-top]="moveup" class="step first">
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]="user.useremail"
+                         <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]="user.useremail"
                         name="email">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.useremail==undefined || user.useremail=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
+                         <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
                         name="firstname">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userfname==undefined || user.userfname=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
+                         <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
                         name="lastname">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userlname==undefined || user.userlname=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]="user.userpassword"
+                         <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]="user.userpassword"
                         name="password">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userpassword==undefined || user.userpassword=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="password" class="form-control" placeholder="סיסמא שנית">
+                         <input type="password" class="form-control" placeholder="סיסמא שנית">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userpassword==undefined || user.userpassword=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
+                         <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
                         name="phone">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userphone==undefined || user.userphone=='' ">
@@ -132,8 +123,7 @@
             </div>
             <div class="step sec">
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <select class="form-select" 
+                         <select class="form-select" 
                     aria-label="Default select example"
                     id="usergender"
                     name="usergender"
@@ -148,16 +138,14 @@
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input type="text" class="form-control" placeholder="עיר" [(ngModel)]="user.usercity"
+                         <input type="text" class="form-control" placeholder="עיר" [(ngModel)]="user.usercity"
                         name="usercity">
                 </div>
                 <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.usercity==undefined || user.usercity=='' ">
                     שדה חובה
                 </p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"></span>
-                    <input 
+                         <input 
                     type="text" 
                     class="form-control" 
                     placeholder="כתובת" 

@@ -17,29 +17,7 @@ $box-shadow: 0 5px 20px #cccccc;
         text-align: center;
         font-size: 20px;
     }
-    .input-group {
-        align-items: center;
 
-        .form-control {
-            background-color: transparent;
-            border: none !important;
-            border-radius: 0;
-            border-bottom: 1px solid $sec-small-color  !important;
-
-            &:focus {
-                border-color: $sec-color;
-                box-shadow: none;
-                border-bottom: 1px solid $base-color  !important;
-            }
-        }
-
-        .input-group-text {
-            border: none !important;
-            background-color: $sec-color;
-            width: 20px;
-            border-radius: 5px !important;
-            height: 25px;
-        }
         input,textarea{
             color: white;
             &::placeholder{
@@ -47,17 +25,8 @@ $box-shadow: 0 5px 20px #cccccc;
             }
         }
 
-        .label {
-            position: absolute;
-            right: 30px;
-        }
 
-    }
-
-    .input-group:focus+.input-group-text {
-        background-color: $base-color;
-    }
-
+    
     .contactus {
         width: 100%;
         margin-top: 25px;

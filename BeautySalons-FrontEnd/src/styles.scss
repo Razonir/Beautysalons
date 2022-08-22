@@ -13,9 +13,8 @@ body{
 form{
     .input-group {
         align-items: center;
-    
         .form-control {
-            background-color: white;
+            background-color: transparent;
             border: none !important;
             border-radius: 0;
             border-bottom: 1px solid $sec-small-color  !important;
