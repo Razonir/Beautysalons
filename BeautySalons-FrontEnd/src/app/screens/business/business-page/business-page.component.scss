@@ -6,7 +6,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
     flex-direction: column;
     align-items: center;
     width: 100%;
-
     .topcontent{
         width: 100%;
         display: flex;
@@ -112,7 +111,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         padding: 20px;
         border-radius: 20px;
         margin: 20px;
-        
     }
     .photos{
         display: flex;
@@ -121,7 +119,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         flex-wrap: wrap;
         gap: 5px;
         margin: 20px;
-        
         .addphoto{
             width: 120px;
             height: 120px;
@@ -151,7 +148,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         padding: 20px;
         border-radius: 20px;
         margin: 20px;
-        
         .top{
             display: flex;
             justify-content: space-between;
@@ -179,8 +175,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
                 }
             }
         }
-        
-
     }
 }
 .add-reviews,.add-price{
@@ -221,7 +215,6 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
             padding: 10px 0;
             box-shadow: $box-shadow;
             transition: 0.5s;
-
             &:hover {
                 background-color: $sec-color;
             }
