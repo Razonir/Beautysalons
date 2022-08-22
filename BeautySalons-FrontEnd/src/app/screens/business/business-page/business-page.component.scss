@@ -173,50 +173,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         }
     }
 }
-.add-reviews,.add-price{
-    form{
-        .input-group {
-            align-items: center;
-        
-            .form-control {
-                background-color: white;
-                border: none !important;
-                border-radius: 0;
-                border-bottom: 1px solid $sec-small-color  !important;
-        
-                &:focus {
-                    border-color: $sec-color;
-                    box-shadow: none;
-                    border-bottom: 1px solid $base-color  !important;
-                }
-            }
-            .input-group-text {
-                border: none !important;
-                background-color: $sec-color;
-                width: 20px;
-                border-radius: 5px !important;
-                height: 25px;
-            }
-        }
-        .input-group:focus + .input-group-text{
-                background-color: $base-color;
-        }
-        .create {
-            width: 100%;
-            margin-top: 25px;
-            border-radius: 18px;
-            border: 0;
-            background-color: $base-color;
-            color: white;
-            padding: 10px 0;
-            box-shadow: $box-shadow;
-            transition: 0.5s;
-            &:hover {
-                background-color: $sec-color;
-            }
-        }
-    }
-}
+
 .reviewserror,.priceserror{
     color: red;
     margin: -20px auto 0 auto;
