@@ -26,13 +26,21 @@
                         bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
                         blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
                 </div>
-                
+
             </div>
         </div>
         <app-button link="/business" color="white" background="black" value="הצג הכל">
         </app-button>
+        <div class="title">בלוגים מובילים</div>
         <div class="blogs">
-            <div class="title">בלוגים מובילים</div>
-            <app-button link="/blog" color="white" background="black" value="הצג הכל"></app-button>
+            <div class="all-blogs">
+                <div class="blog" *ngFor="let item of blogData">
+                    <app-blogcard id="{{item.bid}}" btitle="{{item.btitle}}" blogo="{{item.blogo}}"
+                        bsubtitle="{{item.bsubtitle}}" bcontent="{{item.bcontent}}" bcreatedate="{{item.bcreatedate}}">
+                    </app-blogcard>
+                </div>
             </div>
+        </div>
+        <app-button link="/blog" color="white" background="black" value="הצג הכל"></app-button>
     </div>
+<div class="divaider"></div>

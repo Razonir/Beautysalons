@@ -5,10 +5,13 @@
         </div>
     </div>
     <div class="all">
-        <div class="all-blogs">
-            <div class="blog" *ngFor="let item of data">
-                <app-blogcard id="{{item.bid}}" btitle="{{item.btitle}}" blogo="{{item.blogo}}"
-                bsubtitle="{{item.bsubtitle}}" bcontent="{{item.bcontent}}" bcreatedate="{{item.bcreatedate}}"></app-blogcard>
+        <div class="blogs">
+            <div class="all-blogs">
+                <div class="blog" *ngFor="let item of data">
+                    <app-blogcard id="{{item.bid}}" btitle="{{item.btitle}}" blogo="{{item.blogo}}"
+                        bsubtitle="{{item.bsubtitle}}" bcontent="{{item.bcontent}}" bcreatedate="{{item.bcreatedate}}">
+                    </app-blogcard>
+                </div>
             </div>
         </div>
     </div>

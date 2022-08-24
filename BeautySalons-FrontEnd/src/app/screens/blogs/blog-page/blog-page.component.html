@@ -1,13 +1,17 @@
-<div class="fullpage">
-    <div class="top" [style.background]="background">
+<div class="fullpage" *ngIf="blogdata as item">
+    <div class="top" [style.background]="blogo">
         <div class="right">
-            <div class="text">מכוני היופי של ישראל</div>
+            <h1 class="title">{{item.btitle}}</h1>
+            <h2 class="subtutle">{{item.bsubtitle}}</h2>
         </div>
     </div>
     <div class="all">
         <div class="blogs">
-            <div class="title">בלוגים מובילים</div>
-            <div class="text">יעלו בקרוב...</div>
+            <div class="data">
+                <div class="read">{{readTime}}</div>
+                <div class="date">{{item.createdate}}</div>
+            </div>
+            <div class="content">{{item.bcontent}}</div>
         </div>
     </div>
 </div>

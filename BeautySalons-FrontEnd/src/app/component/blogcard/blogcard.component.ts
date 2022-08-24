@@ -17,6 +17,7 @@ export class BlogcardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.bcontent = this.bcontent.substr(0,170) + "...";
   }
 
 }

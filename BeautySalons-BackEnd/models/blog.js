@@ -25,6 +25,10 @@ module.exports = class Blog {
 
   static createBlog(blog) {
     var date = new Date();
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+    date = mm + '/' + dd + '/' + yyyy;    
     return db.execute(
       'insert into blogs (createdate,blogo,btitle,bsubtitle,bcontent) VALUES (?,?,?,?,?)',
       [date,blog.blogo,blog.btitle,blog.bsubtitle,blog.bcontent]

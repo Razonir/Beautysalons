@@ -58,8 +58,10 @@ module.exports = class Business {
     var like = 0;
     var view = 0;
     var date = new Date();
-    var date = new Date();
-    return db.execute(
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+    date = mm + '/' + dd + '/' + yyyy;    return db.execute(
       'insert into Business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo,createdate,lastupdate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
       [business.uid,business.bname,business.bdescriptions,business.instegram,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,like,view,business.blogo,date,date]
       );
@@ -68,7 +70,11 @@ module.exports = class Business {
 
     static updateById(business) {
       var date = new Date();
-      return db.execute(
+      var dd = String(date.getDate()).padStart(2, '0');
+      var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = date.getFullYear();
+      date = mm + '/' + dd + '/' + yyyy;
+      document.write(today);      return db.execute(
         'update Business set bname = ? , instegram = ? , bdescriptions = ? ,bgender = ? , barea = ? , bcity = ? , baddress = ?, bphone = ? , bsubject = ?, lastUpdate = ? where bid = ?',
          [business.bname,business.instegram,business.bdescriptions,business.bgender,business.barea,business.bcity,business.baddress,business.bphone,business.bsubject,date,business.bid]
         );

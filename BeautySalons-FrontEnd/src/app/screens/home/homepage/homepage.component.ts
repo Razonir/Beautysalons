@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BlogService } from 'src/app/services/blog.service';
 import { BusinessService } from 'src/app/services/business.service';
 
 @Component({
@@ -13,8 +14,11 @@ export class HomepageComponent implements OnInit {
   background = 'url(/assets/homebgblack.jpg)';
   color = 'black'
   businessData:any;
+  blogData:any;
   gender: any;
-  constructor(private businessService: BusinessService) { }
+  bdata:any;
+  constructor(private businessService: BusinessService,
+              private blogService: BlogService) { }
   ngOnInit(): void {
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
@@ -24,12 +28,14 @@ export class HomepageComponent implements OnInit {
       this.topTitle = 'אתר מותאם לגברים';
       this.background = 'url(/assets/man.jpg)';
       this.color = 'black';
-
     }
   
     this.businessService.getAll().subscribe((data)=>{
       this.businessData = data;
       this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
+    });
+    this.blogService.getAll().subscribe((bdata)=>{
+      this.blogData = bdata;
     });
   }
 

@@ -6,8 +6,6 @@ import { PriceingService } from 'src/app/services/priceing.service';
 import { UserService } from 'src/app/services/user.service';
 import { PhotosService } from 'src/app/services/photos.service';
 import { Review } from 'src/app/model/review';
-import { Business } from 'src/app/model/business';
-import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import { Priceing } from 'src/app/model/priceing';
 import { HttpClient } from '@angular/common/http';
 import { Photos } from 'src/app/model/photos';

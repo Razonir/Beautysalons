@@ -63,16 +63,17 @@
             margin-bottom: -10px;
         }
         .blogs {
-            margin-top: 10px;
-
-            .title {
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-            .text {
-                text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            .all-blogs{
+                max-width: 500px;
+                width: 100%;
+                margin: 0px 16px;
             }
         }
+
     }
 }
 
@@ -84,4 +85,8 @@
 .title {
     margin-top: 20px;
     font-weight: bold;
+}
+
+.divaider{
+    margin-bottom: 60px;
 }
