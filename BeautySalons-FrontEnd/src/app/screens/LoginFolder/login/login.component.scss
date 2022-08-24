@@ -117,8 +117,10 @@ $box-shadow: 0 10px 10px #fd711425;
     }
 
     .col {
-        background-color: $sec-color;
+        background: url('/assets/homebg.jpg');
         display: flex;
+        background-position: center;
+        background-size: cover;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
