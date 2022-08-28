@@ -1,6 +1,5 @@
 $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-color: #c9c9c9; $box-shadow: 0 5px 20px #cccccc;
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body{
     background-color: #f3f3f3;
     max-width: 1200px;
@@ -8,7 +7,7 @@ body{
     box-shadow: 0 0 300px #6c6c6c2b;
 }
 *{
-    font-family: 'rubik';
+    font-family:Arial, Helvetica, sans-serif
 }
 
 form{
