@@ -222,3 +222,20 @@ exports.contact = async (req, res, next) => {
     }
 }
 
+exports.auto = async (req, res) => {
+
+    const token = req.body.token;
+    if(token){
+        const decode = jwt.verify(token, 'secret');
+
+        res.json({
+            login: true,
+            data: decode
+        });
+    }else{
+        res.json({
+            login: false,
+            data: 'error'
+        })
+    }
+}
