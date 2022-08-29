@@ -1,5 +1,6 @@
 
 # Angular Project Beautysalons
+<a href="https://beautys.netlify.app/?utm_source=github&utm_medium=github&utm_campaign=github&utm_id=github" target="_blank">live demo</a>
 
 
 ## Description
