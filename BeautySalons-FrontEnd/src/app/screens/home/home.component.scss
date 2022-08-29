@@ -8,6 +8,7 @@
     max-width: 1200px;
     margin: 0 auto;
     transform: translate(50%, -50%);
+    outline: rgb(224, 224, 224) 100vw solid;
     .top{
         background-image: url(/assets/homebg.jpg);
         background-position: bottom;
@@ -25,7 +26,6 @@
         text-align: center;
         align-items: center;
         border-radius: 30px;
-        box-shadow: 0 0 300px #6c6c6cc9; 
                 .title{
             font-size: 30px;
             margin: 0;

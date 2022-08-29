@@ -1,6 +1,13 @@
+.router{
+    background-color: #f3f3f3;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 300px #00000047;
+}
 @media screen and (max-width: 600px) {
     .router{
         margin: 0 0 60px 0;
+        
     }
     
 }

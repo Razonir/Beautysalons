@@ -8,9 +8,7 @@
         height: 50vh;
         margin-bottom: -40px;
         background-size: cover !important;
-        position: sticky;
-        top: 0;
-
+        background-attachment: fixed !important;
         .right {
             width: 100%;
             padding: 20px 5%;
@@ -38,7 +36,7 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
-            .all-blogs{
+            .blog{
                 max-width: 500px;
                 width: 100%;
                 margin: 0px 16px;

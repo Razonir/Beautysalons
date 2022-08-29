@@ -42,6 +42,7 @@ export class BusinessPageComponent implements OnInit {
   link:any;
   linkdisplay = 'none';
   icondisplay = 'block';
+  blackbackground:any;
   constructor(private router: Router,
     private businessService: BusinessService,
     private reviewService: ReviewService,
@@ -68,6 +69,7 @@ export class BusinessPageComponent implements OnInit {
       this.data = this.data[0];
       this.buid = this.data.uid;
       this.genderdata = this.data.bgender;
+      this.blackbackground = "url("+ this.data.blogo + ")";
       if (this.genderdata == 'male') {
         this.male = true;
       } else if (this.genderdata == 'female') {

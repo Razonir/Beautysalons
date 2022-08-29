@@ -29,9 +29,9 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         align-content: center;
         align-items: center;
         justify-content: center;
-        background-image: url(/assets/bg.png);
-        background-position: center;
-        background-size: cover;
+        background-position: center !important;
+        background-size: contain !important;
+        background-blend-mode: color;
         width: 100%;
         margin-bottom: 35px;
         .logo{
@@ -43,6 +43,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
                 outline: 6px solid rgba(255,255,255);
                 border-radius: 50%;
                 box-shadow: $box-shadow;
+                object-fit: cover;
 
             }
         }

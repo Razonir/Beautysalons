@@ -1,5 +1,5 @@
 <div class="fullpage" *ngIf="data as item">
-    <div class="contact-icons">
+    <div class="contact-icons" [style.background]="blackbackground">
         <a class="icon" href="tel:+{{item.bphone}}" [style.background]="background"  target="_blank">
             <i class="fas fa-phone"></i>
         </a>

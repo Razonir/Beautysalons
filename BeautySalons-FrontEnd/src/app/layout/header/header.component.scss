@@ -3,6 +3,9 @@
   z-index: 99999 !important;
   height: 50px;
   background-color: black;
+  .container-fluid{
+    max-width: 1200px;
+
   .icons {
     .icon {
       padding: 0px 10px;
@@ -12,6 +15,7 @@
   .navbar-brand{
     color: white;
   }
+}
 }
 
 @media screen and (max-width: 768px) {

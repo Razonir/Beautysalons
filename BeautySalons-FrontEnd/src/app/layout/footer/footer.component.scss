@@ -27,7 +27,8 @@
 .web{
     background: white;
     .content{
-
+        max-width: 1200px;
+        margin: 0 auto;
         .slider{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
