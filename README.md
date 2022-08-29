@@ -31,4 +31,4 @@ Every registered business receives a customized business page for him for free!
 <a href="https://beautys.netlify.app/" target="_blank">live demo</a>
 
 ![mobile](https://github.com/Razonir/Beautysalons/blob/master/BeautySalons-FrontEnd/src/assets/preview.png?raw=true)
-![pc](https://github.com/Razonir/Beautysalons/blob/master/BeautySalons-FrontEnd/src/assets/chrome-capture-2022-7-29.gif?raw=true)
+https://github.com/Razonir/Beautysalons/blob/master/BeautySalons-FrontEnd/src/assets/chrome-capture-2022-7-29.gif?raw=true
