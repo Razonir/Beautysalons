@@ -18,11 +18,11 @@ export class BusinessComponent implements OnInit {
   businessData: any;
   bcitytype: any;
   itype:any;
-  ititle: any;
+  ititle:any;
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
     this.itype = history?.state?.data?.name;
-    this.ititle = history?.state?.data?.title;
+    this.ititle = history?.state?.data?.name;
     if(this.itype == undefined || this.itype == 'הכל'){
       this.itype = 'הכל';
       this.businessService.getAll().subscribe((data)=>{
@@ -30,9 +30,10 @@ export class BusinessComponent implements OnInit {
         this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
       });
     }else{
-      this.businessService.getBusinessBySubject(this.itype).subscribe((data)=>{
+      this.businessService.getAll().subscribe((data)=>{
         this.businessData = data;
         this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
+        this.businessData = this.businessData.filter((s: { bsubject: any; }) => s.bsubject == this.itype);
       });
     }
     this.gender = localStorage.getItem('gender');

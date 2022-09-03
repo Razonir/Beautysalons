@@ -26,9 +26,6 @@ module.exports = class Business {
   }
 
   
-  static fetchBySubject(bsubject) {
-    return db.execute('SELECT * FROM Business WHERE bsubject = ?',[bsubject]);
-  }
 
 
   static findById(bid) {
