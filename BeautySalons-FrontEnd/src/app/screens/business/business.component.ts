@@ -18,10 +18,11 @@ export class BusinessComponent implements OnInit {
   businessData: any;
   bcitytype: any;
   itype:any;
-
+  ititle: any;
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
     this.itype = history?.state?.data?.name;
+    this.ititle = history?.state?.data?.title;
     if(this.itype == undefined || this.itype == 'הכל'){
       this.itype = 'הכל';
       this.businessService.getAll().subscribe((data)=>{

@@ -122,6 +122,8 @@ exports.fetchAll = async (req, res, next) => {
 exports.fetchBySubject = async (req, res, next) => {
     try {
         const [fetchBySubject] = await Business.fetchBySubject(req.params.bsubject);
+        console.log("work");
+        console.log(req.params.bsubject);
         res.status(200).json(fetchBySubject);
     } catch (err) {
         if (!err.statusCode) {
