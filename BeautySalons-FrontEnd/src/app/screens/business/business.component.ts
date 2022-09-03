@@ -22,8 +22,17 @@ export class BusinessComponent implements OnInit {
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
     this.itype = history?.state?.data?.name;
-    if(this.itype == undefined){
+    if(this.itype == undefined || this.itype == 'הכל'){
       this.itype = 'הכל';
+      this.businessService.getAll().subscribe((data)=>{
+        this.businessData = data;
+        this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
+      });
+    }else{
+      this.businessService.getBusinessBySubject(this.itype).subscribe((data)=>{
+        this.businessData = data;
+        this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
+      });
     }
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
@@ -33,11 +42,7 @@ export class BusinessComponent implements OnInit {
       this.background = 'linear-gradient(45deg, #181818, #000)';
       this.color = 'black';
     }
-    this.businessService.getAll().subscribe((data)=>{
-      this.businessData = data;
-      this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
 
-    });
   }
 
   city(icity:string){
@@ -46,16 +51,6 @@ export class BusinessComponent implements OnInit {
     }
     let len = this.bcitytype.length; 
     if(icity.substring(0,len)==this.bcitytype){
-        return true;
-    }
-    return false;
-  }
-
-  itypecheck(itype:string){
-    if(this.itype == 'הכל'){
-      return true;
-    }
-    if(itype==this.itype){
         return true;
     }
     return false;

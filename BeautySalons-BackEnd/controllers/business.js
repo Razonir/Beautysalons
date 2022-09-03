@@ -119,6 +119,18 @@ exports.fetchAll = async (req, res, next) => {
     }
 }
 
+exports.fetchBySubject = async (req, res, next) => {
+    try {
+        const [fetchBySubject] = await Business.fetchBySubject(req.params.bsubject);
+        res.status(200).json(fetchBySubject);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
 exports.getBusinessByUserId = async (req, res, next) => {
     try {
         const [getBusinessByUserId] = await Business.getBusinessByUserId(req.params.uid);

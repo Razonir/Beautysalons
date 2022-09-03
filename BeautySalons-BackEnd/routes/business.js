@@ -28,6 +28,8 @@ router.get('/:bid', BusinessController.findById);
 
 router.get('/', BusinessController.fetchAll ); 
 
+router.get('/:bsubject', BusinessController.fetchBySubject ); 
+
 router.get('/user/:uid', BusinessController.getBusinessByUserId);
 
 router.delete('/remove/:bid', BusinessController.deleteById);

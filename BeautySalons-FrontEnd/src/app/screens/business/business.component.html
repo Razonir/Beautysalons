@@ -8,7 +8,7 @@
         <div class="result">תוצאות חיפוש: {{itype}}</div>
         <div class="all-business">
             <div class="business" *ngFor="let item of businessData">
-                <div *ngIf="city(item.bcity) && itypecheck(item.bsubject)">
+                <div *ngIf="city(item.bcity)">
                     <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"
                         bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
                         blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>

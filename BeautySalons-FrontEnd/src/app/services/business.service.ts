@@ -32,6 +32,11 @@ export class BusinessService {
     return this.httpClient.get(this.baseURL);
   }
 
+  getBusinessBySubject(bsubject: any){
+    let url = this.baseURL+bsubject;
+    return this.httpClient.get(url);
+  }
+
   getBusinessById(bid: any){
     let url = this.baseURL+bid;
     return this.httpClient.get(url);

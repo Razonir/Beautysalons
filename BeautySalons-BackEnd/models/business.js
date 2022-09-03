@@ -25,6 +25,12 @@ module.exports = class Business {
     return db.execute('SELECT * FROM Business');
   }
 
+  
+  static fetchBySubject(bsubject) {
+    return db.execute('SELECT * FROM Business WHERE bsubject = ?',[bsubject]);
+  }
+
+
   static findById(bid) {
     return db.execute('SELECT * FROM Business WHERE bid = ?', [bid]);
   }
