@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
   useremail : "",
   userphone : "",
   usertext : "",
-  
+  url: ""
  }
 
   displaycontacterrors = "none";
@@ -29,6 +29,7 @@ export class ContactComponent implements OnInit {
     this.contact.usertext == undefined || this.contact.usertext == '') {
     this.displaycontacterrors = 'flex';
   } else {
+    this.contact.url = window.location.href;
     this.userService.contact(this.contact).subscribe();
     this.goToHome();
   }

@@ -210,8 +210,8 @@ exports.contact = async (req, res, next) => {
     const useremail = req.body.useremail;
     const userphone = req.body.userphone;
     const usertext = req.body.usertext;
-
-    const content = useremail + " " + userphone + " " + usertext;
+    const url = req.body.url;
+    const content = useremail + " " + userphone + " " + usertext + ",url: " + url;
     try {
         sendMails('razonir@Gmail.com', 'Bug found on BeautySalons', content);
     } catch (err) {
