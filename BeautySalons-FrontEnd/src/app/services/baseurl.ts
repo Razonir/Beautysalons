@@ -3,5 +3,5 @@
 // }
 
 export const serverUrl = {
-   url: "https://beautysalons-backend.herokuapp.com/business/"
+   url: "https://beautysalons-backend.herokuapp.com/"
 }
