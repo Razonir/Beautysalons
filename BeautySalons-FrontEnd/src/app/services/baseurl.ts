@@ -1,3 +1,7 @@
+// export const serverUrl = {
+//     url: "http://localhost:3001/"
+// }
+
 export const serverUrl = {
-    url: "http://localhost:3001/"
+   url: "https://beautysalons-backend.herokuapp.com/business/"
 }
