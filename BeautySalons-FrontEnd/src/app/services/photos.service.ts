@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Photos } from '../model/photos';
+import { serverUrl } from './baseurl';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Photos } from '../model/photos';
 export class PhotosService {
 
 
-  private baseURL = "https://beautysalons-backend.herokuapp.com/photos/";
+  private baseURL = serverUrl.url + "photos/";
   constructor(private httpClient: HttpClient) { }
 
   

@@ -4,13 +4,14 @@ import { User } from '../model/user';
 import { Observable, BehaviorSubject } from "rxjs";
 import { first, catchError, tap } from "rxjs/operators";
 import { ErrorHandlerService } from "./error-handler.service";
+import { serverUrl } from './baseurl';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseURL = "https://beautysalons-backend.herokuapp.com/user/";
+  private baseURL = serverUrl.url + "user/";
   constructor(private httpClient: HttpClient) { }
 
   httpOptions: { headers: HttpHeaders } = {

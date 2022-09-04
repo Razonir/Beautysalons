@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Review } from '../model/review';
+import { serverUrl } from './baseurl';
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
 
-  private baseURL = "https://beautysalons-backend.herokuapp.com/review/";
+  private baseURL = serverUrl.url + "review/";
 
   constructor(private httpClient: HttpClient) { }
   

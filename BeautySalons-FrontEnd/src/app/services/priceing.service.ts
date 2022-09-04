@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Priceing } from '../model/priceing';
+import { serverUrl } from './baseurl';
 @Injectable({
   providedIn: 'root'
 })
 export class PriceingService {
 
-  private baseURL = "https://beautysalons-backend.herokuapp.com/priceing/";
+  private baseURL = serverUrl.url + "priceing/";
   constructor(private httpClient: HttpClient) { }
 
   
