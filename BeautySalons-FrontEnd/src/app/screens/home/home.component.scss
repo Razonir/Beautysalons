@@ -1,13 +1,9 @@
 .full{
-    top: 50%;
-    right: 50%;
     width: 100%;
-    position: absolute;
-    height: 100vh;
+    height: 90vh;
     z-index: 999999;
     max-width: 1200px;
     margin: 0 auto;
-    transform: translate(50%, -50%);
     outline: rgb(224, 224, 224) 100vw solid;
     .top{
         background-image: url(/assets/homebg.jpg);

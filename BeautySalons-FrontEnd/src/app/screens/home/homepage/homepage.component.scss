@@ -9,6 +9,7 @@
         margin-bottom: -40px;
         background-size: cover !important;
         background-attachment: fixed !important;
+
         .right {
             width: 100%;
             padding: 20px 5%;
@@ -22,7 +23,8 @@
             .text {
                 margin-bottom: 10px;
             }
-            app-button{
+
+            app-button {
                 width: 70%;
                 max-width: 400px;
             }
@@ -37,6 +39,7 @@
         z-index: 1;
         border-radius: 10px 10px 0;
         max-width: 1400px;
+
         .service {
             .title {
                 font-weight: bold;
@@ -58,33 +61,45 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
+
             .business {
                 max-width: 500px;
                 width: 100%;
                 margin: 0px 16px;
             }
-        }   
-        .title{
+        }
+
+        .title {
             margin-bottom: -10px;
             text-align: center;
 
         }
+
         .blogs {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            overflow-x: scroll;
             margin-bottom: 20px;
-            .blog{
+            scroll-snap-type: x mandatory;
+            scroll-padding: 24px;
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .blog {
                 max-width: 500px;
-                width: 100%;
                 margin: 0px 16px;
+                padding-bottom: 10px;
+                flex: 0 0 80%;
+                scroll-snap-align: start;
             }
         }
 
     }
 }
 
-.all,.business.blogs{
+.all,
+.business.blogs {
     max-width: 100%;
     margin: 0 auto;
 }
@@ -96,7 +111,7 @@
 }
 
 @media screen and (max-width:764px) {
-    .divaider{
+    .divaider {
         margin-bottom: 60px;
     }
 }
