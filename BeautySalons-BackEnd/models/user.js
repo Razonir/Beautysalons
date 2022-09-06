@@ -26,16 +26,17 @@ module.exports = class User {
 //login
 
 static createUser(users) {
+  const role = 'user';
   return db.execute(
-    'INSERT INTO users (userfname,userlname, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ? ,? ,?,?,?)',
-    [users.userfname, users.userlname, users.useremail, users.userpassword,users.usergender,users.usercity,users.useraddress,users.userphone]
+    'INSERT INTO users (userfname,userlname, userrole, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ?, ? ,? ,?,?,?)',
+    [users.userfname, users.userlname,role ,users.useremail, users.userpassword,users.usergender,users.usercity,users.useraddress,users.userphone]
   );
 }
 
 static updateUser(users) {
   return db.execute(
-    'update users set userfname = ? , userlname = ? , usergender = ? , usercity = ? , useraddress = ? , userphone = ?',
-     [users.userfname,users.userlname,users.usergender,users.usercity,users.useraddress,users.userphone]
+    'update users set userfname = ? , userlname = ? , usergender = ? , usercity = ? , useraddress = ? , userphone = ? where userid = ?',
+     [users.userfname,users.userlname,users.usergender,users.usercity,users.useraddress,users.userphone,users.userid]
     );
 }
 

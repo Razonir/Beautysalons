@@ -14,14 +14,15 @@ export class EditUserComponent implements OnInit {
   user: User = new User();
   displysignuperrors = 'none';
   data:any;
-  userid:any;
+  token:any;
 
   constructor(private userService: UserService, private router: Router,private http: HttpClient,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.userid = localStorage.getItem('uid');
-    this.userService.getUserById(this.userid).subscribe((data)=>{
+    this.token = localStorage.getItem('token');
+    this.userService.getUserByToken(this.token).subscribe((data)=>{
       this.data = data;
+      this.user.userid = this.data[0].userid;
       this.user.userfname = this.data[0].userfname;
       this.user.userlname = this.data[0].userlname;
       this.user.usergender = this.data[0].usergender;
@@ -40,9 +41,7 @@ export class EditUserComponent implements OnInit {
     this.user.userphone == undefined || this.user.userphone == '') {
       this.displysignuperrors = "flex";
     } else {
-      this.user.userid = this.userid ;
-      console.log(this.user)
-      this.userService.updateById(this.user).subscribe(
+      this.userService.updateByJWT(this.user,this.token).subscribe(
         response => this.goToHome(),
         error => console.error('Error!', error)
       );

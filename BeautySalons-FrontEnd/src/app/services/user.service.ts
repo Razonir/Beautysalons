@@ -14,18 +14,16 @@ export class UserService {
   private baseURL = serverUrl.url + "user/";
   constructor(private httpClient: HttpClient) { }
 
-  httpOptions: { headers: HttpHeaders } = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" }),
-  };
-
   createUser(user: User){
     let registerUrl = this.baseURL+'createUser'
     return this.httpClient.post<any>(`${registerUrl}`,user);
   }
 
-  updateById(user: User){
+  updateByJWT(user: User, token:any){
     let registerUrl = this.baseURL+'update'
-    return this.httpClient.post<any>(`${registerUrl}`,user);
+    return this.httpClient.post<any>(`${registerUrl}`,user ,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
   login(user: User){
@@ -33,9 +31,11 @@ export class UserService {
     return this.httpClient.post<any>(`${login}`,user);
   }
   
-  getUserById(id: any){
-    let getUserById = this.baseURL+'user/'+id;
-    return this.httpClient.get(getUserById);
+  getUserByToken(token:any){
+    let getUserByToken = this.baseURL+'user/';
+    return this.httpClient.get(getUserByToken,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
   allUsers(){
@@ -54,7 +54,7 @@ export class UserService {
   }
 
   loggedIn(){
-    return (!!localStorage.getItem('token') && !!localStorage.getItem('uid'));
+    return (!!localStorage.getItem('token'));
   }
 
 }

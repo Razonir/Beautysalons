@@ -40,6 +40,7 @@ export class BusinessPageComponent implements OnInit {
   addpricedisplay = 'none';
   popupdisplay = 'none';
   link:any;
+  token: any;
   linkdisplay = 'none';
   icondisplay = 'block';
   blackbackground:any;
@@ -54,7 +55,11 @@ export class BusinessPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.link = window.location.href;
-    this.uid = localStorage.getItem('uid');
+    this.token = localStorage.getItem('token')
+    this.userService.getUserByToken(this.token).subscribe((user)=>{
+      this.uid = user;
+      this.uid = this.uid[0].userid
+    })
     this.gender = localStorage.getItem('gender');
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
@@ -103,9 +108,8 @@ export class BusinessPageComponent implements OnInit {
       } else {
       const id = +this.route.snapshot.params['bid'];
       this.reviewCreate.bid = id;
-      if (localStorage.getItem('uid') != undefined) {
-        this.userid = localStorage.getItem('uid');
-        this.reviewCreate.uid = this.userid;
+      if (localStorage.getItem('token') != undefined) {
+        this.reviewCreate.uid = this.uid;
         this.reviewService.createReview(this.reviewCreate).subscribe(
           response => this.refreshpage(),
           error => console.error('Error!', error)
@@ -179,7 +183,7 @@ export class BusinessPageComponent implements OnInit {
   }
 
   haveprice(){
-    if(this.prices.length == 0){
+    if(this.prices == undefined || this.prices.length == 0){
       return false;
     }
     return true;

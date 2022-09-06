@@ -25,9 +25,6 @@ module.exports = class Business {
     return db.execute('SELECT * FROM Business');
   }
 
-  
-
-
   static findById(bid) {
     return db.execute('SELECT * FROM Business WHERE bid = ?', [bid]);
   }
@@ -39,13 +36,14 @@ module.exports = class Business {
             db.execute('Delete FROM Business WHERE bid = ?', [bid])   
   }
 
-  static getBusinessByUserId(uid) {
+  static getBusinessByUserJWT(uid) {
     return db.execute('SELECT * FROM Business WHERE uid = ?', [uid]);
   }
 
   static visibleture(bid) {
     return db.execute('update Business set bvisibility="t" WHERE bid = ?', [bid]);
   }
+
   static visiblefalse(bid) {
     return db.execute('update Business set bvisibility="f" WHERE bid = ?', [bid]);
   }
@@ -57,6 +55,7 @@ module.exports = class Business {
   static addView(bid) {
     return db.execute('update Business set bviews = bviews+1  WHERE bid = ?', [bid]);
   }
+
   static createBusiness(business) {
     var like = 0;
     var view = 0;

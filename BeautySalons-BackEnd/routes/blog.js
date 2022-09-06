@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const BlogController = require('../controllers/blog');
+const auth = require('../middleware/auth');
 
-router.post('/create', BlogController.createBlog);
+router.post('/create',BlogController.createBlog);
 
 router.get('/:bid', BlogController.findById);
 

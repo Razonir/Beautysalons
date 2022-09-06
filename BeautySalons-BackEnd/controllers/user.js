@@ -51,9 +51,10 @@ exports.createUser = async (req, res, next) => {
 }
 
 
-exports.updateUser = async (req, res, next) => {
+exports.updateUserJWT = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return;
+    const id = req.userId;
     const userfname = req.body.userfname;
     const userlname = req.body.userlname;
     const usergender = req.body.usergender;
@@ -62,6 +63,7 @@ exports.updateUser = async (req, res, next) => {
     const userphone = req.body.userphone;
     try {
         const userDetails = {
+            userid: id,
             userfname: userfname,
             userlname: userlname,
             usergender: usergender,
@@ -69,6 +71,7 @@ exports.updateUser = async (req, res, next) => {
             useraddress: useraddress,
             userphone: userphone
         };
+
         const result = await User.updateUser(userDetails);
         res.status(201).json({ message: 'User update' });
     } catch (err) {
@@ -107,10 +110,11 @@ exports.fetchAllUsers = async (req, res, next) => {
     }
 }
 
-exports.getUserById = async (req, res, next) => {
+exports.getUserByJWT = async (req, res, next) => {
     try {
-        const [getUserById] = await User.getUserById(req.params.userid);
-        res.status(200).json(getUserById);
+
+        const [getUserByJWT] = await User.getUserById(req.userId);
+        res.status(200).json(getUserByJWT);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -118,11 +122,14 @@ exports.getUserById = async (req, res, next) => {
         next(err);
     }
 }
-
 exports.deleteUserById = async (req, res, next) => {
     try {
         const [deleteUserById] = await User.deleteUserById(req.params.userid);
-        res.status(201).json({ message: 'User delete!' });
+        if (deleteUserById.affectedRows == 0) {
+            res.status(404).json({ message: 'User Not Found!' });
+        } else {
+            res.status(201).json({ message: 'User delete!' });
+        }
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -191,10 +198,11 @@ exports.login = async (req, res, next) => {
         const token = jwt.sign(
             {
                 email: storedUser.useremail,
-                uid: storedUser.userid
+                uid: storedUser.userid,
+                role: storedUser.userrole
             },
             'secretfortoken',
-            { expiresIn: '1h' }
+            { expiresIn: '24h' }
         );
         res.status(200).json({ token: token, uid: storedUser.userid });
     } catch (err) {
@@ -225,14 +233,14 @@ exports.contact = async (req, res, next) => {
 exports.auto = async (req, res) => {
 
     const token = req.body.token;
-    if(token){
+    if (token) {
         const decode = jwt.verify(token, 'secret');
 
         res.json({
             login: true,
             data: decode
         });
-    }else{
+    } else {
         res.json({
             login: false,
             data: 'error'

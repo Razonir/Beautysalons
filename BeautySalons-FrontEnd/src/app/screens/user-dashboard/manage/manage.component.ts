@@ -12,14 +12,13 @@ export class ManageComponent implements OnInit {
 
   businessData: any;
   bcitytype: any;
-  uid: any;
+  token: any;
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
-    this.uid = localStorage.getItem('uid');
-    this.businessService.getBusinessByUserId(this.uid).subscribe((data)=>{
+    this.token = localStorage.getItem('token');
+    this.businessService.getBusinessByUserJWT(this.token).subscribe((data)=>{
       this.businessData = data;
     });
-
   }
 
   remove(bid: any){

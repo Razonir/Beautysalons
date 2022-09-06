@@ -14,12 +14,11 @@ export class PhotoComponent implements OnInit {
   @Input() pid = '0';
   @Input() bid = '0';
   @Input() buid = '0';
+  @Input() uid = '';
 
-  uid:any;
   
   ngOnInit(): void {
     this.url = 'url('+this.url+')';
-    this.uid = localStorage.getItem('uid');
   }
 
   remove(){

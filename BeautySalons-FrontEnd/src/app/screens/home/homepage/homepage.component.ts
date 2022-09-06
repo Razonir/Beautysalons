@@ -17,6 +17,7 @@ export class HomepageComponent implements OnInit {
   blogData:any;
   gender: any;
   bdata:any;
+  token:any;
   constructor(private businessService: BusinessService,
               private blogService: BlogService) { }
   ngOnInit(): void {

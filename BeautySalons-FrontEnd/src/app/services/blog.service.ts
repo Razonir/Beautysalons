@@ -11,22 +11,20 @@ export class BlogService {
 
   constructor(private httpClient: HttpClient) { }
 
-  httpOptions: { headers: HttpHeaders } = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" }),
-  };
-
   createBlog(blog: Blog){
     let registerUrl = this.baseURL+'create'
     return this.httpClient.post<any>(`${registerUrl}`,Blog);
   }
 
-  removeBlog(bid: any){
+  removeBlog(bid: any,token:any){
     let url = this.baseURL+'remove/' + bid
-    return this.httpClient.delete(url);
+    return this.httpClient.delete(url,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
   getAll(){
-    return this.httpClient.get(this.baseURL);
-  }
+    return this.httpClient.get(this.baseURL)
+  };
 
   getBlogById(bid: any){
     let url = this.baseURL+bid;
