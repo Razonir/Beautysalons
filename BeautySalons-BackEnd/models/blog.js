@@ -22,7 +22,6 @@ module.exports = class Blog {
     return  db.execute('DELETE FROM blogs WHERE bid = ?',[bid])
   }
 
-
   static createBlog(blog) {
     var date = new Date();
     var dd = String(date.getDate()).padStart(2, '0');

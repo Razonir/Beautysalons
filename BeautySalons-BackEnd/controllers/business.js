@@ -7,8 +7,7 @@ exports.createBusiness = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return;
     
-    const bid = req.body.bid;
-    const uid = req.body.uid;
+    const uid = req.userid;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
     const instegram = req.body.instegram;
@@ -119,10 +118,10 @@ exports.fetchAll = async (req, res, next) => {
     }
 }
 
-exports.getBusinessByUserId = async (req, res, next) => {
+exports.getBusinessByUserJWT = async (req, res, next) => {
     try {
-        const [getBusinessByUserId] = await Business.getBusinessByUserId(req.params.uid);
-        res.status(200).json(getBusinessByUserId);
+        const [getBusinessByUserJWT] = await Business.getBusinessByUserJWT(req.userId);
+        res.status(200).json(getBusinessByUserJWT);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

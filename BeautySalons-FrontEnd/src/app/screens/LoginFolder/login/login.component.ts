@@ -93,7 +93,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.userService.login(this.userlogin).subscribe(
         response => {
-          localStorage.setItem("uid", response.uid),
             localStorage.setItem("token", response.token),
             this.goToHome()
         },

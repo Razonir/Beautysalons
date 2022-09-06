@@ -45,7 +45,6 @@ export class EditComponent implements OnInit {
       this.displylcraeteerrors = "flex";
     } else {
       this.business.bid = this.route.snapshot.params['bid'];
-      console.log(this.business)
       this.businessService.updateById(this.business).subscribe(
         response => this.goToHome(),
         error => console.error('Error!', error)

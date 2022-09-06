@@ -4,7 +4,6 @@
     z-index: 999999;
     max-width: 1200px;
     margin: 0 auto;
-    outline: rgb(224, 224, 224) 100vw solid;
     .top{
         background-image: url(/assets/homebg.jpg);
         background-position: bottom;
@@ -17,7 +16,7 @@
         flex-direction: column;
         gap: 0px;
         width: 100%;
-        padding: 10px 10% 150px;
+        padding: 10px;
         background-color: white;
         text-align: center;
         align-items: center;

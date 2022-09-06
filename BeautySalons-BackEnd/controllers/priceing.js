@@ -51,18 +51,6 @@ exports.getByBid = async (req, res, next) => {
     }
 }
 
-exports.deletePriceById = async (req, res, next) => {
-    try {
-        const [deletePriceById] = await Priceing.deletePriceById(req.params.pid);
-        res.status(201).json({ message: 'Price delete!' });
-    } catch (err) {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
-    }
-}
-
 exports.deletePriceByPid = async (req, res, next) => {
     try {
         const [deletePriceByPid] = await Priceing.deletePriceByPid(req.params.pid);

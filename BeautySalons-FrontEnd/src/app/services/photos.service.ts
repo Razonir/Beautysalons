@@ -20,7 +20,6 @@ export class PhotosService {
 
   createPhoto(photos: Photos){
     let createUrl = this.baseURL+'create'
-    console.log(photos);
     return this.httpClient.post<any>(`${createUrl}`,photos);
   }
 

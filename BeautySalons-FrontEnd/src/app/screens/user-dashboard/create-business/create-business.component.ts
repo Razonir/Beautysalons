@@ -19,7 +19,9 @@ export class CreateBusinessComponent implements OnInit {
   }
   
   logourl: any;
+  token: any; 
   selectedFile: any;
+
   onFileSelected(event: any){
     this.selectedFile = <File>event.target.files[0];
     const fd = new FormData();
@@ -46,8 +48,8 @@ export class CreateBusinessComponent implements OnInit {
       this.displylcraeteerrors = "flex";
     } else {
       this.business.blogo = this.logourl;
-      this.business.uid = Number(localStorage.getItem('uid'));
-      this.businessService.createBusiness(this.business).subscribe(
+      this.token = localStorage.getItem('token');
+      this.businessService.createBusiness(this.business,this.token).subscribe(
         response => this.goToHome(),
         error => console.error('Error!', error)
       );

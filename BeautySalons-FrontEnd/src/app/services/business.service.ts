@@ -12,13 +12,11 @@ export class BusinessService {
 
   constructor(private httpClient: HttpClient) { }
 
-  httpOptions: { headers: HttpHeaders } = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" }),
-  };
-
-  createBusiness(business: Business){
+  createBusiness(business: Business, token:any){
     let registerUrl = this.baseURL+'createBusiness'
-    return this.httpClient.post<any>(`${registerUrl}`,business);
+    return this.httpClient.post<any>(`${registerUrl}`,business ,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
   updateById(business: Business){
     let registerUrl = this.baseURL+'updateById'
@@ -38,9 +36,11 @@ export class BusinessService {
     return this.httpClient.get(url);
   }
 
-  getBusinessByUserId(uid: any){
-    let url = this.baseURL+"user/"+uid;
-    return this.httpClient.get(url);
+  getBusinessByUserJWT(token: any){
+    let url = this.baseURL+"user/";
+    return this.httpClient.get(url ,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
   addLike(bid: any){

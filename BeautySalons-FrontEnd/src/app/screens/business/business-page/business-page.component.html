@@ -37,7 +37,7 @@
 
     <div class="photos">
         <div class="photo" *ngFor="let photo of photos">
-            <app-photo buid={{buid}} url="{{photo.url}}" pid="{{photo.pid}}"></app-photo>
+            <app-photo uid="{{uid}}" buid={{buid}} url="{{photo.url}}" pid="{{photo.pid}}"></app-photo>
         </div>
         <div class="addphoto" *ngIf="uid == buid">
             <div class="text">הוסף תמונה</div><input type="file" (change)="onFileSelected($event)"
