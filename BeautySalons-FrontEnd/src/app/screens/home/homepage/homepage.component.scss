@@ -4,7 +4,8 @@
         color: white;
         justify-content: center;
         font-weight: bold;
-        background-position: bottom !important;
+        background-position: top !important;
+        background-repeat: no-repeat;
         height: 50vh;
         margin-bottom: -40px;
         background-size: cover !important;
@@ -51,7 +52,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 10px;
+                gap: 5*3px;
                 flex-wrap: wrap;
             }
         }
