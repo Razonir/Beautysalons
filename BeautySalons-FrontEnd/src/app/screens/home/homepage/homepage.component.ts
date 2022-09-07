@@ -18,6 +18,7 @@ export class HomepageComponent implements OnInit {
   gender: any;
   bdata:any;
   token:any;
+  load = true;
   constructor(private businessService: BusinessService,
               private blogService: BlogService) { }
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class HomepageComponent implements OnInit {
     }
   
     this.businessService.getAll().subscribe((data)=>{
+      this.load = false;
       this.businessData = data;
       this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
     });

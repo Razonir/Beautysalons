@@ -68,6 +68,13 @@
                 width: 100%;
                 margin: 0px 16px;
             }
+
+            .preloader {
+                width: 100%;
+                max-width: 500px;
+                margin: 0px 16px;
+
+            }
         }
 
         .title {
@@ -84,9 +91,27 @@
             scroll-padding: 24px;
             flex: 0 0 100%;
             scroll-snap-align: start;
-            &::-webkit-scrollbar{
+
+            &::-webkit-scrollbar {
                 display: none;
             }
+
+            .blog-preload {
+                max-width: 500px;
+                margin: 0px 16px;
+                padding-bottom: 10px;
+                flex: 0 0 80%;
+                scroll-snap-align: start;
+                display: flex;
+                app-blogcard-preload {
+                    max-width: 500px;
+                    margin: 0px 16px;
+                    padding-bottom: 10px;
+                    flex: 0 0 80%;
+                    scroll-snap-align: start;
+                }
+            }
+
             .blog {
                 max-width: 500px;
                 margin: 0px 16px;

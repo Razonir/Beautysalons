@@ -12,6 +12,7 @@ export class BlogsComponent implements OnInit {
   background = 'url(/assets/homebgblack.jpg)';
   data:any;
   gender: any;
+  load = true;
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class BlogsComponent implements OnInit {
       this.background = 'url(/assets/man.jpg)';
     }
     this.blogService.getAll().subscribe((data)=>{
+      this.load = false;
       this.data = data;
     });
   }
