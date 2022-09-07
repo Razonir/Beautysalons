@@ -19,6 +19,7 @@ export class BusinessComponent implements OnInit {
   bcitytype: any;
   itype:any;
   ititle:any;
+  load = true;
   constructor(private router: Router, private businessService: BusinessService) { }
   ngOnInit(): void {
     this.itype = history?.state?.data?.name;
@@ -26,11 +27,13 @@ export class BusinessComponent implements OnInit {
     if(this.itype == undefined || this.itype == 'הכל'){
       this.itype = 'הכל';
       this.businessService.getAll().subscribe((data)=>{
+        this.load = false;
         this.businessData = data;
         this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
       });
     }else{
       this.businessService.getAll().subscribe((data)=>{
+        this.load = false;
         this.businessData = data;
         this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
         this.businessData = this.businessData.filter((s: { bsubject: any; }) => s.bsubject == this.itype);

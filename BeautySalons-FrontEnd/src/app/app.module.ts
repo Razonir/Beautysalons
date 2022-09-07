@@ -37,6 +37,8 @@ import { BlogsComponent } from './screens/blogs/blogs.component';
 import { BlogPageComponent } from './screens/blogs/blog-page/blog-page.component';
 import { BlogcardComponent } from './component/blogcard/blogcard.component';
 import { ReviewComponent } from './component/review/review.component';
+import { BusinessCardPreloaderComponent } from './component/business-card-preloader/business-card-preloader.component';
+import { BlogcardPreloadComponent } from './component/blogcard-preload/blogcard-preload.component';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { ReviewComponent } from './component/review/review.component';
     BlogsComponent,
     BlogPageComponent,
     BlogcardComponent,
-    ReviewComponent
+    ReviewComponent,
+    BusinessCardPreloaderComponent,
+    BlogcardPreloadComponent
   ],
   imports: [
     BrowserModule,

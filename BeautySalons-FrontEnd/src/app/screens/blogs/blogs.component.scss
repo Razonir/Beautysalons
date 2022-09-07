@@ -36,6 +36,12 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
+            .preloader{
+                width: 100%;
+                max-width: 500px;
+                margin: 0px 16px;
+    
+            }
             .blog{
                 max-width: 500px;
                 width: 100%;
