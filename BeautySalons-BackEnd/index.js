@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+//aws
 app.use('/user', userRouter);
 app.use('/review', reviewRouter);
 app.use('/priceing', priceingRouter);
