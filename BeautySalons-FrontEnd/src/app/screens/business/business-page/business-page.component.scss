@@ -110,6 +110,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
     .bdescriptions{
         background-color: white;
         padding: 20px;
+        overflow: auto;
         border-radius: 20px;
     }
     .photos{
