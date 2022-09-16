@@ -24,7 +24,7 @@ Every registered business receives a customized business page for him for free!
 
 ## Deploy 
 - Frontend - Netlify
-- Backend - Heroku
+- Backend - AWS
 
 
 ## Some pictures from the project
