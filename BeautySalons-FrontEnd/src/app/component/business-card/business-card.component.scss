@@ -1,5 +1,5 @@
 .cardR {
-    width: 373px;
+    width: 300px;
     background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -11,13 +11,15 @@
 
     .cardtop {
         position: relative;
+
         img {
             width: 100%;
-            height: 171px;
+            height: 140px;
             object-fit: cover;
             object-position: center;
             filter: brightness(0.95);
         }
+
         .bsubject {
             position: absolute;
             top: 10px;
@@ -55,12 +57,10 @@
     .bottom {
         display: flex;
         color: #202125a3;
-        border-top: 1px solid #20212528;
+        border-top: 0.0625rem dashed rgba(32, 33, 37, 0.12);
         padding: 5px 10px;
         gap: 10px;
-        .blike {}
 
-        .bviews {}
     }
 
     &:hover {
@@ -69,37 +69,36 @@
     }
 }
 
-.like {
-    position: absolute;
-    bottom: 50%;
-    left: 10px;
-    z-index: 9;
-    cursor: pointer;
-    pointer-events: all;
 
-    .icon {
-        width: 15px;
-
-        img {
-            width: 100%;
-            transition: 0.2s;
-
-            &:hover {
-                filter: drop-shadow(0 0 3px black);
-            }
-        }
-    }
-}
 @media screen and (max-width:600px) {
     .cardR {
-        max-width: 80vw;
+        max-width: 43vw;
+
         .cardtop {
             img {
-                height: 100px;
+                height: 67px;
             }
         }
+
+        .bsubject {
+            padding: 2px 5px;
+            border-radius: 6px;
+            font-size: 8px;
+        }
+
+        .content {
+            .bname {
+                font-size: 13px !important;
+            }
+
+            .baddress-bcity {
+                font-size: 10px !important;
+
+            }
+        }
+
         .bottom {
-            font-size: 13px;
+            font-size: 10px !important;
         }
     }
 }

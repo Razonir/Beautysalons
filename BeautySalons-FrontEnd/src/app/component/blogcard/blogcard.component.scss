@@ -56,5 +56,19 @@
                 height: 100px;
             }
         }
+        .content {
+            padding: 10px;
+
+            .btitle {
+                font-size: 13px !important;
+            }
+
+            .bsubtitle {
+                font-size: 10px !important;
+            }
+            .bcontent{
+                font-size: 13px !important;
+            }
+        }
     }
 }

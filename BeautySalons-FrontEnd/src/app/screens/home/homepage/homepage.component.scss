@@ -25,7 +25,7 @@
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 20px;
+            gap: 15px;
             padding-bottom: 10px;
 
             .business,
@@ -47,7 +47,7 @@
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 20px;
+            gap: 15px;
             padding-bottom: 10px;
 
             &::-webkit-scrollbar {
@@ -78,7 +78,7 @@
     }
     .title{
         margin: 9px 0 4px 0;
-        font-size: 19px;
+        font-size: 17px;
     }
 }
 

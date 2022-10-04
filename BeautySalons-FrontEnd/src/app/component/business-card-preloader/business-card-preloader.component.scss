@@ -1,5 +1,5 @@
 .cardR {
-    width: 373px;
+    width: 300px;
     background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -15,7 +15,7 @@
 
         .logo {
             width: 100%;
-            height: 171px;
+            height: 140px;
             background: rgb(197, 197, 197, 0.3);
 
         }
@@ -68,16 +68,36 @@
     }
 }
 
+
 @media screen and (max-width:600px) {
     .cardR {
-        max-width: 80vw;
+        max-width: 43vw;
+
         .cardtop {
-            img {
-                height: 100px;
+            .logo {
+                height: 67px;
             }
         }
+
+        .bsubject {
+            padding: 2px 5px;
+            border-radius: 6px;
+            font-size: 8px;
+        }
+
+        .content {
+            .bname {
+                font-size: 13px !important;
+            }
+
+            .baddress-bcity {
+                font-size: 10px !important;
+
+            }
+        }
+
         .bottom {
-            font-size: 13px;
+            font-size: 10px !important;
         }
     }
 }
