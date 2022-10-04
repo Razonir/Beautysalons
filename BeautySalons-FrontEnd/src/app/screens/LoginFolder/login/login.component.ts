@@ -15,14 +15,15 @@ export class LoginComponent implements OnInit {
 
   displayPopup = 'none';
   moveup = '0';
-  displayStep = 'none';
   displyloginerrors = 'none';
   displysignuperrors = 'none';
   forget = 'translateXs(100vw)';
+  register = 'translateXs(100vw)';
   user: User = new User();
   userforget: User = new User();
   userlogin: User = new User();
   errorlogin = '';
+  
 
   constructor(private userService: UserService ,private renderer2: Renderer2,private elementRef: ElementRef,private router: Router ,private http: HttpClient) { }
 
@@ -41,40 +42,26 @@ export class LoginComponent implements OnInit {
  
     myConfetti();
    }
-  show() {
-    this.displayPopup = 'flex';
-  }
-  hidePopup() {
-    this.displayPopup = 'none';
-  }
+
   showForget(){
     this.forget = 'translateX(0vw)';
   }
+  showregister(){
+    this.register = 'translateX(0vw)';
+  }
   hideForget(){
-    this.forget = 'translateX(100vh)';
+    this.forget = 'translateX(100vw)';
   }
-  onClickmoveup() {
-    if (this.user.useremail == undefined || this.user.useremail == '' ||
-      this.user.userfname == undefined || this.user.userfname == '' ||
-      this.user.userlname == undefined || this.user.userlname == '' ||
-      this.user.userpassword == undefined || this.user.userpassword == '' ||
-      this.user.userphone == undefined || this.user.userphone == '') {
-      this.displysignuperrors = 'flex';
-    } else {
-      this.moveup = '-600px';
-      this.displayStep = 'flex';
-      this.displysignuperrors = 'none';
+  hideregister(){
+    this.register = 'translateX(100vw)';
+  }
 
-    }
-  }
-  backStep() {
-    this.displayStep = 'none';
-    this.moveup = '0px'
-  }
   signup() {
-    if (this.user.usergender == undefined || this.user.usergender == '' ||
-      this.user.usercity == undefined || this.user.usercity == '' ||
-      this.user.useraddress == undefined || this.user.useraddress == '') {
+    if (this.user.useremail == undefined || this.user.useremail == '' ||
+    this.user.userfname == undefined || this.user.userfname == '' ||
+    this.user.userlname == undefined || this.user.userlname == '' ||
+    this.user.userpassword == undefined || this.user.userpassword == '' ||
+    this.user.userphone == undefined || this.user.userphone == '') {
       this.displysignuperrors = 'flex';
     } else {
       this.surprise();

@@ -25,10 +25,12 @@
 }
 
 .web{
-    background: white;
+    border-top: 1px solid #8d8d8d33;
+
     .content{
         max-width: 1400px;
         margin: 0 auto;
+        padding: 70px 0;
         .slider{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -38,13 +40,10 @@
             justify-items: center;
             
             .cardR{
-                background: white;
                 width: 100%;
                 max-width: 300px;
-                border-radius: 28px;
                 padding:10px;
-                h3{
-                }
+                color: black;
                     li{
                         list-style: none;
                         transition: 0.5s;
@@ -57,7 +56,7 @@
                             padding: 10px;
                             color: black;
                             &:hover{
-                                color: #6946ec;
+                                color: #23abe4;
                             }
                         }
                     }
@@ -71,6 +70,7 @@
     }
     .rights{
         text-align: center;
+        color: black;
         padding: 5px 0;
         hr{
             border-top: 1px solid #8d8d8d33;

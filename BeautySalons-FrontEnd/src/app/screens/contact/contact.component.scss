@@ -1,45 +1,46 @@
-$base-color: #6a18c7;
-$first-color: #eeeeee;
-$sec-color: #393E46;
-$sec-small-color: #c9c9c9;
-$box-shadow: 0 10px 10px #fd711425;
 
-.contact {
+.fullpage {
+    padding: 20px 16px 50px 16px;
+    max-width: 1100px;
     display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin-right: 10%;
-    min-height: 60vh;
-    margin: 0 auto;
-    margin-top: 10vh;
-    .title {
-        font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    .col{
+        width: 50%;
     }
-  
-    .contactus {
-        width: 100%;
-        margin-top: 25px;
-        border-radius: 18px;
-        border: 0;
-        background-color: $base-color;
-        color: white;
-        padding: 10px 0;
-        text-align: center !important;
-        box-shadow: $box-shadow;
-        transition: 0.5s;
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
 
-        &:hover {
-            background-color: $sec-color;
+        img{
+            width: 50%;
         }
     }
+    .hello {
+        font-weight: bold;
+        text-align: right;
+        font-size: 45px;
+    }
 
+    .edit{
+
+    }
 }
 
-.contacterror {
-    color: red;
-    margin-top: -20px;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 0px;
+@media screen and (max-width:600px) {
+    .fullpage {
+        flex-direction: column;
+        padding: 0px 16px 50px 16px;
+        .col {
+            width: 100%;
+            img {
+            }
+        }
+        .hello {
+            font-size: 30px;
+        }
+    }
 }

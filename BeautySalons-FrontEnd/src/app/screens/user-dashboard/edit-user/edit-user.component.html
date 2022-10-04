@@ -1,68 +1,50 @@
+
 <div class="fullpage">
-    <div class="user-dashboard">
-        <form (ngSubmit)="edit()" class="createform">
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
-                    name="firstname">
+    <div class="col">
+        <div class="edit">
+            <div class="goback" routerLink="../">
+                <div class="backicon">
+                    <img src="../../../../assets/GUI/arrow.png" alt="back">
+                </div>
+                <div class="back">חזור</div>
             </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userfname==undefined || user.userfname=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
-                    name="lastname">
-            </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userlname==undefined || user.userlname=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <select class="form-select" 
-                aria-label="Default select example"
-                id="usergender"
-                name="usergender"
-                aria-placeholder="חד קרן"
-                [(ngModel)]="user.usergender">
-                <option value="male">זכר</option>
-                <option value="female">נקבה</option>
-                </select>
-                <div class="label">מין</div>
-            </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.usergender==undefined || user.usergender=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="עיר" [(ngModel)]="user.usercity"
-                    name="usercity">
-            </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.usercity==undefined || user.usercity=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input 
-                type="text" 
-                class="form-control" 
-                placeholder="כתובת" 
-                [(ngModel)]="user.useraddress"
-                name="useraddress"
-                required>
-            </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.useraddress==undefined || user.useraddress=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                <span class="input-group-text"></span>
-                <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
-                    name="phone">
-            </div>
-            <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userphone==undefined || user.userphone=='' ">
-                שדה חובה
-            </p>    
-            <input type="submit" class="create" value="עריכת משתמש" />
-        </form>
+            <div class="hello">עריכת משתמש</div>
+            <form (ngSubmit)="edit()" class="createform">
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="user.userfname" name="firstname"
+                        placeholder="פרטי">
+                    <label>שם פרטי</label>
+                    <p class="error" [style.display]="displysignuperrors"
+                        *ngIf="user.userfname==undefined || user.userfname=='' ">
+                        שדה חובה
+                    </p>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="user.userlname" name="lastname"
+                        placeholder="משפחה">
+                    <p class="error" [style.display]="displysignuperrors"
+                        *ngIf="user.userlname==undefined || user.userlname=='' ">
+                        שדה חובה
+                    </p>
+                    <label>שם משפחה</label>
+                </div>
+
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="user.userphone" name="phone" id="phone"
+                        placeholder="פלאפון">
+                    <label for="phone">פלאפון</label>
+                    <p class="error" [style.display]="displysignuperrors"
+                        *ngIf="user.userphone==undefined || user.userphone=='' ">
+                        שדה חובה
+                    </p>
+                </div>
+
+                <input type="submit" class="btn" value="עריכת משתמש" />
+            </form>
+        </div>
+    </div>
+    <div class="col img">
+        <img src="../../../../assets/GUI/air.png" alt="air">
     </div>
 </div>

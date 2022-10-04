@@ -1,63 +1,26 @@
-.top {
-    background: linear-gradient(90deg, #6a18c7, #9d69da);
-    border-radius: 0 0 20px 20px;
-    padding-top: 20px;
-max-width: 1400px;
-margin: 0 auto;
-    .search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding-bottom: 20px;
-
-        input {
-            border-radius: 40px;
-            background-color: rgba(255, 255, 255, 0.203);
-            color: white;
-            border: none;
-            width: 90%;
-            padding: 13px 16px;
-
-            &:focus,
-            &:focus-visible {
-                outline: none !important;
-            }
-
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.579);
-            }
-        }
-    }
-
-}
-
-.bottom {
-    position: relative;
-    padding: 20px 5%;
-    max-width: 1400px;
+.fullpage {
+    max-width: 1551px;
     margin: 0 auto;
 
-    .result{
-        text-align: center;
+    .top {}
+
+    .bottom {
+        .result {}
+
+        .all-business {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+
+            .business,
+            .preloader {
+                max-width: 371px;
+            }
+
+        }
+
     }
-    
-
-    .all-business {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 20px;
-        .business {
-            max-width: 500px;
-            width: 100%;
-            margin: 0px 16px;
-        }
-        .preloader{
-            width: 100%;
-            max-width: 500px;
-            margin: 0px 16px;
-
-        }
-    }   
 }

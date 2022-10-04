@@ -1,16 +1,13 @@
 const db = require('../util/database');
 
 module.exports = class User {
-  constructor(userid,userrole,userfname,userlname,useremail, userpassword,usergender,usercity,useraddress,userphone,createdate,lastlogindate) {
+  constructor(userid,userrole,userfname,userlname,useremail, userpassword,userphone,createdate,lastlogindate) {
     this.userid = userid;
     this.userrole = userrole;
     this.userfname = userfname;
     this.userlname = userlname;
     this.useremail = useremail;
     this.userpassword = userpassword;
-    this.usergender = usergender;
-    this.usercity = usercity;
-    this.useraddress = useraddress;
     this.userphone = userphone;
     this.createdate = createdate;
     this.lastlogindate = lastlogindate;
@@ -28,15 +25,15 @@ module.exports = class User {
 static createUser(users) {
   const role = 'user';
   return db.execute(
-    'INSERT INTO users (userfname,userlname, userrole, useremail, userpassword,usergender,usercity,useraddress,userphone) VALUES (?, ?, ?, ?, ? ,? ,?,?,?)',
-    [users.userfname, users.userlname,role ,users.useremail, users.userpassword,users.usergender,users.usercity,users.useraddress,users.userphone]
+    'INSERT INTO users (userfname,userlname, userrole, useremail, userpassword,userphone) VALUES (?, ?, ?, ?,?,?)',
+    [users.userfname, users.userlname,role ,users.useremail, users.userpassword,users.userphone]
   );
 }
 
 static updateUser(users) {
   return db.execute(
-    'update users set userfname = ? , userlname = ? , usergender = ? , usercity = ? , useraddress = ? , userphone = ? where userid = ?',
-     [users.userfname,users.userlname,users.usergender,users.usercity,users.useraddress,users.userphone,users.userid]
+    'update users set userfname = ? , userlname = ? , userphone = ? where userid = ?',
+     [users.userfname,users.userlname,users.userphone,users.userid]
     );
 }
 

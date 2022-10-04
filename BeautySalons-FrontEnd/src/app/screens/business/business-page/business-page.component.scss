@@ -1,11 +1,11 @@
-$base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-color: #c9c9c9; $box-shadow: 0 5px 20px #cccccc;
+$base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-color: #c9c9c9; $box-shadow: 0 5px 20px #cccccc;
 .fullpage{
     position: relative;
-    line-height: 1rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
     .topcontent{
         width: 100%;
         display: flex;
@@ -69,7 +69,7 @@ $base-color: #6a18c7; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
                 width: 50%;
             }
             &:hover{
-                background-color: black;
+                background-color: #a4e4ff;
             }
         }
     }

@@ -23,9 +23,6 @@ exports.createUser = async (req, res, next) => {
     const userlname = req.body.userlname;
     const useremail = req.body.useremail;
     const userpassword = req.body.userpassword;
-    const usergender = req.body.usergender;
-    const usercity = req.body.usercity;
-    const useraddress = req.body.useraddress;
     const userphone = req.body.userphone;
 
     try {
@@ -35,9 +32,6 @@ exports.createUser = async (req, res, next) => {
             userlname: userlname,
             useremail: useremail,
             userpassword: hashedPassword,
-            usergender: usergender,
-            usercity: usercity,
-            useraddress: useraddress,
             userphone: userphone
         };
         const result = await User.createUser(userDetails);
@@ -57,18 +51,12 @@ exports.updateUserJWT = async (req, res, next) => {
     const id = req.userId;
     const userfname = req.body.userfname;
     const userlname = req.body.userlname;
-    const usergender = req.body.usergender;
-    const usercity = req.body.usercity;
-    const useraddress = req.body.useraddress;
     const userphone = req.body.userphone;
     try {
         const userDetails = {
             userid: id,
             userfname: userfname,
             userlname: userlname,
-            usergender: usergender,
-            usercity: usercity,
-            useraddress: useraddress,
             userphone: userphone
         };
 
@@ -201,8 +189,7 @@ exports.login = async (req, res, next) => {
                 uid: storedUser.userid,
                 role: storedUser.userrole
             },
-            'secretfortoken',
-            { expiresIn: '24h' }
+            'secretfortoken'
         );
         res.status(200).json({ token: token, uid: storedUser.userid });
     } catch (err) {

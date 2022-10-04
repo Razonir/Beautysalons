@@ -1,23 +1,19 @@
-<nav class="navbar">
-  <div class="container-fluid">
-    <div class="icons">
-      <a class="icon" routerLink="/">
-        <mat-icon>home</mat-icon>
-      </a>
-      <a class="icon" routerLink="/business">
-        <mat-icon>pageview</mat-icon>
-      </a>
-      <a class="icon" routerLink="/user-dashboard">
-        <mat-icon>perm_identity</mat-icon>
-      </a>
-      <a class="icon" routerLink="/contact">
-        <mat-icon>bug_report</mat-icon>
-      </a>
+<header>
+    <div class="cols">
+        <div class="col">
+            <img routerLink="/" src="assets/Glamour-Logo.svg.png" width="150px">
+        </div>
+        <div class="col">
+            <div class="nav">
+                <li routerLink="/" >בית</li>
+                <li routerLink="/business" >מנוע חיפוש</li>
+                <li routerLink="/about" >אודות</li>
+                <li routerLink="/contact" >צור קשר</li>
+            </div>
+        </div>
+        <div class="col">
+            <li *ngIf="!userDetails" routerLink="/login" class="btn small">התחבר</li>
+            <li *ngIf="userDetails" routerLink="/user-dashboard" class="btn small">ממשק ניהול</li>
+        </div>
     </div>
-    <a class="navbar-brand" routerLink="/">
-     Beauty Salons
-     <img src="assets/bs.jpg" width="50px"> 
-    </a>
-    
-  </div>
-</nav>
+</header>

@@ -1,23 +1,8 @@
-<div class="all-business">
-    <div class="cardR" *ngFor="let item of businessData">
-        <div class="cardtop">
-            <div class="logo">
-                <img src={{item.blogo}} />
-            </div>
-            <div class="content">
-                <div class="bname">{{item.bname}}</div>
-                <div class="bsubject">{{item.bsubject}}</div>
-                <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="blike">{{item.blikes}} לייקים</div>
-            <div class="bviews">{{item.bviews}} ביקרו פה החודש</div>
-        </div>
 
-        <div class="manage">
-            <div (click)="remove(item.bid)" class="remove">מחיקה</div>
-            <div class="view" routerLinkActive="active-link" [routerLink]="['/business/',item.bid]">הצגה</div>
-            <div [routerLink]="['/user-dashboard/manage/',item.bid]" class="edit">עריכה</div>
-        </div>
+<div class="all-business">
+    <div class="business" *ngFor="let item of businessData">
+        <app-business-card-edit id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}" bsubject="{{item.bsubject}}"
+            baddress="{{item.baddress}}" bcity="{{item.bcity}}" blikes="{{item.blikes}}" bviews="{{item.bviews}}">
+        </app-business-card-edit>
     </div>
+</div>

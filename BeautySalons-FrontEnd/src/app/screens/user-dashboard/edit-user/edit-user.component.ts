@@ -25,9 +25,6 @@ export class EditUserComponent implements OnInit {
       this.user.userid = this.data[0].userid;
       this.user.userfname = this.data[0].userfname;
       this.user.userlname = this.data[0].userlname;
-      this.user.usergender = this.data[0].usergender;
-      this.user.usercity = this.data[0].usercity;
-      this.user.useraddress = this.data[0].useraddress;
       this.user.userphone = this.data[0].userphone;
     });
   }
@@ -37,7 +34,6 @@ export class EditUserComponent implements OnInit {
   edit() {
     if (  this.user.userfname == undefined || this.user.userfname == '' ||
     this.user.userlname == undefined || this.user.userlname == '' ||
-    this.user.usergender == undefined || this.user.usergender == '' ||
     this.user.userphone == undefined || this.user.userphone == '') {
       this.displysignuperrors = "flex";
     } else {

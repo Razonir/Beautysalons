@@ -1,7 +1,22 @@
-<div class="center">
-    <div class="text">היי אתה כבר מחובר</div>
-    <div class="buttons">
-        <div class="homepage" routerLink="/">חזור לדף הבית</div>
-        <div class="logout" (click)="logout()">התנתק</div>
+
+<div class="fullpage">
+    <div class="col">
+        
+        <div class="user-dashboard">
+            <div class="goback" routerLink="/user-dashboard">
+                <div class="backicon">
+                    <img src="../../../../assets/GUI/arrow.png" alt="back">
+                </div>
+                <div class="back">אני לעולם לא יתנתק</div>
+            </div>
+            <div class="hello">היי אתה כבר מחובר</div>
+            <div class="buttons">
+                <div class="btn" routerLink="/">חזור לדף הבית</div>
+                <div class="btnoff" (click)="logout()">התנתק</div>
+            </div>
+        </div>
+    </div>
+    <div class="col img">
+        <img src="../../../../assets/GUI/air.png" alt="air">
     </div>
 </div>

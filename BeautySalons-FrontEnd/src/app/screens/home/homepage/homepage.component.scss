@@ -1,124 +1,59 @@
 .fullpage {
-    .top {
-        display: flex;
-        color: white;
-        justify-content: center;
-        font-weight: bold;
-        background-position: top !important;
-        background-repeat: no-repeat;
-        height: 50vh;
-        margin-bottom: -40px;
-        background-size: cover !important;
-        background-attachment: fixed !important;
+    margin: 0 auto;
 
-        .right {
-            width: 100%;
-            padding: 20px 5%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: end;
-            margin-bottom: 40px;
-
-            .text {
-                margin-bottom: 10px;
-            }
-
-            app-button {
-                width: 70%;
-                max-width: 400px;
-            }
-
-        }
-    }
 
     .all {
-        background-color: #fafafa;
-        padding: 20px 5%;
         position: relative;
         z-index: 1;
-        border-radius: 10px 10px 0;
-        max-width: 1400px;
+        max-width: 1551px;
 
         .service {
-            .title {
-                font-weight: bold;
-                text-align: center;
-                margin: 0px;
-            }
-
             .services {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 5*3px;
-                flex-wrap: wrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 10px;
+                padding-bottom: 10px;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
+            
         }
 
         .all-business {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-
-            .business {
-                max-width: 500px;
-                width: 100%;
-                margin: 0px 16px;
-            }
-
-            .preloader {
-                width: 100%;
-                max-width: 500px;
-                margin: 0px 16px;
-
-            }
-        }
-
-        .title {
-            margin-bottom: -10px;
-            text-align: center;
-
-        }
-
-        .blogs {
-            display: flex;
-            overflow-x: scroll;
-            margin-bottom: 20px;
+            overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scroll-padding: 24px;
-            flex: 0 0 100%;
-            scroll-snap-align: start;
+            gap: 20px;
+            padding-bottom: 10px;
+
+            .business,
+            .preloader {
+                max-width: 371px;
+                width: 100%;
+                scroll-snap-align: start;
+
+
+            }
 
             &::-webkit-scrollbar {
                 display: none;
             }
 
-            .blog-preload {
-                max-width: 500px;
-                margin: 0px 16px;
-                padding-bottom: 10px;
-                flex: 0 0 80%;
-                scroll-snap-align: start;
-                display: flex;
-                app-blogcard-preload {
-                    max-width: 500px;
-                    margin: 0px 16px;
-                    padding-bottom: 10px;
-                    flex: 0 0 80%;
-                    scroll-snap-align: start;
-                }
+        }
+
+        .blogs {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 10px;
+
+            &::-webkit-scrollbar {
+                display: none;
             }
 
-            .blog {
-                max-width: 500px;
-                margin: 0px 16px;
-                padding-bottom: 10px;
-                flex: 0 0 80%;
-                scroll-snap-align: start;
-            }
         }
 
     }
@@ -131,13 +66,46 @@
 }
 
 .title {
-    margin-top: 20px;
-    text-align: center;
     font-weight: bold;
+    text-align: right;
+    margin: 10px 0 10px 0;
+    font-size: 27px;
 }
 
-@media screen and (max-width:764px) {
-    .divaider {
-        margin-bottom: 60px;
+@media screen and (max-width:600px) {
+    .fullpage {
+        margin-right: 18px !important;
     }
+    .title{
+        margin: 9px 0 4px 0;
+        font-size: 19px;
+    }
+}
+
+@keyframes route {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes up {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.divaider {
+    margin-top: 70px;
 }

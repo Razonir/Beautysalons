@@ -1,4 +1,4 @@
-<div class="cardR" [routerLink]="['/business/',id]">
+<div class="cardR">
     <div class="cardtop">
         <img src="{{blogo}}" />
         <div class="bsubject">{{bsubject}}</div>
@@ -11,9 +11,10 @@
         <div class="blike">{{blikes}} לייקים</div>
         <div class="bviews">{{bviews}} ביקרו פה החודש</div>
     </div>
-    <div class="like" (click)="like()">
-        <div class="icon">
-            <img src="/assets/{{iflike}}.png" />
-        </div>
+    <div class="manage">
+        <div (click)="remove(id)" class="remove">מחיקה</div>
+        <div class="view" routerLinkActive="active-link" [routerLink]="['/business/',id]">הצגה</div>
+        <div [routerLink]="['/user-dashboard/manage/',id]" class="edit">עריכה</div>
     </div>
+    
 </div>

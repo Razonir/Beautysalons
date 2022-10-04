@@ -1,18 +1,39 @@
 <div class="fullpage">
-    <div class="user-dashboard">
-        <div class="top">
-            <div class="profile-image"></div>
+    <div class="col">
+        <div class="hello">אהלן {{user.userfname}}!</div>
+        <div class="profile">
+            <div class="icon">
+                <div class="circle">
+                    NR
+                </div>
+            </div>
             <div class="user-details">
                 <div class="user-name">{{user.userfname}} {{user.userlname}}</div>
-                <div class="user-city">{{user.usercity}}</div>
                 <div class="user-email">{{user.useremail}}</div>
             </div>
         </div>
         <div class="bottom">
-            <a class="nav-link" routerLink="update">עריכת פרטי משתמש</a>
-            <a class="nav-link" routerLink="create">פתיחת עסק</a>
-            <a class="nav-link" routerLink="manage">ניהול עסקים</a>
-            <a class="nav-link" routerLink="../logout">התנתק</a>
+            <div class="title">
+                הגדרות
+            </div>
+            <a class="item" routerLink="update">עריכת פרטי משתמש
+                <span>></span>
+            </a>
+            <a class="item" routerLink="create">פתיחת עסק
+                <span>></span>
+            </a>
+            <a class="item" routerLink="manage">ניהול עסקים
+                <span>></span>
+            </a>
+            <a class="item" routerLink="../contact">צור קשר
+                <span>></span>
+            </a>
+            <a class="item" routerLink="../logout">התנתק
+                <span>></span>
+            </a>
         </div>
+    </div>
+    <div class="col img">
+        <img src="../../../assets/GUI/air.png" alt="air">
     </div>
 </div>

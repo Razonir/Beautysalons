@@ -1,163 +1,127 @@
-<div class="row">
-    <div class="col-md-4">
-        <div class="forget" [style.transform]="forget">
-            <div class="title">שחכתי סיסמא</div>
-            <form (ngSubmit)="forgetpassowrd()">
-                <div class="input-group mb-3">
-                         <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="דואר אלקטרוני"   
-                    [(ngModel)]='userforget.useremail' 
-                    name="email"
-                    required>
-                </div>   
-                <p class="loginerror" [style.display]="displyloginerrors" *ngIf="userforget.useremail==undefined || userforget.useremail=='' ">
-                    שדה חובה
-                </p>        
-                <input type="submit" class="login" value="שלח שחזור סיסמא"/>
-            </form>
-            <div class="back" (click)="hideForget()">אוי רגע נזכרתי תחזיר אותי</div>
-
-        </div>
-        <div class="profile-image"></div>
-        <div class="title">התחבר</div>
-        <form (ngSubmit)="login()" class="login-group">
-            <div class="input-group mb-3">
-                <input 
-                type="text" 
-                class="form-control" 
-                placeholder="דואר אלקטרוני"   
-                [(ngModel)]='userlogin.useremail' 
-                name="email"
-                required>
-            </div>
-            <p class="loginerror" [style.display]="displyloginerrors" *ngIf="userlogin.useremail==undefined || userlogin.useremail=='' ">
-                שדה חובה
-            </p>
-            <div class="input-group mb-3">
-                 <input 
-                type="password"
-                class="form-control" 
-                placeholder="סיסמא" 
-                [(ngModel)]='userlogin.userpassword' 
-                name="password"
-                #userpassword="ngModel"
-                required>
-            </div>
-            <p class="loginerror" [style.display]="displyloginerrors" *ngIf="userlogin.userpassword==undefined || userlogin.userpassword=='' ">
-                שדה חובה
-            </p>
-                    
-            <div class="forgut-password" (click)="showForget()">שחכתי סיסמא</div>
-            <input type="submit" class="login" value="התחבר" />
-            <div class="loginerror server">{{errorlogin}}</div>
-            
-
-        </form>
-        <div class="conditions">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">אני מסכים ל<a routerLink="/terms">תנאים</a> ול<a routerLink="/privacy">חוקי הפרטיות</a> באתר</label>
-                
-        </div>
-        <a class="new" (click)="show()">חדש כאן?<span> הירשם</span></a>
-    </div>
+<div class="fullpage">
     <div class="col">
-
-    </div>
-</div>
-
-<div [style.display]="displayPopup" class="popup">
-    <div class="signup-pop">
-        <div class="nav">
-            <div class="exit" (click)="hidePopup()">X</div>
-            <div class="back" (click)="backStep()" [style.display]="displayStep">חזור</div>
+        <!--forget -->
+        <div class="forget" [style.transform]="forget">
+            <div class="goback" (click)="hideForget()">
+                <div class="backicon">
+                    <img src="../../../../assets/GUI/arrow.png" alt="back">
+                </div>
+                <div class="back" (click)="hideForget()">אוי רגע נזכרתי תחזיר אותי</div>
+            </div>
+            <div class="hello">שחכתי סיסמא</div>
+            <form (ngSubmit)="forgetpassowrd()">
+                <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="דואר אלקטרוני"
+                        [(ngModel)]='userforget.useremail' name="email">
+                    <label>דואר אלקטרוני</label>
+                    <p class="error" [style.display]="displyloginerrors"
+                        *ngIf="userforget.useremail==undefined || userforget.useremail=='' ">
+                        שדה חובה
+                    </p>
+                </div>
+                <input type="submit" class="btn" value="שלח שחזור סיסמא" />
+            </form>
         </div>
-        
-        <div class="title">יאללה מתחילים </div>
-        
-        <form class="steps">
-            <div [style.margin-top]="moveup" class="step first">
-                <div class="input-group mb-3">
-                         <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]="user.useremail"
-                        name="email">
+        <!--register -->
+        <div class="register" [style.transform]="register">
+            <div class="goback" (click)="hideregister()">
+                <div class="backicon">
+                    <img src="../../../../assets/GUI/arrow.png" alt="back">
                 </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.useremail==undefined || user.useremail=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
-                        name="firstname">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userfname==undefined || user.userfname=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
-                        name="lastname">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userlname==undefined || user.userlname=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]="user.userpassword"
-                        name="password">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userpassword==undefined || user.userpassword=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input type="password" class="form-control" placeholder="סיסמא שנית">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userpassword==undefined || user.userpassword=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
-                        name="phone">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.userphone==undefined || user.userphone=='' ">
-                    שדה חובה
-                </p>
-                <button class="next-step" (click)="onClickmoveup()">המשך</button>
+                <div class="back" (click)="hideregister()">אני כבר רשום תחזיר אותי</div>
             </div>
-            <div class="step sec">
-                <div class="input-group mb-3">
-                         <select class="form-select" 
-                    aria-label="Default select example"
-                    id="usergender"
-                    name="usergender"
-                    aria-placeholder="חד קרן"
-                    [(ngModel)]="user.usergender">
-                    <option value="male">זכר</option>
-                    <option value="female">נקבה</option>
-                    </select>
-                    <div class="label">מין</div>
+            <div class="hello">יאללה מתחילים</div>
+            <form class="steps">
+                <div [style.margin-top]="moveup" class="step first">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]="user.useremail"
+                            name="email">
+                        <p class="error" [style.display]="displysignuperrors"
+                            *ngIf="user.useremail==undefined || user.useremail=='' ">
+                            שדה חובה
+                        </p>
+                        <label>דואר אלקטרוני</label>
+    
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="שם פרטי" [(ngModel)]="user.userfname"
+                            name="firstname">
+                        <p class="error" [style.display]="displysignuperrors"
+                            *ngIf="user.userfname==undefined || user.userfname=='' ">
+                            שדה חובה
+                        </p>
+                        <label>שם פרטי</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="שם משפחה" [(ngModel)]="user.userlname"
+                            name="lastname">
+                        <p class="error" [style.display]="displysignuperrors"
+                            *ngIf="user.userlname==undefined || user.userlname=='' ">
+                            שדה חובה
+                        </p>
+                        <label>שם משפחה</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]="user.userpassword"
+                            name="password">
+                        <p class="error" [style.display]="displysignuperrors"
+                            *ngIf="user.userpassword==undefined || user.userpassword=='' ">
+                            שדה חובה
+                        </p>
+                        <label>סיסמא</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]="user.userphone"
+                            name="phone">
+                        <p class="error" [style.display]="displysignuperrors"
+                            *ngIf="user.userphone==undefined || user.userphone=='' ">
+                            שדה חובה
+                        </p>
+                        <label>פלאפון</label>
+                    </div>
                 </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.usergender==undefined || user.usergender=='' ">
+                <input type="submit" class="btn" (click)="signup()" value="הרשמה" />
+            </form>
+        </div>
+        <!--login -->
+        <div class="profile-image"></div>
+        <div class="hello">התחבר <a class="new" (click)="showregister()">חדש כאן?<span> הירשם</span></a>
+        </div>
+        <div class="loginerror server">{{errorlogin}}</div>
+
+        <form (ngSubmit)="login()" class="login-group">
+            <div class="form-floating">
+                <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]='userlogin.useremail'
+                    name="email">
+                <label>דואר אלקטרוני</label>
+                <p class="error" [style.display]="displyloginerrors"
+                    *ngIf="userlogin.useremail==undefined || userlogin.useremail=='' ">
                     שדה חובה
                 </p>
-                <div class="input-group mb-3">
-                         <input type="text" class="form-control" placeholder="עיר" [(ngModel)]="user.usercity"
-                        name="usercity">
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.usercity==undefined || user.usercity=='' ">
-                    שדה חובה
-                </p>
-                <div class="input-group mb-3">
-                         <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="כתובת" 
-                    [(ngModel)]="user.useraddress"
-                    name="useraddress"
-                    required>
-                </div>
-                <p class="loginerror" [style.display]="displysignuperrors" *ngIf="user.useraddress==undefined || user.useraddress=='' ">
-                    שדה חובה
-                </p>
-                <input type="submit" class="end-step" (click)="signup()" value="הרשמה" />
             </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" placeholder="סיסמא" [(ngModel)]='userlogin.userpassword'
+                    name="password">
+                <label>סיסמא</label>
+                <p class="error" [style.display]="displyloginerrors"
+                    *ngIf="userlogin.userpassword==undefined || userlogin.userpassword=='' ">
+                    שדה חובה
+                </p>
+            </div>
+            <div class="conditions" >
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">אני מסכים ל<a routerLink="/terms">תנאים</a> ול<a
+                        routerLink="/privacy">חוקי הפרטיות</a> באתר</label>
+            </div>
+            
+            <input type="submit" class="btn" value="התחבר" />
+            <div class="forgut-password" (click)="showForget()">שחכתי סיסמא</div>
         </form>
+    </div>
+    <div class="col air">
+        <img src="../../../../assets/GUI/air.png" alt="login">
+    </div>
+    <div class="col img mobile">
+        <img src="../../../../assets/GUI/login.png" alt="login">
     </div>
 </div>

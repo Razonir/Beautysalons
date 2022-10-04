@@ -1,45 +1,105 @@
-$base-color: #6a18c7;
-$first-color: #eeeeee;
-$sec-color: #393E46;
-$sec-small-color: #c9c9c9;
-$box-shadow: 0 10px 10px #fd711425;
-
 .fullpage {
+    padding: 20px 16px 50px 16px;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    .col{
+        width: 50%;
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
 
-    .user-dashboard {
-        margin: 20px 50px;
-        background: white;
-        padding: 27px;
-        max-width: 600px;
-        margin: 10vh auto;
-        .top {
+        img{
+            width: 50%;
+        }
+    }
+    .hello {
+        font-weight: bold;
+        text-align: right;
+        font-size: 45px;
+    }
+
+    .profile {
+        display: flex;
+        gap: 20px;
+        align-content: center;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        border-bottom: 1px solid rgba(32, 33, 37, .12);
+
+        .icon {
+            .circle {
+                width: 60px;
+                height: 60px;
+                background-color: #e5eeff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: #818690;
+            }
+        }
+
+        .user-details {
             display: flex;
-            align-items: center;
-            padding-bottom: 10px;
-            border-bottom: 1px solid $sec-color;
+            flex-direction: column;
+            justify-content: center;
 
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                background-image: url(/assets/bs.jpg);
-                background-size: cover;
-                background-position: center;
-                border-radius: 28px;
-                margin-left: 20px;
+            .user-name {
+                font-size: 17px;
+                font-weight: 600;
             }
 
-        }
-        .bottom{
-            .nav-link{
-                width: 100%;
-                background: rgb(230, 230, 230);
-                color: black;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.338);
-                &:hover{
-                    background: rgb(194, 194, 194);
-                }
+            .user-email {
+                font-size: 17px;
+                color: #202125a3;
+
             }
         }
     }
 
+    .bottom {
+        .title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            margin: 0px;
+            padding: 8px 10px;
+            color: #202125a3;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(32, 33, 37, .12);
+            position: relative;
+            align-items: center;
+            span {
+                position: absolute;
+                left: 5px;
+                color: black;
+                font-size: 31px;
+                font-family: cursive;
+            }
+            &:hover{
+                background-color: #e5eeff40;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .fullpage{
+        flex-direction: column;
+        .col{
+            width: 100%;
+            img{
+            }
+        }
+    }
 }

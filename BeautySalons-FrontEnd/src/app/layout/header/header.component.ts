@@ -11,7 +11,6 @@ export class HeaderComponent implements OnInit {
   userDetails:any = null;
   data:any
   token:any
-
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
@@ -24,16 +23,8 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('likes','0,');
     }
   }
-  signout(){
-    return localStorage.clear(),  this.userDetails = null,  this.goToHome();
-  }  
-   menuShow() {
-    document.getElementById("menu")?.classList.toggle("show");
-  }
-   menuClose() {
-    document.getElementById("menu")?.classList.remove("show");
-  }
-  goToHome(){
-    window.location.href = "/";
-    }
+
+  
+
+    
 }

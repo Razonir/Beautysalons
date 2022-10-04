@@ -1,267 +1,129 @@
-$base-color: #6a18c7;
-$first-color: #eeeeee;
-$sec-color: #393E46;
-$sec-small-color: #c9c9c9;
-$box-shadow: 0 10px 10px #fd711425;
 
-.row {
-    background-color: $first-color;
-    padding: 0;
-    margin: 0;
+
+.fullpage {
+    padding: 20px 16px 50px 16px;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
     position: relative;
-    overflow: hidden;
-    .col-md-4 {
-        height: 91vh;
-        width: 600px;
+    margin: 50px auto 150px auto;
+    .col {
+        width: 50%;
+        .login-group {
+            .conditions {
+                margin-bottom: 5px;
+                margin-right: 5px;
+                label {
+                    margin-right: 5px;
+                    font-size: 14px;
+                }
+            }
+            .forgut-password {
+                text-align: left;
+            }
+        }
+    }
+    .img,.air {
         display: flex;
-        justify-content: center;
         align-items: center;
-        flex-direction: column;
-
-        app-header {
+        justify-content: center;
+        margin: auto;
+        img {
             width: 100%;
         }
-
-        .profile-image {
-            width: 100px;
-            height: 100px;
-            background-image: url(/assets/bs.jpg);
-            background-size: cover;
-            background-position: center;
-            border-radius: 28px;
-            margin-bottom: 50px;
-            margin-top: 20px;
-        }
-
-        .title {
-            width: 65%;
-            font-size: 29px;
-        }
-
-        form {
-            margin-top: 32px;
-            width: 65%;
-
-            .forgut-password {
-                float: left;
-                color: black;
-                margin-left: 20px;
-                margin-top: 5px;
-                text-decoration: none;
-                cursor: pointer;
-                
-                &:hover {
-                    color: $base-color;
-                }
-            }
-
-            .login {
-                width: 100%;
-                margin-top: 25px;
-                border-radius: 18px;
-                border: 0;
-                background-color: $base-color;
-                color: white;
-                padding: 10px 0;
-                box-shadow: $box-shadow;
-                transition: 0.5s;
-
-                &:hover {
-                    background-color: $sec-color;
-                }
-            }
-
-        }
-
-        .conditions {
-            color: $sec-color;
-            margin-top: 30px;
-
-            .form-check-input {
-                background-color: $first-color;
-                margin-left: 10px;
-                cursor: pointer;
-                border-color: $base-color;
-
-                &:checked {
-                    background-color: $base-color;
-                }
-
-                &:focus {
-                    box-shadow: none;
-                }
-            }
-
-            a {
-                color: $base-color;
-                text-decoration: none;
-            }
-        }
-
-        .new {
-            color: $sec-color;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            text-decoration: none;
-            cursor: pointer;
-            span {
-                color: $sec-color;
-            }
-
-            &:hover {
-                span {
-                    color: $base-color;
-                }
-            }
-        }
     }
+}
+.air{
+    width: 50% !important;
+    img {
+        width: 50% !important;
+    }
+}
+.hello {
+    font-weight: bold;
+    text-align: right;
+    font-size: 45px;
 
-    .col {
-        background: url('/assets/homebg.jpg');
-        display: flex;
-        background-position: center;
-        background-size: cover;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-
+    .new {
+        font-size: 17px;
     }
 }
 
-.popup {
-    background-color: #000000a9;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    animation: blur 1s;
-
-    .signup-pop {
-        width: 600px;
-        padding: 20px;
-        height: 600px;
-        background-color: #eeeeee;
-        border-radius: 28px;
-        overflow: hidden;
-
-        .nav {
-            font-size: 20px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row-reverse;
-
-            .exit,
-            .back {
-                cursor: pointer;
-                padding: 10px;
-            }
-        }
-
-        .title {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 40px;
-        }
-
-        .steps {
-            overflow: hidden;
-
-            .step {
-                width: 100%;
-                height: 600px;
-            }
-
-            .step.first {
-                transition: 0.5s;
-            }
-        }
-    }
-}
-
-@keyframes blur {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-select#usergender {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid $sec-small-color  !important;
-    border-radius: 0px;
-    &:focus {
-        border-color: $sec-color;
-        box-shadow: none;
-        border-bottom: 1px solid $base-color  !important;
-    }
-}
-
-.next-step,
-.end-step {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 18px;
-    border: 0;
-    background-color: $base-color;
-    color: white;
-    padding: 10px 0;
-    box-shadow: $box-shadow;
-    transition: 0.5s;
-
-    &:hover {
-        background-color: $sec-color;
-    }
-}
-
-.loginerror {
-    color: red;
-    margin-top: -20px;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 0px;
-}
-.server{
-    margin-top: 0px;
-}
-canvas {
-    height: 100%; /* we need these for full-screen effect */
-    width: 100%;
-    z-index: 9999 !important;
-    position: fixed;
-    top: 0;
-    pointer-events: none;
-  }
-   
-
-  .forget{
+.forget,
+.register {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0px 16px 16px 16px;
     z-index: 99;
-    background-color: $first-color;
-    height: 90%;
-    margin-top: 30px;
-    width: 600px;
+    background-color: white;
+    width: 50%;
     max-width: 100%;
-    transform: translateX(100vw);
     transition: 0.5s;
     right: 0;
-  }
+    transform: translateX(100vw);
+    form {
+        width: 100%;
+    }
+}
 
-  .back{
-    margin-top: 20px;
+.back,.new,.forgut-password{
     cursor: pointer;
-  }
+}
+.col.img.mobile{
+    display: none;
+}
+@media screen and (max-width:600px) {
+    .fullpage {
+        flex-direction: column-reverse;
+        padding: 0px 16px 50px 16px;
+        .col {
+            width: 100%;
+
+            .forget,
+            .register {
+                width: 100%;
+            }
+        }
+        .img {
+            width: 100px ;
+            height: 100px;
+            border-radius: 50%;
+            img {
+                width: 50%;
+            }
+
+        }
+        .hello {
+            font-size: 30px;
+        }
+    }
+    .col.air {
+        display: none !important;
+    }
+    .col.img.mobile{
+        display: flex;
+        img{
+            width: 100% !important;
+        }
+    }
+}
+
+.forget {
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+    height: 90%;
+    width: 50%;
+    max-width: 100%;
+    transition: 0.5s;
+    right: 0;
+
+    form {
+        width: 100%;
+    }
+}
+
+.loginerror{
+    color: red;
+}

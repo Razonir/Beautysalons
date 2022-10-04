@@ -1,12 +1,15 @@
 <div class="fullpage">
-    <div class="top" [style.background]="background">
-        <div class="search">
-            <input type="text" placeholder="הקלידו שם העיר" [(ngModel)]="bcitytype">
-        </div>
+    <div class="top">
     </div>
     <div class="bottom">
         <div class="result">תוצאות חיפוש: {{ititle}}</div>
         <div class="all-business">
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
             <div class="preloader" *ngIf="load">
                 <app-business-card-preloader></app-business-card-preloader>
             </div>
