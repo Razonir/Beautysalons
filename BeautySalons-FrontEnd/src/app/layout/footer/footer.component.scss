@@ -7,17 +7,17 @@
         box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.04);
         width: 100%;
         z-index: 9999 !important;
-        height: 60px;
+        padding:  10px 0px;
         .icons{
             display: flex;
             text-align: center;
             .icon{
                 text-decoration: none;
                 color: black;
-                transform: scale(1.3);
                 width: 100%;
-                height: 20px;
-                margin: 20px;
+                .text{
+                    font-size: 10px;
+                }
             }
         }
     }

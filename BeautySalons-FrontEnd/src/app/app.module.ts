@@ -40,6 +40,7 @@ import { ReviewComponent } from './component/review/review.component';
 import { BusinessCardPreloaderComponent } from './component/business-card-preloader/business-card-preloader.component';
 import { BlogcardPreloadComponent } from './component/blogcard-preload/blogcard-preload.component';
 import { BusinessCardEditComponent } from './component/business-card-edit/business-card-edit.component';
+import { AboutComponent } from './screens/about/about.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { BusinessCardEditComponent } from './component/business-card-edit/busine
     ReviewComponent,
     BusinessCardPreloaderComponent,
     BlogcardPreloadComponent,
-    BusinessCardEditComponent
+    BusinessCardEditComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 .fullpage {
     max-width: 1551px;
-    margin: 0 auto;
+    margin: 0 10%;
 
     .top {}
 
@@ -9,11 +9,10 @@
 
         .all-business {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             padding-bottom: 10px;
             flex-wrap: wrap;
             align-content: center;
-            justify-content: center;
 
             .business,
             .preloader {
@@ -23,4 +22,13 @@
         }
 
     }
+}
+@media screen and (max-width:600px) {
+    .fullpage{
+        margin: 0px;
+        .all-business{
+            justify-content: center;
+        }
+    }
+    
 }

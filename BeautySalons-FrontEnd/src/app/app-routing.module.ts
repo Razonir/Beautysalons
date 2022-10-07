@@ -20,6 +20,7 @@ import { EditComponent } from './screens/user-dashboard/manage/edit/edit.compone
 import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.component';
 import { BlogsComponent } from './screens/blogs/blogs.component';
 import { BlogPageComponent } from './screens/blogs/blog-page/blog-page.component';
+import { AboutComponent } from './screens/about/about.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate: [LoginGuard] },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'terms', component: TermsComponent },
   {
     path: 'business',
