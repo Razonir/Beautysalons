@@ -23,8 +23,8 @@ export class HomepageComponent implements OnInit {
   bdata: any;
   token: any;
   load = true;
-  bannerfirst = '../../../../assets/banners/banner.jpg';
-  bannersec = '../../../../assets/banners/banner.jpg';
+  bannerfirst = '../../../../assets/banners/bannermobile.jpg';
+  bannersec = '../../../../assets/banners/bannermobile.jpg';
   constructor(
     private businessService: BusinessService,
     private blogService: BlogService

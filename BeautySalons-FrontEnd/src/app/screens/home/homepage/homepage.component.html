@@ -23,10 +23,10 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src={{bannerfirst}} class="d-block w-100" alt="..." />
+          <img src="{{ bannerfirst }}" class="d-block w-100" alt="..." />
         </div>
         <div class="carousel-item">
-            <img src={{bannersec}} class="d-block w-100" alt="..." />
+          <img src="{{ bannersec }}" class="d-block w-100" alt="..." />
         </div>
       </div>
       <button
@@ -48,7 +48,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    
+
     <div class="service">
       <div class="title">קטגוריות מובילות</div>
       <div class="services">
@@ -84,7 +84,7 @@
         ></app-servicecard>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">מספרות מובילות</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -118,7 +118,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">מכוני איפור מובילים</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -152,7 +152,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">בונות ציפורניים מובילות</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -186,7 +186,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">מכוני גבות מובילים</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -220,7 +220,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">מכוני קוסמטיקה מובילים</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -254,7 +254,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="item">
       <div class="title">מכוני קעקועים מובילים</div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
@@ -288,31 +288,33 @@
         </div>
       </div>
     </div>
-    <div class="title">בלוגים מובילים</div>
-    <div class="blogs">
-      <div class="blog-preload" *ngIf="load">
-        <app-blogcard-preload></app-blogcard-preload>
-      </div>
-      <div class="blog-preload" *ngIf="load">
-        <app-blogcard-preload></app-blogcard-preload>
-      </div>
-      <div class="blog-preload" *ngIf="load">
-        <app-blogcard-preload></app-blogcard-preload>
-      </div>
-      <div class="blog-preload" *ngIf="load">
-        <app-blogcard-preload></app-blogcard-preload>
-      </div>
+    <div class="item">
+      <div class="title">בלוגים מובילים</div>
+      <div class="blogs">
+        <div class="blog-preload" *ngIf="load">
+          <app-blogcard-preload></app-blogcard-preload>
+        </div>
+        <div class="blog-preload" *ngIf="load">
+          <app-blogcard-preload></app-blogcard-preload>
+        </div>
+        <div class="blog-preload" *ngIf="load">
+          <app-blogcard-preload></app-blogcard-preload>
+        </div>
+        <div class="blog-preload" *ngIf="load">
+          <app-blogcard-preload></app-blogcard-preload>
+        </div>
 
-      <div class="blog" *ngFor="let item of blogData">
-        <app-blogcard
-          id="{{ item.bid }}"
-          btitle="{{ item.btitle }}"
-          blogo="{{ item.blogo }}"
-          bsubtitle="{{ item.bsubtitle }}"
-          bcontent="{{ item.bcontent }}"
-          bcreatedate="{{ item.bcreatedate }}"
-        >
-        </app-blogcard>
+        <div class="blog" *ngFor="let item of blogData">
+          <app-blogcard
+            id="{{ item.bid }}"
+            btitle="{{ item.btitle }}"
+            blogo="{{ item.blogo }}"
+            bsubtitle="{{ item.bsubtitle }}"
+            bcontent="{{ item.bcontent }}"
+            bcreatedate="{{ item.bcreatedate }}"
+          >
+          </app-blogcard>
+        </div>
       </div>
     </div>
   </div>
