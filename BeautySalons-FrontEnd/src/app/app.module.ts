@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/LoginFolder/login/login.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { ContentComponent } from './layout/content/content.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PrivacyComponent } from './screens/privacy/privacy.component';
 import { TermsComponent } from './screens/terms/terms.component';
@@ -41,6 +40,7 @@ import { BusinessCardPreloaderComponent } from './component/business-card-preloa
 import { BlogcardPreloadComponent } from './component/blogcard-preload/blogcard-preload.component';
 import { BusinessCardEditComponent } from './component/business-card-edit/business-card-edit.component';
 import { AboutComponent } from './screens/about/about.component';
+import { ContentComponent } from './layout/content/content.component';
 
 
 @NgModule({
@@ -49,7 +49,6 @@ import { AboutComponent } from './screens/about/about.component';
     HomeComponent,
     LoginComponent,
     HeaderComponent,
-    ContentComponent,
     FooterComponent,
     PrivacyComponent,
     TermsComponent,
@@ -76,7 +75,8 @@ import { AboutComponent } from './screens/about/about.component';
     BusinessCardPreloaderComponent,
     BlogcardPreloadComponent,
     BusinessCardEditComponent,
-    AboutComponent
+    AboutComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

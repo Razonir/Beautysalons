@@ -13,8 +13,9 @@
             text-align: center;
             .icon{
                 text-decoration: none;
-                color: black;
+                color: #23abe4;
                 width: 100%;
+                filter: grayscale(1);
                 .text{
                     font-size: 10px;
                 }
@@ -88,6 +89,9 @@
 }
 
 
-.active{
-    background-color: black !important;
+a.icon.active{
+    filter: grayscale(0) !important;
+}
+a.active{
+    filter: grayscale(0) !important;
 }

@@ -16,6 +16,18 @@
             <div class="preloader" *ngIf="load">
                 <app-business-card-preloader></app-business-card-preloader>
             </div>
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
+            <div class="preloader" *ngIf="load">
+                <app-business-card-preloader></app-business-card-preloader>
+            </div>
             <div class="business" *ngFor="let item of businessData">
                 <div *ngIf="city(item.bcity)">
                     <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"

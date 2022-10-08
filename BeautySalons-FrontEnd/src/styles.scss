@@ -69,9 +69,14 @@ a{
 }
 .form-select {
     background-position: left 0.75rem center;
+    background-color: white;
 }
-select,textarea{
+select{
     border-radius: 50px !important;
+}
+textarea.form-control{
+    height: 120px !important;
+    border-radius: 25px !important;
 }
 .error {
     color: red;
