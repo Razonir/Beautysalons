@@ -85,7 +85,7 @@ module.exports = class Business {
   }
 
   static create(bcreate){
-    return db.execute("INSERT INTO business business VALUES ?",
+    return db.execute("INSERT INTO business (bname) VALUES (?)",
     [bcreate.bname]
     );
   }
