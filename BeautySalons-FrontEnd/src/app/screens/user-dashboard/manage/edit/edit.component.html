@@ -1,120 +1,136 @@
 <div class="fullpage">
-    <div class="col">
-        <div class="user-dashboard">
-            <div class="goback" routerLink="../">
-                <div class="backicon">
-                    <img src="../../../../assets/GUI/arrow.png" alt="back">
-                </div>
-                <div class="back">חזור</div>
-            </div>
-            <div class="hello">פתיחת עסק</div>
-            <form (ngSubmit)="edit()" class="createform">
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="שם העסק" [(ngModel)]='business.bname'
-                        name="bname">
-                    <label>שם העסק</label>
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bname==undefined || business.bname=='' ">
-                        שדה חובה
-                    </p>
-                </div>
-                <div class="form-floating">
-                    <select class="form-select" aria-label="Default select example" id="bgender" name="bgender"
-                        [(ngModel)]="business.bgender">
-                        <option value="male">זכר</option>
-                        <option value="female">נקבה</option>
-                        <option value="male-female">חד קרן</option>
-                    </select>
-                    <label for="floatingSelect">מין</label>
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bgender==undefined || business.bgender=='' ">
-                        שדה חובה
-                    </p>
-                </div>
-                <div class="form-floating">
-                    <select class="form-select" aria-label="Default select example" id="barea" name="barea"
-                        [(ngModel)]="business.barea">
-                        <option value="ירושלים">ירושלים</option>
-                        <option value="תל אביב">תל אביב</option>
-                        <option value="צפון">צפון</option>
-                        <option value="דרום">דרום</option>
-                        <option value="מרכז">מרכז</option>
-                    </select>
-                    <label for="floatingSelect">מחוז</label>
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.barea==undefined || business.barea=='' ">
-                        שדה חובה
-                    </p>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="עיר" [(ngModel)]='business.bcity' name="bcity">
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bcity==undefined || business.bcity=='' ">
-                        שדה חובה
-                    </p>
-                    <label>עיר</label>
-
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="רחוב" [(ngModel)]='business.baddress'
-                        name="baddress">
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.baddress==undefined || business.baddress=='' ">
-                        שדה חובה
-                    </p>
-                    <label>רחוב</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="טלפון עסק" [(ngModel)]='business.bphone'
-                        name="bphone">
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bphone==undefined || business.bphone=='' ">
-                        שדה חובה
-                    </p>
-                    <label>טלפון עסק</label>
-
-                </div>
-                <div class="form-floating">
-                    <select class="form-select" aria-label="Default select example" id="bsubject" name="bsubject"
-                        [(ngModel)]="business.bsubject">
-                        <option value="מספרות">מספרות</option>
-                        <option value="קעקועים">קעקועים</option>
-                        <option value="גבות">גבות</option>
-                        <option value="איפור">איפור</option>
-                        <option value="קוסמטיקה">קוסמטיקה</option>
-                        <option value="ציפורניים">ציפורניים</option>
-                    </select>
-                    <label for="floatingSelect">תחום</label>
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bsubject==undefined || business.bsubject=='' ">
-                        שדה חובה
-                    </p>
-                </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="תיאור קצר" [(ngModel)]='business.bdescriptions'
-                        name="bdescriptions" rows="2"></textarea>
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.bdescriptions==undefined || business.bdescriptions=='' ">
-                        שדה חובה
-                    </p>
-                    <label>תיאור קצר</label>
-
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="אינסטגרם שם חשבון"
-                        [(ngModel)]='business.instegram' name="instegram">
-                    <p class="createerror" [style.display]="displylcraeteerrors"
-                        *ngIf="business.instegram==undefined || business.instegram=='' ">
-                        שדה חובה
-                    </p>
-                    <label>שם חשבון אינסטגרם</label>
-
-                </div>
-                <input type="submit" class="btn" value="עריכת עסק" />
-            </form>
+  <div class="col">
+    <div class="user-dashboard">
+      <div class="goback" routerLink="../">
+        <div class="backicon">
+          <img src="../../../../assets/GUI/arrow.png" alt="back" />
         </div>
+        <div class="back">חזור</div>
+      </div>
+      <div class="hello">עריכת עסק</div>
+      <form (ngSubmit)="edit()" class="createform" ngNativeValidate>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="שם העסק"
+            [(ngModel)]="business.bname"
+            name="bname"
+            required
+          />
+          <label>שם העסק</label>
+        </div>
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="bgender"
+            name="bgender"
+            [(ngModel)]="business.bgender"
+            required
+          >
+            <option value="male">זכר</option>
+            <option value="female">נקבה</option>
+            <option value="male-female">חד קרן</option>
+          </select>
+          <label for="floatingSelect">מין</label>
+        </div>
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="barea"
+            name="barea"
+            [(ngModel)]="business.barea"
+            required
+          >
+            <option value="ירושלים">ירושלים</option>
+            <option value="תל אביב">תל אביב</option>
+            <option value="צפון">צפון</option>
+            <option value="דרום">דרום</option>
+            <option value="מרכז">מרכז</option>
+          </select>
+          <label for="floatingSelect">מחוז</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="עיר"
+            [(ngModel)]="business.bcity"
+            name="bcity"
+            required
+          />
+          <label>עיר</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="רחוב"
+            [(ngModel)]="business.baddress"
+            name="baddress"
+            required
+          />
+
+          <label>רחוב</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="טלפון עסק"
+            [(ngModel)]="business.bphone"
+            name="bphone"
+            required
+          />
+
+          <label>טלפון עסק</label>
+        </div>
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="bsubject"
+            name="bsubject"
+            [(ngModel)]="business.bsubject"
+            required
+          >
+            <option value="מספרות">מספרות</option>
+            <option value="קעקועים">קעקועים</option>
+            <option value="גבות">גבות</option>
+            <option value="איפור">איפור</option>
+            <option value="קוסמטיקה">קוסמטיקה</option>
+            <option value="ציפורניים">ציפורניים</option>
+          </select>
+          <label for="floatingSelect">תחום</label>
+        </div>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="תיאור קצר"
+            [(ngModel)]="business.bdescriptions"
+            name="bdescriptions"
+            rows="2"
+            required
+          ></textarea>
+          <label>תיאור קצר</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="אינסטגרם שם חשבון"
+            [(ngModel)]="business.instegram"
+            name="instegram"
+          />
+          <label>שם חשבון אינסטגרם</label>
+        </div>
+        <input type="submit" class="btn" value="עריכת עסק" />
+      </form>
     </div>
-    <div class="col img">
-        <img src="../../../../assets/GUI/air.png" alt="air">
-    </div>
+  </div>
+  <div class="col img">
+    <img src="../../../../assets/GUI/air.png" alt="air" />
+  </div>
 </div>

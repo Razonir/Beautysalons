@@ -1,120 +1,179 @@
 <div class="fullpage" *ngIf="data as item">
-    <div class="contact-icons" [style.background]="blackbackground">
-        <a class="icon" href="tel:+{{item.bphone}}"  target="_blank">
-            <i class="fas fa-phone"></i>
-        </a>
-        <a class="icon" href="https://wa.me/{{item.bphone}}?text="  target="_blank">
-            <img class="instegram" src="/assets/whatsapp.png">
-        </a>
-        <div class="logo">
-            <img src={{item.blogo}}>
-        </div>
-        <a class="icon" href="https://www.instagram.com/{{item.instegram}}"
-            target="_blank">
-            <img class="instegram" src="/assets/instegram.webp">
-        </a>
-        <a class="icon" (click)="popupdisplay = 'flex'"  target="_blank">
-            <i class="fas fa-share"></i>
-        </a>
+  <div class="contact-icons" [style.background]="blackbackground">
+    <a class="icon" href="tel:+{{ item.bphone }}" target="_blank">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a
+      class="icon"
+      href="https://wa.me/{{ item.bphone }}?text="
+      target="_blank"
+    >
+      <img class="instegram" src="/assets/whatsapp.png" />
+    </a>
+    <div class="logo">
+      <img src="{{ item.blogo }}" />
     </div>
-    <div class="sharepopup" [style.display]='popupdisplay'>
-        <div class="exit " (click)="popupdisplay ='none' ">X</div>
-        <a href="https://api.whatsapp.com/send?text={{link}}" [style.display]="icondisplay" target="_blank"><img
-                class="icon" src="/assets/whatsapp.png"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}" [style.display]="icondisplay"
-            target="_blank"><img class="icon" src="/assets/facebook-logo.png"></a>
-        <a href="https://t.me/share/url?url={{link}}&text={{item.bname}}" [style.display]="icondisplay"
-            target="_blank"><img class="icon" src="/assets/telegram.png"></a>
-        <img class="icon" src="/assets/link.png" [style.display]="icondisplay" (click)="linkclick()">
-        <div class="copy" [style.display]="linkdisplay">הלינק הועתק ללוח</div>
+    <a
+      class="icon"
+      href="https://www.instagram.com/{{ item.instegram }}"
+      target="_blank"
+    >
+      <img class="instegram" src="/assets/instegram.webp" />
+    </a>
+    <a class="icon" (click)="popupdisplay = 'flex'" target="_blank">
+      <i class="fas fa-share"></i>
+    </a>
+  </div>
+  <div class="sharepopup" [style.display]="popupdisplay">
+    <div class="exit" (click)="popupdisplay = 'none'">X</div>
+    <a
+      href="https://api.whatsapp.com/send?text={{ link }}"
+      [style.display]="icondisplay"
+      target="_blank"
+      ><img class="icon" src="/assets/whatsapp.png"
+    /></a>
+    <a
+      href="https://www.facebook.com/sharer/sharer.php?u={{ link }}"
+      [style.display]="icondisplay"
+      target="_blank"
+      ><img class="icon" src="/assets/facebook-logo.png"
+    /></a>
+    <a
+      href="https://t.me/share/url?url={{ link }}&text={{ item.bname }}"
+      [style.display]="icondisplay"
+      target="_blank"
+      ><img class="icon" src="/assets/telegram.png"
+    /></a>
+    <img
+      class="icon"
+      src="/assets/link.png"
+      [style.display]="icondisplay"
+      (click)="linkclick()"
+    />
+    <div class="copy" [style.display]="linkdisplay">הלינק הועתק ללוח</div>
+  </div>
+  <div class="topcontent">
+    <div class="bname">{{ item.bname }}</div>
+    <div class="bsubject">{{ item.bsubject }}</div>
+    <div class="baddress-bcity">{{ item.baddress }}, {{ item.bcity }}</div>
+    <i id="gender" class="{{ male ? 'fas fa-mars' : 'none' }}"></i>
+    <i id="gender" class="{{ female ? 'fas fa-venus' : 'none' }}"></i>
+    <i id="gender" class="{{ uni ? 'fas fa-venus' : 'none' }}"></i>
+  </div>
+  <div class="bdescriptions">{{ item.bdescriptions }}</div>
+
+  <div class="photos">
+    <div class="photo" *ngFor="let photo of photos">
+      <app-photo
+        uid="{{ uid }}"
+        buid="{{ buid }}"
+        url="{{ photo.url }}"
+        pid="{{ photo.pid }}"
+      ></app-photo>
     </div>
-    <div class="topcontent">
-
-        <div class="bname">{{item.bname}}</div>
-        <div class="bsubject">{{item.bsubject}}</div>
-        <div class="baddress-bcity">{{item.baddress}}, {{item.bcity}}</div>
-        <i id="gender" class="{{male ? 'fas fa-mars' : 'none' }}"></i>
-        <i id="gender" class="{{female ? 'fas fa-venus' : 'none' }}"></i>
-        <i id="gender" class="{{uni ? 'fas fa-venus' : 'none' }}"></i>
+    <div class="addphoto" *ngIf="uid == buid">
+      <div class="text">הוסף תמונה</div>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        id="inputGroupFile03"
+      />
     </div>
-    <div class="bdescriptions">{{item.bdescriptions}}</div>
+  </div>
 
-    <div class="photos">
-        <div class="photo" *ngFor="let photo of photos">
-            <app-photo uid="{{uid}}" buid={{buid}} url="{{photo.url}}" pid="{{photo.pid}}"></app-photo>
-        </div>
-        <div class="addphoto" *ngIf="uid == buid">
-            <div class="text">הוסף תמונה</div><input type="file" (change)="onFileSelected($event)"
-                id="inputGroupFile03">
-        </div>
+  <div class="prices" *ngIf="haveprice() || uid == buid">
+    <div class="top">
+      <div class="title">מחירון</div>
+      <div
+        class="add"
+        (click)="
+          addpricedisplay == 'block'
+            ? (addpricedisplay = 'none')
+            : (addpricedisplay = 'block')
+        "
+        *ngIf="uid == buid"
+      >
+        הוספה
+      </div>
     </div>
-
-    <div class="prices" *ngIf="haveprice() || uid == buid">
-        <div class="top">
-            <div class="title">מחירון</div>
-            <div class="add" (click)="addpricedisplay=='block' ? addpricedisplay='none' : addpricedisplay='block'"
-                *ngIf="uid == buid">הוספה</div>
+    <div class="content" *ngFor="let price of prices">
+      <div class="line">
+        <div class="service">
+          {{ price.service }}
         </div>
-        <div class="content" *ngFor="let price of prices">
-            <div class="line">
-                <div class="service">
-                    {{price.service}}
-                </div>
-                <div class="remove" *ngIf="uid == buid" (click)="removeprice(price.pid)">מחיקה</div>
-                <div class="serviceprice">
-                    {{price.price}}
-                </div>
-            </div>
-
+        <div
+          class="remove"
+          *ngIf="uid == buid"
+          (click)="removeprice(price.pid)"
+        >
+          מחיקה
         </div>
-        <div class="add-price" [style.display]="addpricedisplay" *ngIf="uid == buid">
-            <form (ngSubmit)="addprice()">
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="שירות" [(ngModel)]='priceCreate.service'
-                        name="service" required>
-                        <p class="priceserror" [style.display]="priceserror"
-                            *ngIf="priceCreate.service==undefined || priceCreate.service=='' ">
-                            שדה חובה
-                        </p>
-                        <label>שירות</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="מחיר" [(ngModel)]='priceCreate.price'
-                        name="price" required>
-                    <p class="priceserror" [style.display]="priceserror" *ngIf="priceCreate.price==undefined ">
-                        שדה חובה
-                    </p>
-                    <label>מחיר</label>
-                </div>
-                <input type="submit" class="btn" value="פרסם מחיר" />
-
-            </form>
+        <div class="serviceprice">
+          {{ price.price }}
         </div>
+      </div>
     </div>
-
-    <div class="reviews">
-        <div class="top">
-            <div class="title">ביקורות</div>
+    <div
+      class="add-price"
+      [style.display]="addpricedisplay"
+      *ngIf="uid == buid"
+    >
+      <form (ngSubmit)="addprice()" ngNativeValidate>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="שירות"
+            [(ngModel)]="priceCreate.service"
+            name="service"
+            required
+          />
+          <label>שירות</label>
         </div>
-        <div class="content" *ngFor="let review of reviews">
-            <app-review userfname="{{review.userfname}}" userlname="{{review.userlname}}"
-                reviewtext="{{review.reviewtext}}" reviewdate="{{review.reviewdate}}"></app-review>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="מחיר"
+            [(ngModel)]="priceCreate.price"
+            name="price"
+            required
+          />
+          <label>מחיר</label>
         </div>
-        <div class="add-reviews">
-            <form (ngSubmit)="add()">
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="ביקורות" [(ngModel)]='reviewCreate.reviewtext'
-                        name="reviewText" required>
-                    <p class="reviewserror" [style.display]="reviewserror"
-                        *ngIf="reviewCreate.reviewtext==undefined || reviewCreate.reviewtext=='' ">
-                        שדה חובה
-                    </p>
-                    <label>ביקורת</label>
-                </div>
-                <input type="submit" class="btn" value="{{reviewE}}" />
-
-            </form>
-        </div>
+        <input type="submit" class="btn" value="פרסם מחיר" />
+      </form>
     </div>
-    <app-report></app-report>
+  </div>
+
+  <div class="reviews">
+    <div class="top">
+      <div class="title">ביקורות</div>
+    </div>
+    <div class="content" *ngFor="let review of reviews">
+      <app-review
+        userfname="{{ review.userfname }}"
+        userlname="{{ review.userlname }}"
+        reviewtext="{{ review.reviewtext }}"
+        reviewdate="{{ review.reviewdate }}"
+      ></app-review>
+    </div>
+    <div class="add-reviews">
+      <form (ngSubmit)="add()" ngNativeValidate>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ביקורות"
+            [(ngModel)]="reviewCreate.reviewtext"
+            name="reviewText"
+            required
+          />
+          <label>ביקורת</label>
+        </div>
+        <input type="submit" class="btn" value="{{ reviewE }}" />
+      </form>
+    </div>
+  </div>
+  <app-report></app-report>
 </div>

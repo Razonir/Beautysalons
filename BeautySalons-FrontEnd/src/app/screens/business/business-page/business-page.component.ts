@@ -12,10 +12,9 @@ import { Photos } from 'src/app/model/photos';
 @Component({
   selector: 'app-business-page',
   templateUrl: './business-page.component.html',
-  styleUrls: ['./business-page.component.scss']
+  styleUrls: ['./business-page.component.scss'],
 })
 export class BusinessPageComponent implements OnInit {
-
   data: any;
   reviews: any;
   prices: any;
@@ -24,47 +23,47 @@ export class BusinessPageComponent implements OnInit {
   reviewCreate: Review = new Review();
   priceCreate: Priceing = new Priceing();
   priceUpdate: Priceing = new Priceing();
-  reviewserror = 'none';
-  priceserror = 'none';
   userid: any;
   genderdata: any;
   female = false;
   uni = false;
   male = false;
-  uid:any;
-  buid:any;
-  photos:any;
-  background = 'linear-gradient(90deg, #6a18c7, #9d69da)'
-  color = '#6a18c7'
+  uid: any;
+  buid: any;
+  photos: any;
+  background = 'linear-gradient(90deg, #6a18c7, #9d69da)';
+  color = '#6a18c7';
   gender: any;
   addpricedisplay = 'none';
   popupdisplay = 'none';
-  link:any;
+  link: any;
   token: any;
   linkdisplay = 'none';
   icondisplay = 'block';
-  blackbackground:any;
-  constructor(private router: Router,
+  blackbackground: any;
+  constructor(
+    private router: Router,
     private businessService: BusinessService,
     private reviewService: ReviewService,
     private photosService: PhotosService,
     private priceingService: PriceingService,
     private userService: UserService,
     private http: HttpClient,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.link = window.location.href;
-    this.token = localStorage.getItem('token')
-    this.userService.getUserByToken(this.token).subscribe((user)=>{
+    this.token = localStorage.getItem('token');
+    this.userService.getUserByToken(this.token).subscribe((user) => {
       this.uid = user;
-      this.uid = this.uid[0].userid
-    })
+      this.uid = this.uid[0].userid;
+    });
     this.gender = localStorage.getItem('gender');
-    if(this.gender == null || this.gender == 'female'){
+    if (this.gender == null || this.gender == 'female') {
       this.gender = 'female';
-      localStorage.setItem('gender','female')
-    }else{
+      localStorage.setItem('gender', 'female');
+    } else {
       this.background = 'linear-gradient(90deg, #181818, #000)';
       this.color = 'black';
     }
@@ -74,12 +73,12 @@ export class BusinessPageComponent implements OnInit {
       this.data = this.data[0];
       this.buid = this.data.uid;
       this.genderdata = this.data.bgender;
-      this.blackbackground = "url("+ this.data.blogo + ")";
+      this.blackbackground = 'url(' + this.data.blogo + ')';
       if (this.genderdata == 'male') {
         this.male = true;
       } else if (this.genderdata == 'female') {
         this.female = true;
-      }else{
+      } else {
         this.uni = true;
       }
     });
@@ -88,71 +87,52 @@ export class BusinessPageComponent implements OnInit {
 
     this.reviewService.getReviewById(id).subscribe((reviews) => {
       this.reviews = reviews;
-    })
+    });
 
     this.priceingService.getPriceingById(id).subscribe((price) => {
       this.prices = price;
-    })
+    });
     this.photosService.getByBid(id).subscribe((photos) => {
       this.photos = photos;
-    })
-
-
+    });
   }
   reviewE = 'פרסם ביקורת';
 
-
   add() {
-    if (this.reviewCreate.reviewtext == undefined || this.reviewCreate.reviewtext == "") {
-        this.reviewserror = 'flex';
-      } else {
-      const id = +this.route.snapshot.params['bid'];
-      this.reviewCreate.bid = id;
-      if (localStorage.getItem('token') != undefined) {
-        this.reviewCreate.uid = this.uid;
-        this.reviewService.createReview(this.reviewCreate).subscribe(
-          response => this.refreshpage(),
-          error => console.error('Error!', error)
-        );
-      }else{
-        this.reviewE = 'זמין למשתמשים רשומים בלבד';
-      }
+    const id = +this.route.snapshot.params['bid'];
+    this.reviewCreate.bid = id;
+    if (localStorage.getItem('token') != undefined) {
+      this.reviewCreate.uid = this.uid;
+      this.reviewService.createReview(this.reviewCreate).subscribe(
+        (response) => this.refreshpage(),
+        (error) => console.error('Error!', error)
+      );
+    } else {
+      this.reviewE = 'זמין למשתמשים רשומים בלבד';
     }
   }
-
-  
 
   addprice() {
-    if (this.priceCreate.price == undefined ||
-      this.priceCreate.service == undefined || this.priceCreate.service == "") {
-        this.priceserror = 'flex';
-      } else {
-      const id = +this.route.snapshot.params['bid'];
-      this.priceCreate.bid = id;
-      this.priceingService.createPrice(this.priceCreate).subscribe(
-        response => this.refreshpage(),
-        error => console.error('Error!', error)
-      );
-    }
+    const id = +this.route.snapshot.params['bid'];
+    this.priceCreate.bid = id;
+    this.priceingService.createPrice(this.priceCreate).subscribe(
+      (response) => this.refreshpage(),
+      (error) => console.error('Error!', error)
+    );
   }
 
-  editprice(id:any) {
-    if (this.priceUpdate.price == undefined ||
-      this.priceUpdate.service == undefined || this.priceUpdate.service == "") {
-        this.priceserror = 'flex';
-      } else {
-      this.priceUpdate.pid = id;
-      this.priceingService.updateByPid(this.priceUpdate).subscribe(
-        response => this.refreshpage(),
-        error => console.error('Error!', error)
-      );
-    }
+  editprice(id: any) {
+    this.priceUpdate.pid = id;
+    this.priceingService.updateByPid(this.priceUpdate).subscribe(
+      (response) => this.refreshpage(),
+      (error) => console.error('Error!', error)
+    );
   }
 
-  removeprice(id:any){
+  removeprice(id: any) {
     this.priceingService.removeByPid(id).subscribe(
-      response => this.refreshpage(),
-      error => console.error('Error!', error)
+      (response) => this.refreshpage(),
+      (error) => console.error('Error!', error)
     );
   }
 
@@ -160,37 +140,39 @@ export class BusinessPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
   refreshpage() {
-    location.reload()
+    location.reload();
   }
 
   photo: any;
-  photoOb:Photos= new Photos;
+  photoOb: Photos = new Photos();
 
   selectedFile: any;
-  onFileSelected(event: any){
+  onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
     const fd = new FormData();
-    fd.append("upload_preset","otpixt53");
-    fd.append('file',this.selectedFile)
-    this.http.post('https://api.cloudinary.com/v1_1/decne4dss/image/upload',fd).subscribe(res=>{
-      this.photo = res; 
-      this.photo = this.photo.secure_url;
-      this.photoOb.url = this.photo;
-      this.photoOb.bid = this.route.snapshot.params['bid'];
-      this.photosService.createPhoto(this.photoOb).subscribe();
-      this.refreshpage();
-    })
+    fd.append('upload_preset', 'otpixt53');
+    fd.append('file', this.selectedFile);
+    this.http
+      .post('https://api.cloudinary.com/v1_1/decne4dss/image/upload', fd)
+      .subscribe((res) => {
+        this.photo = res;
+        this.photo = this.photo.secure_url;
+        this.photoOb.url = this.photo;
+        this.photoOb.bid = this.route.snapshot.params['bid'];
+        this.photosService.createPhoto(this.photoOb).subscribe();
+        this.refreshpage();
+      });
   }
 
-  haveprice(){
-    if(this.prices == undefined || this.prices.length == 0){
+  haveprice() {
+    if (this.prices == undefined || this.prices.length == 0) {
       return false;
     }
     return true;
   }
 
-  linkclick(){
-    navigator.clipboard.writeText(this.link)
+  linkclick() {
+    navigator.clipboard.writeText(this.link);
     this.linkdisplay = 'block';
     this.icondisplay = 'none';
   }

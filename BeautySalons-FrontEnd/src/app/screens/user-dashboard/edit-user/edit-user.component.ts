@@ -7,20 +7,23 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  styleUrls: ['./edit-user.component.scss'],
 })
 export class EditUserComponent implements OnInit {
-
   user: User = new User();
-  displysignuperrors = 'none';
-  data:any;
-  token:any;
+  data: any;
+  token: any;
 
-  constructor(private userService: UserService, private router: Router,private http: HttpClient,private route: ActivatedRoute) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private http: HttpClient,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
-    this.userService.getUserByToken(this.token).subscribe((data)=>{
+    this.userService.getUserByToken(this.token).subscribe((data) => {
       this.data = data;
       this.user.userid = this.data[0].userid;
       this.user.userfname = this.data[0].userfname;
@@ -28,23 +31,14 @@ export class EditUserComponent implements OnInit {
       this.user.userphone = this.data[0].userphone;
     });
   }
-  
-
 
   edit() {
-    if (  this.user.userfname == undefined || this.user.userfname == '' ||
-    this.user.userlname == undefined || this.user.userlname == '' ||
-    this.user.userphone == undefined || this.user.userphone == '') {
-      this.displysignuperrors = "flex";
-    } else {
-      this.userService.updateByJWT(this.user,this.token).subscribe(
-        response => this.goToHome(),
-        error => console.error('Error!', error)
-      );
-    }
+    this.userService.updateByJWT(this.user, this.token).subscribe(
+      (response) => this.goToHome(),
+      (error) => console.error('Error!', error)
+    );
   }
   goToHome() {
     this.router.navigate(['/']);
   }
-
 }

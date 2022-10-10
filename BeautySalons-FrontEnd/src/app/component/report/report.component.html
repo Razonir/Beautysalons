@@ -1,36 +1,40 @@
 <div class="report">
-    <div class="title">{{reporttext}}</div>
-    <form (ngSubmit)="contactus()" [style.display]="reportshow">
-        <div class="form-floating">
-            <input type="text" class="form-control" placeholder="דואר אלקטרוני" [(ngModel)]='contact.useremail'
-                name="email" required>
-                <p class="contacterror" [style.display]="displaycontacterrors"
-                    *ngIf="contact.useremail==undefined || contact.useremail=='' ">
-                    שדה חובה
-                </p>
-                <label>דואר אלקטרוני </label>
+  <div class="title">{{ reporttext }}</div>
+  <form (ngSubmit)="contactus()" [style.display]="reportshow" ngNativeValidate>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="דואר אלקטרוני"
+        [(ngModel)]="contact.useremail"
+        name="email"
+        required
+      />
+      <label>דואר אלקטרוני </label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="פלאפון"
+        [(ngModel)]="contact.userphone"
+        name="phone"
+        required
+      />
 
-        </div>
-        <div class="form-floating">
-            <input type="text" class="form-control" placeholder="פלאפון" [(ngModel)]='contact.userphone'
-                name="phone" required>
-                <p class="contacterror" [style.display]="displaycontacterrors"
-                    *ngIf="contact.userphone==undefined || contact.userphone=='' ">
-                    שדה חובה
-                </p>
-                <label>פלאפון </label>
-
-        </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="תיאור קצר" [(ngModel)]='contact.usertext'
-                name="bdescriptions" rows="2" required></textarea>
-                <p class="contacterror" [style.display]="displaycontacterrors"
-                    *ngIf="contact.usertext==undefined || contact.usertext=='' ">
-                    שדה חובה
-                </p>
-                <label>תיאור קצר</label>
-        </div>
-        <input type="submit" class="btn" value="שלח" />
-    </form>
-
+      <label>פלאפון </label>
+    </div>
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        placeholder="תיאור קצר"
+        [(ngModel)]="contact.usertext"
+        name="bdescriptions"
+        rows="2"
+        required
+      ></textarea>
+      <label>תיאור קצר</label>
+    </div>
+    <input type="submit" class="btn" value="שלח" />
+  </form>
 </div>
