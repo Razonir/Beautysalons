@@ -84,11 +84,17 @@ module.exports = class Business {
     ]);
   }
 
+  static create(bcreate){
+    return db.execute("INSERT INTO business business VALUES ?",
+    [bcreate.bname]
+    );
+  }
+
   static createBusiness(business) {
     var like = 0;
     var view = 0;
     return db.execute(
-      "insert into Business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
       [
         business.uid,
         business.bname,
