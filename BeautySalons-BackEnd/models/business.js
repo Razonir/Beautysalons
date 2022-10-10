@@ -108,14 +108,8 @@ module.exports = class Business {
   }
 
   static updateById(business) {
-    var date = new Date();
-    var dd = String(date.getDate()).padStart(2, "0");
-    var mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = date.getFullYear();
-    date = mm + "/" + dd + "/" + yyyy;
-    document.write(today);
     return db.execute(
-      "update Business set bname = ? , instegram = ? , bdescriptions = ? ,bgender = ? , barea = ? , bcity = ? , baddress = ?, bphone = ? , bsubject = ?, lastUpdate = ? where bid = ?",
+      "update Business set bname = ? , instegram = ? , bdescriptions = ? ,bgender = ? , barea = ? , bcity = ? , baddress = ?, bphone = ? , bsubject = ? where bid = ?",
       [
         business.bname,
         business.instegram,
@@ -126,7 +120,6 @@ module.exports = class Business {
         business.baddress,
         business.bphone,
         business.bsubject,
-        date,
         business.bid,
       ]
     );
