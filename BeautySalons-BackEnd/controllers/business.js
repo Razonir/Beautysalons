@@ -7,7 +7,7 @@ exports.createBusiness = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return;
     
-    const uid = req.userid;
+    const uid = req.body.userid;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
     const instegram = req.body.instegram;
