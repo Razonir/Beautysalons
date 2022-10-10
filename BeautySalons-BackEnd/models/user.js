@@ -13,14 +13,6 @@ module.exports = class User {
     this.lastlogindate = lastlogindate;
   }
 
-//createUser
-//findByEmail
-//fetchAllUsers
-//getUserById
-//deleteUserById
-//generatePassword
-//resetPassword
-//login
 
 static createUser(users) {
   const role = 'user';
