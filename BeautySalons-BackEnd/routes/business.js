@@ -7,6 +7,8 @@ const auth = require('../middleware/auth');
 
 router.post('/createBusiness',BusinessController.createBusiness);
 
+router.post('/create' ,BusinessController.create);
+
 router.post('/updateById', BusinessController.updateById);
 
 router.get('/', BusinessController.fetchAll ); 
