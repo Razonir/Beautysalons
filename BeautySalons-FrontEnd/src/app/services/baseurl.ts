@@ -5,7 +5,7 @@
 
 // aws
 export const serverUrl = {
-   url: "https://api.razonir.com/"
+   url: "https://api.razonir.com/" 
 }
 
 // heroku
