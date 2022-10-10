@@ -84,34 +84,35 @@ module.exports = class Business {
     ]);
   }
 
-  static create(bcreate){
-    return db.execute("INSERT INTO business (bname) VALUES (?)",
-    [bcreate.bname]
+  static create(bcreate) {
+    return db.execute(
+      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+      [bcreate.uid, bcreate.bname, bcreate.bdescriptions,bcreate.instegram,bcreate.bgender,bcreate.barea,bcreate.bcity,bcreate.baddress,bcreate.bphone,bcreate.bsubject,bcreate.blogo]
     );
   }
 
-  static createBusiness(business) {
-    var like = 0;
-    var view = 0;
-    return db.execute(
-      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
-      [
-        business.uid,
-        business.bname,
-        business.bdescriptions,
-        business.instegram,
-        business.bgender,
-        business.barea,
-        business.bcity,
-        business.baddress,
-        business.bphone,
-        business.bsubject,
-        like,
-        view,
-        business.blogo,
-      ]
-    );
-  }
+  // static createBusiness(business) {
+  //   var like = 0;
+  //   var view = 0;
+  //   return db.execute(
+  //     "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blikes,bviews,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+  //     [
+  //       business.uid,
+  //       business.bname,
+  //       business.bdescriptions,
+  //       business.instegram,
+  //       business.bgender,
+  //       business.barea,
+  //       business.bcity,
+  //       business.baddress,
+  //       business.bphone,
+  //       business.bsubject,
+  //       like,
+  //       view,
+  //       business.blogo,
+  //     ]
+  //   );
+  // }
 
   static updateById(business) {
     return db.execute(

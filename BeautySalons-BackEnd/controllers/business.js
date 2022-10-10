@@ -6,26 +6,8 @@ const Business = require('../models/business');
 exports.create = async (req,res,next) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) return;
-    const bname = req.body.bname;
-    try{
-        const bcreate = {
-            bname: bname
-        };
-        const result = await Business.create(bcreate);
-        res.status(201).json({message:"fuck"});
-    }catch(err){
-        if(!err.statusCode){
-            err.statusCode = 500;
-        }
-        next(err);
-    }
-}
 
-exports.createBusiness = async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return;
-    
-    const uid = req.body.userid;
+    const uid = req.body.uid;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
     const instegram = req.body.instegram;
@@ -36,13 +18,12 @@ exports.createBusiness = async (req, res, next) => {
     const bphone = req.body.bphone;
     const bsubject = req.body.bsubject;
     const blogo = req.body.blogo;
-    
-    try {
-        const businessDetails = {
-            uid: uid,
+    try{
+        const bcreate = {
+            uid:uid,
             bname: bname,
-            instegram: instegram,
             bdescriptions: bdescriptions,
+            instegram: instegram,
             bgender: bgender,
             barea: barea,
             bcity: bcity,
@@ -51,15 +32,55 @@ exports.createBusiness = async (req, res, next) => {
             bsubject: bsubject,
             blogo: blogo
         };
-        const result = await Business.createBusiness(businessDetails);
+        const result = await Business.create(bcreate);
         res.status(201).json({ message: 'Business created!' });
-    } catch (err) {
-        if (!err.statusCode) {
+    }catch(err){
+        if(!err.statusCode){
             err.statusCode = 500;
         }
         next(err);
     }
 }
+
+// exports.createBusiness = async (req, res, next) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) return;
+    
+//     const uid = req.body.userid;
+//     const bname = req.body.bname;
+//     const bdescriptions = req.body.bdescriptions;
+//     const instegram = req.body.instegram;
+//     const bgender = req.body.bgender;
+//     const barea = req.body.barea;
+//     const bcity = req.body.bcity;
+//     const baddress = req.body.baddress;
+//     const bphone = req.body.bphone;
+//     const bsubject = req.body.bsubject;
+//     const blogo = req.body.blogo;
+    
+//     try {
+//         const businessDetails = {
+//             uid: uid,
+//             bname: bname,
+//             instegram: instegram,
+//             bdescriptions: bdescriptions,
+//             bgender: bgender,
+//             barea: barea,
+//             bcity: bcity,
+//             baddress: baddress,
+//             bphone: bphone,
+//             bsubject: bsubject,
+//             blogo: blogo
+//         };
+//         const result = await Business.createBusiness(businessDetails);
+//         res.status(201).json({ message: 'Business created!' });
+//     } catch (err) {
+//         if (!err.statusCode) {
+//             err.statusCode = 500;
+//         }
+//         next(err);
+//     }
+// }
 
 
 exports.updateById = async (req, res, next) => {
