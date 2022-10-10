@@ -13,7 +13,7 @@ export class BusinessService {
   constructor(private httpClient: HttpClient) { }
 
   createBusiness(business: Business, token:any){
-    let registerUrl = this.baseURL+'createBusiness'
+    let registerUrl = this.baseURL+'create'
     return this.httpClient.post<any>(`${registerUrl}`,business ,{
       headers: new HttpHeaders().set('Authorization', token),
     });
