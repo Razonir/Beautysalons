@@ -7,7 +7,7 @@ exports.create = async (req,res,next) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) return;
 
-    const uid = req.body.uid;
+    const id = req.userId;
     const bname = req.body.bname;
     const bdescriptions = req.body.bdescriptions;
     const instegram = req.body.instegram;
@@ -20,7 +20,7 @@ exports.create = async (req,res,next) => {
     const blogo = req.body.blogo;
     try{
         const bcreate = {
-            uid:uid,
+            uid:id,
             bname: bname,
             bdescriptions: bdescriptions,
             instegram: instegram,
