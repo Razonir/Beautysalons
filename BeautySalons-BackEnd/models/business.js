@@ -86,8 +86,8 @@ module.exports = class Business {
 
   static create(bcreate) {
     return db.execute(
-      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone) VALUES (?,?,?,?,?,?,?,?,?)",
-      [bcreate.uid, bcreate.bname, bcreate.bdescriptions,bcreate.instegram,bcreate.bgender,bcreate.barea,bcreate.bcity,bcreate.baddress,bcreate.bphone]
+      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,blogo) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+      [bcreate.uid, bcreate.bname, bcreate.bdescriptions,bcreate.instegram,bcreate.bgender,bcreate.barea,bcreate.bcity,bcreate.baddress,bcreate.bphone,bcreate.bsubject,bcreate.blogo]
     );
   }
 
