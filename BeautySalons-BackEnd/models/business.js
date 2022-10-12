@@ -88,9 +88,10 @@ module.exports = class Business {
     var bvisibility = 'y';
     var blikes = 0;
     var bviews = 0;
+    var date = new Date();
     return db.execute(
-      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
-      [bcreate.uid, bcreate.bname, bcreate.bdescriptions,bcreate.instegram,bcreate.bgender,bcreate.barea,bcreate.bcity,bcreate.baddress,bcreate.bphone,bcreate.bsubject,bvisibility,blikes,bviews]
+      "INSERT INTO business (uid,bname,bdescriptions,instegram,bgender,barea,bcity,baddress,bphone,bsubject,bvisibility,blikes,bviews,createdate,lastupdate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      [bcreate.uid, bcreate.bname, bcreate.bdescriptions,bcreate.instegram,bcreate.bgender,bcreate.barea,bcreate.bcity,bcreate.baddress,bcreate.bphone,bcreate.bsubject,bvisibility,blikes,bviews,date,date]
     );
   }
 
