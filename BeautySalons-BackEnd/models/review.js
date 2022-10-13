@@ -9,7 +9,7 @@ module.exports = class Reviews {
   }
 
   static fetchAll() {
-    return db.execute('SELECT * FROM reviews');
+    return db.execute('SELECT * FROM reviews ');
   }
 
   static getByBid(bid){

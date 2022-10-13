@@ -35,7 +35,18 @@ exports.createUser = async (req, res, next) => {
             userphone: userphone
         };
         const result = await User.createUser(userDetails);
+        const content = userDetails.useremail + " " + userDetails.userphone  + " "+ userDetails.userfname + " " + userDetails.userlname + " " ;
+        try {
+            sendMails('razonir@Gmail.com', 'משתמש חדש נרשם', content);
+
+        } catch (err) {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        }
         res.status(201).json({ message: 'User registered!' });
+
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
