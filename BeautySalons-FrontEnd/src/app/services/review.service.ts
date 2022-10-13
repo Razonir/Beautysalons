@@ -29,4 +29,8 @@ export class ReviewService {
     return this.httpClient.get(url);
   }
 
+  deleteByRid(rid:any){
+    let url = this.baseURL+'delete/'+rid;
+    return this.httpClient.delete(url);
+  }
 }

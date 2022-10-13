@@ -1,1 +1,18 @@
-<p>admin-reviews works!</p>
+<div class="goback" routerLink="../">
+  <div class="backicon">
+    <img src="../../../../assets/GUI/arrow.png" alt="back" />
+  </div>
+  <div class="back">חזור</div>
+</div>
+<div class="reviews">
+  <div class="content" *ngFor="let review of reviews">
+    <app-review
+      userfname="{{ review.userfname }}"
+      userlname="{{ review.userlname }}"
+      reviewtext="{{ review.reviewtext }}"
+      reviewdate="{{ review.reviewdate }}"
+      reviewid="{{ review.reviewid }}"
+    ></app-review>
+  </div>
+
+</div>

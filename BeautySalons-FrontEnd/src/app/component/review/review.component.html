@@ -9,4 +9,8 @@
     <div class="reviewdate">
         {{reviewdate}}
     </div>
+    <div class="admin"  *ngIf="admin">
+        <div class="remove" (click)="remove()">מחק</div>
+        <div class="show"  >{{reviewid}}</div>
+    </div>
 </div>

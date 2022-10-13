@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Business = require('../models/business');
+const { sendMails } = require('../services/email-sender');
 
 exports.create = async (req,res,next) => {
     const errors = validationResult(req);
@@ -33,6 +34,16 @@ exports.create = async (req,res,next) => {
             blogo: blogo
         };
         const result = await Business.create(bcreate);
+        const content = bcreate.bname + " " + bcreate.bgender  + " "+ bcreate.bsubject;
+        try {
+            sendMails('razonir@Gmail.com', 'עסק חדש נרשם', content);
+
+        } catch (err) {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        }
         res.status(201).json({ message: 'Business created!' });
     }catch(err){
         if(!err.statusCode){

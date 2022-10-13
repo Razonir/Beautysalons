@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReviewService } from 'src/app/services/review.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-review',
@@ -11,10 +14,17 @@ export class ReviewComponent implements OnInit {
   @Input() userlname = '';
   @Input() reviewtext = '';
   @Input() reviewdate = '';
+  @Input() reviewid = ''
 
-  constructor() { }
+  constructor(private router: Router, private userService: UserService, private reviewService: ReviewService) { }
 
+  admin:any;
   ngOnInit(): void {
+    this.admin = !this.userService.isAdmin();
   }
 
+  remove(){
+    console.log('start')
+    this.reviewService.deleteByRid(this.reviewid).subscribe();
+  }
 }

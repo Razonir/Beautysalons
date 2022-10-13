@@ -44,8 +44,12 @@ export class LoginComponent implements OnInit {
 
   signup() {
       this.userService.createUser(this.user).subscribe(
-        response => this.goToHome(),
-        error => console.error('Error!', error)
+        response => {
+          this.userlogin.useremail= this.user.useremail;
+          this.userlogin.userpassword= this.user.userpassword;
+          this.login();
+        },
+          error => console.error('Error!', error)
       );
     
   }

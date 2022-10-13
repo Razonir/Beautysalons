@@ -1,23 +1,40 @@
-
-.content{
+.content {
     position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     padding: 5px 0px 10px;
     border-bottom: 1px solid rgb(206, 206, 206);
-    .user{
+
+    .user {
         font-weight: bold;
         margin-bottom: 5px;
     }
 
-    .reviewdate{
+    .reviewdate {
         font-size: 10px;
         color: gray;
         position: absolute;
         left: 0px;
     }
+
     .reviewtext {
         overflow: auto;
+    }
+
+    .admin {
+        display: flex;
+        justify-content: space-evenly;
+        .remove,.show{
+            padding: 0 20px;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            &:hover{
+                background-color: #e5eeff;
+
+            }
+        }
     }
 }
