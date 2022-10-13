@@ -14,6 +14,8 @@ router.post('/create',
 
 router.get('/:bid',PhotosController.getByBid);
 
+router.get('/',PhotosController.getAll);
+
 router.delete('/delete/:pid',PhotosController.deleteById);
 
 module.exports = router;
