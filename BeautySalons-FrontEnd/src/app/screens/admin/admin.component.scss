@@ -1,0 +1,105 @@
+.fullpage {
+    padding: 20px 16px 50px 16px;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    .col{
+        width: 50%;
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+        img{
+            width: 50%;
+        }
+    }
+    .hello {
+        font-weight: bold;
+        text-align: right;
+        font-size: 45px;
+    }
+
+    .profile {
+        display: flex;
+        gap: 20px;
+        align-content: center;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        border-bottom: 1px solid rgba(32, 33, 37, .12);
+
+        .icon {
+            .circle {
+                width: 60px;
+                height: 60px;
+                background-color: #e5eeff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: #818690;
+            }
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .user-name {
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .user-email {
+                font-size: 17px;
+                color: #202125a3;
+
+            }
+        }
+    }
+
+    .bottom {
+        .title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            margin: 0px;
+            padding: 8px 10px;
+            color: #202125a3;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(32, 33, 37, .12);
+            position: relative;
+            align-items: center;
+            span {
+                position: absolute;
+                left: 5px;
+                color: black;
+                font-size: 31px;
+                font-family: cursive;
+            }
+            &:hover{
+                background-color: #e5eeff40;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .fullpage{
+        flex-direction: column;
+        .col{
+            width: 100%;
+            img{
+            }
+        }
+    }
+}

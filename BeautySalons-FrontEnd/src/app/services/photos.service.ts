@@ -27,6 +27,11 @@ export class PhotosService {
     let url = this.baseURL+bid;
     return this.httpClient.get(url);
   }
+  getAll(){
+    let url = this.baseURL;
+    return this.httpClient.get(url);
+  }
+
 
   deleteByPid(pid:any){
     let url = this.baseURL+'delete/'+pid;

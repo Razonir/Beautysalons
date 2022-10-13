@@ -11,6 +11,7 @@ import { serverUrl } from './baseurl';
 })
 export class UserService {
 
+  token:any;
   private baseURL = serverUrl.url + "user/";
   constructor(private httpClient: HttpClient) { }
 
@@ -57,4 +58,16 @@ export class UserService {
     return (!!localStorage.getItem('token'));
   }
 
+  isAdmin(){
+    this.token = localStorage.getItem('token');
+    if (this.token!=undefined){
+      this.token = atob(this.token.split('.')[1])
+      this.token = JSON.parse(this.token);
+      
+      if(this.token.role == 'admin'){
+        return false;
+      }
+    }
+    return true;
+  }
 }

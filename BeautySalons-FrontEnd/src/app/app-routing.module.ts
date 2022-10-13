@@ -21,6 +21,14 @@ import { EditUserComponent } from './screens/user-dashboard/edit-user/edit-user.
 import { BlogsComponent } from './screens/blogs/blogs.component';
 import { BlogPageComponent } from './screens/blogs/blog-page/blog-page.component';
 import { AboutComponent } from './screens/about/about.component';
+import { AdminComponent } from './screens/admin/admin.component';
+import { AdminGuard } from './guard/admin.guard';
+import { AcsessComponent } from './screens/error/acsess/acsess.component';
+import { AdminUsersComponent } from './screens/admin/admin-users/admin-users.component';
+import { AdminBlogsComponent } from './screens/admin/admin-blogs/admin-blogs.component';
+import { AdminMediaComponent } from './screens/admin/admin-media/admin-media.component';
+import { AdminBusinessComponent } from './screens/admin/admin-business/admin-business.component';
+import { AdminReviewsComponent } from './screens/admin/admin-reviews/admin-reviews.component';
 
 
 const routes: Routes = [
@@ -32,6 +40,35 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'acsess', component: AcsessComponent },
+  { path: 'admin', 
+    children: [
+      {
+        path: '',
+        component: AdminComponent, canActivate: [AdminGuard]
+      },
+      {
+        path: 'users',
+        component: AdminUsersComponent, canActivate: [AdminGuard]
+      },
+      {
+        path: 'blogs',
+        component: AdminBlogsComponent, canActivate: [AdminGuard]
+      },
+      {
+        path: 'media',
+        component: AdminMediaComponent, canActivate: [AdminGuard]
+      },
+      {
+        path: 'business',
+        component: AdminBusinessComponent, canActivate: [AdminGuard]
+      },
+      {
+        path: 'reviews',
+        component: AdminReviewsComponent, canActivate: [AdminGuard]
+      },
+    ]
+  },
   {
     path: 'business',
     children: [
@@ -58,6 +95,7 @@ const routes: Routes = [
       }
     ]
   },
+  
   {
     path: 'user-dashboard',
     canActivate: [LoginGuard],

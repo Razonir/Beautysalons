@@ -1,4 +1,9 @@
-
+<div class="goback" routerLink="../">
+    <div class="backicon">
+      <img src="../../../../assets/GUI/arrow.png" alt="back" />
+    </div>
+    <div class="back">חזור</div>
+  </div>
 <div class="all-business">
     <div class="business" *ngFor="let item of businessData">
         <app-business-card-edit id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}" bsubject="{{item.bsubject}}"

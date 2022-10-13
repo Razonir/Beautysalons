@@ -13,6 +13,10 @@ module.exports = class Photos {
     return db.execute('SELECT * FROM photos WHERE bid = ?',[bid]);
   }
 
+  static getAll(){
+    return db.execute('SELECT * FROM photos');
+  }
+
   static deleteById(pid) {
     return db.execute('DELETE FROM photos WHERE pid = ?',[pid]);
   }

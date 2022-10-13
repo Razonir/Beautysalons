@@ -41,6 +41,13 @@ import { BlogcardPreloadComponent } from './component/blogcard-preload/blogcard-
 import { BusinessCardEditComponent } from './component/business-card-edit/business-card-edit.component';
 import { AboutComponent } from './screens/about/about.component';
 import { ContentComponent } from './layout/content/content.component';
+import { AdminComponent } from './screens/admin/admin.component';
+import { AcsessComponent } from './screens/error/acsess/acsess.component';
+import { AdminUsersComponent } from './screens/admin/admin-users/admin-users.component';
+import { AdminBlogsComponent } from './screens/admin/admin-blogs/admin-blogs.component';
+import { AdminMediaComponent } from './screens/admin/admin-media/admin-media.component';
+import { AdminBusinessComponent } from './screens/admin/admin-business/admin-business.component';
+import { AdminReviewsComponent } from './screens/admin/admin-reviews/admin-reviews.component';
 
 
 @NgModule({
@@ -76,7 +83,14 @@ import { ContentComponent } from './layout/content/content.component';
     BlogcardPreloadComponent,
     BusinessCardEditComponent,
     AboutComponent,
-    ContentComponent
+    ContentComponent,
+    AdminComponent,
+    AcsessComponent,
+    AdminUsersComponent,
+    AdminBlogsComponent,
+    AdminMediaComponent,
+    AdminBusinessComponent,
+    AdminReviewsComponent
   ],
   imports: [
     BrowserModule,
