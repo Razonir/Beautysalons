@@ -11,13 +11,21 @@
         .icons{
             display: flex;
             text-align: center;
+            transition: 0.3s;
             .icon{
                 text-decoration: none;
                 color: #23abe4;
                 width: 100%;
+                transition: 0.3s;
                 filter: grayscale(1);
                 .text{
                     font-size: 10px;
+                }
+                img{
+                    transition: 0.3s;
+                    background: #e5eeff00;
+                    border-radius: 50px;
+                    outline: 0px #e5eeff00 solid;
                 }
             }
         }
@@ -91,6 +99,11 @@
 
 a.icon.active{
     filter: grayscale(0) !important;
+    img{
+        background: #e5eeff !important;
+        outline: 4px #e5eeff solid !important;
+
+    }
 }
 a.active{
     filter: grayscale(0) !important;

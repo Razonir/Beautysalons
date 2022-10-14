@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
   token: any;
   load = true;
   bannerfirst = '../../../../assets/banners/bannermobile.jpg';
-  bannersec = '../../../../assets/banners/bannermobile.jpg';
+  bannersec = '../../../../assets/banners/bannermobile1.jpg';
   constructor(
     private businessService: BusinessService,
     private blogService: BlogService

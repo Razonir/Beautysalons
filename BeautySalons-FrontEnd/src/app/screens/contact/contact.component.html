@@ -8,7 +8,7 @@
         <div class="back">חזור</div>
       </div>
       <div class="hello">צור קשר</div>
-      <form (ngSubmit)="contactus()" ngNativeValidate>
+      <form [style.display]="submited" (ngSubmit)="contactus()" ngNativeValidate>
         <div class="form-floating">
           <input
             type="email"
@@ -45,8 +45,10 @@
         <input type="submit" class="btn" value="שלח" />
       </form>
     </div>
+    <div [style.display]="submitedb" class="Thank">תודה שיצרת קשר<br>נחזור אליך בתוך 24 שעות</div>
+
   </div>
   <div class="col img">
-    <img src="../../../../assets/GUI/air.png" alt="air" />
+    <img src="../../../../assets/GUI/phone.png" alt="air" />
   </div>
 </div>

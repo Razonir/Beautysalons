@@ -63,11 +63,10 @@ export class UserService {
     if (this.token!=undefined){
       this.token = atob(this.token.split('.')[1])
       this.token = JSON.parse(this.token);
-      
       if(this.token.role == 'admin'){
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   }
 }

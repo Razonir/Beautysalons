@@ -1,1 +1,13 @@
-<p>admin-users works!</p>
+<table>
+  <h1>משתמשים</h1>
+  <tr>
+    <th>מזהה</th>
+    <th>תפקיד</th>
+    <th>אימייל</th>
+  </tr>
+  <tr *ngFor="let item of datauser">
+    <td>{{ item.userid }}</td>
+    <td>{{ item.userrole }}</td>
+    <td>{{ item.useremail }}</td>
+  </tr>
+</table>

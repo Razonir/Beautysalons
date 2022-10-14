@@ -23,7 +23,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   isAdmin(){
-    return !this.userService.isAdmin();
+    return this.userService.isAdmin();
   }
 
 }

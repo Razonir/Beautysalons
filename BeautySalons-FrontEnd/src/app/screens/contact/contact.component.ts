@@ -16,6 +16,8 @@ export class ContactComponent implements OnInit {
     url: '',
   };
 
+  submited='block';
+  submitedb='none';
   constructor(
     private userService: UserService,
     private router: Router,
@@ -27,10 +29,8 @@ export class ContactComponent implements OnInit {
   contactus() {
     this.contact.url = window.location.href;
     this.userService.contact(this.contact).subscribe();
-    this.goToHome();
+    this.submited = 'none';
+    this.submitedb = 'block';
   }
 
-  goToHome() {
-    this.router.navigate(['/']);
-  }
 }

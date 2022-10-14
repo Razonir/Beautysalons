@@ -20,7 +20,7 @@ export class PhotoComponent implements OnInit {
   admin:any;
   ngOnInit(): void {
     this.url = 'url('+this.url+')';
-    this.admin = !this.userService.isAdmin();
+    this.admin = this.userService.isAdmin();
   }
 
   remove(){

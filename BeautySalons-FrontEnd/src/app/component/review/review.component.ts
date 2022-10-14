@@ -20,7 +20,7 @@ export class ReviewComponent implements OnInit {
 
   admin:any;
   ngOnInit(): void {
-    this.admin = !this.userService.isAdmin();
+    this.admin = this.userService.isAdmin();
   }
 
   remove(){
