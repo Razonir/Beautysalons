@@ -104,7 +104,7 @@ export class BusinessPageComponent implements OnInit {
     if (localStorage.getItem('token') != undefined) {
       this.reviewCreate.uid = this.uid;
       this.reviewService.createReview(this.reviewCreate).subscribe(
-        (response) => this.refreshpage(),
+        (response) => this.reloadReview(),
         (error) => console.error('Error!', error)
       );
     } else {
@@ -116,7 +116,7 @@ export class BusinessPageComponent implements OnInit {
     const id = +this.route.snapshot.params['bid'];
     this.priceCreate.bid = id;
     this.priceingService.createPrice(this.priceCreate).subscribe(
-      (response) => this.refreshpage(),
+      (response) => this.reloadPrice(),
       (error) => console.error('Error!', error)
     );
   }
@@ -124,14 +124,14 @@ export class BusinessPageComponent implements OnInit {
   editprice(id: any) {
     this.priceUpdate.pid = id;
     this.priceingService.updateByPid(this.priceUpdate).subscribe(
-      (response) => this.refreshpage(),
+      (response) => this.reloadPrice(),
       (error) => console.error('Error!', error)
     );
   }
 
   removeprice(id: any) {
     this.priceingService.removeByPid(id).subscribe(
-      (response) => this.refreshpage(),
+      (response) => this.reloadPrice(),
       (error) => console.error('Error!', error)
     );
   }
@@ -141,6 +141,20 @@ export class BusinessPageComponent implements OnInit {
   }
   refreshpage() {
     location.reload();
+  }
+
+  reloadReview(){
+    const id = +this.route.snapshot.params['bid'];
+    this.reviewService.getReviewById(id).subscribe((reviews) => {
+      this.reviews = reviews;
+    });
+  }
+
+  reloadPrice(){
+    const id = +this.route.snapshot.params['bid'];
+    this.priceingService.getPriceingById(id).subscribe((price) => {
+      this.prices = price;
+    });
   }
 
   photo: any;
