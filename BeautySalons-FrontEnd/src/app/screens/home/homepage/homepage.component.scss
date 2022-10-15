@@ -135,11 +135,16 @@
 
     .show {
         background-color: #e5eeff;
-        z-index: 10 !important;
+        z-index: 10!important;
         color: #01c2eb;
         padding: 5px 10px;
         font-size: 12px;
+        display: flex;
+        height: fit-content;
         border-radius: 10px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
     }
 }
 
