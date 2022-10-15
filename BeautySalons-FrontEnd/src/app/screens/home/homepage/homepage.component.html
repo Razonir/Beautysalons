@@ -55,30 +55,42 @@
         <app-servicecard
           val="מספרות"
           icon="/assets/services/hair.jpg"
+          len="{{ lenbusinessDataHair }}"
+          [style.display]="displaybusinessDataHair"
         ></app-servicecard>
         <app-servicecard
           val="גבות"
           icon="/assets/services/eyebrow.jpg"
+          [style.display]="displaybusinessDataEyebrows"
+          len="{{ lenbusinessDataEyebrows }}"
         ></app-servicecard>
         <app-servicecard
           val="קעקועים"
           icon="/assets/services/tattoo.jpg"
+          [style.display]="displaybusinessDataTattoo"
+          len="{{ lenbusinessDataTattoo }}"
         ></app-servicecard>
         <app-servicecard
           val="איפור"
           icon="/assets/services/makeup.jpg"
+          [style.display]="displaybusinessDataMakeup"
+          len="{{ lenbusinessDataMakeup }}"
         ></app-servicecard>
         <app-servicecard
           val="קוסמטיקה"
           icon="/assets/services/cosmatics.jpg"
+          [style.display]="displaybusinessDataCosmatics"
+          len="{{ lenbusinessDataCosmatics }}"
         ></app-servicecard>
         <app-servicecard
           val="ציפורניים"
           icon="/assets/services/nail.jpg"
+          [style.display]="displaybusinessDataNail"
+          len="{{ lenbusinessDataNail }}"
         ></app-servicecard>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataHair">
       <div class="top">
         <div class="title">מספרות מובילות</div>
         <div
@@ -121,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataMakeup">
       <div class="top">
         <div class="title">מכוני איפור מובילים</div>
         <div
@@ -164,7 +176,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataNail">
       <div class="top">
         <div class="title">בונות ציפורניים מובילות</div>
         <div
@@ -207,7 +219,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataEyebrows">
       <div class="top">
         <div class="title">מכוני גבות מובילים</div>
         <div
@@ -250,7 +262,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataCosmatics">
       <div class="top">
         <div class="title">מכוני קוסמטיקה מובילים</div>
         <div
@@ -293,7 +305,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" [style.display]="displaybusinessDataTattoo">
       <div class="top">
         <div class="title">מכוני קעקועים מובילים</div>
         <div

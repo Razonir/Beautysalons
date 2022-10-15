@@ -1,5 +1,7 @@
-<div class="card" routerLink="{{link}}"  [queryParams]="{category:val}">
-    <img src="{{icon}}" alt="{{val}}">
-    <div class="text">{{val}}</div>
-    
+<div class="card" routerLink="{{ link }}" [queryParams]="{ category: val }">
+  <img src="{{ icon }}" alt="{{ val }}" />
+  <div class="content">
+    <div class="text">{{ val }}</div>
+    <div class="len">{{ len }} מקומות</div>
+  </div>
 </div>

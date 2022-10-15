@@ -12,6 +12,7 @@ export class ServicecardComponent implements OnInit {
   @Input() icon = '/assets/instegram.webp';
   @Input() link = '/business';
   @Input() val = 'null';
+  @Input() len = '0';
 
   ngOnInit(): void {
   }

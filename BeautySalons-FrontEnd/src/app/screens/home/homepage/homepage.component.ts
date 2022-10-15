@@ -18,6 +18,18 @@ export class HomepageComponent implements OnInit {
   businessDataMakeup: any;
   businessDataCosmatics: any;
   businessDataNail: any;
+  lenbusinessDataHair: any;
+  lenbusinessDataEyebrows: any;
+  lenbusinessDataTattoo: any;
+  lenbusinessDataMakeup: any;
+  lenbusinessDataCosmatics: any;
+  lenbusinessDataNail: any;
+  displaybusinessDataHair='none';
+  displaybusinessDataEyebrows='none';
+  displaybusinessDataTattoo='none';
+  displaybusinessDataMakeup='none';
+  displaybusinessDataCosmatics='none';
+  displaybusinessDataNail='none';
   blogData: any;
   gender: any;
   bdata: any;
@@ -63,9 +75,35 @@ export class HomepageComponent implements OnInit {
       this.businessDataNail = this.businessData.filter(
         (b: { bsubject: any }) => b.bsubject == 'ציפורניים'
       );
+      this.lenbusinessDataHair = this.businessDataHair.length;
+      this.lenbusinessDataEyebrows = this.businessDataEyebrows.length;
+      this.lenbusinessDataTattoo = this.businessDataTattoo.length;
+      this.lenbusinessDataMakeup = this.businessDataMakeup.length;
+      this.lenbusinessDataCosmatics = this.businessDataCosmatics.length;
+      this.lenbusinessDataNail = this.businessDataNail.length;
+      if(this.lenbusinessDataHair>0){
+        this.displaybusinessDataHair='block';
+      }
+      if(this.lenbusinessDataEyebrows>0){
+        this.displaybusinessDataEyebrows='block';
+      }
+      if(this.lenbusinessDataTattoo>0){
+        this.displaybusinessDataTattoo='block';
+      }
+      if(this.lenbusinessDataMakeup>0){
+        this.displaybusinessDataMakeup='block';
+      }
+      if(this.lenbusinessDataCosmatics>0){
+        this.displaybusinessDataCosmatics='block';
+      }
+      if(this.lenbusinessDataNail>0){
+        this.displaybusinessDataNail='block';
+      }
+      
     });
     this.blogService.getAll().subscribe((bdata) => {
       this.blogData = bdata;
     });
+
   }
 }
