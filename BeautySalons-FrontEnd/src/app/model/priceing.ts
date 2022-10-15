@@ -1,4 +1,4 @@
-export class addPriceing {
+export class Priceing {
     priceing(priceing: any) {
       throw new Error('Method not implemented.');
     }
