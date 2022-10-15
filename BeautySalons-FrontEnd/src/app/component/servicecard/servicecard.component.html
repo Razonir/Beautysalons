@@ -1,5 +1,5 @@
-<div class="card" routerLink="{{link}}" [state]="{data:{name: val,title: text}}">
-    <img src="{{icon}}" alt="{{text}}">
-    <div class="text">{{text}}</div>
+<div class="card" routerLink="{{link}}"  [queryParams]="{category:val}">
+    <img src="{{icon}}" alt="{{val}}">
+    <div class="text">{{val}}</div>
     
 </div>

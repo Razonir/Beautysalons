@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Business } from 'src/app/model/business';
 import { BusinessService } from 'src/app/services/business.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-business',
@@ -17,15 +17,12 @@ export class BusinessComponent implements OnInit {
 
   businessData: any;
   bcitytype: any;
-  itype:any;
-  ititle:any;
+  category:any;
   load = true;
-  constructor(private router: Router, private businessService: BusinessService) { }
+  constructor(private router: Router, private businessService: BusinessService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.itype = history?.state?.data?.name;
-    this.ititle = history?.state?.data?.title;
-    if(this.itype == undefined || this.itype == 'הכל'){
-      this.itype = 'הכל';
+    this.category = this.route.snapshot.queryParamMap.get('category')
+    if(this.category == undefined ){
       this.businessService.getAll().subscribe((data)=>{
         this.load = false;
         this.businessData = data;
@@ -36,7 +33,7 @@ export class BusinessComponent implements OnInit {
         this.load = false;
         this.businessData = data;
         this.businessData = this.businessData.filter((d: { bgender: any; }) => d.bgender == this.gender);
-        this.businessData = this.businessData.filter((s: { bsubject: any; }) => s.bsubject == this.itype);
+        this.businessData = this.businessData.filter((s: { bsubject: any; }) => s.bsubject == this.category);
       });
     }
     this.gender = localStorage.getItem('gender');

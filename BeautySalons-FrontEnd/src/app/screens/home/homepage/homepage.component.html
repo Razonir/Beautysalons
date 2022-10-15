@@ -54,38 +54,41 @@
       <div class="services">
         <app-servicecard
           val="מספרות"
-          text="מספרות"
           icon="/assets/services/hair.jpg"
         ></app-servicecard>
         <app-servicecard
           val="גבות"
-          text="גבות"
           icon="/assets/services/eyebrow.jpg"
         ></app-servicecard>
         <app-servicecard
           val="קעקועים"
-          text="קעקועים"
           icon="/assets/services/tattoo.jpg"
         ></app-servicecard>
         <app-servicecard
           val="איפור"
-          text="איפור"
           icon="/assets/services/makeup.jpg"
         ></app-servicecard>
         <app-servicecard
           val="קוסמטיקה"
-          text="קוסמטיקה"
           icon="/assets/services/cosmatics.jpg"
         ></app-servicecard>
         <app-servicecard
           val="ציפורניים"
-          text="ציפורניים"
           icon="/assets/services/nail.jpg"
         ></app-servicecard>
       </div>
     </div>
     <div class="item">
-      <div class="title">מספרות מובילות</div>
+      <div class="top">
+        <div class="title">מספרות מובילות</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'מספרות' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -119,7 +122,16 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">מכוני איפור מובילים</div>
+      <div class="top">
+        <div class="title">מכוני איפור מובילים</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'איפור' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -153,7 +165,16 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">בונות ציפורניים מובילות</div>
+      <div class="top">
+        <div class="title">בונות ציפורניים מובילות</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'ציפורניים' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -187,7 +208,16 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">מכוני גבות מובילים</div>
+      <div class="top">
+        <div class="title">מכוני גבות מובילים</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'גבות' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -221,7 +251,16 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">מכוני קוסמטיקה מובילים</div>
+      <div class="top">
+        <div class="title">מכוני קוסמטיקה מובילים</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'קוסמטיקה' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -255,7 +294,16 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">מכוני קעקועים מובילים</div>
+      <div class="top">
+        <div class="title">מכוני קעקועים מובילים</div>
+        <div
+          class="show"
+          [routerLink]="['/business']"
+          [queryParams]="{ category: 'קעקועים' }"
+        >
+          הצג הכל
+        </div>
+      </div>
       <div class="all-business">
         <div class="preloader" *ngIf="load">
           <app-business-card-preloader></app-business-card-preloader>
@@ -289,7 +337,10 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">בלוגים מובילים</div>
+      <div class="top">
+        <div class="title">בלוגים מובילים</div>
+        <div class="show" [routerLink]="['/blog']">הצג הכל</div>
+      </div>
       <div class="blogs">
         <div class="blog-preload" *ngIf="load">
           <app-blogcard-preload></app-blogcard-preload>
