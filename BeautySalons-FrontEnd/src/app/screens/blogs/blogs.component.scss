@@ -9,6 +9,7 @@
         margin-bottom: -40px;
         background-size: cover !important;
         background-attachment: fixed !important;
+        background-image: url('../../../assets/blog/blue.jpg');
         .right {
             width: 100%;
             padding: 20px 5%;
@@ -20,16 +21,15 @@
             margin-bottom: 40px;
 
             .text {
+                font-size: 25px;
                 margin-bottom: 10px;
             }
         }
     }
     .all {
-        background-color: #f7f6fb;
-        padding: 20px 5%;
-        border-radius: 30px 30px 0 0 ;
-        box-shadow: 0 0 200px rgba(108, 108, 108, 0.423);
+        background-color: #fff;
         position: relative;
+        margin: 0 auto;
         z-index: 1;
         .blogs {
             display: flex;
@@ -37,15 +37,13 @@
             justify-content: center;
             margin-bottom: 20px;
             .preloader{
-                width: 100%;
                 max-width: 500px;
-                margin: 0px 16px;
+                margin: 10px;
     
             }
             .blog{
                 max-width: 500px;
-                width: 100%;
-                margin: 0px 16px;
+                margin: 10px;
             }
         }
     }

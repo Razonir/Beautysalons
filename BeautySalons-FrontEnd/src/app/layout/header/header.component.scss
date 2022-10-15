@@ -15,11 +15,9 @@ header {
       align-items: center;
       gap: 10px;
       justify-content: center;
-
       img {
         cursor: pointer;
         transition: 0.2s;
-        filter: hue-rotate(249deg) brightness(1.9);
         &:hover {
           transform: scale(0.9);
         }

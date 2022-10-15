@@ -1,0 +1,208 @@
+.full {
+    .top {
+        background-image: url('../../../assets/banners/about.jpg');
+        padding: 0 15%;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        background-size: cover;
+        background-position: center;
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            .title {
+                font-size: 70px;
+                font-weight: bold;
+                line-height: 70px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+                font-weight: 500;
+                margin: 20px 0;
+            }
+
+            .open {
+                font-size: 20px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+
+        .left {}
+    }
+
+    .content {
+        margin: 100px 25%;
+
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .text {
+            font-size: 18px;
+        }
+    }
+
+    .cardb {
+        margin: 10px 15%;
+        display: flex;
+        box-shadow: rgb(32 33 37 / 6%) 0px 0px 54px 0px;
+        background-color: white;
+
+        img {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .col {
+            width: 50%;
+            padding: 120px 30px;
+
+            .title {
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .text {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .q {
+        background-color: white;
+        padding: 120px 15%;
+        margin-top: 100px;
+        font-size: 30px;
+        text-align: center;
+
+    }
+
+    .phone {
+        padding: 0 0 0 15%;
+        background-color: #f2f3f5;
+        display: flex;
+        align-items: center;
+        height: 70vh;
+
+        .e {
+            width: 60%;
+            background-image: url('../../../assets/banners/front-cells.png');
+            height: 100%;
+            background-size: cover;
+        }
+
+        .pcontent {
+            width: 40%;
+
+            .title {
+                font-size: 40px;
+                font-weight: bold;
+            }
+
+            .phonecontent {
+                margin: 50px 0;
+                font-size: 18px;
+
+            }
+
+            .google {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                img {
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 764px) {
+    .full {
+        .top {
+            height: 51vh;
+            .right {
+                width: 100%;
+                .title {
+                    font-size: 45px;
+                    line-height: 50px;
+                }
+
+                .subtitle {}
+
+                .open {
+                    font-size: 16px;
+                }
+            }
+
+            .left {}
+        }
+
+        .content {
+            margin: 10px 8%;
+
+            .title {}
+
+            .text {}
+        }
+
+        .cardb {
+            margin: 10px 5%;
+            flex-direction: column-reverse;
+            img {
+                width: 100% !important;
+                height: 40vh;
+            }
+            .col {
+                width: 100% !important;
+                padding: 30px;
+                .title {}
+
+                .text {}
+            }
+        }
+
+        .q {
+            padding: 78px 6%;
+            font-size: 22px;  
+            margin-top: 20px;
+        }
+
+        .phone {
+            flex-direction: column-reverse !important;
+            padding: 5% 5% 0 5%;
+
+            .e {
+                width: 100% !important;
+                height: 50vh;
+            }
+
+            .pcontent {
+                width: 100% !important;
+                .title {
+
+                }
+
+                .phonecontent {
+                    margin: 25px 0 !important;
+
+                }
+
+                .google {
+
+                    img {}
+                }
+            }
+        }
+    }
+
+}
