@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <div class="service">
+    <div class="service" *ngIf="!load">
       <div class="title">קטגוריות מובילות</div>
       <div class="services">
         <app-servicecard
@@ -90,6 +90,141 @@
         ></app-servicecard>
       </div>
     </div>
+    <div class="item" *ngIf="load">
+      <div class="top">
+        <div class="pretitle">קטגוריה מובילה</div>
+        <div
+          class="preshow"
+        >
+          הצג הכל
+        </div>
+      </div>
+      <div class="all-business">
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+      </div>
+    </div>
+    <div class="item" *ngIf="load">
+      <div class="top">
+        <div class="pretitle">קטגוריה מובילה</div>
+        <div
+          class="preshow"
+        >
+          הצג הכל
+        </div>
+      </div>
+      <div class="all-business">
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+      </div>
+    </div>
+    <div class="item" *ngIf="load">
+      <div class="top">
+        <div class="pretitle">קטגוריה מובילה</div>
+        <div
+          class="preshow"
+        >
+          הצג הכל
+        </div>
+      </div>
+      <div class="all-business">
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+      </div>
+    </div>
+    <div class="item" *ngIf="load">
+      <div class="top">
+        <div class="pretitle">קטגוריה מובילה</div>
+        <div
+          class="preshow"
+        >
+          הצג הכל
+        </div>
+      </div>
+      <div class="all-business">
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+      </div>
+    </div>
+    <div class="item" *ngIf="load">
+      <div class="top">
+        <div class="pretitle">קטגוריה מובילה</div>
+        <div
+          class="preshow"
+        >
+          הצג הכל
+        </div>
+      </div>
+      <div class="all-business">
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+        <div class="preloader">
+          <app-business-card-preloader></app-business-card-preloader>
+        </div>
+      </div>
+    </div>
     <div class="item" [style.display]="displaybusinessDataHair">
       <div class="top">
         <div class="title">מספרות מובילות</div>
@@ -102,21 +237,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataHair">
           <div class="busines">
             <app-business-card
@@ -145,21 +265,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataMakeup">
           <div class="busines">
             <app-business-card
@@ -188,21 +293,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataNail">
           <div class="busines">
             <app-business-card
@@ -231,21 +321,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataEyebrows">
           <div class="busines">
             <app-business-card
@@ -274,21 +349,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataCosmatics">
           <div class="busines">
             <app-business-card
@@ -317,21 +377,6 @@
         </div>
       </div>
       <div class="all-business">
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
-        <div class="preloader" *ngIf="load">
-          <app-business-card-preloader></app-business-card-preloader>
-        </div>
         <div class="business" *ngFor="let item of businessDataTattoo">
           <div class="busines">
             <app-business-card

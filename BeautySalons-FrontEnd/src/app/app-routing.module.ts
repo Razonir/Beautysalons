@@ -79,7 +79,7 @@ const routes: Routes = [
       {
         path: ':bid',
         component: BusinessPageComponent
-      }
+      },
     ]
   },
   {

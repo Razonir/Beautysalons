@@ -48,6 +48,7 @@ import { AdminBlogsComponent } from './screens/admin/admin-blogs/admin-blogs.com
 import { AdminMediaComponent } from './screens/admin/admin-media/admin-media.component';
 import { AdminBusinessComponent } from './screens/admin/admin-business/admin-business.component';
 import { AdminReviewsComponent } from './screens/admin/admin-reviews/admin-reviews.component';
+import { ServicecardsideComponent } from './component/servicecardside/servicecardside.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { AdminReviewsComponent } from './screens/admin/admin-reviews/admin-revie
     AdminBlogsComponent,
     AdminMediaComponent,
     AdminBusinessComponent,
-    AdminReviewsComponent
+    AdminReviewsComponent,
+    ServicecardsideComponent
   ],
   imports: [
     BrowserModule,

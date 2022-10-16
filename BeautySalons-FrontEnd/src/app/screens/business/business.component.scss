@@ -1,7 +1,12 @@
 .fullpage {
     max-width: 1551px;
     margin: 0 10%;
-
+    background-image: url('../../../assets/GUI/home-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 90vh;
     .top {}
 
     .bottom {
