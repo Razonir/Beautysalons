@@ -10,7 +10,14 @@
     .top {}
 
     .bottom {
-        .result {}
+        .category {
+            margin: 0 auto;
+
+            .categoryitem{
+                background-color: white;
+                max-width: 80%;
+            }
+        }
 
         .all-business {
             display: flex;

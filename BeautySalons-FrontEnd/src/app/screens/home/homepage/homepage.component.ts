@@ -46,10 +46,6 @@ export class HomepageComponent implements OnInit {
     if (this.gender == null || this.gender == 'female') {
       this.gender = 'female';
       localStorage.setItem('gender', 'female');
-    } else {
-      this.topTitle = 'אתר מותאם לגברים';
-      this.background = 'url(/assets/man.jpg)';
-      this.color = 'black';
     }
     this.businessService.getAll().subscribe((data) => {
       this.load = false;

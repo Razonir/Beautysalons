@@ -2,7 +2,14 @@
     <div class="top">
     </div>
     <div class="bottom">
-        <div class="all-business">
+        <div class="category" [style.display]="categoryhide">
+            <div class="categoryitem" [style.display]="displaybusinessDataHair">
+                <div class="title">מספרות</div>
+                <div class="subtitle">0 מקומות</div>
+            </div>
+
+        </div>
+        <div class="all-business" [style.display]="categoryshow">
             <div class="preloader" *ngIf="load">
                 <app-business-card-preloader></app-business-card-preloader>
             </div>
