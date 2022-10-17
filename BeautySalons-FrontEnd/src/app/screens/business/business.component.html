@@ -1,9 +1,10 @@
 <div class="fullpage">
   <div class="top">
-    <div class="search">
+    <div class="search" [style.display]="categoryshow">
       <input type="text" placeholder="הקלידו שם העסק/העיר" [(ngModel)]="userT" />
       <div class="tip">יותר מ1000 עסקים כבר מחכים לך</div>
     </div>
+    <div class="title" [style.display]="categoryhide">קטגוריות</div>
   </div>
   <div class="bottom">
     <div class="category" [style.display]="categoryhide">

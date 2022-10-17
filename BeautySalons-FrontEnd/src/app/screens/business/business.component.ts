@@ -43,7 +43,7 @@ export class BusinessComponent implements OnInit {
   ngOnInit(): void {
     this.category = this.route.snapshot.queryParamMap.get('category')
     if(this.category == undefined ){
-      this.categoryhide = 'block';
+      this.categoryhide = 'flex';
 
       this.businessService.getAll().subscribe((data)=>{
         this.load = false;
@@ -119,13 +119,12 @@ export class BusinessComponent implements OnInit {
     baddress = baddress.toLocaleLowerCase()
     bname = bname.toLocaleLowerCase()
     this.userT = this.userT.toLocaleLowerCase()
-    this.userT = this.userT.trim();
-    baddress = baddress.trim();
-    icity = icity.trim();
-    bname = bname.trim();
+    baddress = baddress.replace(" ", "")
+    icity = icity.replace(" ", "")
+    bname = bname.replace(" ", "")
     let len = this.userT.length; 
 
-    if(icity.substring(0,len)==this.userT || bname.substring(0,len)==this.userT  || baddress.substring(0,len)==this.userT){
+    if(icity.substring(0,len)==this.userT.replace(" ", "") || bname.substring(0,len)==this.userT.replace(" ", "")  || baddress.substring(0,len)==this.userT.replace(" ", "")){
         return true;
     }
     return false;

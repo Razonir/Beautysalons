@@ -10,25 +10,38 @@
         width: 100%;
         background-image: linear-gradient(-90deg, #00a1d6, #28cadc);
         color: white;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 0 38px 19px white;
+        .title{
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px 0;
+            align-items: center;
+            justify-content: center;
+        }
         .search {
             display: flex;
-            padding: 30px 16px;
+            padding: 16px 16px;
             margin: 0 auto;
             align-items: center;
             justify-content: center;
             flex-direction: column;
 
-            .tip{
-                color: hsla(0,0%,100%,.6);
+            .tip {
+                color: hsla(0, 0%, 100%, .6);
             }
+
             input {
-                width: 60%;
+                width: 90%;
                 max-width: 600px;
                 border-radius: 50px;
                 padding: 15px;
                 color: rgb(255, 255, 255);
-                background-color: hsla(0,0%,100%,.25);
+                background-color: hsla(0, 0%, 100%, .25);
                 transition: 0.2s;
                 border: #5cc0eb00 2px solid;
                 text-align: center;
@@ -42,10 +55,12 @@
                     border: #ffffff23 2px solid;
                     outline: none;
                 }
+
                 &::placeholder {
                     color: rgba(255, 255, 255, 0.644);
                 }
-                &::after{
+
+                &::after {
                     content: 'fd';
                     color: white;
                     width: 10px;
@@ -57,10 +72,15 @@
     }
 
     .bottom {
-        padding: 0 10%;
 
         .category {
             margin-bottom: 90px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
 
             .categoryitem {
                 background-color: white;
