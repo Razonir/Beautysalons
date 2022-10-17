@@ -53,6 +53,12 @@
       <div class="title">קטגוריות מובילות</div>
       <div class="services">
         <app-servicecard
+        val="כל העסקים"
+        icon="/assets/services/all.jpg"
+        len="{{ lenbusinessData }}"
+        (click)="all()"
+      ></app-servicecard>
+        <app-servicecard
           val="מספרות"
           icon="/assets/services/hair.jpg"
           len="{{ lenbusinessDataHair }}"
