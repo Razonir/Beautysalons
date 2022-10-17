@@ -1,46 +1,94 @@
 <div class="fullpage">
-    <div class="top">
+  <div class="top">
+    <div class="search">
+      <input type="text" placeholder="הקלידו שם העסק/העיר" [(ngModel)]="userT" />
+      <div class="tip">יותר מ1000 עסקים כבר מחכים לך</div>
     </div>
-    <div class="bottom">
-        <div class="category" [style.display]="categoryhide">
-            <div class="categoryitem" [style.display]="displaybusinessDataHair">
-                <div class="title">מספרות</div>
-                <div class="subtitle">0 מקומות</div>
-            </div>
-
-        </div>
-        <div class="all-business" [style.display]="categoryshow">
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="preloader" *ngIf="load">
-                <app-business-card-preloader></app-business-card-preloader>
-            </div>
-            <div class="business" *ngFor="let item of businessData">
-                <div *ngIf="city(item.bcity)">
-                    <app-business-card id="{{item.bid}}" bname="{{item.bname}}" blogo="{{item.blogo}}"
-                        bsubject="{{item.bsubject}}" baddress="{{item.baddress}}" bcity="{{item.bcity}}"
-                        blikes="{{item.blikes}}" bviews="{{item.bviews}}"></app-business-card>
-                </div>
-            </div>
-        </div>
+  </div>
+  <div class="bottom">
+    <div class="category" [style.display]="categoryhide">
+        <app-servicecard
+        val="מספרות"
+        icon="/assets/services/hair.jpg"
+        len="{{ lenbusinessDataHair }}"
+        [style.display]="displaybusinessDataHair"
+        (click)="step()"
+      ></app-servicecard>
+      <app-servicecard
+        val="גבות"
+        icon="/assets/services/eyebrow.jpg"
+        [style.display]="displaybusinessDataEyebrows"
+        len="{{ lenbusinessDataEyebrows }}"
+        (click)="step()"
+      ></app-servicecard>
+      <app-servicecard
+        val="קעקועים"
+        icon="/assets/services/tattoo.jpg"
+        [style.display]="displaybusinessDataTattoo"
+        len="{{ lenbusinessDataTattoo }}"
+        (click)="step()"
+      ></app-servicecard>
+      <app-servicecard
+        val="איפור"
+        icon="/assets/services/makeup.jpg"
+        [style.display]="displaybusinessDataMakeup"
+        len="{{ lenbusinessDataMakeup }}"
+        (click)="step()"
+      ></app-servicecard>
+      <app-servicecard
+        val="קוסמטיקה"
+        icon="/assets/services/cosmatics.jpg"
+        [style.display]="displaybusinessDataCosmatics"
+        len="{{ lenbusinessDataCosmatics }}"
+        (click)="step()"
+      ></app-servicecard>
+      <app-servicecard
+        val="ציפורניים"
+        icon="/assets/services/nail.jpg"
+        [style.display]="displaybusinessDataNail"
+        len="{{ lenbusinessDataNail }}"
+        (click)="step()"
+      ></app-servicecard>
     </div>
+    <div class="all-business" [style.display]="categoryshow">
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="preloader" *ngIf="load">
+        <app-business-card-preloader></app-business-card-preloader>
+      </div>
+      <div class="business" *ngFor="let item of businessData">
+        <div *ngIf="city(item.bcity,item.baddress,item.bname)">
+          <app-business-card
+            id="{{ item.bid }}"
+            bname="{{ item.bname }}"
+            blogo="{{ item.blogo }}"
+            bsubject="{{ item.bsubject }}"
+            baddress="{{ item.baddress }}"
+            bcity="{{ item.bcity }}"
+            blikes="{{ item.blikes }}"
+            bviews="{{ item.bviews }}"
+          ></app-business-card>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@ export class BusinessComponent implements OnInit {
 
 
   businessData: any;
-  bcitytype: any;
+  userT: any;
   category:any;
   load = true;
   businessDataHair: any;
@@ -107,21 +107,35 @@ export class BusinessComponent implements OnInit {
     if(this.gender == null || this.gender == 'female'){
       this.gender = 'female';
       localStorage.setItem('gender','female')
-    }else{
-      this.background = 'linear-gradient(45deg, #181818, #000)';
-      this.color = 'black';
     }
 
   }
 
-  city(icity:string){
-    if(this.bcitytype == undefined){
+  city(icity:string,baddress:string,bname:string){
+    if(this.userT == undefined){
       return true;
     }
-    let len = this.bcitytype.length; 
-    if(icity.substring(0,len)==this.bcitytype){
+    icity = icity.toLocaleLowerCase()
+    baddress = baddress.toLocaleLowerCase()
+    bname = bname.toLocaleLowerCase()
+    this.userT = this.userT.toLocaleLowerCase()
+    this.userT = this.userT.trim();
+    baddress = baddress.trim();
+    icity = icity.trim();
+    bname = bname.trim();
+    let len = this.userT.length; 
+
+    if(icity.substring(0,len)==this.userT || bname.substring(0,len)==this.userT  || baddress.substring(0,len)==this.userT){
         return true;
     }
     return false;
+  }
+
+  step(){
+    this.categoryshow = 'flex';
+    this.categoryhide = 'none';
+    this.category = this.route.snapshot.queryParamMap.get('category')
+    this.businessData = this.businessData.filter((s: { bsubject: any; }) => s.bsubject == this.category);
+
   }
 }

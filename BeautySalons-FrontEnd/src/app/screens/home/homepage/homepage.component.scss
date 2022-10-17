@@ -28,7 +28,7 @@
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-                gap: 10px;
+                gap: 20px;
                 padding-bottom: 10px;
 
                 &::-webkit-scrollbar {
@@ -61,7 +61,7 @@
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-                gap: 12px;
+                gap: 25px;
                 padding-bottom: 10px;
 
                 .business,
@@ -105,7 +105,7 @@
             overflow-x: auto;
             position: relative;
             scroll-snap-type: x mandatory;
-            gap: 15px;
+            gap: 25px;
             padding-bottom: 10px;
 
             &::-webkit-scrollbar {

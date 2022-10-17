@@ -1,21 +1,80 @@
 .fullpage {
-    max-width: 1551px;
-    margin: 0 10%;
     background-image: url('../../../assets/GUI/home-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     min-height: 90vh;
-    .top {}
+
+    .top {
+        width: 100%;
+        background-image: linear-gradient(-90deg, #00a1d6, #28cadc);
+        color: white;
+        margin-bottom: 40px;
+        .search {
+            display: flex;
+            padding: 30px 16px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .tip{
+                color: hsla(0,0%,100%,.6);
+            }
+            input {
+                width: 60%;
+                max-width: 600px;
+                border-radius: 50px;
+                padding: 15px;
+                color: rgb(255, 255, 255);
+                background-color: hsla(0,0%,100%,.25);
+                transition: 0.2s;
+                border: #5cc0eb00 2px solid;
+                text-align: center;
+                cursor: pointer;
+
+                &:hover,
+                &:focus,
+                &:active,
+                &:focus-visible {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    border: #ffffff23 2px solid;
+                    outline: none;
+                }
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.644);
+                }
+                &::after{
+                    content: 'fd';
+                    color: white;
+                    width: 10px;
+                    height: 10px;
+                    background-color: black;
+                }
+            }
+        }
+    }
 
     .bottom {
-        .category {
-            margin: 0 auto;
+        padding: 0 10%;
 
-            .categoryitem{
+        .category {
+            margin-bottom: 90px;
+
+            .categoryitem {
                 background-color: white;
                 max-width: 80%;
+                margin: 20px auto;
+                box-shadow: rgb(0 0 0 / 6%) 0px 0px 0.125rem 0px, rgb(0 0 0 / 12%) 0px 0.125rem 0.125rem 0px;
+                transition: 0.3s;
+                border-radius: 8px;
+                padding: 10px;
+
+                &:hover {
+                    transform: scale(0.95);
+                    box-shadow: rgb(0 0 0 / 4%) 0px 0px 0.375rem, rgb(0 0 0 / 8%) 0px 0.125rem 0.375rem;
+                }
             }
         }
 
@@ -35,12 +94,14 @@
 
     }
 }
+
 @media screen and (max-width:600px) {
-    .fullpage{
+    .fullpage {
         margin: 0px;
-        .all-business{
+
+        .all-business {
             justify-content: center;
         }
     }
-    
+
 }
