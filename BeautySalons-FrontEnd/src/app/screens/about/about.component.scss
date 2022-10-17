@@ -1,18 +1,22 @@
 .full {
     .top {
-        background-image: url('../../../assets/banners/about.jpg');
+        background-image: linear-gradient(-90deg, #00a1d6, #28cadc);
         padding: 0 15%;
-        height: 80vh;
+        min-height: 50vh;
         display: flex;
         align-items: center;
         align-content: center;
         background-size: cover;
-        background-position: center;
 
         .right {
+            margin: 0 auto;
+            width: 80%;
             display: flex;
+            align-items: center;
+            align-content: center;
+            background-size: cover;
             flex-direction: column;
-            width: 50%;
+            color: white;
 
             .title {
                 font-size: 70px;
@@ -26,11 +30,7 @@
                 margin: 20px 0;
             }
 
-            .open {
-                font-size: 20px;
-                font-weight: 500;
-                cursor: pointer;
-            }
+
         }
 
         .left {}
@@ -90,6 +90,7 @@
         background-color: #f2f3f5;
         display: flex;
         align-items: center;
+        min-height: 70vh;
         height: 70vh;
 
         .e {
@@ -130,8 +131,10 @@
     .full {
         .top {
             height: 51vh;
+
             .right {
                 width: 100%;
+
                 .title {
                     font-size: 45px;
                     line-height: 50px;
@@ -150,47 +153,62 @@
         .content {
             margin: 10px 8%;
 
-            .title {}
+            .title {
+                font-size: 20px;
+            }
 
-            .text {}
+            .text {
+                font-size: 16px;
+            }
         }
 
         .cardb {
             margin: 10px 5%;
             flex-direction: column-reverse;
+
             img {
                 width: 100% !important;
                 height: 40vh;
             }
+
             .col {
                 width: 100% !important;
-                padding: 30px;
-                .title {}
+                padding: 19px;
 
-                .text {}
+                .title {
+                    font-size: 20px;
+
+                }
+
+                .text {
+                    font-size: 16px;
+
+                }
             }
         }
 
         .q {
             padding: 78px 6%;
-            font-size: 22px;  
+            font-size: 22px;
             margin-top: 20px;
         }
 
         .phone {
             flex-direction: column-reverse !important;
-            padding: 5% 5% 0 5%;
+            padding: 0 !important;
+
+            height: auto;
 
             .e {
                 width: 100% !important;
-                height: 50vh;
+                min-height: 50vh;
             }
 
             .pcontent {
                 width: 100% !important;
-                .title {
+                padding: 5% 5% 0 5%;
 
-                }
+                .title {}
 
                 .phonecontent {
                     margin: 25px 0 !important;
@@ -198,8 +216,12 @@
                 }
 
                 .google {
+                    align-items: center;
+                    margin-bottom: 20px;
 
-                    img {}
+                    img {
+                        width: 152px;
+                    }
                 }
             }
         }

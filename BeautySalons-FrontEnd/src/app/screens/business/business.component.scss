@@ -1,9 +1,5 @@
 .fullpage {
-    background-image: url('../../../assets/GUI/home-bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+
     min-height: 90vh;
 
     .top {
@@ -12,7 +8,7 @@
         color: white;
         margin-bottom: 30px;
         position: sticky;
-        top: 0;
+        top: 74px;
         z-index: 10;
         box-shadow: 0 0 38px 19px white;
         .title{
@@ -72,7 +68,8 @@
     }
 
     .bottom {
-
+        max-width: 1330px;
+        margin:  0 auto;
         .category {
             margin-bottom: 90px;
             display: flex;
@@ -100,13 +97,14 @@
 
         .all-business {
             display: flex;
-            gap: 12px;
             padding-bottom: 10px;
             flex-wrap: wrap;
             align-content: center;
+            justify-content: center;            
 
             .business,
             .preloader {
+                padding: 5px;
                 max-width: 371px;
             }
 
@@ -118,7 +116,9 @@
 @media screen and (max-width:600px) {
     .fullpage {
         margin: 0px;
-
+        .top {
+        top: 0 !important;
+        }
         .all-business {
             justify-content: center;
         }

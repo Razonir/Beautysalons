@@ -1,28 +1,37 @@
-$base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-color: #c9c9c9; $box-shadow: 0 5px 20px #cccccc;
-.fullpage{
+$base-color: #23abe4;
+$first-color: #eeeeee;
+$sec-color: #393E46;
+$sec-small-color: #c9c9c9;
+$box-shadow: 0 5px 20px #cccccc;
+
+.fullpage {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    .topcontent{
+
+    .topcontent {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px 0px;
+        padding: 20px 0px 0 0;
         flex-direction: column;
-        .bname{
+
+        .bname {
             margin-top: 5px;
             font-size: 20px;
             font-weight: bold;
         }
-        .baddress-bcity{
+
+        .baddress-bcity {
             color: gray;
-        } 
+        }
     }
-    .contact-icons{
+
+    .contact-icons {
         display: flex;
         gap: 14px;
         padding: 8px 0px;
@@ -34,20 +43,23 @@ $base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         background-blend-mode: color;
         width: 100%;
         margin-bottom: 35px;
-        .logo{
+
+        .logo {
             transform: translateY(50px);
             margin-top: 50px;
-            img{
+
+            img {
                 width: 90px;
                 height: 90px;
-                outline: 6px solid rgba(255,255,255);
+                outline: 6px solid rgba(255, 255, 255);
                 border-radius: 50%;
                 box-shadow: $box-shadow;
                 object-fit: cover;
 
             }
         }
-        .icon{
+
+        .icon {
             transform: translateY(80px);
             width: 35px;
             height: 35px;
@@ -57,27 +69,31 @@ $base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
             align-items: center;
             box-shadow: $box-shadow;
             justify-content: center;
-            outline: 3px solid rgba(255,255,255);
+            outline: 3px solid rgba(255, 255, 255);
             transition: 0.5s;
             cursor: pointer;
             text-decoration: none;
-            i{
+
+            i {
                 color: white;
             }
-            .instegram{
+
+            .instegram {
                 filter: invert(1);
                 width: 50%;
             }
-            &:hover{
+
+            &:hover {
                 background-color: #a4e4ff;
             }
         }
     }
-    .sharepopup{
+
+    .sharepopup {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         background-color: white;
         padding: 10px 20px;
         display: flex;
@@ -85,92 +101,108 @@ $base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
         box-shadow: 0px 10px 300px black;
         border-radius: 10px;
         z-index: 999;
-        outline: 1000px solid rgba(0, 0, 0,0.2);
-        .exit{
+        outline: 1000px solid rgba(0, 0, 0, 0.2);
+
+        .exit {
             position: absolute;
             top: 00%;
             left: 50%;
-            transform: translate(-50%,-100%);
+            transform: translate(-50%, -100%);
             font-size: 30px;
             padding: 10px;
             background-color: white;
             cursor: pointer;
-            border-radius: 10px 10px 0 0 ;
+            border-radius: 10px 10px 0 0;
         }
-        .icon{
+
+        .icon {
             width: 40px;
             cursor: pointer;
             padding: 5px;
         }
-        .copy{
+
+        .copy {
             width: 200px;
             text-align: center;
         }
     }
-    .bdescriptions{
+
+    .bdescriptions {
         background-color: white;
         padding: 20px;
         overflow: auto;
         border-radius: 20px;
     }
-    .photos{
+
+    .photos {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
         gap: 5px;
         margin: 0px;
-        .addphoto{
-            width: 120px;
+
+        .addphoto {
+            width: 90px;
             height: 120px;
             display: flex;
             align-items: center;
             transition: 0.3s;
             justify-content: center;
-            border: dashed gray 2px;      
+            border: dashed gray 2px;
             position: relative;
             cursor: pointer;
-            input{
-                width: 120px;
+
+            input {
+                width: 90px;
                 height: 120px;
                 cursor: pointer;
                 opacity: 0;
             }
-            .text{
+
+            .text {
                 position: absolute;
             }
-            &:hover{
+
+            &:hover {
                 background-color: gray;
             }
         }
     }
-    .reviews{
+
+    .reviews {
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        .top{
+
+        .top {
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid black;
         }
 
     }
-    .prices{
+
+    .prices {
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        .top{
+
+        .top {
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid black;
         }
-        .content{
+
+        .content {
             padding: 10px 0px;
             border-bottom: 1px solid rgb(206, 206, 206);
-            .line{
+
+            .line {
                 display: flex;
                 justify-content: space-between;
-                .remove{
+
+                .remove {
                     cursor: pointer;
                 }
             }
@@ -178,14 +210,21 @@ $base-color: #23abe4; $first-color: #eeeeee; $sec-color: #393E46; $sec-small-col
     }
 }
 
-.bdescriptions,.photos,.prices,.reviews{
+.bdescriptions,
+.photos,
+.prices,
+.reviews {
     max-width: 800px;
-    width: 90%;   
+    width: 90%;
     margin: 20px;
 }
-.bdescriptions,.prices,.reviews{
+
+.bdescriptions,
+.prices,
+.reviews {
     box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
 }
-app-report{
+
+app-report {
     width: 100%;
 }
