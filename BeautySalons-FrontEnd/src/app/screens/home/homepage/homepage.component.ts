@@ -18,6 +18,7 @@ export class HomepageComponent implements OnInit {
   businessDataMakeup: any;
   businessDataCosmatics: any;
   businessDataNail: any;
+  lenbusinessData: any;
   lenbusinessDataHair: any;
   lenbusinessDataEyebrows: any;
   lenbusinessDataTattoo: any;
@@ -71,6 +72,7 @@ export class HomepageComponent implements OnInit {
       this.businessDataNail = this.businessData.filter(
         (b: { bsubject: any }) => b.bsubject == 'ציפורניים'
       );
+      this.lenbusinessData = this.businessData.length;
       this.lenbusinessDataHair = this.businessDataHair.length;
       this.lenbusinessDataEyebrows = this.businessDataEyebrows.length;
       this.lenbusinessDataTattoo = this.businessDataTattoo.length;
