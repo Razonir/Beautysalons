@@ -9,6 +9,9 @@ import { Review } from 'src/app/model/review';
 import { Priceing } from 'src/app/model/priceing';
 import { HttpClient } from '@angular/common/http';
 import { Photos } from 'src/app/model/photos';
+
+import {Title} from '@angular/platform-browser'
+
 @Component({
   selector: 'app-business-page',
   templateUrl: './business-page.component.html',
@@ -38,7 +41,6 @@ export class BusinessPageComponent implements OnInit {
   popupdisplay = 'none';
   link: any;
   token: any;
-  linkdisplay = 'none';
   icondisplay = 'block';
   blackbackground: any;
   constructor(
@@ -49,7 +51,8 @@ export class BusinessPageComponent implements OnInit {
     private priceingService: PriceingService,
     private userService: UserService,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -72,6 +75,7 @@ export class BusinessPageComponent implements OnInit {
       this.data = data;
       this.data = this.data[0];
       this.buid = this.data.uid;
+      this.titleService.setTitle(this.data.bname)
       this.genderdata = this.data.bgender;
       this.blackbackground = 'url(' + this.data.blogo + ')';
       if (this.genderdata == 'male') {
@@ -185,9 +189,4 @@ export class BusinessPageComponent implements OnInit {
     return true;
   }
 
-  linkclick() {
-    navigator.clipboard.writeText(this.link);
-    this.linkdisplay = 'block';
-    this.icondisplay = 'none';
-  }
 }

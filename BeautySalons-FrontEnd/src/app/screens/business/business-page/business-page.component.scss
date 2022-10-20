@@ -91,40 +91,40 @@ $box-shadow: 0 5px 20px #cccccc;
 
     .sharepopup {
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        left: auto;
+        bottom: 14%;
         background-color: white;
         padding: 10px 20px;
         display: flex;
-        gap: 20px;
-        box-shadow: 0px 10px 300px black;
-        border-radius: 10px;
-        z-index: 999;
+        border-radius: 40px;
         outline: 1000px solid rgba(0, 0, 0, 0.2);
-
-        .exit {
-            position: absolute;
-            top: 00%;
-            left: 50%;
-            transform: translate(-50%, -100%);
-            font-size: 30px;
-            padding: 10px;
-            background-color: white;
-            cursor: pointer;
-            border-radius: 10px 10px 0 0;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 100;
+        width: 80%;
+        max-width: 500px;
+        animation: fadescele 1s forwards;
+        .btnoff{
+            padding: 8px;
+            text-align: right;
         }
-
+        .goback{
+            padding-bottom: 10px;
+        }
         .icon {
-            width: 40px;
+            width: 25px;
             cursor: pointer;
             padding: 5px;
         }
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
 
-        .copy {
-            width: 200px;
-            text-align: center;
         }
+
     }
 
     .bdescriptions {
@@ -228,3 +228,15 @@ $box-shadow: 0 5px 20px #cccccc;
 app-report {
     width: 100%;
 }
+
+@keyframes fadescele {
+    from {
+      scale: 0;
+      opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+  }

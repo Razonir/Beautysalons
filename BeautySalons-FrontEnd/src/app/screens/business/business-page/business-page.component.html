@@ -24,33 +24,36 @@
       <i class="fas fa-share"></i>
     </a>
   </div>
-  <div class="sharepopup" [style.display]="popupdisplay">
-    <div class="exit" (click)="popupdisplay = 'none'">X</div>
+  <div class="sharepopup" [style.display] = 'popupdisplay'>
+    <div class="goback" (click)="popupdisplay = 'none'">
+      <div class="backicon">
+        <img src="../../../../assets/GUI/arrow.png" alt="back" />
+      </div>
+      <div class="back">חזור</div>
+    </div>
     <a
       href="https://api.whatsapp.com/send?text={{ link }}"
       [style.display]="icondisplay"
       target="_blank"
+      class="btnoff"
       ><img class="icon" src="/assets/whatsapp.png"
-    /></a>
+    />ואצאפ</a>
     <a
       href="https://www.facebook.com/sharer/sharer.php?u={{ link }}"
       [style.display]="icondisplay"
       target="_blank"
+      class="btnoff"
+
       ><img class="icon" src="/assets/facebook-logo.png"
-    /></a>
+    />פייסבוק</a>
     <a
       href="https://t.me/share/url?url={{ link }}&text={{ item.bname }}"
       [style.display]="icondisplay"
       target="_blank"
+      class="btnoff"
       ><img class="icon" src="/assets/telegram.png"
-    /></a>
-    <img
-      class="icon"
-      src="/assets/link.png"
-      [style.display]="icondisplay"
-      (click)="linkclick()"
-    />
-    <div class="copy" [style.display]="linkdisplay">הלינק הועתק ללוח</div>
+    />טלגרם</a>
+
   </div>
   <div class="topcontent">
     <div class="bname">{{ item.bname }}</div>
