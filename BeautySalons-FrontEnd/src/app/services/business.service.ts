@@ -43,6 +43,11 @@ export class BusinessService {
     });
   }
 
+  createSendEmail(business:any){
+    let send = this.baseURL+'createSendEmail'
+    return this.httpClient.post<any>(`${send}`,business);
+  }
+
   addLike(bid: any){
     let url = this.baseURL+'like/'+bid;
     return this.httpClient.get(url);

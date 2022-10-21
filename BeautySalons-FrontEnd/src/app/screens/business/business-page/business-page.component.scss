@@ -223,9 +223,11 @@ $box-shadow: 0 5px 20px #cccccc;
 .prices,
 .reviews {
     box-shadow: 0 2px 2px rgba(186, 177, 177, 0.37);
+    z-index: 3;
 }
 
 app-report {
+    box-shadow: 0 -160px 163px #00000045;
     width: 100%;
 }
 

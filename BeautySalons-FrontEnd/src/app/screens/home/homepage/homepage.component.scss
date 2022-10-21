@@ -62,7 +62,6 @@
 
                 .business,
                 .preloader {
-                    max-width: 371px;
                     width: 100%;
                     scroll-snap-align: start;
                 }
@@ -141,7 +140,7 @@
         z-index: 10 !important;
         color: #01c2eb;
         padding: 2px 10px;
-        font-size: 12px;
+        font-size: 20px;
         display: flex;
         height: fit-content;
         border-radius: 10px;
@@ -177,6 +176,7 @@
 
 
         .show {
+            font-size: 12px;
             z-index: 10 !important;
         }
     }

@@ -24,7 +24,6 @@ export class ReviewComponent implements OnInit {
   }
 
   remove(){
-    console.log('start')
     this.reviewService.deleteByRid(this.reviewid).subscribe();
   }
 }

@@ -23,4 +23,7 @@ router.get('/view/:bid', BusinessController.addView);
 
 router.get('/:bid', BusinessController.findById);
 
+router.post('/createSendEmail', BusinessController.createEmail);
+
+
 module.exports = router;

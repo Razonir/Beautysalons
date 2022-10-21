@@ -219,7 +219,7 @@ exports.contact = async (req, res, next) => {
     const url = req.body.url;
     const content = useremail + " " + userphone + " " + usertext + ",url: " + url;
     try {
-        sendMails('razonir@Gmail.com', 'Bug found on BeautySalons', content);
+        sendMails('razonir@Gmail.com', 'יצירת קשר באתר', content);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

@@ -4,6 +4,19 @@ const jwt = require('jsonwebtoken');
 const Business = require('../models/business');
 const { sendMails } = require('../services/email-sender');
 
+
+exports.createEmail = async (req,res,next) => {
+    const businessDetails = req.body.businessDetails;
+    try {
+        sendMails('razonir@Gmail.com', 'עסק רוצה להירשם', businessDetails);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
 exports.create = async (req,res,next) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) return;
