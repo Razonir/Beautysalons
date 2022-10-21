@@ -7,9 +7,9 @@
         </div>
         <div class="back">חזור</div>
       </div>
-      <div [style.display]="submited" class="Thank">קיבלנו את הפרטים של העסק שלך<br>נעבור על התוכן שהגשת ונחזור עליך בתוך 24 שעות עם קישור לעסק החדש שלך</div>
+      <div [style.display]="submitedb" class="Thank">קיבלנו את הפרטים של העסק שלך<br>נעבור על התוכן שהגשת ונחזור עליך בתוך 24 שעות עם קישור לעסק החדש שלך</div>
 
-      <form (ngSubmit)="create()" class="createform" [style.display]="submitedb" ngNativeValidate>
+      <form (ngSubmit)="create()" class="createform" [style.display]="submited" ngNativeValidate>
         <div class="hello">פתיחת עסק</div>
 
         <div class="form-floating">
