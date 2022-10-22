@@ -52,6 +52,7 @@ a{
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
+    font-size: 15px;
     &:hover{
         background: #ebf7fd;
         color: #23abe4;
@@ -106,4 +107,33 @@ textarea.form-control{
 
 .goback{
     cursor: pointer;
+}
+
+*::-webkit-scrollbar-track
+{
+	background-color: #e2e2e2;
+	border-radius: 10px;
+}
+
+*::-webkit-scrollbar
+{
+	width: 15px;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.0, #5cc0eb),
+									   color-stop(1, #5cb6dd)),
+}
+
+
+@media screen and (max-width:764px) {
+    *::-webkit-scrollbar {
+        display: none;
+    }
+    
 }

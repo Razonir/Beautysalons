@@ -39,19 +39,76 @@ export class BusinessComponent implements OnInit {
   displaybusinessDataNail = 'none';
   categoryshow = 'none';
   categoryhide = 'none';
+  business: any;
   constructor(
     private router: Router,
     private businessService: BusinessService,
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
+    this.gender = localStorage.getItem('gender');
+    if (this.gender == null || this.gender == 'female') {
+      this.gender = 'female';
+      localStorage.setItem('gender', 'female');
+    }
     this.category = this.route.snapshot.queryParamMap.get('category');
     if (this.category == undefined) {
       this.categoryhide = 'flex';
-
-      this.businessService.getAll().subscribe((data) => {
+      if (sessionStorage.getItem('getAll') == undefined) {
+        this.businessService.getAll().subscribe((data) => {
+          this.load = false;
+          this.businessData = data;
+          sessionStorage.setItem('getAll', JSON.stringify(this.businessData));
+          this.businessData = this.businessData.filter(
+            (d: { bgender: any }) => d.bgender == this.gender
+          );
+          this.businessDataHair = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'מספרות'
+          );
+          this.businessDataEyebrows = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'גבות'
+          );
+          this.businessDataTattoo = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'קעקועים'
+          );
+          this.businessDataMakeup = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'איפור'
+          );
+          this.businessDataCosmatics = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'קוסמטיקה'
+          );
+          this.businessDataNail = this.businessData.filter(
+            (b: { bsubject: any }) => b.bsubject == 'ציפורניים'
+          );
+          this.lenbusinessData = this.businessData.length;
+          this.lenbusinessDataHair = this.businessDataHair.length;
+          this.lenbusinessDataEyebrows = this.businessDataEyebrows.length;
+          this.lenbusinessDataTattoo = this.businessDataTattoo.length;
+          this.lenbusinessDataMakeup = this.businessDataMakeup.length;
+          this.lenbusinessDataCosmatics = this.businessDataCosmatics.length;
+          this.lenbusinessDataNail = this.businessDataNail.length;
+          if (this.lenbusinessDataHair > 0) {
+            this.displaybusinessDataHair = 'block';
+          }
+          if (this.lenbusinessDataEyebrows > 0) {
+            this.displaybusinessDataEyebrows = 'block';
+          }
+          if (this.lenbusinessDataTattoo > 0) {
+            this.displaybusinessDataTattoo = 'block';
+          }
+          if (this.lenbusinessDataMakeup > 0) {
+            this.displaybusinessDataMakeup = 'block';
+          }
+          if (this.lenbusinessDataCosmatics > 0) {
+            this.displaybusinessDataCosmatics = 'block';
+          }
+          if (this.lenbusinessDataNail > 0) {
+            this.displaybusinessDataNail = 'block';
+          }
+        });
+      } else {
         this.load = false;
-        this.businessData = data;
+        this.businessData = JSON.parse(sessionStorage.getItem('getAll') || '')
         this.businessData = this.businessData.filter(
           (d: { bgender: any }) => d.bgender == this.gender
         );
@@ -98,28 +155,42 @@ export class BusinessComponent implements OnInit {
         if (this.lenbusinessDataNail > 0) {
           this.displaybusinessDataNail = 'block';
         }
-      });
+      }
     } else {
-      this.businessService.getAll().subscribe((data) => {
+      if (sessionStorage.getItem('getAll') == undefined) {
+        this.businessService.getAll().subscribe((data) => {
+          this.categoryshow = 'flex';
+          this.categoryhide = 'none';
+          this.load = false;
+          this.businessData = data;
+          sessionStorage.setItem('getAll', JSON.stringify(this.businessData));
+          this.businessData = this.businessData.filter(
+            (s: { bsubject: any }) => s.bsubject == this.category
+          );
+          if (this.businessData.length == 0) {
+            this.businessData = data;
+          }
+          this.businessData = this.businessData.filter(
+            (d: { bgender: any }) => d.bgender == this.gender
+          );
+        });
+      } else {
         this.categoryshow = 'flex';
         this.categoryhide = 'none';
+        this.businessData = JSON.parse(sessionStorage.getItem('getAll') || '');
+        this.business = JSON.parse(sessionStorage.getItem('getAll') || '');
         this.load = false;
-        this.businessData = data;
         this.businessData = this.businessData.filter(
           (s: { bsubject: any }) => s.bsubject == this.category
         );
-        if(this.businessData.length == 0){
-          this.businessData = data;
+        if (this.businessData.length == 0) {
+          this.businessData = this.business;
         }
         this.businessData = this.businessData.filter(
           (d: { bgender: any }) => d.bgender == this.gender
         );
-      });
-    }
-    this.gender = localStorage.getItem('gender');
-    if (this.gender == null || this.gender == 'female') {
-      this.gender = 'female';
-      localStorage.setItem('gender', 'female');
+      }
+
     }
   }
 
@@ -151,5 +222,4 @@ export class BusinessComponent implements OnInit {
     this.categoryshow = 'flex';
     this.categoryhide = 'none';
   }
-
 }
