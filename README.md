@@ -31,5 +31,5 @@ Every registered business receives a customized business page for him for free!
 ### I know you're excited But now The project is still in development, but I will let you see what is in the meantime
 <a href="https://beautys.netlify.app/?utm_source=github&utm_medium=github&utm_campaign=github&utm_id=github" target="_blank">live demo</a>
 
-https://beautys.razonir.com/front-cells.188ce09ca96a2902.jpg
+<img src='https://beautys.razonir.com/front-cells.188ce09ca96a2902.jpg' >
 
