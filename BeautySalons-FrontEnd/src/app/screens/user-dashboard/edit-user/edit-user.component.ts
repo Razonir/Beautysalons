@@ -34,7 +34,10 @@ export class EditUserComponent implements OnInit {
 
   edit() {
     this.userService.updateByJWT(this.user, this.token).subscribe(
-      (response) => this.goToHome(),
+      (response) => {
+        sessionStorage.removeItem('user');
+        this.goToHome();
+      },
       (error) => console.error('Error!', error)
     );
   }
