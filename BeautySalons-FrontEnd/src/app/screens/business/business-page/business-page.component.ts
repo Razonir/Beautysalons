@@ -43,6 +43,7 @@ export class BusinessPageComponent implements OnInit {
   token: any;
   icondisplay = 'block';
   blackbackground: any;
+  load = true;
   constructor(
     private router: Router,
     private businessService: BusinessService,
@@ -72,6 +73,8 @@ export class BusinessPageComponent implements OnInit {
     }
     const id = +this.route.snapshot.params['bid'];
     this.businessService.getBusinessById(id).subscribe((data) => {
+              this.load = false;
+
       this.data = data;
       this.data = this.data[0];
       this.buid = this.data.uid;

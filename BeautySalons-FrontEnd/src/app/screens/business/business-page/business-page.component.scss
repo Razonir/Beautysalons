@@ -4,12 +4,55 @@ $sec-color: #393E46;
 $sec-small-color: #c9c9c9;
 $box-shadow: 0 5px 20px #cccccc;
 
+.load {
+    width: 100px;
+    height: 100px;
+    margin: 10% auto 30%;
+    border: solid 10px #23abe4;
+    filter: drop-shadow(0 0 50px #23abe4);
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1.0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    transition: all 0.5s ease-in;
+    animation-name: rotate;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
 .fullpage {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 
     .topcontent {
@@ -17,76 +60,61 @@ $box-shadow: 0 5px 20px #cccccc;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px 0px 0 0;
         flex-direction: column;
-
+        margin-bottom: 20px;
         .bname {
-            margin-top: 5px;
-            font-size: 20px;
+            font-size: 70px;
             font-weight: bold;
+            color: #23abe4;
         }
 
         .baddress-bcity {
             color: gray;
+            
         }
     }
 
-    .contact-icons {
-        display: flex;
-        gap: 14px;
-        padding: 8px 0px;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
+    .logo {
+        height: 400px;
+        width: 100%;
         background-position: center !important;
         background-size: contain !important;
-        background-blend-mode: color;
-        width: 100%;
-        margin-bottom: 35px;
+    }
 
-        .logo {
-            transform: translateY(50px);
-            margin-top: 50px;
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 30px;
+        .icon {
+            outline: #23aae460 solid 3px;
+            width: 40px;
+            cursor: pointer;
+            background-color: #23abe4;
+            border-radius: 50%;
+            height: 40px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
 
             img {
-                width: 90px;
-                height: 90px;
-                outline: 6px solid rgba(255, 255, 255);
-                border-radius: 50%;
-                box-shadow: $box-shadow;
-                object-fit: cover;
-
+                width: 50%;
+                filter: invert(1);
             }
-        }
-
-        .icon {
-            transform: translateY(80px);
-            width: 35px;
-            height: 35px;
-            background-color: $base-color;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            box-shadow: $box-shadow;
-            justify-content: center;
-            outline: 3px solid rgba(255, 255, 255);
-            transition: 0.5s;
-            cursor: pointer;
-            text-decoration: none;
 
             i {
                 color: white;
+                font-size: 15px;
             }
-
-            .instegram {
-                filter: invert(1);
-                width: 50%;
-            }
-
             &:hover {
-                background-color: #a4e4ff;
+                background-color: #7a8386;
+
             }
         }
+
     }
 
     .sharepopup {
@@ -103,22 +131,26 @@ $box-shadow: 0 5px 20px #cccccc;
         justify-content: center;
         align-items: flex-start;
         z-index: 100;
-        width: 80%;
+        width: 95%;
         max-width: 500px;
         animation: fadescele 1s forwards;
-        .btnoff{
+
+        .btnoff {
             padding: 8px;
             text-align: right;
         }
-        .goback{
+
+        .goback {
             padding-bottom: 10px;
         }
+
         .icon {
             width: 25px;
             cursor: pointer;
             padding: 5px;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: black;
             font-size: 16px;
@@ -227,18 +259,17 @@ $box-shadow: 0 5px 20px #cccccc;
 }
 
 app-report {
-    box-shadow: 0 -160px 163px #00000045;
+    box-shadow: 0 -160px 163px #5cc0eb13;
     width: 100%;
 }
 
 @keyframes fadescele {
     from {
-      scale: 0;
-      opacity: 0;
+        transform: translateY(100vh);
     }
-  
+
     to {
-        opacity: 1;
-        scale: 1;
+        transform: translateY(0%);
+
     }
-  }
+}

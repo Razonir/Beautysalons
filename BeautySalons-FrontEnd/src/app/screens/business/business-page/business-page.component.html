@@ -1,29 +1,6 @@
-<div class="fullpage" *ngIf="data as item">
-  <div class="contact-icons" [style.background]="blackbackground">
-    <a class="icon" href="tel:+{{ item.bphone }}" target="_blank">
-      <i class="fas fa-phone"></i>
-    </a>
-    <a
-      class="icon"
-      href="https://wa.me/{{ item.bphone }}?text="
-      target="_blank"
-    >
-      <img class="instegram" src="/assets/whatsapp.png" />
-    </a>
-    <div class="logo">
-      <img src="{{ item.blogo }}" />
-    </div>
-    <a
-      class="icon"
-      href="https://www.instagram.com/{{ item.instegram }}"
-      target="_blank"
-    >
-      <img class="instegram" src="/assets/instegram.webp" />
-    </a>
-    <a class="icon" (click)="popupdisplay = 'flex'" target="_blank">
-      <i class="fas fa-share"></i>
-    </a>
-  </div>
+<div class="load" *ngIf="load"></div>
+<div class="fullpage" *ngIf="!load && data as item"> 
+
   <div class="sharepopup" [style.display] = 'popupdisplay'>
     <div class="goback" (click)="popupdisplay = 'none'">
       <div class="backicon">
@@ -55,13 +32,37 @@
     />טלגרם</a>
 
   </div>
+  <div class="logo" [style.background]="blackbackground">
+   
+  </div>
+  
   <div class="topcontent">
     <div class="bname">{{ item.bname }}</div>
     <div class="bsubject">{{ item.bsubject }}</div>
     <div class="baddress-bcity">{{ item.baddress }}, {{ item.bcity }}</div>
-    <i id="gender" class="{{ male ? 'fas fa-mars' : 'none' }}"></i>
-    <i id="gender" class="{{ female ? 'fas fa-venus' : 'none' }}"></i>
-    <i id="gender" class="{{ uni ? 'fas fa-venus' : 'none' }}"></i>
+
+  </div>
+  <div class="icons" >
+    <a class="icon" href="tel:+{{ item.bphone }}" target="_blank">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a
+      class="icon"
+      href="https://wa.me/{{ item.bphone }}?text="
+      target="_blank"
+    >
+      <img class="instegram" src="/assets/whatsapp.png" />
+    </a>
+    <a
+      class="icon"
+      href="https://www.instagram.com/{{ item.instegram }}"
+      target="_blank"
+    >
+      <img class="instegram" src="/assets/instegram.webp" />
+    </a>
+    <a class="icon" (click)="popupdisplay = 'flex'" target="_blank">
+      <i class="fas fa-share"></i>
+    </a>
   </div>
   <div class="bdescriptions">{{ item.bdescriptions }}</div>
 
