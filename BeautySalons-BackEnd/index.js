@@ -1,19 +1,17 @@
 const express = require('express');
+const cors = require('cors');
 
 const bodyParser = require('body-parser');
 
-const userRouter = require('./routes/user');
-const reviewRouter = require('./routes/review');
-const priceingRouter = require('./routes/priceing');
-const businessRouter = require('./routes/business')
-const photosRouter = require('./routes/photos')
-const blogRouter = require('./routes/blog')
-const errorController = require('./controllers/error');
 const app = express();
 
 app.use(bodyParser.json());
 
 const ports = process.env.PORT || 3001;
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -25,6 +23,14 @@ app.use((req, res, next) => {
     'Access-Control-Allow-Headers','*');
   next();
 });
+
+const userRouter = require('./routes/user');
+const reviewRouter = require('./routes/review');
+const priceingRouter = require('./routes/priceing');
+const businessRouter = require('./routes/business')
+const photosRouter = require('./routes/photos')
+const blogRouter = require('./routes/blog')
+const errorController = require('./controllers/error');
 
 app.use('/user', userRouter);
 app.use('/review', reviewRouter);
