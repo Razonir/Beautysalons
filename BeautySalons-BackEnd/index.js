@@ -2,15 +2,6 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-
-const userRouter = require('./routes/user');
-const reviewRouter = require('./routes/review');
-const priceingRouter = require('./routes/priceing');
-const businessRouter = require('./routes/business')
-const photosRouter = require('./routes/photos')
-const blogRouter = require('./routes/blog')
-const errorController = require('./controllers/error');
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -31,6 +22,14 @@ app.use(cors({
 
 const ports = process.env.PORT || 3001;
 
+const userRouter = require('./routes/user');
+const reviewRouter = require('./routes/review');
+const priceingRouter = require('./routes/priceing');
+const businessRouter = require('./routes/business')
+const photosRouter = require('./routes/photos')
+const blogRouter = require('./routes/blog')
+const errorController = require('./controllers/error');
+
 app.use('/user', userRouter);
 app.use('/review', reviewRouter);
 app.use('/priceing', priceingRouter);
@@ -41,7 +40,6 @@ app.use('/photos', photosRouter);
 app.use(errorController.get404);
 
 app.use(errorController.get500);
-
 
 app.listen(process.env.PORT || ports, () => {
   console.log(`Listening on port ${ports}`);
