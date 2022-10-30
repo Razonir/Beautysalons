@@ -1,12 +1,12 @@
 // localhost
-export const serverUrl = {
-    url: "http://localhost:3001/"
-}
+// export const serverUrl = {
+//     url: "http://localhost:3001/"
+// }
 
 // aws
-// export const serverUrl = {
-//    url: "https://api.razonir.com/" 
-// }
+export const serverUrl = {
+   url: "https://api.razonir.com/" 
+}
 
 // heroku
 // export const serverUrl = {
