@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 import { BusinessService } from 'src/app/services/business.service';
+import {Title} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-homepage',
@@ -40,9 +41,13 @@ export class HomepageComponent implements OnInit {
   bannersec = '../../../../assets/banners/bannermobile1.jpg';
   constructor(
     private businessService: BusinessService,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private titleService: Title
+
   ) { }
   ngOnInit(): void {
+    this.titleService.setTitle("מכוני היופי של ישראל")
+
     this.gender = localStorage.getItem('gender');
     if (this.gender == null || this.gender == 'female') {
       this.gender = 'female';

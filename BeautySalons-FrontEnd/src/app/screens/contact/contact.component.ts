@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import {Title} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-contact',
@@ -21,10 +22,15 @@ export class ContactComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private titleService: Title
+
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle("צור קשר")
+
+  }
 
   contactus() {
     this.contact.url = window.location.href;

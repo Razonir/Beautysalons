@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import {Title} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,9 +12,12 @@ export class UserDashboardComponent implements OnInit {
   user: any = {
     userfname: '',
   };
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,
+    private titleService: Title
+    ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle("מכוני היופי של ישראל")
     if (sessionStorage.getItem('user') == undefined) {
       this.token = localStorage.getItem('token');
       this.userService.getUserByToken(this.token).subscribe((data) => {

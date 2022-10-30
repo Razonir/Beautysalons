@@ -3,6 +3,8 @@ import { Business } from 'src/app/model/business';
 import { BusinessService } from 'src/app/services/business.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import {Title} from '@angular/platform-browser'
+
 @Component({
   selector: 'app-business',
   templateUrl: './business.component.html',
@@ -43,9 +45,13 @@ export class BusinessComponent implements OnInit {
   constructor(
     private router: Router,
     private businessService: BusinessService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
+
   ) {}
   ngOnInit(): void {
+    this.titleService.setTitle("חיפוש עסקים")
+
     this.gender = localStorage.getItem('gender');
     if (this.gender == null || this.gender == 'female') {
       this.gender = 'female';
