@@ -5,7 +5,7 @@ const Business = require('../models/business');
 const BusinessController = require('../controllers/business');
 const auth = require('../middleware/auth');
 
-// router.post('/createBusiness',BusinessController.createBusiness);
+router.post('/createBusiness',BusinessController.createBusiness);
 
 router.post('/create' ,auth,BusinessController.create);
 
