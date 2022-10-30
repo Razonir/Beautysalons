@@ -2,6 +2,7 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+
 const userRouter = require('./routes/user');
 const reviewRouter = require('./routes/review');
 const priceingRouter = require('./routes/priceing');
@@ -11,9 +12,6 @@ const blogRouter = require('./routes/blog')
 const errorController = require('./controllers/error');
 
 const app = express();
-
-const ports = process.env.PORT || 3001;
- 
 
 app.use(bodyParser.json());
 
@@ -27,7 +25,12 @@ app.use((req, res, next) => {
     'Access-Control-Allow-Headers','*');
   next();
 });
-//aws
+app.use(cors({
+    origin: '*'
+}));
+
+const ports = process.env.PORT || 3001;
+
 app.use('/user', userRouter);
 app.use('/review', reviewRouter);
 app.use('/priceing', priceingRouter);
