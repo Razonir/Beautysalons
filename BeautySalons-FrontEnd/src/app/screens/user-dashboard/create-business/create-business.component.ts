@@ -40,15 +40,18 @@ export class CreateBusinessComponent implements OnInit {
   }
 
   create() {
+
+    this.business.blogo = this.logourl;
+    if(this.business.instegram == undefined || this.business.instegram == null){
+      this.business.instegram = 'null'
+    }
+    this.token = localStorage.getItem('token');
+    this.businessService.createBusiness(this.business, this.token).subscribe(
+      (response) => console.log('business created'),
+      (error) => console.error('Error!', error)
+    );
     this.submited = 'none';
     this.submitedb = 'block';
-    // this.business.blogo = this.logourl;
-    // this.token = localStorage.getItem('token');
-    // this.businessService.createBusiness(this.business, this.token).subscribe(
-    //   (response) => this.goToHome(),
-    //   (error) => console.error('Error!', error)
-    // );
-
     let b = {
       businessDetails: JSON.stringify(this.business),
     };
