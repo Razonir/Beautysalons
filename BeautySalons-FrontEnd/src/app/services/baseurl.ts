@@ -3,17 +3,7 @@
 //     url: "http://localhost:3001/"
 // }
 
-// aws
+// RWS
 export const serverUrl = {
-   url: "https://api.razonir.com/" 
+   url: "https://api2.razonir.com/" 
 }
-
-// heroku
-// export const serverUrl = {
-//    url: "https://beautysalons-backend.herokuapp.com/"
-// }
-
-// render
-// export const serverUrl = {
-//    url: "https://beautysalons-backend.onrender.com/"
-// }

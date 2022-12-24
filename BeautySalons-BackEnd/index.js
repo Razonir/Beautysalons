@@ -7,7 +7,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const ports = process.env.PORT || 3001;
+const ports = process.env.PORT || 3002;
 
 app.use(cors({
   origin: '*'
