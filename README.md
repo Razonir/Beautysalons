@@ -1,6 +1,4 @@
 
-# Angular Project Beautysalons
-<a href="https://beautys.razonir.com/?utm_source=github&utm_medium=github&utm_campaign=github&utm_id=github" target="_blank">live demo</a>
 
 
 ## Description
